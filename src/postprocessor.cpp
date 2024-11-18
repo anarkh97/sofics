@@ -1,6 +1,10 @@
 //c headers
+#include <cmath>
+#include <cfloat>
+#include <cstdlib>
 #include <climits>
-#include <cunistd>
+#include <unistd.h>
+#include <getopt.h>
 
 //stl headers
 #include <set>
@@ -25,32 +29,28 @@ using namespace std;
 //#define optional_argument 2
 
 const struct option command_opts[] = {
-  {"help",                no_argument, nullptr, "h"},
+  {"help",                 no_argument, nullptr, 'h'},
   //provide the surface file when constraint is specific to particular surface.
-  {"surface_topo",  optional_argument, nullptr, "t"},
-  //provide the scalar aeros results file; like mass
-  {"scalar_result", optional_argument, nullptr, "s"},
-  //provide the 1D aeros results file; like stress, strain, etc.
-  {"vector_result", optional_argument, nullptr, "v"},
-  //provide the 3D aeros results file; like displacement
-  {"matrix_result", optional_argument, nullptr, "m"},
-  //provide the results file for a specific node
-  {"node_result",   optional_argument, nullptr, "n"},
+  {"surface_topo",   required_argument, nullptr, 't'},
+  //provide the aeros scalar value output; like mass
+  {"scalar_result",  required_argument, nullptr, 's'},
+  //provide the aeros results file; like stress, strain, disp etc.
+  {"aeros_result",   required_argument, nullptr, 'a'},
+  //provide the aeros probe results file
+  {"probe_result",   required_argument, nullptr, 'p'},
   //provide the dakota results file where function values will be written
-  {"dakota_result", required_argument, nullptr, "d"},
+  {"dakota_result",  required_argument, nullptr, 'd'},
   //end of options
-  {nullptr,                    0, nullptr,   0}
+  {nullptr,                          0, nullptr,   0}
 };
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
 
   // relevant file names
-  const char *topo_file = nullptr;
+  const char *topo_file   = nullptr;
   const char *scalar_file = nullptr;
-  const char *vector_file = nullptr;
-  const char *matrix_file = nullptr;
-  const char *node_file = nullptr;
+  const char *aeros_file  = nullptr;
+  const char *probe_file  = nullptr;
   const char *dakota_file = nullptr;
 
   // whether calculations are surface specific or not
@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
   // parse the command line using gnu getopt_long
   int opt=0;
   while(opt != -1) {
-    opt = getopt_long(argc, argv, "htsvmnd:", command_opts, nullptr);
+    opt = getopt_long(argc, argv, "ht:s:a:p:d:", command_opts, nullptr);
 
     switch(opt) {
       case 't': {
@@ -76,35 +76,26 @@ int main(int argc, char* argv[])
         if(optarg) {
           scalar_file = optarg;
         } else {
+          cout << optarg << endl;
           fprintf(stderr, "*** Error: Aero-S output file with scalar value not provided.\n");
           exit(EXIT_FAILURE);
         }
         break;
       }
-      case 'v': {
+      case 'a': {
         if(optarg) {
-          vector_file = optarg;
+          aeros_file = optarg;
         } else {
           fprintf(stderr, "*** Error: Aero-S output file not provided.\n");
           exit(EXIT_FAILURE);
         }
         break;
       }
-      case 'm': {
+      case 'p': {
         if(optarg) {
-          matrix_file = optarg;
+          probe_file = optarg;
         } else {
-          fprintf(stderr, "*** Error: Aero-S output file value not provided.\n");
-          exit(EXIT_FAILURE);
-        }
-        break;
-      }
-      case 'n': {
-        if(optarg) {
-          node_file = optarg;
-        } else {
-          fprintf(stderr, "*** Error: Aero-S output file with nodal history "
-            "not provided.\n");
+          fprintf(stderr, "*** Error: Aero-S probe output file not provided.\n");
           exit(EXIT_FAILURE);
         }
         break;
@@ -124,9 +115,8 @@ int main(int argc, char* argv[])
         fprintf(stdout, "Options:\n");
         fprintf(stdout, "  -t or --surface_topo: ...\n");
         fprintf(stdout, "  -s or --scalar_result: ...\n");
-        fprintf(stdout, "  -v or --vector_result: ...\n");
-        fprintf(stdout, "  -m or --matrix_result: ...\n");
-        fprintf(stdout, "  -n or --node_result: ...\n");
+        fprintf(stdout, "  -a or --aeros_result: ...\n");
+        fprintf(stdout, "  -p or --probe_result: ...\n");
         exit(EXIT_FAILURE);
       }
       case 'h': {
@@ -135,16 +125,15 @@ int main(int argc, char* argv[])
         fprintf(stdout, "Options:\n");
         fprintf(stdout, "  -t or --surface_topo: ...\n");
         fprintf(stdout, "  -s or --scalar_result: ...\n");
-        fprintf(stdout, "  -v or --vector_result: ...\n");
-        fprintf(stdout, "  -m or --matrix_result: ...\n");
-        fprintf(stdout, "  -n or --node_result: ...\n");
+        fprintf(stdout, "  -a or --aeros_result: ...\n");
+        fprintf(stdout, "  -p or --probe_result: ...\n");
         exit(EXIT_SUCCESS);
       }
     }
   }
 
   // initialize dakota results file
-  ofstream dakota_output(dakota_file, ios::out);
+  ofstream dakota_output(dakota_file, ios::app);
   if(!dakota_output) {
     fprintf(stderr, "*** Error: Could not open dakota results file %s.\n",
       dakota_file);
@@ -176,26 +165,6 @@ int main(int argc, char* argv[])
                   << endl;
 
     scalar_input.close();
-  }
-
-  // read and write nodal history value
-  // NOTE: currently, we always write the maximum value in time.
-  if(node_file) {
-
-    //TODO
-    fprintf(stderr, "*** Error: Currently, post-processing of nodal probe "
-      "is not supported.\n");
-    exit(EXIT_FAILURE);
-
-    //ifstream node_input(node_file, ios::in);
-   
-    //if(!node_input) {
-    //  fprintf(stderr, "*** Error: Could not open the Aero-S result file %s\n",
-    //    node_file);
-    //  exit(EXIT_FAILURE);
-    //}
-
-    
   }
 
   // read surface if requested
@@ -238,7 +207,7 @@ int main(int argc, char* argv[])
         surface_nodes.insert(data[i]-1);  
     }
 
-    if(!surface_nodes.empty()) {
+    if(surface_nodes.empty()) {
       fprintf(stderr, "*** Error: The surface topology contains either no "
         "nodes or duplicate nodes.\n");
       exit(EXIT_FAILURE);
@@ -247,24 +216,42 @@ int main(int argc, char* argv[])
 
   // read and write vector results
   // NOTE: Currently we always write the max value in space and time.
-  if(vector_file) {
-    ifstream vector_input(vector_file, ios::in);
+  // If result variable is a vector (e.g. displacement, velocity, etc.)
+  // then we write its max magnitude value.
+  if(aeros_file) {
+    ifstream aeros_input(aeros_file, ios::in);
 
-    if(!vector_input) {
+    if(!aeros_input) {
       fprintf(stderr, "*** Error: Could not open the Aero-S result file %s\n",
-        vector_input);
+        aeros_file);
       exit(EXIT_FAILURE);
     }
 
-    // reading plastic strain
-    int num_global_nodes = 0, num_topo_nodes = 0;
-    vector_input.ignore(512, '\n'); // ignore header
-    getline(vector_input, line); // number of elements/nodes
+    // identify the dimensionality of the variable 
+    string word;
+    getline(aeros_input, line);
     istringstream is(line);
+    is >> word;
+    
+    bool is_scalar = false;
+    if(word.compare("Scalar") == 0) is_scalar = true;
+    else if(word.compare("Vector") == 0) is_scalar = false;
+    else {
+      fprintf(stderr, "*** Error: Did not understand %s in the Aero-S input file.\n",
+        word.c_str());
+      exit(EXIT_FAILURE);
+    }
+
+    int num_global_nodes = 0, num_topo_nodes = 0;
+    getline(aeros_input, line); // number of elements/nodes
+    is.clear();
+    is.str(line);
     is >> num_global_nodes;
 
     num_topo_nodes = (surface_nodes.empty()) ? num_global_nodes : surface_nodes.size();
     
+    fprintf(stdout, "global %d; topo %d\n", num_global_nodes, num_topo_nodes);
+
     if(num_global_nodes < num_topo_nodes) {
       fprintf(stderr, "*** Error: Surface topology contains more nodes than the FE mesh "
         "used in Aero-S.\n");
@@ -273,7 +260,7 @@ int main(int argc, char* argv[])
 
     bool done = false;
     double global_max = -DBL_MAX;
-    while(getline(vector_input, line)) {
+    while(getline(aeros_input, line)) {
       //clear stream
       is.clear();
 
@@ -292,98 +279,25 @@ int main(int argc, char* argv[])
       // Else, we collect all values.
       vector<double> data(num_topo_nodes, -1);
       int idx=0;
-      for(int i=0; i<num_topo_nodes; ++i) {
-        getline(vector_input, line);
-        if(surface_nodes.find(i) != surface_nodes.end()) {
-          is.clear();
-          is.str(line);
-          is >> data[idx];
-          ++idx;
-        }
-      }
+      for(int i=0; i<num_global_nodes; ++i) {
+        getline(aeros_input, line);
+        is.clear();
+        is.str(line);
 
-      // compute the current max
-      double current_max = *max_element(data.begin(), data.end());
-      
-      // update global max
-      if(current_max >= global_max) global_max = current_max;
-
-    }
-
-
-    // write to results file
-    dakota_output << "    "
-                  << scientific << setprecision(6)
-                  << global_max
-                  //<< "  " << descriptor // TODO: get dakota descriptor here
-                  << endl;
- 
-    vector_input.close();
-  }
-
-  // read and write matrix results
-  // Note: Currently, we always record the maximum magnitude of the data
-  // in both space and time.
-  if(matrix_file) {
-    ifstream matrix_input(vector_file, ios::in);
-
-    if(!matrix_input) {
-      fprintf(stderr, "*** Error: Could not open the Aero-S result file %s\n",
-        matrix_input);
-      exit(EXIT_FAILURE);
-    }
-
-    // reading plastic strain
-    int num_global_nodes = 0, num_topo_nodes = 0;
-    matrix_input.ignore(512, '\n'); // ignore header
-    getline(matrix_input, line); // number of elements/nodes
-    istringstream is(line);
-    is >> num_global_nodes;
-
-    num_topo_nodes = (surface_nodes.empty()) ? num_global_nodes : surface_nodes.size();
-    
-    if(num_global_nodes < num_topo_nodes) {
-      fprintf(stderr, "*** Error: Surface topology contains more nodes than the FE mesh "
-        "used in Aero-S.\n");
-      exit(EXIT_FAILURE);
-    }
-
-    bool done = false;
-    double global_max = -DBL_MAX;
-    while(getline(matrix_input, line)) {
-      //clear stream
-      is.clear();
-
-      // get time stamp
-      double time;
-      is.str(line);  
-      is >> time;
-
-      if(is.fail()) {
-        done = true;
-        break;
-      }
-
-      // start reading values
-      // When a surface topology is provided, we only collect those values.
-      // Else, we collect all values.
-      vector<double> data(num_topo_nodes, -1);
-      int idx=0;
-      for(int i=0; i<num_topo_nodes; ++i) {
-        getline(matrix_input, line);
-        if(surface_nodes.find(i) != surface_nodes.end()) {
-          is.clear();
-          is.str(line);
-          
-          double sum=0; 
+        double value=0;
+        if(is_scalar) is >> value;
+        else {
+          double sum=0, temp;
           for(int j=0; j<3; ++j) {
-            double value;
-            is >> value;
-            sum += value*value;
-
+            is >> temp;
+            sum += temp*temp;
           }
+          value = sqrt(sum);
+        }
 
-          data[idx] = sqrt(sum);
+        if(surface_nodes.empty()) data[i] = value;
+        else if(surface_nodes.find(i+1) != surface_nodes.end()) {
+          data[idx] = value;
           ++idx;
         }
       }
@@ -394,6 +308,7 @@ int main(int argc, char* argv[])
       // update global max
       if(current_max >= global_max) global_max = current_max;
 
+      fprintf(stdout, "Time = %e; global max = %e; current max = %e\n", time, global_max, current_max);
     }
 
 
@@ -404,33 +319,26 @@ int main(int argc, char* argv[])
                   //<< "  " << descriptor // TODO: get dakota descriptor here
                   << endl;
  
-    matrix_input.close();
+    aeros_input.close();
   }
 
-  if(matrix_file) {
+  // read and write probe results
+  if(probe_file) {
 
+    exit(EXIT_FAILURE);
+
+    ifstream probe_input(probe_file, ios::in);
+
+    if(!probe_input) {
+      fprintf(stderr, "*** Error: Could not open the Aero-S probe file %s\n",
+        probe_file);
+      exit(EXIT_FAILURE);
+    }
+
+    probe_input.close();
   }
 
-  ofstream output(argv[4], ios::out);
-
-  // find max
-  auto max_ret = max_element(data.begin(), 
-    data.end());
-  
-  double possible_max = *max_ret;
-
-  // compare with previous max
-  if(possible_max >= max_plastic_strain) {
-    max_plastic_strain = possible_max;
-
-/*
-    // Debug: print the node Id for this max
-    auto offset = distance(data.begin(), max_ret);
-    auto node_iter = surface_nodes.begin();
-    advance(node_iter, offset);
-    max_id = *node_iter;
-*/  
-        
+  dakota_output.close();
 
   return EXIT_SUCCESS;
 
