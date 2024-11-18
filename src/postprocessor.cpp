@@ -10,7 +10,6 @@
 #include <set>
 #include <string>
 #include <vector>
-#include <array>
 
 //stream headers
 #include <iostream>
@@ -19,8 +18,7 @@
 #include <sstream>
 
 //special functions
-#include <iterator>
-#include <algorithm> //std::max
+#include <algorithm> //std::max_element
 
 using namespace std;
 
@@ -36,30 +34,51 @@ const struct option command_opts[] = {
   {"scalar_result",  required_argument, nullptr, 's'},
   //provide the aeros results file; like stress, strain, disp etc.
   {"aeros_result",   required_argument, nullptr, 'a'},
-  //provide the aeros probe results file
-  {"probe_result",   required_argument, nullptr, 'p'},
+  //provide the aeros probe results file; like stress, strain, etc.
+  {"scalar_probe",   required_argument, nullptr, 'p'},
+  //provide the aeros probe results for vector variables; like displacement
+  {"vector_probe",   required_argument, nullptr, 'v'},
   //provide the dakota results file where function values will be written
   {"dakota_result",  required_argument, nullptr, 'd'},
+  //write flag
+  {"write",                no_argument, nullptr, 'w'},
   //end of options
   {nullptr,                          0, nullptr,   0}
 };
 
 int main(int argc, char* argv[]) {
 
+  if(argc == 1) { 
+    fprintf(stdout, "Usage: %s -d/--dakota_result <path-to-dakota-results-file>.\n", argv[0]);
+    fprintf(stdout, "Options:\n");
+    fprintf(stdout, "  -t or --surface_topo: ...\n");
+    fprintf(stdout, "  -s or --scalar_result: ...\n");
+    fprintf(stdout, "  -a or --aeros_result: ...\n");
+    fprintf(stdout, "  -p or --scalar_probe: ...\n");
+    fprintf(stdout, "  -v or --vector_probe: ...\n");
+    fprintf(stdout, "  -w or --write: ...\n");
+    exit(EXIT_SUCCESS);
+  }
+
   // relevant file names
   const char *topo_file   = nullptr;
   const char *scalar_file = nullptr;
   const char *aeros_file  = nullptr;
   const char *probe_file  = nullptr;
+  const char *vector_file = nullptr;
   const char *dakota_file = nullptr;
 
   // whether calculations are surface specific or not
   bool surface_calculation = false;
 
+  // by default this utility appends to the results file.
+  // using this flag forces a re-write of the dakota file.
+  bool write_flag = false;
+
   // parse the command line using gnu getopt_long
   int opt=0;
   while(opt != -1) {
-    opt = getopt_long(argc, argv, "ht:s:a:p:d:", command_opts, nullptr);
+    opt = getopt_long(argc, argv, "hwt:s:a:p:v:d:", command_opts, nullptr);
 
     switch(opt) {
       case 't': {
@@ -100,6 +119,15 @@ int main(int argc, char* argv[]) {
         }
         break;
       }
+      case 'v': {
+        if(optarg) {
+          vector_file = optarg;
+        } else {
+          fprintf(stderr, "*** Error: Aero-S probe output file not provided.\n");
+          exit(EXIT_FAILURE);
+        }
+        break;
+      }
       case 'd': {
         if(optarg) {
           dakota_file = optarg;
@@ -109,6 +137,10 @@ int main(int argc, char* argv[]) {
         }
         break;
       }
+      case 'w': {
+        write_flag = true;
+        break;
+      }
       case '?': {
         //unrecognized option
         fprintf(stdout, "Usage: %s -d/--dakota_result <path-to-dakota-results-file>.\n", argv[0]);
@@ -116,7 +148,9 @@ int main(int argc, char* argv[]) {
         fprintf(stdout, "  -t or --surface_topo: ...\n");
         fprintf(stdout, "  -s or --scalar_result: ...\n");
         fprintf(stdout, "  -a or --aeros_result: ...\n");
-        fprintf(stdout, "  -p or --probe_result: ...\n");
+        fprintf(stdout, "  -p or --scalar_probe: ...\n");
+        fprintf(stdout, "  -v or --vector_probe: ...\n");
+        fprintf(stdout, "  -w or --write: ...\n");
         exit(EXIT_FAILURE);
       }
       case 'h': {
@@ -126,14 +160,20 @@ int main(int argc, char* argv[]) {
         fprintf(stdout, "  -t or --surface_topo: ...\n");
         fprintf(stdout, "  -s or --scalar_result: ...\n");
         fprintf(stdout, "  -a or --aeros_result: ...\n");
-        fprintf(stdout, "  -p or --probe_result: ...\n");
+        fprintf(stdout, "  -p or --scalar_probe: ...\n");
+        fprintf(stdout, "  -v or --vector_probe: ...\n");
+        fprintf(stdout, "  -w or --write: ...\n");
         exit(EXIT_SUCCESS);
       }
     }
   }
 
   // initialize dakota results file
-  ofstream dakota_output(dakota_file, ios::app);
+  ofstream dakota_output;
+  if(write_flag)
+    dakota_output.open(dakota_file, ios::out);
+  else
+    dakota_output.open(dakota_file, ios::out | ios::app);
   if(!dakota_output) {
     fprintf(stderr, "*** Error: Could not open dakota results file %s.\n",
       dakota_file);
@@ -311,7 +351,6 @@ int main(int argc, char* argv[]) {
       fprintf(stdout, "Time = %e; global max = %e; current max = %e\n", time, global_max, current_max);
     }
 
-
     // write to results file
     dakota_output << "    "
                   << scientific << setprecision(6)
@@ -322,11 +361,8 @@ int main(int argc, char* argv[]) {
     aeros_input.close();
   }
 
-  // read and write probe results
+  // read and write probe results for a scalar variable
   if(probe_file) {
-
-    exit(EXIT_FAILURE);
-
     ifstream probe_input(probe_file, ios::in);
 
     if(!probe_input) {
@@ -334,6 +370,57 @@ int main(int argc, char* argv[]) {
         probe_file);
       exit(EXIT_FAILURE);
     }
+
+    //ignore header
+    probe_input.ignore(512, '\n');
+    double global_max = -DBL_MAX;
+    while(getline(probe_input, line)) {
+      double time, value;
+      istringstream iss(line);
+      iss >> time >> value;
+      
+      if(value >= global_max) global_max = value; 
+    }
+
+    // write to results file
+    dakota_output << "    "
+                  << scientific << setprecision(6)
+                  << global_max
+                  //<< "  " << descriptor // TODO: get dakota descriptor here
+                  << endl;
+
+    probe_input.close();
+  }
+
+  // read and write probe results for a vector variable
+  if(vector_file) {
+    ifstream probe_input(vector_file, ios::in);
+
+    if(!probe_input) {
+      fprintf(stderr, "*** Error: Could not open the Aero-S probe file %s\n",
+        vector_file);
+      exit(EXIT_FAILURE);
+    }
+
+    //ignore header
+    probe_input.ignore(512, '\n');
+    double global_max = -DBL_MAX;
+    while(getline(probe_input, line)) {
+      double time, val1, val2, val3;
+      istringstream iss(line);
+      iss >> time >> val1 >> val2 >> val3;
+      
+      double value = sqrt(val1*val1 + val2*val2 + val3*val3);
+
+      if(value >= global_max) global_max = value;
+    }
+
+    // write to results file
+    dakota_output << "    "
+                  << scientific << setprecision(6)
+                  << global_max
+                  //<< "  " << descriptor // TODO: get dakota descriptor here
+                  << endl;
 
     probe_input.close();
   }
