@@ -88,7 +88,11 @@ else
 fi
 
 # execute pre-processor in a sub-shell
-bash $PREPROCESS_FILE
+if ! bash $PREPROCESS_FILE; then
+  echo "*** Error: Failed at pre-processing stage for desing ${DAK_EVAL_NUM}. \
+    Aborting ..."
+  exit 1
+fi
 
 # ---------
 # EXECUTION
@@ -161,7 +165,11 @@ if grep -q "Total Computation Time" $WORKING_DIR/log.out
 then
   # succesfull evaluation
   # execute post-processor in a sub-shell
-  bash $POSTPROCESS_FILE
+  if ! bash $POSTPROCESS_FILE; then
+    echo "*** Error: Failed at post-processing stage for desing \
+      ${DAK_EVAL_NUM}. Aborting ..."
+    exit 1
+  fi
 
 else
   # unsuccessfull evaluation
