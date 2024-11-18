@@ -37,20 +37,16 @@ model
 variables
   active design
   continuous_design = 2
-    descriptor       'lx'    'ly'
     initial_point     280     180
       lower_bounds      100     100
       upper_bounds      300     200
-  continuous_state  = 2
-    descriptor        't'    'dx'
-    initial_state      30      10
 
 interface
   fork
   asynchronous
   evaluation_concurrency = 2 
   local_evaluation_scheduling = static
-  analysis_driver = 'driver.sh'
+  analysis_driver = 'driver.sh $DAKOTA_PARAMETERS_FILE $DAKOTA_RESULTS_FILE myconfig.sh'
   parameters_file = 'design_params.in'
   results_file    = 'design_results.out'
   failure_capture

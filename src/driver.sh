@@ -3,6 +3,7 @@
 # create global variables 
 export DAK_PARAMS=$1
 export DAK_RESULTS=$2
+export USER_PARAMS=$3
 export DAK_EVAL_NUM=$(
   grep "eval_id" $DAK_PARAMS | awk '{print $1}'
 )
@@ -10,35 +11,81 @@ export DAK_EVAL_NUM=$(
 # directories for this evaluation
 export WORKING_DIR=$(pwd)
 export LAUNCH_DIR=$SLURM_SUBMIT_DIR
-export TEMPLATE_DIR="${LAUNCH_DIR}/templates"
+export TEMPLATE_DIR=""
 
-# pre- and post-processing scripts
-export PREPROCESS_FILE="pre_processor.sh"
-export POSTPROCESS_FILE="post_processor.sh"
+# absolute path of the driver
+driver_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# setup pre- and post-processing files
+export PREPROCESS_FILE="${driver_dir}/pre_processor.sh"
+export POSTPROCESS_FILE="${driver_dir}/post_processor.sh"
 
 # setup size and executables for fluid solver
-export M2C_SIZE=56
-export M2C_EXE=~/tinkercliffs/m2c/m2c
-export M2C_INPUT=$WORKING_DIR/input.st
+export M2C_SIZE=""
+export M2C_EXE=""
+export M2C_INPUT=""
 
 # setup size and executables for solid solver
-export AEROS_SIZE=8
-export AEROS_EXE=~/tinkercliffs/FEMWorkingFoam/bin/aeros
-export AEROS_INPUT=$WORKING_DIR/fem.in
+export AEROS_SIZE=""
+export AEROS_EXE=""
+export AEROS_INPUT=""
+
+# Evaluation concurrency for dakota
+export EVALUATION_CONCURRENCY=""
+
+# get user variables
+if [[ $USER_PARAMS == "" ]]
+then
+  echo "*** Error: Configuration file with paths to solver \
+    executables, inputs, and resource requirements not provided.\
+    Aborting ..."
+  exit 1
+fi
+source $USER_PARAMS
+
+# perform checks before proceeding
+source $driver_dir/checks.sh
 
 # --------------
 # PRE-PROCESSING
 # --------------
 
 # copy all templates to the working directory
-cp $TEMPLATE_DIR/fem.in.template \
-  $WORKING_DIR/fem.in
-cp $TEMPLATE_DIR/input.st.template \
-  $WORKING_DIR/input.st
-cp $TEMPLATE_DIR/SphericalShock.txt.template \
-  $WORKING_DIR/SphericalShock.txt
-cp $TEMPLATE_DIR/struct.geo.template \
-  $WORKING_DIR/struct.geo
+if [[ -e $TEMPLATE_DIR/fem.in.template ]]
+then
+  cp $TEMPLATE_DIR/fem.in.template \
+    $WORKING_DIR/fem.in
+else
+  echo "*** Error: Could not find a template file for Aero-S input \
+    file. Aborting ..."
+  exit 1
+fi
+if [[ -e $TEMPLATE_DIR/input.st.template ]]
+then
+  cp $TEMPLATE_DIR/input.st.template \
+    $WORKING_DIR/input.st
+else
+  echo "*** Error: Could not find a template file for M2C input \
+    file. Aborting ..."
+  exit 1
+fi
+if [[ -e $TEMPLATE_DIR/SphericalShock.txt.template ]]
+then
+  cp $TEMPLATE_DIR/SphericalShock.txt.template \
+    $WORKING_DIR/SphericalShock.txt
+else
+  echo "*** Error: A template file for initial detonation profile not \
+    provided. Aborting ..."
+  exit 1
+fi
+if [[ -e $TEMPLATE_DIR/struct.geo.template ]]
+then
+  cp $TEMPLATE_DIR/struct.geo.template \
+    $WORKING_DIR/struct.geo
+else
+  echo "*** Error: A template file for GMSH for creating mesh for each \
+    design point was not provided. Aborting ..."
+  exit 1
+fi
 
 # execute pre-processor in a sub-shell
 bash $PREPROCESS_FILE
@@ -48,10 +95,6 @@ bash $PREPROCESS_FILE
 # ---------
 
 # find correct relative node position
-eval_concurrency=$(
-  grep "concurrency" $LAUNCH_DIR/dakota.in |
-  cut -d "=" -f 2 
-)
 task_per_node=$(
   echo $SLURM_TASKS_PER_NODE |
   sed 's|^[^0-9]*\([0-9]\+\).*|\1|'
@@ -64,7 +107,7 @@ applic_nodes=$((
   $task_per_node
 ))
 relative_eval_num=$((
-  ($DAK_EVAL_NUM-1) % $eval_concurrency
+  ($DAK_EVAL_NUM-1) % $EVALUATION_CONCURRENCY
 ))
 relative_node=$((
   ( $relative_eval_num * $total_proc ) / $task_per_node

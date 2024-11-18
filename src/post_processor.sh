@@ -2,7 +2,7 @@
 
 STRUCT_DIR=$WORKING_DIR/StructModel
 STRUCT_OUT_DIR=$WORKING_DIR/results
-POSTPRO=/projects/wang_aoe_lab/AdityaNarkhede/DakotaOptimization/CodeRepository
+POSTPRO=../
 
 # compute mass
 $AEROS_EXE $AEROS_INPUT -t
