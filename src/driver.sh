@@ -11,13 +11,12 @@ export DAK_EVAL_NUM=$(
 # directories for this evaluation
 export WORKING_DIR=$(pwd)
 export LAUNCH_DIR=$SLURM_SUBMIT_DIR
+export DRIVER_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export TEMPLATE_DIR=""
 
-# absolute path of the driver
-driver_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # setup pre- and post-processing files
-export PREPROCESS_FILE="${driver_dir}/pre_processor.sh"
-export POSTPROCESS_FILE="${driver_dir}/post_processor.sh"
+export PREPROCESS_FILE="${DRIVER_DIR}/pre_processor.sh"
+export POSTPROCESS_FILE="${DRIVER_DIR}/post_processor.sh"
 
 # setup size and executables for fluid solver
 export M2C_SIZE=""
@@ -43,15 +42,14 @@ fi
 source $USER_PARAMS
 
 # perform checks before proceeding
-source $driver_dir/checks.sh
+source "${DRIVER_DIR}/checks.sh"
 
 # --------------
 # PRE-PROCESSING
 # --------------
 
 # copy all templates to the working directory
-if [[ -e $TEMPLATE_DIR/fem.in.template ]]
-then
+if [[ -e $TEMPLATE_DIR/fem.in.template ]]; then
   cp $TEMPLATE_DIR/fem.in.template \
     $WORKING_DIR/fem.in
 else
@@ -59,8 +57,7 @@ else
     file. Aborting ..."
   exit 1
 fi
-if [[ -e $TEMPLATE_DIR/input.st.template ]]
-then
+if [[ -e $TEMPLATE_DIR/input.st.template ]]; then
   cp $TEMPLATE_DIR/input.st.template \
     $WORKING_DIR/input.st
 else
@@ -68,8 +65,7 @@ else
     file. Aborting ..."
   exit 1
 fi
-if [[ -e $TEMPLATE_DIR/SphericalShock.txt.template ]]
-then
+if [[ -e $TEMPLATE_DIR/SphericalShock.txt.template ]]; then
   cp $TEMPLATE_DIR/SphericalShock.txt.template \
     $WORKING_DIR/SphericalShock.txt
 else
@@ -77,8 +73,7 @@ else
     provided. Aborting ..."
   exit 1
 fi
-if [[ -e $TEMPLATE_DIR/struct.geo.template ]]
-then
+if [[ -e $TEMPLATE_DIR/struct.geo.template ]]; then
   cp $TEMPLATE_DIR/struct.geo.template \
     $WORKING_DIR/struct.geo
 else
@@ -89,7 +84,7 @@ fi
 
 # execute pre-processor in a sub-shell
 if ! bash $PREPROCESS_FILE; then
-  echo "*** Error: Failed at pre-processing stage for desing ${DAK_EVAL_NUM}. \
+  echo "*** Error: Failed at pre-processing stage for design ${DAK_EVAL_NUM}. \
     Aborting ..."
   exit 1
 fi
@@ -147,7 +142,7 @@ do
   true
 done
 
-# now we monitor the log file
+# now we monitor the log file in a sub-shell
 bash -c 'tail --pid=$$ -f "$1" |
   {
     sed -e "/Total Computation Time/q" \
@@ -166,7 +161,7 @@ then
   # succesfull evaluation
   # execute post-processor in a sub-shell
   if ! bash $POSTPROCESS_FILE; then
-    echo "*** Error: Failed at post-processing stage for desing \
+    echo "*** Error: Failed at post-processing stage for design \
       ${DAK_EVAL_NUM}. Aborting ..."
     exit 1
   fi
