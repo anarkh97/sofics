@@ -347,8 +347,6 @@ int main(int argc, char* argv[]) {
       
       // update global max
       if(current_max >= global_max) global_max = current_max;
-
-      fprintf(stdout, "Time = %e; global max = %e; current max = %e\n", time, global_max, current_max);
     }
 
     // write to results file
