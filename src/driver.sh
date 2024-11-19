@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # create global variables 
-export DAK_PARAMS=$1
-export DAK_RESULTS=$2
-export USER_PARAMS=$3
+export USER_PARAMS=$1
+export DAK_PARAMS=$2
+export DAK_RESULTS=$3
 export DAK_EVAL_NUM=$(
   grep "eval_id" $DAK_PARAMS | awk '{print $1}'
 )
@@ -17,6 +17,9 @@ export TEMPLATE_DIR=""
 # setup pre- and post-processing files
 export PREPROCESS_FILE="${DRIVER_DIR}/pre_processor.sh"
 export POSTPROCESS_FILE="${DRIVER_DIR}/post_processor.sh"
+
+# executable for finite element mesher
+export GMSH_EXE=""
 
 # setup size and executables for fluid solver
 export M2C_SIZE=""
@@ -34,9 +37,9 @@ export EVALUATION_CONCURRENCY=""
 # get user variables
 if [[ $USER_PARAMS == "" ]]
 then
-  echo "*** Error: Configuration file with paths to solver \
-    executables, inputs, and resource requirements not provided.\
-    Aborting ..."
+  printf "*** Error: Configuration file with paths to solver "
+  printf "executables, inputs, and resource requirements not provided."
+  printf "Aborting ...\n"
   exit 1
 fi
 source $USER_PARAMS
@@ -53,39 +56,39 @@ if [[ -e $TEMPLATE_DIR/fem.in.template ]]; then
   cp $TEMPLATE_DIR/fem.in.template \
     $WORKING_DIR/fem.in
 else
-  echo "*** Error: Could not find a template file for Aero-S input \
-    file. Aborting ..."
+  printf "*** Error: Could not find a template file for Aero-S input "
+  printf "file. Aborting ...\n"
   exit 1
 fi
 if [[ -e $TEMPLATE_DIR/input.st.template ]]; then
   cp $TEMPLATE_DIR/input.st.template \
     $WORKING_DIR/input.st
 else
-  echo "*** Error: Could not find a template file for M2C input \
-    file. Aborting ..."
+  printf "*** Error: Could not find a template file for M2C input "
+  printf "file. Aborting ...\n"
   exit 1
 fi
 if [[ -e $TEMPLATE_DIR/SphericalShock.txt.template ]]; then
   cp $TEMPLATE_DIR/SphericalShock.txt.template \
     $WORKING_DIR/SphericalShock.txt
 else
-  echo "*** Error: A template file for initial detonation profile not \
-    provided. Aborting ..."
+  printf "*** Error: A template file for initial detonation profile not "
+  printf "provided. Aborting ...\n"
   exit 1
 fi
 if [[ -e $TEMPLATE_DIR/struct.geo.template ]]; then
   cp $TEMPLATE_DIR/struct.geo.template \
     $WORKING_DIR/struct.geo
 else
-  echo "*** Error: A template file for GMSH for creating mesh for each \
-    design point was not provided. Aborting ..."
+  printf "*** Error: A template file for GMSH for creating mesh for each "
+  printf "design point was not provided. Aborting ...\n"
   exit 1
 fi
 
 # execute pre-processor in a sub-shell
 if ! bash $PREPROCESS_FILE; then
-  echo "*** Error: Failed at pre-processing stage for design ${DAK_EVAL_NUM}. \
-    Aborting ..."
+  printf "*** Error: Failed at pre-processing stage for design "
+  printf "${DAK_EVAL_NUM}. Aborting ...\n"
   exit 1
 fi
 
@@ -123,8 +126,8 @@ do
   ${node_list[$((relative_node+i))]}"
 done
 
-printf '\033[34mLaunching Evaluation %s on nodes %s \033[0m\n'
-  "${DAK_EVAL_NUM}" "${host_list[*]}"
+printf "\033[34mLaunching Evaluation ${DAK_EVAL_NUM} on nodes "
+printf "${host_list[*]}\033[0m\n"
 
 ### run analysis
 mpiexec --bind-to none -n $M2C_SIZE \
@@ -161,8 +164,8 @@ then
   # succesfull evaluation
   # execute post-processor in a sub-shell
   if ! bash $POSTPROCESS_FILE; then
-    echo "*** Error: Failed at post-processing stage for design \
-      ${DAK_EVAL_NUM}. Aborting ..."
+    printf "*** Error: Failed at post-processing stage for design "
+    printf "${DAK_EVAL_NUM}. Aborting ...\n"
     exit 1
   fi
 

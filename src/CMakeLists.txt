@@ -34,20 +34,20 @@ postprocessor
 )
 
 # copy bash scripts
-# Note: It might be better to use configure_file() here instead of 
-# file(COPY ...).The advantage of configure_file() is that it can 
-# automatically update the files being copied, ensuring that the 
-# destination files are always up-to-date. This is especially useful
-# if there are any placeholders or variables within the files that 
-# need to be replaced.
-# TODO: will update in future.
+add_custom_target(copy_scripts ALL)
+
 # Collect all .sh files in the source directory into a list
 file(GLOB BASH_FILES "${CMAKE_SOURCE_DIR}/*.sh")
 
 # Copy the collected files to the desired destination
 if(BASH_FILES)
-  foreach(file ${BASH_FILES})
-    file(COPY ${file} DESTINATION ${CMAKE_BINARY_DIR})
+  foreach(shfile ${BASH_FILES})
+    get_filename_component(fname ${shfile} NAME)
+    add_custom_command(
+        TARGET copy_scripts
+        COMMAND ${CMAKE_COMMAND} -E copy ${shfile} ${CMAKE_BINARY_DIR}/${fname}
+        DEPENDS ${shfile}
+    )
   endforeach()
 else()
   message(ERROR "The SOFICS bash files not found.")
