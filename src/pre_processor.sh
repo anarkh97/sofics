@@ -8,6 +8,9 @@
 STRUCT_DIR=$WORKING_DIR/StructModel
 STRUCT_INP=$WORKING_DIR/fem.in
 
+GMSH_NAME=$(basename "$WORKING_DIR/$GMSH_INPUT" .geo)
+GMSH_OUT="$GMSH_NAME".msh
+
 # local log files
 gmsh2aeros_log=$STRUCT_DIR/log.out
 
@@ -102,7 +105,7 @@ else
 fi
 
 # generate mesh
-$GMSH_EXE -3 -format msh -o $STRUCT_DIR/struct.msh $WORKING_DIR/struct.geo > \
+$GMSH_EXE -3 -format msh -o $STRUCT_DIR/$GMSH_OUT $WORKING_DIR/$GMSH_INPUT > \
   $gmsh2aeros_log
 
 if grep -q "Error" $gmsh2aeros_log; then
@@ -112,7 +115,7 @@ if grep -q "Error" $gmsh2aeros_log; then
 fi 
 
 # convert to aero-s files
-$DRIVER_DIR/gmsh2aeros $STRUCT_DIR/struct.msh $STRUCT_DIR/mesh.include >> \
+$DRIVER_DIR/gmsh2aeros $STRUCT_DIR/$GMSH_OUT $STRUCT_DIR/mesh.include >> \
   $gmsh2aeros_log
 
 if grep -q "Error" $gmsh2aeros_log; then

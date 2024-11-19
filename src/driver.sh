@@ -20,6 +20,7 @@ export POSTPROCESS_FILE="${DRIVER_DIR}/post_processor.sh"
 
 # executable for finite element mesher
 export GMSH_EXE=""
+export GMSH_INPUT=""
 
 # setup size and executables for fluid solver
 export M2C_SIZE=""
@@ -30,6 +31,9 @@ export M2C_INPUT=""
 export AEROS_SIZE=""
 export AEROS_EXE=""
 export AEROS_INPUT=""
+
+# detonation input for fluid solver
+export SHOCK_INPUT=""
 
 # Evaluation concurrency for dakota
 export EVALUATION_CONCURRENCY=""
@@ -52,33 +56,33 @@ source "${DRIVER_DIR}/checks.sh"
 # --------------
 
 # copy all templates to the working directory
-if [[ -e $TEMPLATE_DIR/fem.in.template ]]; then
-  cp $TEMPLATE_DIR/fem.in.template \
-    $WORKING_DIR/fem.in
+if [[ -e "$TEMPLATE_DIR/$AEROS_INPUT".template ]]; then
+  cp "$TEMPLATE_DIR/$AEROS_INPUT".template \
+    $WORKING_DIR/$AEROS_INPUT
 else
   printf "*** Error: Could not find a template file for Aero-S input "
   printf "file. Aborting ...\n"
   exit 1
 fi
-if [[ -e $TEMPLATE_DIR/input.st.template ]]; then
-  cp $TEMPLATE_DIR/input.st.template \
-    $WORKING_DIR/input.st
+if [[ -e "$TEMPLATE_DIR/$M2C_INPUT".template ]]; then
+  cp "$TEMPLATE_DIR/$M2C_INPUT".template \
+    $WORKING_DIR/$M2C_INPUT
 else
   printf "*** Error: Could not find a template file for M2C input "
   printf "file. Aborting ...\n"
   exit 1
 fi
-if [[ -e $TEMPLATE_DIR/SphericalShock.txt.template ]]; then
-  cp $TEMPLATE_DIR/SphericalShock.txt.template \
-    $WORKING_DIR/SphericalShock.txt
+if [[ -e "$TEMPLATE_DIR/$SHOCK_INPUT".template ]]; then
+  cp "$TEMPLATE_DIR/$SHOCK_INPUT".template \
+    $WORKING_DIR/$SHOCK_INPUT
 else
   printf "*** Error: A template file for initial detonation profile not "
   printf "provided. Aborting ...\n"
   exit 1
 fi
-if [[ -e $TEMPLATE_DIR/struct.geo.template ]]; then
-  cp $TEMPLATE_DIR/struct.geo.template \
-    $WORKING_DIR/struct.geo
+if [[ -e "$TEMPLATE_DIR/$GMSH_INPUT".template ]]; then
+  cp "$TEMPLATE_DIR/$GMSH_INPUT".template \
+    $WORKING_DIR/$GMSH_INPUT
 else
   printf "*** Error: A template file for GMSH for creating mesh for each "
   printf "design point was not provided. Aborting ...\n"

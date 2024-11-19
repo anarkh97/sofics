@@ -3,8 +3,20 @@
 # This utility simply performs checks for required variables
 # for successfull evaluation of a design configuration.
 
+if [[ $TEMPLATE_DIR == "" ]]; then
+  printf "*** Warning: User did not provide a template directory. Using "
+  printf "the default, which is the directory in which Dakota was executed.\n"
+  TEMPLATE_DIR=$LAUNCH_DIR
+fi
+
 if [[ $GMSH_EXE == "" ]]; then
   printf "*** Error: Executable for GMSH (FE mesher) was not provided. "
+  printf "Aborting ...\n"
+  exit 1
+fi
+
+if [[ $GMSH_INPUT == "" ]]; then
+  printf "*** Error: GMSH (FE mesher) input file was not provided. "
   printf "Aborting ...\n"
   exit 1
 fi
@@ -40,6 +52,12 @@ fi
 
 if [[ $AEROS_INPUT == "" ]]; then
   printf "*** Error: Solid input file was not provided. Aborting ...\n"
+  exit 1
+fi
+
+if [[ $SHOCK_INPUT == "" ]]; then
+  printf "*** Error: File with initial detonation profile was not provided. "
+  printf "Aborting ...\n"
   exit 1
 fi
 
