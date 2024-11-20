@@ -3,6 +3,8 @@
 # This utility simply performs checks for required variables
 # for successfull evaluation of a design configuration.
 
+PACKAGE_DIR=$(dirname $DRIVER_DIR)
+
 if [[ $TEMPLATE_DIR == "" ]]; then
   printf "*** Warning: User did not provide a template directory. Using "
   printf "the default, which is the directory in which Dakota was executed.\n"
@@ -10,9 +12,14 @@ if [[ $TEMPLATE_DIR == "" ]]; then
 fi
 
 if [[ $GMSH_EXE == "" ]]; then
-  printf "*** Error: Executable for GMSH (FE mesher) was not provided. "
-  printf "Aborting ...\n"
-  exit 1
+  printf "*** Warning: Executable for GMSH (FE mesher) was not provided. "
+  printf "Using default one ...\n"
+  if [[ ! -e $PACKAGE_DIR/install/bin/gmsh ]]; then
+    printf "*** Error: No executable for solid solver was found. "
+    printf "Aborting ...\n"
+    exit 1
+  fi
+  GMSH_EXE=$PACKAGE_DIR/install/bin/gmsh
 fi
 
 if [[ $GMSH_INPUT == "" ]]; then
@@ -28,9 +35,14 @@ if [[ $M2C_SIZE == "" ]]; then
 fi
 
 if [[ $M2C_EXE == "" ]]; then
-  printf "*** Error: Executable for the fluid solver was not provided. "
-  printf "Aborting ...\n"
-  exit 1
+  printf "*** Warning: Executable for the fluid solver was not provided. "
+  printf "Using default one ...\n"
+  if [[ ! -e $PACKAGE_DIR/m2c/m2c ]]; then
+    printf "*** Error: No executable for fluid solver was found. "
+    printf "Aborting ...\n"
+    exit 1
+  fi
+  M2C_EXE=$PACKAGE_DIR/m2c/m2c
 fi
 
 if [[ $M2C_INPUT == "" ]]; then
@@ -45,9 +57,14 @@ if [[ $AEROS_SIZE == "" ]]; then
 fi
 
 if [[ $AEROS_EXE == "" ]]; then
-  printf "*** Error: Executable for the solid solver was not provided. "
-  printf "Aborting ...\n"
-  exit 1
+  printf "*** Warning: Executable for the solid solver was not provided. "
+  printf "Using default one ...\n"
+  if [[ ! -e $PACKAGE_DIR/aeros/bin/aeros ]]; then
+    printf "*** Error: No executable for solid solver was found. "
+    printf "Aborting ...\n"
+    exit 1
+  fi
+  AEROS_EXE=$PACKAGE_DIR/aeros/bin/aeros
 fi
 
 if [[ $AEROS_INPUT == "" ]]; then

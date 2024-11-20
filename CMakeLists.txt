@@ -19,6 +19,24 @@ option(BUILD_M2C "Build local copy of M2C" ON)
 
 # add aeros
 if(BUILD_AEROS)
+  # fortran flags -- for aeros
+  set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fallow-argument-mismatch")
+
+  # Zoltan library -- might be required by aero-s
+  set(ZOLTAN_INCLUDE_PATH "/projects/wang_aoe_lab/KevinWang/Software/Trilinos/MyBuild/include/")
+  set(ZOLTAN_SRC_PATH "/projects/wang_aoe_lab/KevinWang/Software/Trilinos/packages/zoltan/src/")
+  set(ZOLTAN_LIBRARY "/projects/wang_aoe_lab/KevinWang/Software/Trilinos/MyBuild/lib/libzoltan.a") 
+
+  # Spooles library -- might be required by aero-s
+  set(SPOOLES_INCLUDE_PATH "/projects/wang_aoe_lab/KevinWang/Software/SPOOLES/")
+  set(SPOOLES_spooles_LIBRARY "/projects/wang_aoe_lab/KevinWang/Software/SPOOLES/spooles.a")
+  set(SPOOLES_spoolesMT_LIBRARY "/projects/wang_aoe_lab/KevinWang/Software/SPOOLES/MT/src/spoolesMT.a")
+
+  # BLACS and SCALAPACK library
+  #set(BLACS_blacs_LIBRARY "")
+  #set(BLACS_Cinit_LIBRARY "")
+  #set(SCALAPACK_LIBRARY "")
+
   add_subdirectory(packages/aeros)
 endif()
 
