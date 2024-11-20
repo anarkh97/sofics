@@ -12,14 +12,16 @@ if [[ $TEMPLATE_DIR == "" ]]; then
 fi
 
 if [[ $GMSH_EXE == "" ]]; then
-  printf "*** Warning: Executable for GMSH (FE mesher) was not provided. "
-  printf "Using default one ...\n"
-  if [[ ! -e $PACKAGE_DIR/install/bin/gmsh ]]; then
-    printf "*** Error: No executable for solid solver was found. "
-    printf "Aborting ...\n"
-    exit 1
-  fi
-  GMSH_EXE=$PACKAGE_DIR/install/bin/gmsh
+  printf "*** Error: Executable for GMSH (FE mesher) was not provided. "
+  printf "Aborting ...\n"
+  #printf "*** Warning: Executable for GMSH (FE mesher) was not provided. "
+  #printf "Using default one ...\n"
+  #if [[ ! -e $PACKAGE_DIR/install/bin/gmsh ]]; then
+  #  printf "*** Error: No executable for solid solver was found. "
+  #  printf "Aborting ...\n"
+  #  exit 1
+  #fi
+  #GMSH_EXE=$PACKAGE_DIR/install/bin/gmsh
 fi
 
 if [[ $GMSH_INPUT == "" ]]; then
