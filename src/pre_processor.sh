@@ -5,22 +5,22 @@
 
 # NOTE: Not strictly necessary, but it's conventional to place 
 # structure files in a separate directory for better organization.
-STRUCT_DIR=$WORKING_DIR/StructModel
-STRUCT_INP=$WORKING_DIR/fem.in
+struct_dir=$WORKING_DIR/StructModel
+struct_inp=$WORKING_DIR/$AEROS_INPUT
 
-GMSH_NAME=$(basename "$WORKING_DIR/$GMSH_INPUT" .geo)
-GMSH_OUT="$GMSH_NAME".msh
+gmsh_name=$(basename "$WORKING_DIR/$GMSH_INPUT" .geo)
+gmsh_out="${gmsh_name}.msh"
 
 # local log files
-gmsh2aeros_log=$STRUCT_DIR/log.out
+gmsh2aeros_log=$struct_dir/log.out
 
 # add evaluation number
-sed -i "s/{eval_num}/${DAK_EVAL_NUM}/g" $WORKING_DIR/fem.in
+sed -i "s/{eval_num}/${DAK_EVAL_NUM}/g" $struct_inp
 
 # make the struct model directory
-if [ ! -d "${STRUCT_DIR}" ]
+if [ ! -d "${struct_dir}" ]
 then
-  mkdir "${STRUCT_DIR}"
+  mkdir "${struct_dir}"
 fi
 
 # parse the dakota params file
@@ -64,11 +64,13 @@ done
 # These are state variables that the user can use to define psuedo/problem 
 # specific values, such as mesh size, directly from Dakota's input. We still
 # expect these to be of type REAL, i.e. continuous state variables.
+num_csv=$((num_var-num_cdv))
 csv=()
-for i in $(seq $((num_cdv+1)) $num_var)
+for i in $(seq 1 $num_csv)
 do
-  val=$(awk -v line=$i 'NR==line+1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
-  desc=$(awk -v line=$i 'NR==line+1 {print $2}' "$WORKING_DIR/$DAK_PARAMS")
+  offset=$((num_cdv+i))
+  val=$(awk -v line=$offset 'NR==line+1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
+  desc=$(awk -v line=$offset 'NR==line+1 {print $2}' "$WORKING_DIR/$DAK_PARAMS")
 
   # This is to ensure that only continuous state variables of REAL type were
   # used in the Dakota input file. Will be extended in future and this condition
@@ -84,28 +86,41 @@ do
 done
 
 # update gmsh input file
+substitution_error=0
 if [[ ${#cdv[@]} == $num_cdv ]]; then
   for i in $(seq 1 $num_cdv)
   do
-    sed -i "s/{design_var$i}/${cdv[$i]}/g" $WORKING_DIR/struct.geo
+    if sed -i "s/{cdv_$i}/${cdv[$((i-1))]}/g" $WORKING_DIR/$GMSH_INPUT; then
+      printf "*** Error: Substitution for continuous design variable cdv_${i} "
+      printf "in file ${WORKING_DIR}/${GMSH_INPUT} failed.\n"
+      substitution_error=$((substitution_error+1))
+    fi
   done
 else
   printf "*** Error: Required number of design variables not found.\n"
   exit 1
 fi
 
-if [[ ${#csv[@]} == $((num_var-num_cdv)) ]]; then
-  for i in $(seq $((num_cdv+1)) $num_var)
+if [[ ${#csv[@]} == $num_csv ]]; then
+  for i in $(seq 1 $num_csv)
   do
-    sed -i "s/{state_var$i}/${csv[$i]}/g" $WORKING_DIR/struct.geo
+    if sed -i "s/{csv_$i}/${csv[$((i-1))]}/g" $WORKING_DIR/$GMSH_INPUT; then
+      printf "*** Error: Substitution for continuous state variable csv_${i} "
+      printf "in file ${WORKING_DIR}/${GMSH_INPUT} failed.\n"
+      substitution_error=$((substitution_error+1))
+    fi
   done
 else
   printf "*** Error: Required number of state variables not found.\n"
   exit 1
 fi
 
+if [[ $substitution_error -gt 0 ]]; then
+  exit 1
+fi
+
 # generate mesh
-$GMSH_EXE -3 -format msh -o $STRUCT_DIR/$GMSH_OUT $WORKING_DIR/$GMSH_INPUT > \
+$GMSH_EXE -3 -format msh -o $struct_dir/$gmsh_out $WORKING_DIR/$GMSH_INPUT > \
   $gmsh2aeros_log
 
 if grep -q "Error" $gmsh2aeros_log; then
@@ -115,7 +130,7 @@ if grep -q "Error" $gmsh2aeros_log; then
 fi 
 
 # convert to aero-s files
-$DRIVER_DIR/gmsh2aeros $STRUCT_DIR/$GMSH_OUT $STRUCT_DIR/mesh.include >> \
+$DRIVER_DIR/gmsh2aeros $struct_dir/$gmsh_out $struct_dir/mesh.include >> \
   $gmsh2aeros_log
 
 if grep -q "Error" $gmsh2aeros_log; then
@@ -134,8 +149,8 @@ elem_end=$(
   awk '{print $1}'
 )
 
-sed -i "s/{elem_start}/${elem_start}/g" $WORKING_DIR/fem.in
-sed -i "s/{elem_end}/${elem_end}/g" $WORKING_DIR/fem.in
+sed -i "s/{elem_start}/${elem_start}/g" $struct_inp
+sed -i "s/{elem_end}/${elem_end}/g" $struct_inp
 
 # before launch check and clean-up previous result files
 if [ ! -d "$WORKING_DIR/results" ]

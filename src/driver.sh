@@ -44,56 +44,79 @@ then
   printf "*** Error: Configuration file with paths to solver "
   printf "executables, inputs, and resource requirements not provided."
   printf "Aborting ...\n"
+
+  # NOTE: Here we do not write a results file and force dakota to fail.
+  # This is a brute force approach for cases when user specifies a failure
+  # capture method other than `abort` in dakota.
+
   exit 1
 fi
+
 source $USER_PARAMS
 
 # perform checks before proceeding
-source "${DRIVER_DIR}/checks.sh"
+if ! source "${DRIVER_DIR}/checks.sh"; then
+  # NOTE: Here we do not write a results file and force dakota to fail.
+  # This is a brute force approach for cases when user specifies a failure
+  # capture method other than `abort` in dakota.
+
+  exit 1
+fi
 
 # --------------
 # PRE-PROCESSING
 # --------------
 
 # copy all templates to the working directory
+template_error=0
 if [[ -e "$TEMPLATE_DIR/$AEROS_INPUT".template ]]; then
-  cp "$TEMPLATE_DIR/$AEROS_INPUT".template \
-    $WORKING_DIR/$AEROS_INPUT
+  cp "$TEMPLATE_DIR/$AEROS_INPUT".template $WORKING_DIR/$AEROS_INPUT
 else
   printf "*** Error: Could not find a template file for Aero-S input "
-  printf "file. Aborting ...\n"
-  exit 1
+  printf "file.\n"
+  template_error=$((template_error+1))
 fi
 if [[ -e "$TEMPLATE_DIR/$M2C_INPUT".template ]]; then
-  cp "$TEMPLATE_DIR/$M2C_INPUT".template \
-    $WORKING_DIR/$M2C_INPUT
+  cp "$TEMPLATE_DIR/$M2C_INPUT".template $WORKING_DIR/$M2C_INPUT
 else
   printf "*** Error: Could not find a template file for M2C input "
-  printf "file. Aborting ...\n"
-  exit 1
+  printf "file.\n"
+  template_error=$((template_error+1))
 fi
 if [[ -e "$TEMPLATE_DIR/$SHOCK_INPUT".template ]]; then
-  cp "$TEMPLATE_DIR/$SHOCK_INPUT".template \
-    $WORKING_DIR/$SHOCK_INPUT
+  cp "$TEMPLATE_DIR/$SHOCK_INPUT".template $WORKING_DIR/$SHOCK_INPUT
 else
   printf "*** Error: A template file for initial detonation profile not "
-  printf "provided. Aborting ...\n"
-  exit 1
+  printf "provided.\n"
+  template_error=$((template_error+1))
 fi
 if [[ -e "$TEMPLATE_DIR/$GMSH_INPUT".template ]]; then
-  cp "$TEMPLATE_DIR/$GMSH_INPUT".template \
-    $WORKING_DIR/$GMSH_INPUT
+  cp "$TEMPLATE_DIR/$GMSH_INPUT".template $WORKING_DIR/$GMSH_INPUT
 else
   printf "*** Error: A template file for GMSH for creating mesh for each "
-  printf "design point was not provided. Aborting ...\n"
-  exit 1
+  printf "design point was not provided.\n"
+  template_error=$((template_error+1))
+fi
+
+if [[ $template_error -gt 0 ]]; then
+
+  # Here we let dakota capture the failure and proceed 
+  # based on user specification.
+
+  printf "FAIL\n" > $DAK_RESULTS
+  exit 0
 fi
 
 # execute pre-processor in a sub-shell
 if ! bash $PREPROCESS_FILE; then
   printf "*** Error: Failed at pre-processing stage for design "
-  printf "${DAK_EVAL_NUM}. Aborting ...\n"
-  exit 1
+  printf "${DAK_EVAL_NUM}.\n"
+
+  # Here we let dakota capture the failure and proceed 
+  # based on user specification.
+
+  printf "FAIL\n" > $DAK_RESULTS
+  exit 0
 fi
 
 # ---------
@@ -169,8 +192,12 @@ then
   # execute post-processor in a sub-shell
   if ! bash $POSTPROCESS_FILE; then
     printf "*** Error: Failed at post-processing stage for design "
-    printf "${DAK_EVAL_NUM}. Aborting ...\n"
-    exit 1
+    printf "${DAK_EVAL_NUM}.\n"
+    # Here we let dakota capture the failure and proceed 
+    # based on user specification.
+    
+    printf "FAIL\n" > $DAK_RESULTS
+    exit 0
   fi
 
 else

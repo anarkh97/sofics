@@ -4,12 +4,20 @@
 
 TEMPLATE_DIR=$LAUNCH_DIR/templates
 
+EVALUATION_CONCURRENCY=$(
+  grep "evaluation_concurrency" $LAUNCH_DIR/dakota.in |
+  cut -d "=" -f 2 
+)
+
 # setup size and executables for fluid solver
 M2C_SIZE=56
-M2C_EXE=~/tinkercliffs/m2c/m2c
-M2C_INPUT=$WORKING_DIR/input.st
+M2C_INPUT=input.st
+SHOCK_INPUT=SphericalShock.txt
 
 # setup size and executables for solid solver
 AEROS_SIZE=8
-AEROS_EXE=~/tinkercliffs/FEMWorkingFoam/bin/aeros
-AEROS_INPUT=$WORKING_DIR/fem.in
+AEROS_INPUT=fem.in
+
+# setup executable and input file for FE mesher
+GMSH_EXE=gmsh
+GMSH_INPUT=struct.geo

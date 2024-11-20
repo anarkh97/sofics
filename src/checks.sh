@@ -3,7 +3,8 @@
 # This utility simply performs checks for required variables
 # for successfull evaluation of a design configuration.
 
-PACKAGE_DIR=$(dirname $DRIVER_DIR)
+BUILD_DIR=$(dirname $DRIVER_DIR)
+PACKAGE_DIR=$BUILD_DIR/packages
 
 if [[ $TEMPLATE_DIR == "" ]]; then
   printf "*** Warning: User did not provide a template directory. Using "

@@ -46,7 +46,7 @@ interface
   asynchronous
   evaluation_concurrency = 2 
   local_evaluation_scheduling = static
-  analysis_driver = '../build/driver.sh myconfig.sh'
+  analysis_driver = '../../build/src/driver.sh myconfig.sh'
   parameters_file = 'design_params.in'
   results_file    = 'design_results.out'
   failure_capture
