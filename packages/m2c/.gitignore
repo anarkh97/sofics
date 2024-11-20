@@ -1,8 +1,6 @@
 CMakeCache.txt
 CMakeFiles/
-Makefile
 cmake_install.cmake
-m2c
 parser/AssignerCore.o
 parser/Dictionary.o
 parser/Lexer.C
