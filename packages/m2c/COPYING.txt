@@ -1,0 +1,14 @@
+/**********************************************************************************
+ * Copyright ©The Multiphysics Modeling and Computation (M2C) Lab, 2020
+ **********************************************************************************/
+
+This code is written by the members of the Multiphysics Modeling and Computation (M2C)
+Lab at Virginia Tech. Principal Investigator (PI): Kevin Wang
+
+The source code within this directory (excluding KDTree.h, 
+subdirectories parser, and rbf_interp in MathTools) are under the GNU General 
+Public License, Version 3 (GPLv3).
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
