@@ -40,6 +40,8 @@ variables
     initial_point     280     180
       lower_bounds      100     100
       upper_bounds      300     200
+  continuous_state = 1
+    initial_state  5
 
 interface
   fork
