@@ -1,0 +1,100 @@
+// $Id$
+
+/* This is the location where ALL ContactEntity Variables are declared.
+   These variables are automatically built into the Contact objects at
+   compile time without any further developer interaction.  You MUST
+   follow the recipe exactly or the code will not build properly.  The
+   recipe is
+  
+   CENTERING_TYPE_VAR( VARIABLE_ENUM_NAME, VARIABLE_HANDLE_NAME  )
+
+   The following centerings and types are currently supported:
+      NODE_SCALAR_VAR
+      NODE_VECTOR_VAR
+      EDGE_SCALAR_VAR
+      EDGE_VECTOR_VAR
+      FACE_SCALAR_VAR
+      FACE_VECTOR_VAR
+      ELEM_SCALAR_VAR
+      ELEM_VECTOR_VAR
+      ELEMENT_SCALAR_VAR
+      ELEMENT_VECTOR_VAR
+
+   The VARIABLE_ENUM_NAME must be unique across all centerings and types.
+   By Convention, it is the same is the VARIABLE_HANDLE_NAME but in
+   mixed case.
+
+   The VARIABLE_HANDLE_NAME must be unique across all centerings 
+   and types and by convention must be capitalized.
+   
+   The use should be obvious from the examples already contained here. */
+
+
+NODE_SCALAR_VAR(    Num_Kin_Constr      , NUM_KIN_CONSTR      )
+NODE_SCALAR_VAR(    Node_Radius         , NODE_RADIUS         )
+NODE_VECTOR_VAR(    Current_Position    , CURRENT_POSITION    )
+NODE_VECTOR_VAR(    Predicted_Position  , PREDICTED_POSITION  )
+NODE_VECTOR_VAR(    Augmented_Position  , AUGMENTED_POSITION  )
+NODE_VECTOR_VAR(    Node_Normal         , NODE_NORMAL         )
+NODE_VECTOR_VAR(    Kin_Constr_Vector   , KIN_CONSTR_VECTOR   )
+NODE_VECTOR_VAR(    Remaining_Gap       , REMAINING_GAP       )
+NODE_VECTOR_VAR(    Node_Ghost_Gap      , NODE_GHOST_GAP      )
+NODE_VECTOR_VAR(    Projection_Dir      , PROJ_DIR            )
+NODE_VECTOR_VAR(    Lofting_Vector      , LOFTING_VECTOR      )
+
+EDGE_SCALAR_VAR(    Curvature           , CURVATURE           )
+EDGE_VECTOR_VAR(    Smoothed_Normal     , SMOOTHED_NORMAL     )
+
+FACE_SCALAR_VAR(    Edge0_Curvature     , EDGE0_CURVATURE     )
+FACE_SCALAR_VAR(    Edge1_Curvature     , EDGE1_CURVATURE     )
+FACE_SCALAR_VAR(    Edge2_Curvature     , EDGE2_CURVATURE     )
+FACE_SCALAR_VAR(    Edge3_Curvature     , EDGE3_CURVATURE     )
+FACE_SCALAR_VAR(  Characteristic_Length , CHARACTERISTIC_LENGTH )
+FACE_VECTOR_VAR(    Edge0_Smooth_Normal , EDGE0_SMOOTH_NORMAL )
+FACE_VECTOR_VAR(    Edge1_Smooth_Normal , EDGE1_SMOOTH_NORMAL )
+FACE_VECTOR_VAR(    Edge2_Smooth_Normal , EDGE2_SMOOTH_NORMAL )
+FACE_VECTOR_VAR(    Edge3_Smooth_Normal , EDGE3_SMOOTH_NORMAL )
+FACE_VECTOR_VAR(    Face_Normal         , FACE_NORMAL         )
+FACE_VECTOR_VAR(    Centroid            , CENTROID            )
+
+ELEM_SCALAR_VAR(    ElemDummy           , ELEM_DUMMY          )
+
+ELEMENT_SCALAR_VAR( Element_Volume      , ELEMENT_VOLUME      )
+ELEMENT_VECTOR_VAR( Element_Centroid    , ELEMENT_CENTROID    )
+
+
+/* This is the location where all NodeEntity_Interaction variables are declared.
+   These variables are shared between the node face and node surface interactions.
+   These variables are automatically built into the ContactNodeFaceInteraction
+   object at compile time without any further developer interaction.  You MUST
+   follow the recipe exactly or the code will not build properly. */
+
+NEI_SCALAR_VAR( GAP_CUR,              "Normal Gap - Current" )
+NEI_SCALAR_VAR( GAP_OLD,              "Normal Gap - Old" )
+NEI_SCALAR_VAR( GAP_INT,              "Normal Gap - Initial" )
+NEI_SCALAR_VAR( SOURCE,               "Source" )
+NEI_SCALAR_VAR( NODE_ENTITY_KEY,      "Node Entity Key" )
+NEI_SCALAR_VAR( NODE_AREA,            "Node Area" )
+NEI_SCALAR_VAR( TIME_TO_CONTACT,      "Time to Contact" )
+
+NEI_VECTOR_VAR( NORMAL_DIR,           "Normal Direction" )
+NEI_VECTOR_VAR( PUSHBACK_DIR,         "Pushback Direction" )
+NEI_VECTOR_VAR( PHYSICAL_FACE_NORMAL, "Physical Face Normal" )
+NEI_VECTOR_VAR( COORDINATES,          "Coordinates" )
+NEI_VECTOR_VAR( CONTACT_POINT,        "Contact Point" )
+
+/* This is the location where all NodeNode_Interaction variables are declared.
+   These variables are automatically built into the ContactNodeNodeInteraction
+   object at compile time without any further developer interaction.  You MUST
+   follow the recipe exactly or the code will not build properly. */
+
+NNI_SCALAR_VAR( NODE_ENTITY_KEY, "Node Entity Key" )
+NNI_SCALAR_VAR( DISTANCE,        "Distance" )
+
+/* This is the location where all ElementElement_Interaction variables  
+   are declared.  These variables are automatically built into the 
+   ContactElementElementInteraction object at compile time without any 
+   further developer interaction.  You MUST follow the recipe exactly 
+   or the code will not build properly. */
+
+EEI_SCALAR_VAR( VOLUME, "Volume" )

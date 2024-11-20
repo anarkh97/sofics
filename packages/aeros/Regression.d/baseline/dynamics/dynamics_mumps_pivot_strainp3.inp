@@ -1,0 +1,20 @@
+CONTROL
+dynamics_mumps_pivot_strainp3
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps pivot
+*
+DYNAMICS
+time	0.0	3.0e+0	3.0e+2
+newmark
+mech	0.25000	0.5000
+*	time step	total time
+OUTPUT
+strainp3 dynamics_mumps_pivot_strainp3.dat  100
+*
+INCLUDE "../mesh.include"
+*
+END

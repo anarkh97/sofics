@@ -1,0 +1,57 @@
+* VME1: Response of Spring-Mass System to Step Input
+* Overview
+* Reference: W.T.Thomson, Vibration Theory and Applications, 2nd Printing, Prentice-Hall, Inc.,
+*            Englewood Cliffs, NJ, 1965, pp. 98-99.
+* Analysis Type(s): Linear Explicit Dynamics
+* Element Type(s): Discrete Mass Elements (DIMASS)
+*                  Linear Spring Elements (21)
+* Test Case
+* The one-DOF system consists of a spring, K, and mass, M. The load is a step function with a rise time,
+* as shown. The peak displacement of M from the finite element solution is compared to an analytical
+* result.
+*
+*CONTROL
+*"VME1"
+*1
+*"nodeset"
+*"elemset"
+**
+*DYNAM
+*newmark
+*mech 0.0  0.5   0.0   0.0
+*time 0.0  0.001 5.0
+**
+*OUTPUT
+*displacx "displacx.2" 10 2
+*
+MFTT
+0.0  0.0
+1.0  1.0
+24.0 1.0
+*
+DIMASS
+2 1 1.0
+2 2 1.0
+2 3 1.0
+*
+NODES 
+1 0.00000000e+00 0.00000000e+00 0.00000000e+00
+2 1.00000000e+00 0.00000000e+00 0.00000000e+00
+*
+TOPOLOGY 
+1 21 1 2
+*
+ATTRIBUTES 
+1 1
+*
+MATERIAL 
+1 100 0 0 1 0 0 0 1 0 0 0 1
+*
+DISP 
+1 1 0
+1 2 0
+1 3 0
+*
+FORCE 
+2 1 3.0
+*

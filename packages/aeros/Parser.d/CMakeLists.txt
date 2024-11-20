@@ -1,0 +1,18 @@
+if(CMAKE_VERSION LESS 2.8)
+  set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR})
+endif(CMAKE_VERSION LESS 2.8)
+
+find_package(BISON)
+find_package(FLEX)
+BISON_TARGET(MyParser p.y ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp)
+FLEX_TARGET(MyScanner lexer.l  ${CMAKE_CURRENT_BINARY_DIR}/lexer.cpp)
+ADD_FLEX_BISON_DEPENDENCY(MyScanner MyParser)
+
+# Just so that we can see this file in the IDE
+set(IDE_FILES_LIST p.y)
+
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+ADD_LIBRARY(Parser AuxDefs.C ${BISON_MyParser_OUTPUTS} ${IDE_FILES_LIST} ${FLEX_MyScanner_OUTPUTS})
+SET_TARGET_PROPERTIES(Parser PROPERTIES COMPILE_FLAGS -fPIC) 
+
+TARGET_LINK_LIBRARIES(Parser Eigen3::Eigen)

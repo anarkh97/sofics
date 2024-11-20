@@ -1,0 +1,20 @@
+CONTROL
+dsvm20_mumps_pivot_gdispmod
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps pivot
+include "../fetidp.include"
+EIGEN
+arpack
+nsbspv 8
+neigpa 4
+*
+OUTPUT
+gdispmod dsvm20_mumps_pivot_gdispmod.dat 1
+*
+INCLUDE ../dsvm20.include
+*
+END

@@ -1,0 +1,28 @@
+#!/bin/bash
+export CMAKE_INCLUDE_PATH=$CMAKE_INCLUDE_PATH:/lustre/home/pavery/code:/lustre/home/pavery/code/spooles:/lustre/home/pavery/code/MUMPS_4.10.0/include:/lustre/home/pavery/code/trilinos/trilinos-10.8.4-Obj_cmake/include:/lustre/home/pavery/code/trilinos/trilinos-10.8.4-Source/packages/zoltan/src:/lustre/home/pavery/code/trilinos/trilinos-10.8.4-Source/packages/sacado/src:/lustre/home/pavery/boost/include
+export CMAKE_LIBRARY_PATH=$CMAKE_LIBRARY_PATH:/lustre/home/pavery/code/arpack:/lustre/home/pavery/code/spooles:/lustre/home/pavery/code/spooles/MT/src:/lustre/home/pavery/code/MUMPS_4.10.0/lib:/lustre/home/pavery/code/trilinos/trilinos-10.8.4-Obj_cmake/lib:/lustre/home/pavery/boost/lib
+cmake \
+-DAERO:BOOL=true \
+-DCMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc43 \
+-DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++43 \
+-DCMAKE_Fortran_COMPILER:FILEPATH=/usr/bin/gfortran43 \
+-DMPI_COMPILER:FILEPATH=/usr/mpi/gcc43/openmpi-1.4.1-1/bin/mpiCC \
+-DMPI_LIBRARY:FILEPATH=DMPI_LIBRARY-NOTFOUND \
+-DEXTRALIB_MPI=/usr/mpi/gcc43/openmpi-1.4.1-1/lib64/libmpi_f77.so \
+-DARPACK_arpack_LIBRARY:FILEPATH=/lustre/home/pavery/code/arpack/libarpack.a \
+-DARPACK_parpack_LIBRARY:FILEPATH=/lustre/home/pavery/code/arpack/libparpack.a \
+-DBLACS_Cinit_LIBRARY:FILEPATH=/lustre/home/pavery/code/BLACS/LIB/blacsCinit_MPI-LINUX-0.a \
+-DBLACS_blacs_LIBRARY:FILEPATH=/lustre/home/pavery/code/BLACS/LIB/blacs_MPI-LINUX-0.a \
+-DMUMPS_INCLUDE_PATH:PATH=/lustre/home/pavery/code/MUMPS_4.10.0/include \
+-DMUMPS_common_LIBRARY:FILEPATH=/lustre/home/pavery/code/MUMPS_4.10.0/lib/libmumps_common.a \
+-DMUMPS_dmumps_LIBRARY:FILEPATH=/lustre/home/pavery/code/MUMPS_4.10.0/lib/libdmumps.a \
+-DMUMPS_pord_LIBRARY:FILEPATH=/lustre/home/pavery/code/MUMPS_4.10.0/lib/libpord.a \
+-DMUMPS_zmumps_LIBRARY:FILEPATH=/lustre/home/pavery/code/MUMPS_4.10.0/lib/libzmumps.a \
+-DSPOOLES_INCLUDE_PATH:PATH=/lustre/home/pavery/code/spooles \
+-DSPOOLES_spoolesMT_LIBRARY:FILEPATH=/lustre/home/pavery/code/spooles/MT/src/spoolesMT.a \
+-DSPOOLES_spooles_LIBRARY:FILEPATH=/lustre/home/pavery/code/spooles/spooles.a \
+-DZOLTAN_INCLUDE_PATH:PATH=/lustre/home/pavery/code/trilinos/trilinos-10.8.4-Obj_cmake/include \
+-DZOLTAN_LIBRARY:FILEPATH=/lustre/home/pavery/code/trilinos/trilinos-10.8.4-Obj_cmake/lib/libzoltan.a \
+-DZOLTAN_SRC_PATH:PATH=/lustre/home/pavery/code/trilinos/trilinos-10.8.4-Source/packages/zoltan/src \
+-DWITH_SACADO=0 \
+.

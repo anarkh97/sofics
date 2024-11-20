@@ -1,0 +1,20 @@
+CONTROL
+dynamics_sparse_gdisplac
+1
+"nodeset"
+"elemset"
+*
+STATICS
+sparse
+*
+DYNAMICS
+time	0.0	3.0e+0	3.0e+2
+newmark
+mech	0.25000	0.5000
+*	time step	total time
+OUTPUT
+gdisplac dynamics_sparse_gdisplac.dat  100
+*
+INCLUDE "../mesh.include"
+*
+END

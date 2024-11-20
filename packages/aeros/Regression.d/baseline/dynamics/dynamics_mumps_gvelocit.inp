@@ -1,0 +1,20 @@
+CONTROL
+dynamics_mumps_gvelocit
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps
+*
+DYNAMICS
+time	0.0	3.0e+0	3.0e+2
+newmark
+mech	0.25000	0.5000
+*	time step	total time
+OUTPUT
+gvelocit dynamics_mumps_gvelocit.dat  100
+*
+INCLUDE "../mesh.include"
+*
+END

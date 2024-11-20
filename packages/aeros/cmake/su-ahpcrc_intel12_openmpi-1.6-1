@@ -1,0 +1,20 @@
+#!/bin/bash
+source /opt/modules/init/bash
+module load intel/intel-12 openmpi/openmpi16_intel12
+export CMAKE_INCLUDE_PATH=$CMAKE_INCLUDE_PATH:/lustre/home/pavery/code:/lustre/home/pavery/Intel12/spooles:/lustre/home/pavery/Intel12/MUMPS_4.10.0/include:/lustre/home/pavery/Intel12/trilinos/trilinos-11.0.3-Obj_cmake/include:/lustre/home/pavery/Intel12/trilinos/trilinos-11.0.3-Source/packages/zoltan/src:/lustre/home/pavery/Intel12/trilinos/trilinos-11.0.3-Source/packages/sacado/src:/lustre/home/pavery/boost/include
+export CMAKE_LIBRARY_PATH=$CMAKE_LIBRARY_PATH:/lustre/home/pavery/Intel12/ARPACK:/lustre/home/pavery/Intel12/spooles:/lustre/home/pavery/Intel12/spooles/MT/src:/lustre/home/pavery/Intel12/MUMPS_4.10.0/lib:/lustre/home/pavery/Intel12/trilinos/trilinos-11.0.3-Obj_cmake/lib:/lustre/home/pavery/boost/lib
+cmake \
+-DAERO:BOOL=true \
+-DCMAKE_C_COMPILER:FILEPATH=/opt/intel/compilerpro-12.0.2.137/bin/intel64/icc \
+-DCMAKE_CXX_COMPILER:FILEPATH=/opt/intel/compilerpro-12.0.2.137/bin/intel64/icpc \
+-DCMAKE_Fortran_COMPILER:FILEPATH=/opt/intel/compilerpro-12.0.2.137/bin/intel64/ifort \
+-DCMAKE_CXX_FLAGS:STRING="-wd654,1125,2536,2196,858,161,175,187" \
+-DCMAKE_LINKER:FILEPATH=/opt/intel/compilerpro-12.0.2.137/bin/intel64/icpc \
+-DARPACKLIB:FILEPATH=/lustre/home/pavery/Intel12/ARPACK/libarpack.a \
+-DLAPACK_LIBRARIES="-Wl,--start-group /opt/intel/compilerpro-12.0.2.137/mkl/lib/intel64/libmkl_scalapack_lp64.a /opt/intel/compilerpro-12.0.2.137/mkl/lib/intel64/libmkl_blacs_openmpi_lp64.a /opt/intel/compilerpro-12.0.2.137/mkl/lib/intel64/libmkl_intel_lp64.a /opt/intel/compilerpro-12.0.2.137/mkl/lib/intel64/libmkl_sequential.a /opt/intel/compilerpro-12.0.2.137/mkl/lib/intel64/libmkl_core.a -Wl,--end-group -lpthread" \
+-DEXTRALIB_MPI=/usr/mpi/intel12/openmpi-1.6-1/lib64/libmpi_f77.so \
+-DLAPACK_FOUND=true \
+-DSCALAPACK_FOUND=true \
+-DSCALAPACK_LIBRARY:FILEPATH="" \
+-DBLACS_FOUND=true \
+-DEXTRALIB="/opt/intel/composerxe-2011.2.137/compiler/lib/intel64/libifcore.a;/opt/intel/composerxe-2011.2.137/compiler/lib/intel64/libifport.a" .

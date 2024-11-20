@@ -1,0 +1,15 @@
+CONTROL
+statics_skyline_displmod
+1
+"nodeset"
+"elemset"
+*
+STATICS
+skyline
+*
+OUTPUT
+displmod statics_skyline_displmod.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

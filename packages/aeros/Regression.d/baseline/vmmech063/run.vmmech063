@@ -1,0 +1,2 @@
+echo ../../bin/aeros  vmmech063_mumps_displacx.inp
+../../bin/aeros  vmmech063_mumps_displacx.inp

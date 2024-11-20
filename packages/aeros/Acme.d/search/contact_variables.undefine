@@ -1,0 +1,14 @@
+#undef    NODE_SCALAR_VAR
+#undef    NODE_VECTOR_VAR
+#undef    EDGE_SCALAR_VAR
+#undef    EDGE_VECTOR_VAR
+#undef    FACE_SCALAR_VAR
+#undef    FACE_VECTOR_VAR
+#undef    ELEM_SCALAR_VAR
+#undef    ELEM_VECTOR_VAR
+#undef ELEMENT_SCALAR_VAR
+#undef ELEMENT_VECTOR_VAR
+#undef     NEI_SCALAR_VAR
+#undef     NEI_VECTOR_VAR
+#undef     NNI_SCALAR_VAR
+#undef     EEI_SCALAR_VAR

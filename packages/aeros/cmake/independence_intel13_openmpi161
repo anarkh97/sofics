@@ -1,0 +1,22 @@
+#!/bin/bash
+module load intel/intel-13 openmpi/openmpi161_intel13
+export CMAKE_INCLUDE_PATH=$CMAKE_INCLUDE_PATH:/home/pavery/Intel/eigen:/home/pavery/Intel/SPOOLES:/home/pavery/Intel/MUMPS_4.10.0/include:/home/pavery/Intel/trilinos-11.0.3-Source/packages/sacado/src:/home/pavery/Intel/trilinos-11.0.3-Obj_cmake/include:/home/pavery/Intel/trilinos-11.0.3-Source/packages/zoltan/src:/home/pavery/Intel/stxxl-trunk/include:/home/pavery/Intel/scotch_6.0.0/include
+export CMAKE_LIBRARY_PATH=$CMAKE_LIBRARY_PATH:/home/pavery/Intel/ARPACK:/home/pavery/Intel/SPOOLES:/home/pavery/Intel/SPOOLES/MT/src:/home/pavery/Intel/MUMPS_4.10.0/lib:/home/pavery/Intel/MUMPS_4.10.0_seq/lib:/home/pavery/Intel/trilinos-11.0.3-Obj_cmake/lib:/home/pavery/Intel/stxxl-trunk/lib:/home/pavery/Intel/scotch_6.0.0/lib
+/home/pavery/bin/cmake \
+-DAERO:BOOL=on \
+-DCMAKE_C_COMPILER:FILEPATH=/opt/intel/composer_xe_2013.0.079/bin/intel64/icc \
+-DCMAKE_CXX_COMPILER:FILEPATH=/opt/intel/composer_xe_2013.0.079/bin/intel64/icpc \
+-DCMAKE_Fortran_COMPILER:FILEPATH=/opt/intel/composer_xe_2013.0.079/bin/intel64/ifort \
+-DCMAKE_CXX_FLAGS:STRING=-wd654,1125,2536,2196,858,161,175,187 \
+-DMPI_COMPILER:FILEPATH=/usr/mpi/intel13/openmpi-1.6.1-1/bin/mpiCC \
+-DMPI_LIBRARY:STRING=MPI_LIBRARY-NOTFOUND \
+-DEXTRALIB="-lifcore -lifport /home/pavery/Intel/scotch_6.0.0/lib/libscotcherr.a" \
+-DEXTRALIB_MPI=/usr/mpi/intel13/openmpi-1.6.1-1/lib64/libmpi_f90.so \
+-DLAPACK_LIBRARIES:FILEPATH="-Wl,--start-group /opt/intel/composer_xe_2013.0.079/mkl/lib/intel64/libmkl_scalapack_lp64.a /opt/intel/composer_xe_2013.0.079/mkl/lib/intel64/libmkl_blacs_openmpi_lp64.a  /opt/intel/composer_xe_2013.0.079/mkl/lib/intel64/libmkl_intel_lp64.a /opt/intel/composer_xe_2013.0.079/mkl/lib/intel64/libmkl_sequential.a /opt/intel/composer_xe_2013.0.079/mkl/lib/intel64/libmkl_core.a -Wl,--end-group" \
+-DLAPACK_FOUND:BOOL=true \
+-DBLACS_LIBRARIES:FILEPATH="" \
+-DBLACS_FOUND:BOOL=TRUE \
+-DSCALAPACK_LIBRARY:FILEPATH="" \
+-DSCALAPACK_FOUND:BOOL=TRUE \
+-DCMAKE_LINKER:FILEPATH=/opt/intel/composer_xe_2013.0.079/bin/intel64/icpc \
+-DCMAKE_BUILD_TYPE=Release ${1:-.}

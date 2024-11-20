@@ -1,0 +1,21 @@
+CONTROL
+dsvm11_spooles_displacz
+1
+"nodeset"
+"elemset"
+*
+STATICS
+spooles
+include "../fetidp.include"
+*
+NONLINEAR
+maxitr 40
+nltol 1.0e-6
+rebuild 1
+*
+OUTPUT
+displacz dsvm11_spooles_displacz.dat 1 5
+*
+INCLUDE ../dsvm11.include
+*
+END

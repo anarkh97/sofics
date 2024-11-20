@@ -1,0 +1,15 @@
+CONTROL
+statics_FETI_DP_strainvm
+1
+"nodeset"
+"elemset"
+*
+STATICS
+FETI DP
+*
+OUTPUT
+strainvm statics_FETI_DP_strainvm.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

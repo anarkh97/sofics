@@ -1,0 +1,15 @@
+CONTROL
+dsvm19_spooles_pivot_displacy
+1
+"nodeset"
+"elemset"
+*
+STATICS
+spooles pivot
+include "../fetidp.include"
+OUTPUT
+displacy dsvm19_spooles_pivot_displacy.dat 1 27
+*
+INCLUDE ../dsvm19.include
+*
+END

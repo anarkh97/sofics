@@ -1,0 +1,15 @@
+CONTROL
+statics_bcg_strainp3
+1
+"nodeset"
+"elemset"
+*
+STATICS
+bcg
+*
+OUTPUT
+strainp3 statics_bcg_strainp3.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

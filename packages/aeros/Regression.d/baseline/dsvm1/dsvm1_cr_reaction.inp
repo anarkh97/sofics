@@ -1,0 +1,16 @@
+CONTROL
+dsvm1_cr_reaction
+1
+"nodeset"
+"elemset"
+*
+STATICS
+cr
+*
+OUTPUT
+reaction dsvm1_cr_reaction.dat  1 NG 1
+reaction dsvm1_cr_reaction_2.dat  1 NG 2
+*
+INCLUDE ../dsvm1.include
+*
+END

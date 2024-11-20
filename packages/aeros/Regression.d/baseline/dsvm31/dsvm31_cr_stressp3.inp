@@ -1,0 +1,16 @@
+CONTROL
+dsvm31_cr_stressp3
+1
+"nodeset"
+"elemset"
+*
+STATICS
+cr
+include "../fetidp.include"
+*
+OUTPUT
+stressp3 dsvm31_cr_stressp3.dat 1
+*
+INCLUDE ../dsvm31.include
+*
+END

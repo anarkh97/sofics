@@ -1,0 +1,21 @@
+C
+      parameter( n_v3d=3, k_v3dx=1, k_v3dy=2, k_v3dz=3 ) 
+      parameter( n_v2d=2, k_v2dx=1, k_v2dy=2 )
+C
+C Size of the CTRCL array
+      parameter( ISIZCTRCL = 13 )
+C
+C Entries in the CTRCL array
+      parameter( MSPARAM = 1, ICPOINTX = 2, ICPOINTY = 3,
+     *  ICPOINTZ = 4, IPENMAG = 5 ,IPUSHX = 6, IPUSHY = 7,
+     *  IPUSHZ = 8, INORMX = 9 , INORMY = 10 , INORMZ = 11,
+     *  ILOCATION = 12 , ICTIMC = 13 )
+C
+C detailed search  pushback directions
+      parameter ( ino_opp = 0, iclose = 1, inormal = 2, iprnorm = 3 )
+C parameters for tracking whether slave node is inside a m.s. or
+C outside a m.s. 
+      parameter ( iinside = 1 ,iout = 2 )
+C 
+      parameter ( zero = 0.D0, one = 1.0D0 )
+

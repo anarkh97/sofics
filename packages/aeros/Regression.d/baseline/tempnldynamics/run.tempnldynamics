@@ -1,0 +1,14 @@
+echo ../../bin/aeros  tempnldynamics_sparse_gtempera.inp
+../../bin/aeros  tempnldynamics_sparse_gtempera.inp
+echo ../../bin/aeros  tempnldynamics_skyline_gtempvel.inp
+../../bin/aeros  tempnldynamics_skyline_gtempvel.inp
+echo ../../bin/aeros  tempnldynamics_mumps_gtempera.inp
+../../bin/aeros  tempnldynamics_mumps_gtempera.inp
+echo ../../bin/aeros  tempnldynamics_spooles_gtempvel.inp
+../../bin/aeros  tempnldynamics_spooles_gtempvel.inp
+echo ../../bin/aeros  tempnldynamics_spooles_pivot_gtempera.inp
+../../bin/aeros  tempnldynamics_spooles_pivot_gtempera.inp
+echo ../../bin/aeros  tempnldynamics_mumps_pivot_gtempvel.inp
+../../bin/aeros  tempnldynamics_mumps_pivot_gtempvel.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 tempnldynamics_FETI_DP_gtempera.inp
+../../bin/aeros -n 2 --dec --nsub 4 tempnldynamics_FETI_DP_gtempera.inp

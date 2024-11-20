@@ -1,0 +1,508 @@
+../../bin/aeros dsvm34_sparse_displmod.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Changeset ID cf2675d10caf+     ...
+ ... Nonlinear Static Analysis      ... 
+ ... Sparse Solver is Selected      ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 5.000000e-02
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 6.091205e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 6.922398e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 2.578833e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 1.585855e+04)
+ ... Newton : Iter #5 (res = 4.159736e-02)
+ ... Newton : Step #1, Iter #1 converged after 5 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 7.55e-04 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.049663e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 4.339955e+01)
+ ... Newton : Iter #3 (res = 4.862586e-05)
+ ... Newton : Step #1, Iter #2 converged after 3 iterations
+ ... Newton : End Step #1, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.24e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.604306e+03)
+ ... Newton : Iter #2 (res = 1.039978e-04)
+ ... Newton : Step #1, Iter #3 converged after 2 iterations
+ ... Newton : End Step #1, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 2.78e-09 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 6.198860e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.615071e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.021511e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 6.597125e+03)
+ ... Newton : Iter #5 (res = 7.032816e-04)
+ ... Newton : Step #2, Iter #1 converged after 5 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.18e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.616849e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.059449e+02)
+ ... Newton : Iter #3 (res = 4.533182e-05)
+ ... Newton : Step #2, Iter #2 converged after 3 iterations
+ ... Newton : End Step #2, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 3.50e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.693202e+03)
+ ... Newton : Iter #2 (res = 3.850780e-04)
+ ... Newton : Step #2, Iter #3 converged after 2 iterations
+ ... Newton : End Step #2, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.12e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 1.500000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 6.365913e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.730350e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.146688e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 7.182492e+03)
+ ... Newton : Iter #5 (res = 8.283457e-04)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.20e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.652082e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.594582e+02)
+ ... Newton : Iter #3 (res = 4.531995e-05)
+ ... Newton : Step #3, Iter #2 converged after 3 iterations
+ ... Newton : End Step #3, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 3.86e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 4.238551e+03)
+ ... Newton : Iter #2 (res = 2.171949e-03)
+ ... Newton : Step #3, Iter #3 converged after 2 iterations
+ ... Newton : End Step #3, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.36e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #4 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 6.542120e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.114026e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.045349e+07)
+ ... Newton : Iter #4 (res = 6.170123e+03)
+ ... Newton : Step #4, Iter #1 converged after 4 iterations
+ ... Newton : End Step #4, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.21e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 2.003436e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.055593e+02)
+ ... Newton : Iter #3 (res = 4.154107e-05)
+ ... Newton : Step #4, Iter #2 converged after 3 iterations
+ ... Newton : End Step #4, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 3.84e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 5.024557e+03)
+ ... Newton : Iter #2 (res = 2.281022e-03)
+ ... Newton : Step #4, Iter #3 converged after 2 iterations
+ ... Newton : End Step #4, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.35e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #5 --- Lambda = 2.500000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 6.796233e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.316567e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.153604e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 7.275960e+03)
+ ... Newton : Iter #5 (res = 8.040417e-04)
+ ... Newton : Step #5, Iter #1 converged after 5 iterations
+ ... Newton : End Step #5, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.26e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 2.089179e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.726580e+02)
+ ... Newton : Iter #3 (res = 3.892729e-05)
+ ... Newton : Step #5, Iter #2 converged after 3 iterations
+ ... Newton : End Step #5, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 4.15e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 5.423287e+03)
+ ... Newton : Iter #2 (res = 3.095959e-03)
+ ... Newton : Step #5, Iter #3 converged after 2 iterations
+ ... Newton : End Step #5, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.49e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #6 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 7.069161e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.547012e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.275250e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.494814e+03)
+ ... Newton : Iter #5 (res = 1.053475e-03)
+ ... Newton : Step #6, Iter #1 converged after 5 iterations
+ ... Newton : End Step #6, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.32e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 2.183301e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 3.488553e+02)
+ ... Newton : Iter #3 (res = 4.116955e-05)
+ ... Newton : Step #6, Iter #2 converged after 3 iterations
+ ... Newton : End Step #6, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 4.48e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 5.873119e+03)
+ ... Newton : Iter #2 (res = 4.113127e-03)
+ ... Newton : Step #6, Iter #3 converged after 2 iterations
+ ... Newton : End Step #6, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.66e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #7 --- Lambda = 3.500000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 7.362584e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.109427e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 2.358922e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 1.811845e+04)
+ ... Newton : Iter #5 (res = 8.506636e-03)
+ ... Newton : Step #7, Iter #1 converged after 5 iterations
+ ... Newton : End Step #7, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.22e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 2.476168e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.665332e+02)
+ ... Newton : Iter #3 (res = 5.045441e-05)
+ ... Newton : Step #7, Iter #2 converged after 3 iterations
+ ... Newton : End Step #7, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 3.97e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 6.261510e+03)
+ ... Newton : Iter #2 (res = 3.154825e-03)
+ ... Newton : Step #7, Iter #3 converged after 2 iterations
+ ... Newton : End Step #7, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.52e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #8 --- Lambda = 4.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 7.746099e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 3.436604e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.386748e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.136018e+03)
+ ... Newton : Iter #5 (res = 9.631909e-04)
+ ... Newton : Step #8, Iter #1 converged after 5 iterations
+ ... Newton : End Step #8, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.44e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 2.714092e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 4.017180e+02)
+ ... Newton : Iter #3 (res = 4.661586e-05)
+ ... Newton : Step #8, Iter #2 converged after 3 iterations
+ ... Newton : End Step #8, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 4.75e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 7.210525e+03)
+ ... Newton : Iter #2 (res = 4.550378e-03)
+ ... Newton : Step #8, Iter #3 converged after 2 iterations
+ ... Newton : End Step #8, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.66e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #9 --- Lambda = 4.500000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 8.173715e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 3.900380e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.590920e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 1.001891e+04)
+ ... Newton : Iter #5 (res = 4.747216e-03)
+ ... Newton : Step #9, Iter #1 converged after 5 iterations
+ ... Newton : End Step #9, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.53e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 2.898950e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.501656e+02)
+ ... Newton : Iter #3 (res = 4.824080e-05)
+ ... Newton : Step #9, Iter #2 converged after 3 iterations
+ ... Newton : End Step #9, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 5.30e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 8.063288e+03)
+ ... Newton : Iter #2 (res = 6.334869e-03)
+ ... Newton : Step #9, Iter #3 converged after 2 iterations
+ ... Newton : End Step #9, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.92e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #10 --- Lambda = 5.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 8.643205e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 4.782832e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.598008e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 1.583754e+04)
+ ... Newton : Iter #5 (res = 6.824609e-02)
+ ... Newton : Step #10, Iter #1 converged after 5 iterations
+ ... Newton : End Step #10, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.54e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.106663e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 4.563371e+02)
+ ... Newton : Iter #3 (res = 5.929741e-05)
+ ... Newton : Step #10, Iter #2 converged after 3 iterations
+ ... Newton : End Step #10, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 5.59e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 8.813547e+03)
+ ... Newton : Iter #2 (res = 6.229792e-03)
+ ... Newton : Step #10, Iter #3 converged after 2 iterations
+ ... Newton : End Step #10, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 2.19e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #11 --- Lambda = 5.500000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 9.191327e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.350928e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.839719e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 4.219430e+04)
+ ... Newton : Iter #5 (res = 4.793395e-01)
+ ... Newton : Step #11, Iter #1 converged after 5 iterations
+ ... Newton : End Step #11, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.63e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.712300e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.056478e+02)
+ ... Newton : Iter #3 (res = 4.735305e-05)
+ ... Newton : Step #11, Iter #2 converged after 3 iterations
+ ... Newton : End Step #11, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 5.71e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.100607e+04)
+ ... Newton : Iter #2 (res = 4.936564e-03)
+ ... Newton : Step #11, Iter #3 converged after 2 iterations
+ ... Newton : End Step #11, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 2.20e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #12 --- Lambda = 6.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 9.844900e+09)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 6.301205e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 2.263588e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 1.076687e+05)
+ ... Newton : Iter #5 (res = 2.730164e+00)
+ ... Newton : Step #12, Iter #1 converged after 5 iterations
+ ... Newton : End Step #12, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.76e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 4.077279e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.826205e+02)
+ ... Newton : Iter #3 (res = 5.155068e-05)
+ ... Newton : Step #12, Iter #2 converged after 3 iterations
+ ... Newton : End Step #12, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 6.62e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.302333e+04)
+ ... Newton : Iter #2 (res = 8.450058e-03)
+ ... Newton : Step #12, Iter #3 converged after 2 iterations
+ ... Newton : End Step #12, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 2.86e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #13 --- Lambda = 6.500000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.057523e+10)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.516107e+08)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 2.855246e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.742907e+05)
+ ... Newton : Iter #5 (res = 1.566084e+01)
+ ... Newton : Step #13, Iter #1 converged after 5 iterations
+ ... Newton : End Step #13, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.91e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 4.505336e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.129156e+03)
+ ... Newton : Iter #3 (res = 7.381227e-05)
+ ... Newton : Step #13, Iter #2 converged after 3 iterations
+ ... Newton : End Step #13, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 7.90e-06 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.561107e+04)
+ ... Newton : Iter #2 (res = 1.399397e-02)
+ ... Newton : Step #13, Iter #3 converged after 2 iterations
+ ... Newton : End Step #13, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 3.78e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #14 --- Lambda = 7.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.139380e+10)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.028851e+09)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.997721e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 9.014238e+05)
+ ... Newton : Iter #5 (res = 1.248619e+02)
+ ... Newton : Step #14, Iter #1 converged after 5 iterations
+ ... Newton : End Step #14, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 2.05e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 5.174692e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 6.977617e+02)
+ ... Newton : Iter #3 (res = 6.390827e-05)
+ ... Newton : Step #14, Iter #2 converged after 3 iterations
+ ... Newton : End Step #14, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.02e-05 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.928749e+04)
+ ... Newton : Iter #2 (res = 1.492169e-02)
+ ... Newton : Step #14, Iter #3 converged after 2 iterations
+ ... Newton : End Step #14, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 5.28e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #15 --- Lambda = 7.500000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.235418e+10)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.110958e+09)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.991632e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 1.892144e+06)
+ ... Newton : Iter #5 (res = 5.781513e+02)
+ ... Newton : Step #15, Iter #1 converged after 5 iterations
+ ... Newton : End Step #15, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 2.38e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 6.053208e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.187636e+03)
+ ... Newton : Iter #3 (res = 1.045111e-04)
+ ... Newton : Step #15, Iter #2 converged after 3 iterations
+ ... Newton : End Step #15, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.32e-05 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 2.491393e+04)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.934614e-02)
+ ... Newton : Iter #3 (res = 5.367625e-05)
+ ... Newton : Step #15, Iter #3 converged after 3 iterations
+ ... Newton : End Step #15, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 7.41e-08 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #16 --- Lambda = 8.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.345813e+10)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.386300e+09)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 7.211328e+07)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 4.066045e+06)
+ ... Newton : Iter #5 (res = 2.627584e+03)
+ ... Newton : Step #16, Iter #1 converged after 5 iterations
+ ... Newton : End Step #16, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 2.77e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 6.899654e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.999030e+03)
+ ... Newton : Iter #3 (res = 1.725093e-04)
+ ... Newton : Step #16, Iter #2 converged after 3 iterations
+ ... Newton : End Step #16, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.71e-05 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.192117e+04)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.567496e-02)
+ ... Newton : Iter #3 (res = 6.537934e-05)
+ ... Newton : Step #16, Iter #3 converged after 3 iterations
+ ... Newton : End Step #16, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.05e-07 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #17 --- Lambda = 8.500000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.471445e+10)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.764640e+09)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.067404e+08)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.740747e+06)
+ ... Newton : Iter #5 (res = 1.184723e+04)
+ ... Newton : Step #17, Iter #1 converged after 5 iterations
+ ... Newton : End Step #17, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 3.24e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 7.925251e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 3.167353e+03)
+ ... Newton : Iter #3 (res = 2.937845e-04)
+ ... Newton : Step #17, Iter #2 converged after 3 iterations
+ ... Newton : End Step #17, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 2.26e-05 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 4.161392e+04)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.068171e-01)
+ ... Newton : Iter #3 (res = 6.945481e-05)
+ ... Newton : Step #17, Iter #3 converged after 3 iterations
+ ... Newton : End Step #17, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 1.53e-07 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #18 --- Lambda = 9.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.615071e+10)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.391540e+09)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 1.889529e+08)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 1.945550e+07)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 5.778141e+04)
+ ... Newton : Iter #6 (res = 2.995295e-01)
+ ... Newton : Step #18, Iter #1 converged after 6 iterations
+ ... Newton : End Step #18, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 3.92e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 9.359577e+06)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.694608e+03)
+ ... Newton : Iter #3 (res = 2.018813e-04)
+ ... Newton : Step #18, Iter #2 converged after 3 iterations
+ ... Newton : End Step #18, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 3.11e-05 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 5.657576e+04)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.723713e-01)
+ ... Newton : Iter #3 (res = 6.514425e-05)
+ ... Newton : Step #18, Iter #3 converged after 3 iterations
+ ... Newton : End Step #18, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 2.37e-07 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #19 --- Lambda = 9.500000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.780038e+10)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 2.969971e+09)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 2.638710e+08)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 3.949859e+07)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.339837e+05)
+ ... Newton : Iter #6 (res = 4.965676e+00)
+ ... Newton : Step #19, Iter #1 converged after 6 iterations
+ ... Newton : End Step #19, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 4.74e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.128644e+07)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 4.412446e+03)
+ ... Newton : Iter #3 (res = 6.966704e-04)
+ ... Newton : Step #19, Iter #2 converged after 3 iterations
+ ... Newton : End Step #19, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 4.34e-05 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 7.907825e+04)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 3.448028e-01)
+ ... Newton : Iter #3 (res = 6.932597e-05)
+ ... Newton : Step #19, Iter #3 converged after 3 iterations
+ ... Newton : End Step #19, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 3.76e-07 ...
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #20 --- Lambda = 1.000000e+00
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.970793e+10)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 4.010269e+09)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.972591e+08)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 7.874786e+07)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 8.852637e+05)
+ ... Newton : Iter #6 (res = 7.220535e+01)
+ ... Newton : Step #20, Iter #1 converged after 6 iterations
+ ... Newton : End Step #20, Iter #1 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 5.71e-03 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.343716e+07)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.774004e+03)
+ ... Newton : Iter #3 (res = 1.735279e-03)
+ ... Newton : Step #20, Iter #2 converged after 3 iterations
+ ... Newton : End Step #20, Iter #2 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 6.10e-05 ...
+ --------------------------------------
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 1.111644e+05)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.213953e-01)
+ ... Newton : Iter #3 (res = 6.468910e-05)
+ ... Newton : Step #20, Iter #3 converged after 3 iterations
+ ... Newton : End Step #20, Iter #3 --- Max Steps = 20, Max Iters = 10
+ ... Constraint violation: 6.08e-07 ...
+ --------------------------------------
+
+ --------- PROBLEM PARAMETERS ---------
+ ... # Nodes              =     273 ...
+ ... # Elements           =     150 ...
+ ... # Unconstrained dofs =     571 ...
+ ... # Constrained dofs   =     248 ...
+ ... Total # dofs         =     819 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.51e+01 s
+ ... Total Memory Used    = 5.90e+01 Mb
+ ... Total Newton Iterations =  148 
+ --------------------------------------

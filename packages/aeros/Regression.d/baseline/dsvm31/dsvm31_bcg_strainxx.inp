@@ -1,0 +1,16 @@
+CONTROL
+dsvm31_bcg_strainxx
+1
+"nodeset"
+"elemset"
+*
+STATICS
+bcg
+include "../fetidp.include"
+*
+OUTPUT
+strainxx dsvm31_bcg_strainxx.dat 1
+*
+INCLUDE ../dsvm31.include
+*
+END

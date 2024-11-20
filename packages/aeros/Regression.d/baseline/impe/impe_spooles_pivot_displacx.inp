@@ -1,0 +1,19 @@
+CONTROL
+impe_spooles_pivot_displacx
+1
+"nodeset"
+"elemset"
+*
+IMPE
+freq 10.0
+raydamp 1e-6 1.0
+*
+STATICS
+spooles pivot
+include "../fetidph.include"
+OUTPUT
+displacx impe_spooles_pivot_displacx.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

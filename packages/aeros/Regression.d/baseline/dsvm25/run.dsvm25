@@ -1,0 +1,2 @@
+echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm25_FETI_DP_stressp1.inp
+../../bin/aeros -n 2 --dec --nsub 4 dsvm25_FETI_DP_stressp1.inp

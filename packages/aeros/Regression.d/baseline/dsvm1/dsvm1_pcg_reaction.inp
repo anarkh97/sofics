@@ -1,0 +1,16 @@
+CONTROL
+dsvm1_pcg_reaction
+1
+"nodeset"
+"elemset"
+*
+STATICS
+pcg
+*
+OUTPUT
+reaction dsvm1_pcg_reaction.dat  1 NG 1
+reaction dsvm1_pcg_reaction_2.dat  1 NG 2
+*
+INCLUDE ../dsvm1.include
+*
+END

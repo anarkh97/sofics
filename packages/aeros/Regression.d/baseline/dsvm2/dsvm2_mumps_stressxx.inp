@@ -1,0 +1,15 @@
+CONTROL
+dsvm2_mumps_stressxx
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps
+include "../fetidp.include"
+OUTPUT
+stressxx dsvm2_mumps_stressxx.dat 1 NG 1
+*
+INCLUDE ../dsvm2.include
+*
+END

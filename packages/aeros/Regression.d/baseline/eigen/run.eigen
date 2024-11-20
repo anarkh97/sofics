@@ -1,0 +1,6 @@
+echo ../../bin/aeros  eigen_spooles_pivot_0_geigenpa.inp
+../../bin/aeros  eigen_spooles_pivot_0_geigenpa.inp
+echo ../../bin/aeros  eigen_mumps_pivot_0.1_geigenpa.inp
+../../bin/aeros  eigen_mumps_pivot_0.1_geigenpa.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 eigen_FETI_DPH_0_geigenpa.inp
+../../bin/aeros -n 2 --dec --nsub 4 eigen_FETI_DPH_0_geigenpa.inp

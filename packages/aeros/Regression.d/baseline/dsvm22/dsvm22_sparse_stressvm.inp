@@ -1,0 +1,23 @@
+CONTROL
+dsvm22_sparse_stressvm
+1
+"nodeset"
+"elemset"
+*
+STATICS
+sparse
+*
+constraints penalty 1e12
+*
+OUTPUT
+stressvm dsvm22_sparse_stressvm.dat  1
+displacz dsvm22_sparse_stressvm_2.dat  1 NG 1
+displacz dsvm22_sparse_stressvm_3.dat  1 NG 2
+stresszz dsvm22_sparse_stressvm_4.dat  1 NG 1
+stresszz dsvm22_sparse_stressvm_5.dat  1 NG 2
+*
+INCLUDE ../dsvm22.include
+*
+INCLUDE ../dsvm22.contact2
+*
+END

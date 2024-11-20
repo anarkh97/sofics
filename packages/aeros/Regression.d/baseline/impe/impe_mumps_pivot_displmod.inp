@@ -1,0 +1,19 @@
+CONTROL
+impe_mumps_pivot_displmod
+1
+"nodeset"
+"elemset"
+*
+IMPE
+freq 10.0
+raydamp 1e-7 1.0
+*
+STATICS
+mumps pivot
+include "../fetidph.include"
+OUTPUT
+displmod impe_mumps_pivot_displmod.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

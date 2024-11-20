@@ -1,0 +1,4 @@
+echo ../../bin/aeros  dsvm29_mumps_pivot_stressvm.inp
+../../bin/aeros  dsvm29_mumps_pivot_stressvm.inp
+echo ../../bin/aeros  dsvm29_spooles_pivot_stressvm.inp
+../../bin/aeros  dsvm29_spooles_pivot_stressvm.inp

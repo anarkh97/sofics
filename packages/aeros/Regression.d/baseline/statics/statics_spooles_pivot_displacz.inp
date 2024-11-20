@@ -1,0 +1,15 @@
+CONTROL
+statics_spooles_pivot_displacz
+1
+"nodeset"
+"elemset"
+*
+STATICS
+spooles pivot
+*
+OUTPUT
+displacz statics_spooles_pivot_displacz.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

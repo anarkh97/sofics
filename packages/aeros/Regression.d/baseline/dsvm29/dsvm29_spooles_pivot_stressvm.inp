@@ -1,0 +1,20 @@
+CONTROL
+dsvm29_spooles_pivot_stressvm
+1
+"nodeset"
+"elemset"
+*
+STATICS
+spooles pivot
+*
+NONLINEAR
+maxitr 60
+nltol 1.0e-10
+dlambda 0.25 1.5
+*
+OUTPUT
+stressvm dsvm29_spooles_pivot_stressvm.dat 1
+*
+INCLUDE ../dsvm29.include
+*
+END

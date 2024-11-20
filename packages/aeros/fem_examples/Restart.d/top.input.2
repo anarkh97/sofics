@@ -1,0 +1,73 @@
+* This is example 6.2 "The heavy symmetrical top with one point fixed" from
+* UNCONDITIONALLY STABLE ALGORITHMS FOR RIGID BODY DYNAMICS THAT EXACTLY PRESERVE ENERGY
+* AND MOMENTUM, J. C. SIMO AND K. K. WONG, INTERNATIONAL JOURNAL FOR NUMERICAL METHODS IN
+* ENGINEERING, VOL. 31, 19-52 (1991)
+*
+CONTROL
+"top"
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps pivot
+*
+DYNAMICS
+newmark
+mech 0.25 0.5
+time 0.0 0.001 20
+*
+NONLINEAR
+maxit 10
+rebuild 1
+nltol 1e-9
+unsymmetric
+*
+OUTPUT6
+gdisplac "top.dis" 10 2
+*
+RESTART
+"top.restart.2" 10
+"top.restart" ".2"
+*
+NODES
+1 0.0 0.0 0.0
+2 0.0 0.0 1.0
+*
+TOPOLOGY
+1 66 1 2
+*
+ATTRIBUTES
+1 1
+*
+MATERIAL
+1 conmat multipliers
+*
+DIMASS
+2 4 5.0
+2 5 5.0
+2 6 1.0
+*
+DISPLACEMENTS
+1 1 0.0
+1 2 0.0
+1 3 0.0
+*
+FORCES
+2 3 -20.0
+*
+IDISP
+1 4 0.3
+1 5 0.0
+1 6 0.0
+2 2 -0.29552020666
+2 3 -0.04466351087
+2 4 0.3
+2 5 0.0
+2 6 0.0
+*
+IVEL
+1 6 50
+2 6 50
+*
+END

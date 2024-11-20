@@ -1,0 +1,19 @@
+CONTROL
+freqsweep_FETI_DPH_gdispmod
+1
+"nodeset"
+"elemset"
+*
+STATICS
+FETI DPH
+*
+IMPE
+freqsweep 1. 3. 3 10
+raydamp 1e-5 1.0
+recons pade 2 9 10
+OUTPUT
+gdispmod freqsweep_FETI_DPH_gdispmod.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

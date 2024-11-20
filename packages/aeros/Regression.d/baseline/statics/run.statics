@@ -1,0 +1,46 @@
+echo ../../bin/aeros  statics_sparse_gdisplac.inp
+../../bin/aeros  statics_sparse_gdisplac.inp
+echo ../../bin/aeros  statics_skyline_stressvm.inp
+../../bin/aeros  statics_skyline_stressvm.inp
+echo ../../bin/aeros  statics_mumps_strainxx.inp
+../../bin/aeros  statics_mumps_strainxx.inp
+echo ../../bin/aeros  statics_spooles_strainxy.inp
+../../bin/aeros  statics_spooles_strainxy.inp
+echo ../../bin/aeros  statics_gmres_strainxz.inp
+../../bin/aeros  statics_gmres_strainxz.inp
+echo ../../bin/aeros  statics_spooles_pivot_strainxx.inp
+../../bin/aeros  statics_spooles_pivot_strainxx.inp
+echo ../../bin/aeros  statics_mumps_pivot_strainxy.inp
+../../bin/aeros  statics_mumps_pivot_strainxy.inp
+echo ../../bin/aeros  statics_pcg_strainxz.inp
+../../bin/aeros  statics_pcg_strainxz.inp
+echo ../../bin/aeros  statics_bcg_strainxx.inp
+../../bin/aeros  statics_bcg_strainxx.inp
+echo ../../bin/aeros  statics_cr_strainxy.inp
+../../bin/aeros  statics_cr_strainxy.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 statics_FETI_DP_strainvm.inp
+../../bin/aeros -n 2 --dec --nsub 4 statics_FETI_DP_strainvm.inp
+echo ../../bin/aeros  statics_sparse_strainxz.inp
+../../bin/aeros  statics_sparse_strainxz.inp
+echo ../../bin/aeros  statics_skyline_displmod.inp
+../../bin/aeros  statics_skyline_displmod.inp
+echo ../../bin/aeros  statics_mumps_gdispmod.inp
+../../bin/aeros  statics_mumps_gdispmod.inp
+echo ../../bin/aeros  statics_spooles_displacx.inp
+../../bin/aeros  statics_spooles_displacx.inp
+echo ../../bin/aeros  statics_gmres_displacy.inp
+../../bin/aeros  statics_gmres_displacy.inp
+echo ../../bin/aeros  statics_spooles_pivot_displacz.inp
+../../bin/aeros  statics_spooles_pivot_displacz.inp
+echo ../../bin/aeros  statics_mumps_pivot_strainp1.inp
+../../bin/aeros  statics_mumps_pivot_strainp1.inp
+echo ../../bin/aeros  statics_pcg_strainp2.inp
+../../bin/aeros  statics_pcg_strainp2.inp
+echo ../../bin/aeros  statics_bcg_strainp3.inp
+../../bin/aeros  statics_bcg_strainp3.inp
+echo ../../bin/aeros  statics_cr_stressp1.inp
+../../bin/aeros  statics_cr_stressp1.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 statics_FETI_DP_stressp2.inp
+../../bin/aeros -n 2 --dec --nsub 4 statics_FETI_DP_stressp2.inp
+echo ../../bin/aeros  statics_sparse_stressp3.inp
+../../bin/aeros  statics_sparse_stressp3.inp

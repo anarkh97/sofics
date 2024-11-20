@@ -1,0 +1,15 @@
+This directory contains an example Aero-S input file that performs
+a buckling analysis on a simply supported beam. The initial
+displacement of the structure must be input so that the geometric
+stiffness matrix can be computed. 
+
+The steps for performing a buckling analysis are as follows:
+
+1) Perform a static analysis to get the deformed configuration
+   of the structure
+
+2) Input the displacement solution into the Aero-S input file under
+   the command IDISP6
+
+3) Use the EIGEN commands to select the number of buckling modes
+   to be computed and set other options

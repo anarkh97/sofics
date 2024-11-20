@@ -1,0 +1,15 @@
+CONTROL
+dsvm27b_pcg_displacz
+1
+"nodeset"
+"elemset"
+*
+STATICS
+pcg
+*
+OUTPUT
+displacz dsvm27b_pcg_displacz.dat 1
+*
+INCLUDE ../dsvm27b.include
+*
+END

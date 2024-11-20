@@ -1,0 +1,2 @@
+echo ../../bin/aeros  vme5_rotatioz.inp
+../../bin/aeros  vme5_rotatioz.inp

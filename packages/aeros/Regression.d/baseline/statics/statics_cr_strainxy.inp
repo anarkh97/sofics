@@ -1,0 +1,15 @@
+CONTROL
+statics_cr_strainxy
+1
+"nodeset"
+"elemset"
+*
+STATICS
+cr
+*
+OUTPUT
+strainxy statics_cr_strainxy.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

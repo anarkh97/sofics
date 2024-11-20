@@ -1,0 +1,18 @@
+CONTROL
+dsvm24_freq_500_spooles_pivot_displacz
+1
+"nodeset"
+"elemset"
+*
+IMPE
+freq 500
+*
+STATICS
+spooles pivot
+include "../fetidph.include"
+OUTPUT
+displacz dsvm24_freq_500_spooles_pivot_displacz.dat  1 NG 1
+*
+INCLUDE ../dsvm24.include
+*
+END

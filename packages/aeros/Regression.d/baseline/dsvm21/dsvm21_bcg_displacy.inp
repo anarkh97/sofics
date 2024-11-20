@@ -1,0 +1,23 @@
+CONTROL
+dsvm21_bcg_displacy
+1
+"nodeset"
+"elemset"
+*
+STATICS
+bcg
+include "../fetidp.include"
+EIGEN
+arpack
+nsbspv 3
+neigpa 1
+*
+OUTPUT
+displacy dsvm21_bcg_displacy.dat 1
+*
+GEPS
+BUCKLE
+*
+INCLUDE ../dsvm21.include
+*
+END

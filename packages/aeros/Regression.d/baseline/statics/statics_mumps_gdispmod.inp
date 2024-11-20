@@ -1,0 +1,15 @@
+CONTROL
+statics_mumps_gdispmod
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps
+*
+OUTPUT
+gdispmod statics_mumps_gdispmod.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

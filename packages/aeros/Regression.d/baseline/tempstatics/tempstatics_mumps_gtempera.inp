@@ -1,0 +1,18 @@
+CONTROL
+tempstatics_mumps_gtempera
+2
+"nodeset"
+"elemset"
+*
+STATICS
+mumps
+include "../fetidp.include"
+OUTPUT
+gtempera tempstatics_mumps_gtempera.dat 1
+*
+MATERIALS
+1   0.0 0.0 0.0 0.0    0.0 202.4 0.0 0.0 0.0 0.0   0.0 0.0 0.0 0.0
+*
+INCLUDE "../mesh_temp.include"
+*id A   E   nu  rho    c   k     h   P   Ta  q     w   etc...
+END

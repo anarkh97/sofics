@@ -1,0 +1,22 @@
+CONTROL
+nlstatics_skyline_stressp3
+1
+"nodeset"
+"elemset"
+*
+STATICS
+skyline
+include "../fetidp.include"
+*
+NONLINEAR
+maxitr 100
+nltol 1.0e-7
+rebuild 1
+dlambda 0.1 0.3
+*
+OUTPUT
+stressp3 nlstatics_skyline_stressp3.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

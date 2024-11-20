@@ -1,0 +1,16 @@
+CONTROL
+dsvm40_gmres_displacy
+1
+"nodeset"
+"elemset"
+*
+STATICS
+gmres
+include "../fetidp.include"
+cases 1 2
+OUTPUT
+displacy dsvm40_gmres_displacy.dat  1 2
+*
+INCLUDE ../dsvm40.include
+*
+END

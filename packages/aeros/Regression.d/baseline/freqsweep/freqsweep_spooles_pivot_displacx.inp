@@ -1,0 +1,19 @@
+CONTROL
+freqsweep_spooles_pivot_displacx
+1
+"nodeset"
+"elemset"
+*
+STATICS
+spooles pivot
+*
+IMPE
+freqsweep 1. 3. 3 10
+raydamp 1e-6 1.0
+recons pade 2 9 10
+OUTPUT
+displacx freqsweep_spooles_pivot_displacx.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

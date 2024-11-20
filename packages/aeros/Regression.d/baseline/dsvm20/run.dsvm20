@@ -1,0 +1,22 @@
+echo ../../bin/aeros  dsvm20_sparse_gdispmod.inp
+../../bin/aeros  dsvm20_sparse_gdispmod.inp
+echo ../../bin/aeros  dsvm20_spooles_pivot_gdispmod.inp
+../../bin/aeros  dsvm20_spooles_pivot_gdispmod.inp
+echo ../../bin/aeros  dsvm20_mumps_pivot_gdispmod.inp
+../../bin/aeros  dsvm20_mumps_pivot_gdispmod.inp
+echo ../../bin/aeros  dsvm20_skyline_gdispmod.inp
+../../bin/aeros  dsvm20_skyline_gdispmod.inp
+echo ../../bin/aeros  dsvm20_mumps_gdispmod.inp
+../../bin/aeros  dsvm20_mumps_gdispmod.inp
+echo ../../bin/aeros  dsvm20_spooles_gdispmod.inp
+../../bin/aeros  dsvm20_spooles_gdispmod.inp
+echo ../../bin/aeros  dsvm20_direct_gdispmod.inp
+../../bin/aeros  dsvm20_direct_gdispmod.inp
+echo ../../bin/aeros  dsvm20_pcg_gdispmod.inp
+../../bin/aeros  dsvm20_pcg_gdispmod.inp
+echo ../../bin/aeros  dsvm20_bcg_gdispmod.inp
+../../bin/aeros  dsvm20_bcg_gdispmod.inp
+echo ../../bin/aeros  dsvm20_cr_gdispmod.inp
+../../bin/aeros  dsvm20_cr_gdispmod.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm20_FETI_DP_gdispmod.inp
+../../bin/aeros -n 2 --dec --nsub 4 dsvm20_FETI_DP_gdispmod.inp

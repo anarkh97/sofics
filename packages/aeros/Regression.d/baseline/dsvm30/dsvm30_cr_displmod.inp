@@ -1,0 +1,17 @@
+CONTROL
+dsvm30_cr_displmod
+1
+"nodeset"
+"elemset"
+*
+STATICS
+cr
+*
+OUTPUT
+displmod dsvm30_cr_displmod.dat  1
+stressxx dsvm30_cr_displmod_2.dat 1 NG 2
+reaction dsvm30_cr_displmod_3.dat 1 NG 1
+*
+INCLUDE ../dsvm30.include
+*
+END

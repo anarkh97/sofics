@@ -1,0 +1,25 @@
+CONTROL
+dsvm35a_sparse_gtempera
+2
+"nodeset"
+"elemset"
+*
+STATICS
+sparse
+include "../fetidp.include"
+*
+TRBM
+1e-8
+*
+NONLINEAR
+maxitr 100
+nltol 1.0e-10
+rebuild 1
+*
+OUTPUT
+gtempera dsvm35a_sparse_gtempera.dat 1 NG 1
+gtempera dsvm35a_sparse_gtempera_2.dat 1 NG 4
+*
+INCLUDE ../dsvm35a.include
+*
+END

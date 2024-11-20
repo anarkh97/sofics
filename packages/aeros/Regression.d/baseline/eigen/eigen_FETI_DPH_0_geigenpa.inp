@@ -1,0 +1,24 @@
+CONTROL
+eigen_FETI_DPH_0_geigenpa
+1
+"nodeset"
+"elemset"
+*
+STATICS
+FETI DPH
+include "../fetidph.include"
+EIGEN
+arpack
+nsbspv 20
+neigpa 12
+toleig 1.0e-10
+toljac 1.0e-6
+*
+SHIFT 0
+*
+OUTPUT
+geigenpa eigen_FETI_DPH_0_geigenpa.dat 1
+*
+INCLUDE "../mesh_eigen.include"
+*
+END

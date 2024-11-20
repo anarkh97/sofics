@@ -1,0 +1,19 @@
+CONTROL
+vme3_displacy
+1
+"nodeset"
+"elemset"
+*
+DYNAMICS
+time	0.0	2e-7	1.0
+newmark
+mech 0.0 0.5
+stable 0
+*
+OUTPUT
+displacy vme3_displacy.dat 1
+NONLINEAR
+*
+INCLUDE ../vme2.include
+*
+END

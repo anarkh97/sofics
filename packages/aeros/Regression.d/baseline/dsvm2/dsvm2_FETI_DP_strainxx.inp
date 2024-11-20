@@ -1,0 +1,15 @@
+CONTROL
+dsvm2_FETI_DP_strainxx
+1
+"nodeset"
+"elemset"
+*
+STATICS
+FETI DP
+include "../fetidp.include"
+OUTPUT
+strainxx dsvm2_FETI_DP_strainxx.dat 1 NG 1
+*
+INCLUDE ../dsvm2.include
+*
+END

@@ -1,0 +1,22 @@
+CONTROL
+vmmech063_mumps_displacx
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps
+*
+OUTPUT
+displacx vmmech063_mumps_displacx.dat  1 1326
+displacz vmmech063_mumps_displacx_2.dat  1 1326
+stressxx vmmech063_mumps_displacx_3.dat  1 11 upper
+NONLINEAR
+maxitr 10
+nltol 1.0e-6
+rebuild 1
+dlambda 0.08333333333 1.0
+unsymmetric
+INCLUDE ../vmmech063.include
+*
+END

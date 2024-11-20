@@ -1,0 +1,16 @@
+CONTROL
+dsvm31_gmres_stressxx
+1
+"nodeset"
+"elemset"
+*
+STATICS
+gmres
+include "../fetidp.include"
+*
+OUTPUT
+stressxx dsvm31_gmres_stressxx.dat 1
+*
+INCLUDE ../dsvm31.include
+*
+END

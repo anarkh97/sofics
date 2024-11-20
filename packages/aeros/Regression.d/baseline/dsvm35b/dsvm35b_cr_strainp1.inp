@@ -1,0 +1,17 @@
+CONTROL
+dsvm35b_cr_strainp1
+1
+"nodeset"
+"elemset"
+*
+STATICS
+cr
+include "../fetidp.include"
+OUTPUT
+strainp1 dsvm35b_cr_strainp1.dat  1
+displacz dsvm35b_cr_strainp1_2.dat  1
+stresszz dsvm35b_cr_strainp1_3.dat  1
+*
+INCLUDE ../dsvm35b.include
+*
+END

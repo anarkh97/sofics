@@ -1,0 +1,17 @@
+CONTROL
+dsvm30_mumps_displmod
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps
+*
+OUTPUT
+displmod dsvm30_mumps_displmod.dat  1
+stressxx dsvm30_mumps_displmod_2.dat 1 NG 2
+reaction dsvm30_mumps_displmod_3.dat 1 NG 1
+*
+INCLUDE ../dsvm30.include
+*
+END

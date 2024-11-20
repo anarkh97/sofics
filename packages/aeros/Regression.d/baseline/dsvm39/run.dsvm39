@@ -1,0 +1,12 @@
+echo ../../bin/aeros  dsvm39_sparse_displacx.inp
+../../bin/aeros  dsvm39_sparse_displacx.inp
+echo ../../bin/aeros  dsvm39_mumps_displacx.inp
+../../bin/aeros  dsvm39_mumps_displacx.inp
+echo ../../bin/aeros  dsvm39_spooles_displacx.inp
+../../bin/aeros  dsvm39_spooles_displacx.inp
+echo ../../bin/aeros  dsvm39_spooles_pivot_displacx.inp
+../../bin/aeros  dsvm39_spooles_pivot_displacx.inp
+echo ../../bin/aeros  dsvm39_mumps_pivot_displacx.inp
+../../bin/aeros  dsvm39_mumps_pivot_displacx.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm39_FETI_DP_displacx.inp
+../../bin/aeros -n 2 --dec --nsub 4 dsvm39_FETI_DP_displacx.inp

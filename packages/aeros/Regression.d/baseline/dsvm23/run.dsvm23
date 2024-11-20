@@ -1,0 +1,20 @@
+echo ../../bin/aeros  dsvm23_sparse_displacy.inp
+../../bin/aeros  dsvm23_sparse_displacy.inp
+echo ../../bin/aeros  dsvm23_spooles_pivot_displacy.inp
+../../bin/aeros  dsvm23_spooles_pivot_displacy.inp
+echo ../../bin/aeros  dsvm23_mumps_pivot_displacy.inp
+../../bin/aeros  dsvm23_mumps_pivot_displacy.inp
+echo ../../bin/aeros  dsvm23_skyline_displacy.inp
+../../bin/aeros  dsvm23_skyline_displacy.inp
+echo ../../bin/aeros  dsvm23_mumps_displacy.inp
+../../bin/aeros  dsvm23_mumps_displacy.inp
+echo ../../bin/aeros  dsvm23_spooles_displacy.inp
+../../bin/aeros  dsvm23_spooles_displacy.inp
+echo ../../bin/aeros  dsvm23_pcg_displacy.inp
+../../bin/aeros  dsvm23_pcg_displacy.inp
+echo ../../bin/aeros  dsvm23_bcg_displacy.inp
+../../bin/aeros  dsvm23_bcg_displacy.inp
+echo ../../bin/aeros  dsvm23_cr_displacy.inp
+../../bin/aeros  dsvm23_cr_displacy.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm23_FETI_DP_displacy.inp
+../../bin/aeros -n 2 --dec --nsub 4 dsvm23_FETI_DP_displacy.inp

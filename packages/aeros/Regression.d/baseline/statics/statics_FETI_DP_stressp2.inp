@@ -1,0 +1,15 @@
+CONTROL
+statics_FETI_DP_stressp2
+1
+"nodeset"
+"elemset"
+*
+STATICS
+FETI DP
+*
+OUTPUT
+stressp2 statics_FETI_DP_stressp2.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

@@ -1,0 +1,15 @@
+CONTROL
+statics_mumps_pivot_strainp1
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps pivot
+*
+OUTPUT
+strainp1 statics_mumps_pivot_strainp1.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

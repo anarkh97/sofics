@@ -1,0 +1,19 @@
+CONTROL
+impe_FETI_DPH_gdispmod
+1
+"nodeset"
+"elemset"
+*
+IMPE
+freq 10.0
+raydamp 1e-5 1.0
+*
+STATICS
+FETI DPH
+include "../fetidph.include"
+OUTPUT
+gdispmod impe_FETI_DPH_gdispmod.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

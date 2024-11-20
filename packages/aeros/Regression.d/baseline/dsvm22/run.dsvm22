@@ -1,0 +1,16 @@
+echo ../../bin/aeros  dsvm22_sparse_gdisplac.inp
+../../bin/aeros  dsvm22_sparse_gdisplac.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm22_FETI_DP_displacx.inp
+../../bin/aeros -n 2 --dec --nsub 4 dsvm22_FETI_DP_displacx.inp
+echo ../../bin/aeros  dsvm22_sparse_stressvm.inp
+../../bin/aeros  dsvm22_sparse_stressvm.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm22_FETI_DP_strainvm.inp
+../../bin/aeros -n 2 --dec --nsub 4 dsvm22_FETI_DP_strainvm.inp
+echo ../../bin/aeros  dsvm22_sparse_displacx.inp
+../../bin/aeros  dsvm22_sparse_displacx.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm22_FETI_DP_stressvm.inp
+../../bin/aeros -n 2 --dec --nsub 4 dsvm22_FETI_DP_stressvm.inp
+echo ../../bin/aeros  dsvm22_sparse_strainvm.inp
+../../bin/aeros  dsvm22_sparse_strainvm.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm22_FETI_DP_gdisplac.inp
+../../bin/aeros -n 2 --dec --nsub 4 dsvm22_FETI_DP_gdisplac.inp

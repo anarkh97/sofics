@@ -1,0 +1,23 @@
+CONTROL
+dsvm21_mumps_pivot_displacy
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps pivot
+include "../fetidp.include"
+EIGEN
+arpack
+nsbspv 3
+neigpa 1
+*
+OUTPUT
+displacy dsvm21_mumps_pivot_displacy.dat 1
+*
+GEPS
+BUCKLE
+*
+INCLUDE ../dsvm21.include
+*
+END

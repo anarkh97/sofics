@@ -1,0 +1,18 @@
+CONTROL
+dsvm24_freq_500_FETI_DPH_displacz
+1
+"nodeset"
+"elemset"
+*
+IMPE
+freq 500
+*
+STATICS
+FETI DPH
+include "../fetidph.include"
+OUTPUT
+displacz dsvm24_freq_500_FETI_DPH_displacz.dat  1 NG 1
+*
+INCLUDE ../dsvm24.include
+*
+END

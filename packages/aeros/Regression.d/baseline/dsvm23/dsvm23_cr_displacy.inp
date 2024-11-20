@@ -1,0 +1,15 @@
+CONTROL
+dsvm23_cr_displacy
+1
+"nodeset"
+"elemset"
+*
+STATICS
+cr
+include "../fetidp.include"
+OUTPUT
+displacy dsvm23_cr_displacy.dat  1 11
+*
+INCLUDE ../dsvm23.include
+*
+END

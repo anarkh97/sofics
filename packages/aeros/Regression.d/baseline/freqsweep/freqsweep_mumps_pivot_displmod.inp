@@ -1,0 +1,19 @@
+CONTROL
+freqsweep_mumps_pivot_displmod
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps pivot
+*
+IMPE
+freqsweep 1. 3. 3 10
+raydamp 1e-7 1.0
+recons pade 2 9 10
+OUTPUT
+displmod freqsweep_mumps_pivot_displmod.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

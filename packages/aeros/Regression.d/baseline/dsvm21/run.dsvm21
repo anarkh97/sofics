@@ -1,0 +1,18 @@
+echo ../../bin/aeros  dsvm21_sparse_displacy.inp
+../../bin/aeros  dsvm21_sparse_displacy.inp
+echo ../../bin/aeros  dsvm21_spooles_pivot_displacy.inp
+../../bin/aeros  dsvm21_spooles_pivot_displacy.inp
+echo ../../bin/aeros  dsvm21_mumps_pivot_displacy.inp
+../../bin/aeros  dsvm21_mumps_pivot_displacy.inp
+echo ../../bin/aeros  dsvm21_skyline_displacy.inp
+../../bin/aeros  dsvm21_skyline_displacy.inp
+echo ../../bin/aeros  dsvm21_mumps_displacy.inp
+../../bin/aeros  dsvm21_mumps_displacy.inp
+echo ../../bin/aeros  dsvm21_spooles_displacy.inp
+../../bin/aeros  dsvm21_spooles_displacy.inp
+echo ../../bin/aeros  dsvm21_pcg_displacy.inp
+../../bin/aeros  dsvm21_pcg_displacy.inp
+echo ../../bin/aeros  dsvm21_bcg_displacy.inp
+../../bin/aeros  dsvm21_bcg_displacy.inp
+echo ../../bin/aeros  dsvm21_cr_displacy.inp
+../../bin/aeros  dsvm21_cr_displacy.inp

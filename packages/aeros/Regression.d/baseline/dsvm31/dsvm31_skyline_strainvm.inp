@@ -1,0 +1,16 @@
+CONTROL
+dsvm31_skyline_strainvm
+1
+"nodeset"
+"elemset"
+*
+STATICS
+skyline
+include "../fetidp.include"
+*
+OUTPUT
+strainvm dsvm31_skyline_strainvm.dat 1
+*
+INCLUDE ../dsvm31.include
+*
+END

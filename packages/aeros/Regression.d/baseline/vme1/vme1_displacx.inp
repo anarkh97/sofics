@@ -1,0 +1,17 @@
+CONTROL
+vme1_displacx
+1
+"nodeset"
+"elemset"
+*
+DYNAMICS
+time	0.0	0.001	5.0
+newmark
+mech 0.0 0.5 0.0 0.0
+*
+OUTPUT
+displacx vme1_displacx.dat  10 2
+*
+INCLUDE ../vme1.include
+*
+END

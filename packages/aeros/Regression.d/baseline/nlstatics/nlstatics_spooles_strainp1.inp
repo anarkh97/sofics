@@ -1,0 +1,22 @@
+CONTROL
+nlstatics_spooles_strainp1
+1
+"nodeset"
+"elemset"
+*
+STATICS
+spooles
+include "../fetidp.include"
+*
+NONLINEAR
+maxitr 100
+nltol 1.0e-5
+rebuild 1
+dlambda 0.1 0.3
+*
+OUTPUT
+strainp1 nlstatics_spooles_strainp1.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

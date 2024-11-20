@@ -1,0 +1,27 @@
+CONTROL
+tempnldynamics_sparse_gtempera
+2
+"nodeset"
+"elemset"
+*
+STATICS
+sparse
+include "../fetidp.include"
+DYNAMICS
+heat	0.5
+time	1.0	1.0	200.0
+newmark
+NONLINEAR
+maxitr 100
+nltol 1.0e-6
+rebuild 1
+*
+OUTPUT
+gtempera tempnldynamics_sparse_gtempera.dat  200
+*id A   E   nu  rho    c   k     h   P   Ta  q     w   etc...
+MATERIALS
+1   0.0 0.0 0.0 2719.0  0.0 202.4 0.0 0.0 0.0 871.0   0.0 0.0 0.0 0.0
+*
+INCLUDE "../mesh_temp.include"
+*
+END

@@ -1,0 +1,15 @@
+CONTROL
+statics_sparse_gdisplac
+1
+"nodeset"
+"elemset"
+*
+STATICS
+sparse
+*
+OUTPUT
+gdisplac statics_sparse_gdisplac.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

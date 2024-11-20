@@ -1,0 +1,12 @@
+echo ../../bin/aeros  dsvm11_sparse_displmod.inp
+../../bin/aeros  dsvm11_sparse_displmod.inp
+echo ../../bin/aeros  dsvm11_mumps_gdisplac.inp
+../../bin/aeros  dsvm11_mumps_gdisplac.inp
+echo ../../bin/aeros  dsvm11_spooles_displacz.inp
+../../bin/aeros  dsvm11_spooles_displacz.inp
+echo ../../bin/aeros  dsvm11_spooles_pivot_displmod.inp
+../../bin/aeros  dsvm11_spooles_pivot_displmod.inp
+echo ../../bin/aeros  dsvm11_mumps_pivot_gdisplac.inp
+../../bin/aeros  dsvm11_mumps_pivot_gdisplac.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm11_FETI_DP_displacz.inp
+../../bin/aeros -n 2 --dec --nsub 4 dsvm11_FETI_DP_displacz.inp

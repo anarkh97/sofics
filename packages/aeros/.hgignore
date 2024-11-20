@@ -1,0 +1,25 @@
+syntax: glob
+*.orig
+*.dep
+*.dep.*
+*~
+*.o
+*.a
+Parser.d/lex.yy.C
+Parser.d/p.output
+Parser.d/p.tab.C
+Parser.d/p.tab.h
+bin/*
+Makefile
+CMakeCache.txt
+CMakeFiles/*
+cmake_install.cmake
+Parser.d/flex_lexer.cpp
+Parser.d/p.tab.H
+Parser.d/p.tab.c
+HgIdentity.C
+
+.idea
+cmake-build-debug
+syntax: regexp
+.*\#.*\#$

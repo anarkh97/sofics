@@ -1,0 +1,32 @@
+#!/bin/bash
+#PBS -N test
+#PBS -V
+#PBS -l nodes=4:ppn=8,walltime=3:00:00
+
+. /opt/modules/Modules/3.2.6/init/bash
+ module load intel openmpi
+cd /lustre/home/mpotts/FEM/Regression.d/dsvm31
+../create_mfiles.pl
+echo mpirun -n 2 ../../bin/aeros  dsvm31_sparse_stressvm.inp
+mpirun -n 2 --machinefile host.0 ../../bin/aeros  dsvm31_sparse_stressvm.inp &
+echo mpirun -n 2 ../../bin/aeros  dsvm31_skyline_strainvm.inp
+mpirun -n 2 --machinefile host.1 ../../bin/aeros  dsvm31_skyline_strainvm.inp &
+echo mpirun -n 2 ../../bin/aeros  dsvm31_mumps_strainxx.inp
+mpirun -n 2 --machinefile host.2 ../../bin/aeros  dsvm31_mumps_strainxx.inp &
+echo mpirun -n 2 ../../bin/aeros  dsvm31_spooles_stressp3.inp
+mpirun -n 2 --machinefile host.3 ../../bin/aeros  dsvm31_spooles_stressp3.inp &
+echo mpirun -n 2 ../../bin/aeros  dsvm31_gmres_stressxx.inp
+mpirun -n 2 --machinefile host.4 ../../bin/aeros  dsvm31_gmres_stressxx.inp &
+echo mpirun -n 2 ../../bin/aeros  dsvm31_spooles_pivot_strainp3.inp
+mpirun -n 2 --machinefile host.5 ../../bin/aeros  dsvm31_spooles_pivot_strainp3.inp &
+echo mpirun -n 2 ../../bin/aeros  dsvm31_mumps_pivot_stressvm.inp
+mpirun -n 2 --machinefile host.6 ../../bin/aeros  dsvm31_mumps_pivot_stressvm.inp &
+echo mpirun -n 2 ../../bin/aeros  dsvm31_pcg_strainvm.inp
+mpirun -n 2 --machinefile host.7 ../../bin/aeros  dsvm31_pcg_strainvm.inp &
+echo mpirun -n 2 ../../bin/aeros  dsvm31_bcg_strainxx.inp
+mpirun -n 2 --machinefile host.8 ../../bin/aeros  dsvm31_bcg_strainxx.inp &
+echo mpirun -n 2 ../../bin/aeros  dsvm31_cr_stressp3.inp
+mpirun -n 2 --machinefile host.9 ../../bin/aeros  dsvm31_cr_stressp3.inp &
+echo mpirun -n 2 ../../bin/aeros -n 2 --dec --nsub 4 dsvm31_FETI_DP_stressxx.inp
+mpirun -n 2 --machinefile host.10 ../../bin/aeros -n 2 --dec --nsub 4 dsvm31_FETI_DP_stressxx.inp &
+wait %1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 

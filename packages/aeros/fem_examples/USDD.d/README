@@ -1,0 +1,5 @@
+This directory contains an example input file detailing the usage of the
+USDD command. The USDD command is the user-defined prescribed displacements command. 
+
+The routine can be found in the control.C file. To compile this file, set the
+path on line 4 of the Makefile and then type "make".

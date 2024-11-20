@@ -1,0 +1,15 @@
+CONTROL
+dsvm27b_spooles_pivot_displacz
+1
+"nodeset"
+"elemset"
+*
+STATICS
+spooles pivot
+*
+OUTPUT
+displacz dsvm27b_spooles_pivot_displacz.dat 1
+*
+INCLUDE ../dsvm27b.include
+*
+END

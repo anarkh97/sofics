@@ -1,0 +1,2 @@
+echo ../../bin/aeros  vme6_displacx.inp
+../../bin/aeros  vme6_displacx.inp

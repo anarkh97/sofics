@@ -1,0 +1,22 @@
+CONTROL
+nlstatics_mumps_displacz
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps
+include "../fetidp.include"
+*
+NONLINEAR
+maxitr 100
+nltol 1.0e-7
+rebuild 1
+dlambda 0.1 0.3
+*
+OUTPUT
+displacz nlstatics_mumps_displacz.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

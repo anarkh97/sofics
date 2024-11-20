@@ -1,0 +1,16 @@
+CONTROL
+dsvm40_cr_displacy
+1
+"nodeset"
+"elemset"
+*
+STATICS
+cr
+include "../fetidp.include"
+cases 1 2
+OUTPUT
+displacy dsvm40_cr_displacy.dat  1 2
+*
+INCLUDE ../dsvm40.include
+*
+END

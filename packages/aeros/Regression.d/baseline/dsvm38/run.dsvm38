@@ -1,0 +1,2 @@
+echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm38_FETI_DP_gvelocit.inp
+../../bin/aeros -n 2 --dec --nsub 4 dsvm38_FETI_DP_gvelocit.inp

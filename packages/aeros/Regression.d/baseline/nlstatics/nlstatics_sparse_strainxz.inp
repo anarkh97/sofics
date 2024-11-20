@@ -1,0 +1,22 @@
+CONTROL
+nlstatics_sparse_strainxz
+1
+"nodeset"
+"elemset"
+*
+STATICS
+sparse
+include "../fetidp.include"
+*
+NONLINEAR
+maxitr 100
+nltol 1.0e-7
+rebuild 1
+dlambda 0.1 0.3
+*
+OUTPUT
+strainxz nlstatics_sparse_strainxz.dat 1
+*
+INCLUDE "../mesh.include"
+*
+END

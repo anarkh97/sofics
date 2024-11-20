@@ -1,0 +1,23 @@
+CONTROL
+tempnlstatics_skyline_gtempera
+2
+"nodeset"
+"elemset"
+*
+STATICS
+skyline
+include "../fetidp.include"
+NONLINEAR
+maxitr 100
+nltol 1.0e-7
+rebuild 1
+*
+OUTPUT
+gtempera tempnlstatics_skyline_gtempera.dat 1
+*
+MATERIALS
+1   0.0 0.0 0.0 0.0 0.0 202.4 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+*id A   E   nu  rho    c   k     h   P   Ta  q     w   etc...
+INCLUDE "../mesh_temp.include"
+*
+END

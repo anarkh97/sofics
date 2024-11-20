@@ -1,0 +1,5 @@
+This directory contains an example Aero-S input file (shell800.input) that
+shows the user how to select various outputs from the finite element simulation.
+The user can select from displacements, stresses, strains, forces and energies
+while controlling the output format, output increment for transient runs, and
+whether stress is computed at the upper, median, or lower surfaces.

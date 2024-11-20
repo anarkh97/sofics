@@ -1,0 +1,21 @@
+CONTROL
+PlateUnderPressure_displacx
+1
+"nodeset"
+"elemset"
+*
+DYNAMICS
+mech	0.0	0.5
+time 0.0  6.4549E-06 3.0
+stable 0
+NONLINEAR
+MATLAW
+1 J2Plasticity 2.100E+11 3.000E-01 7.850E+03 2.500E+08 0.0 0.0 1.0e-10
+*
+OUTPUT
+displacx PlateUnderPressure_displacx.dat  200 65
+displacx PlateUnderPressure_displacx_2.dat  200 65
+*
+INCLUDE ../PlateUnderPressure.include
+*
+END

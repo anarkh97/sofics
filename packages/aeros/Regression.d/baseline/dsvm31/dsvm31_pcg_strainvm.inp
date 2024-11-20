@@ -1,0 +1,16 @@
+CONTROL
+dsvm31_pcg_strainvm
+1
+"nodeset"
+"elemset"
+*
+STATICS
+pcg
+include "../fetidp.include"
+*
+OUTPUT
+strainvm dsvm31_pcg_strainvm.dat 1
+*
+INCLUDE ../dsvm31.include
+*
+END

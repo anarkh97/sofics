@@ -1,0 +1,17 @@
+CONTROL
+dsvm27a_cr_gtempera
+2
+"nodeset"
+"elemset"
+*
+STATICS
+cr
+include "../fetidp.include"
+OUTPUT
+gtempera dsvm27a_cr_gtempera.dat  1
+heatflxz dsvm27a_cr_gtempera_2.dat  1
+heatreac dsvm27a_cr_gtempera_3.dat  1
+*
+INCLUDE ../dsvm27a.include
+*
+END

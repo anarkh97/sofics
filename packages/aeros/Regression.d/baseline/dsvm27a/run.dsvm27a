@@ -1,0 +1,14 @@
+echo ../../bin/aeros  dsvm27a_sparse_gtempera.inp
+../../bin/aeros  dsvm27a_sparse_gtempera.inp
+echo ../../bin/aeros  dsvm27a_spooles_pivot_gtempera.inp
+../../bin/aeros  dsvm27a_spooles_pivot_gtempera.inp
+echo ../../bin/aeros  dsvm27a_skyline_gtempera.inp
+../../bin/aeros  dsvm27a_skyline_gtempera.inp
+echo ../../bin/aeros  dsvm27a_spooles_gtempera.inp
+../../bin/aeros  dsvm27a_spooles_gtempera.inp
+echo ../../bin/aeros  dsvm27a_pcg_gtempera.inp
+../../bin/aeros  dsvm27a_pcg_gtempera.inp
+echo ../../bin/aeros  dsvm27a_bcg_gtempera.inp
+../../bin/aeros  dsvm27a_bcg_gtempera.inp
+echo ../../bin/aeros  dsvm27a_cr_gtempera.inp
+../../bin/aeros  dsvm27a_cr_gtempera.inp

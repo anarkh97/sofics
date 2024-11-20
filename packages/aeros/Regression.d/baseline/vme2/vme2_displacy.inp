@@ -1,0 +1,26 @@
+CONTROL
+vme2_displacy
+1
+"nodeset"
+"elemset"
+*
+DYNAMICS
+time	0.0	2e-7	1.0
+newmark
+mech 0.0 0.5
+stable 0
+*
+OUTPUT
+displacy vme2_displacy.dat  500 94
+gdisplac vme2_displacy_2.dat  50000
+normal_force_mag vme2_displacy_3.dat  50000
+normal_traction_mag vme2_displacy_4.dat  50000
+cdirnorx vme2_displacy_5.dat  50000
+cdirnory vme2_displacy_6.dat  50000
+cdirnorz vme2_displacy_7.dat  50000
+contact_area vme2_displacy_8.dat  50000
+NONLINEAR
+*
+INCLUDE ../vme2.include
+*
+END

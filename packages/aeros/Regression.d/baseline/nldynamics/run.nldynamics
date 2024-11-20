@@ -1,0 +1,16 @@
+echo ../../bin/aeros  nldynamics_sparse_gdisplac.inp
+../../bin/aeros  nldynamics_sparse_gdisplac.inp
+echo ../../bin/aeros  nldynamics_spooles_stressvm.inp
+../../bin/aeros  nldynamics_spooles_stressvm.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 nldynamics_FETI_DP_strainxx.inp
+../../bin/aeros -n 2 --dec --nsub 4 nldynamics_FETI_DP_strainxx.inp
+echo ../../bin/aeros  nldynamics_mumps_strainxz.inp
+../../bin/aeros  nldynamics_mumps_strainxz.inp
+echo ../../bin/aeros  nldynamics_sparse_stressxx.inp
+../../bin/aeros  nldynamics_sparse_stressxx.inp
+echo ../../bin/aeros  nldynamics_spooles_stressxz.inp
+../../bin/aeros  nldynamics_spooles_stressxz.inp
+echo ../../bin/aeros -n 2 --dec --nsub 4 nldynamics_FETI_DP_gvelocit.inp
+../../bin/aeros -n 2 --dec --nsub 4 nldynamics_FETI_DP_gvelocit.inp
+echo ../../bin/aeros  nldynamics_mumps_gacceler.inp
+../../bin/aeros  nldynamics_mumps_gacceler.inp

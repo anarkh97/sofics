@@ -1,0 +1,23 @@
+#!/bin/bash
+module load intel/13sp1up1 openmpi/1.7.4/intel13sp1up1
+export CMAKE_INCLUDE_PATH=$CMAKE_INCLUDE_PATH:/home/pavery/Codes/eigen:/home/pavery/intel/13sp1up1/openmpi-1.7.4-1/SPOOLES:/home/pavery/intel/13sp1up1/openmpi-1.7.4-1/MUMPS_4.10.0/include:/home/pavery/Codes/trilinos-11.8.1-Source/packages/sacado/src:/home/pavery/intel/13sp1up1/openmpi-1.7.4-1/trilinos-11.8.1-Obj_cmake/include:/home/pavery/Codes/trilinos-11.8.1-Source/packages/zoltan/src
+export CMAKE_LIBRARY_PATH=$CMAKE_LIBRARY_PATH:/home/pavery/intel/13sp1up1/openmpi-1.7.4-1/ARPACK:/home/pavery/intel/13sp1up1/openmpi-1.7.4-1/SPOOLES:/home/pavery/intel/13sp1up1/openmpi-1.7.4-1/SPOOLES/MT/src:/home/pavery/intel/13sp1up1/openmpi-1.7.4-1/MUMPS_4.10.0/lib:/home/pavery/intel/13sp1up1/openmpi-1.7.4-1/trilinos-11.8.1-Obj_cmake/lib
+/home/pavery/bin/cmake \
+-DAERO:BOOL=on \
+-DCMAKE_C_COMPILER:FILEPATH=/opt/intel/composer_xe_2013_sp1.1.106/bin/intel64/icc \
+-DCMAKE_CXX_COMPILER:FILEPATH=/opt/intel/composer_xe_2013_sp1.1.106/bin/intel64/icpc \
+-DCMAKE_Fortran_COMPILER:FILEPATH=/opt/intel/composer_xe_2013_sp1.1.106/bin/intel64/ifort \
+-DCMAKE_CXX_FLAGS:STRING=-wd654,1125,2536,2196,858,161,175,187,1017 \
+-DMPI_C_COMPILER:FILEPATH=/share/sw/free/openmpi/1.7.4/intel/13sp1up1/bin/mpicc \
+-DMPI_CXX_COMPILER:FILEPATH=/share/sw/free/openmpi/1.7.4/intel/13sp1up1/bin/mpiCC \
+-DMPI_Fortran_COMPILER:FILEPATH=/share/sw/free/openmpi/1.7.4/intel/13sp1up1/bin/mpifort \
+-DEXTRALIB:STRING="-lifcore -lifport -L/home/pavery/intel/13sp1up1/openmpi-1.7.4-1/ParMetis-3.2.0 -lparmetis -lmetis -L/home/pavery/intel/13sp1up1/openmpi-1.7.4-1/scotch_5.1.12_esmumps/lib -lptscotch -lscotcherr -lesmumps -lscotch" \
+-DEXTRALIB_MPI:STRING="/share/sw/free/openmpi/1.7.4/intel/13sp1up1/lib/libmpi_usempif08.so;/share/sw/free/openmpi/1.7.4/intel/13sp1up1/lib/libmpi_usempi_ignore_tkr.so;/share/sw/free/openmpi/1.7.4/intel/13sp1up1/lib/libmpi_mpifh.so;/share/sw/free/openmpi/1.7.4/intel/13sp1up1/lib/libmpi.so" \
+-DLAPACK_LIBRARIES:FILEPATH="-Wl,--start-group /opt/intel/composer_xe_2013_sp1.1.106/mkl/lib/intel64/libmkl_scalapack_lp64.a /opt/intel/composer_xe_2013_sp1.1.106/mkl/lib/intel64/libmkl_blacs_openmpi_lp64.a /opt/intel/composer_xe_2013_sp1.1.106/mkl/lib/intel64/libmkl_intel_lp64.a /opt/intel/composer_xe_2013_sp1.1.106/mkl/lib/intel64/libmkl_sequential.a /opt/intel/composer_xe_2013_sp1.1.106/mkl/lib/intel64/libmkl_core.a -Wl,--end-group" \
+-DLAPACK_FOUND:BOOL=true \
+-DBLACS_LIBRARIES:FILEPATH="" \
+-DBLACS_FOUND:BOOL=TRUE \
+-DSCALAPACK_LIBRARY:FILEPATH="" \
+-DSCALAPACK_FOUND:BOOL=TRUE \
+-DCMAKE_LINKER:FILEPATH=/opt/intel/composer_xe_2013_sp1.1.106/bin/intel64/icpc \
+-DCMAKE_BUILD_TYPE=Release ${1:-.}

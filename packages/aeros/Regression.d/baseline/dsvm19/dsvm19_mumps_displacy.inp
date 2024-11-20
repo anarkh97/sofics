@@ -1,0 +1,15 @@
+CONTROL
+dsvm19_mumps_displacy
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps
+include "../fetidp.include"
+OUTPUT
+displacy dsvm19_mumps_displacy.dat 1 27
+*
+INCLUDE ../dsvm19.include
+*
+END

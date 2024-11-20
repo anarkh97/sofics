@@ -1,0 +1,4 @@
+echo ../../bin/aeros  dsvm13_mumps_pivot_buckle_geigenpa.inp
+../../bin/aeros  dsvm13_mumps_pivot_buckle_geigenpa.inp
+echo ../../bin/aeros  dsvm13_spooles_pivot_buckle_geigenpa.inp
+../../bin/aeros  dsvm13_spooles_pivot_buckle_geigenpa.inp

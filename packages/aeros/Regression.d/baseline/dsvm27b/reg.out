@@ -1,0 +1,916 @@
+../../bin/aeros dsvm27b_sparse_displacz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Linear Static Analysis         ... 
+ ... Sparse Solver is Selected      ... 
+ ... Building the Force             ...
+ ... Postprocessing                 ...
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =      27 ...
+ ... # Elements           =      16 ...
+ ... # Unconstrained dofs =     144 ...
+ ... # Constrained dofs   =      45 ...
+ ... Total # dofs         =     162 ...
+ ... # Loaded dofs        =       0 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 9.46e-02 s
+ ... Total Memory Used    = 2.96e-01 Mb
+ --------------------------------------
+../../bin/aeros dsvm27b_spooles_pivot_displacz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Linear Static Analysis         ... 
+ ... Spooles Solver is Selected     ... 
+ ... Building the Force             ...
+ ... Postprocessing                 ...
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =      27 ...
+ ... # Elements           =      16 ...
+ ... # Unconstrained dofs =     144 ...
+ ... # Constrained dofs   =      45 ...
+ ... Total # dofs         =     162 ...
+ ... # Loaded dofs        =       0 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 6.50e-02 s
+ ... Total Memory Used    = 2.35e-01 Mb
+ --------------------------------------
+../../bin/aeros dsvm27b_skyline_displacz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Linear Static Analysis         ... 
+ ... Skyline Solver is Selected     ... 
+ ... Building the Force             ...
+ ... Postprocessing                 ...
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =      27 ...
+ ... # Elements           =      16 ...
+ ... # Unconstrained dofs =     144 ...
+ ... # Constrained dofs   =      45 ...
+ ... Total # dofs         =     162 ...
+ ... # Loaded dofs        =       0 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 6.13e-02 s
+ ... Total Memory Used    = 2.30e-01 Mb
+ --------------------------------------
+../../bin/aeros dsvm27b_spooles_displacz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Linear Static Analysis         ... 
+ ... Spooles Solver is Selected     ... 
+ ... Building the Force             ...
+ ... Postprocessing                 ...
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =      27 ...
+ ... # Elements           =      16 ...
+ ... # Unconstrained dofs =     144 ...
+ ... # Constrained dofs   =      45 ...
+ ... Total # dofs         =     162 ...
+ ... # Loaded dofs        =       0 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 6.38e-02 s
+ ... Total Memory Used    = 2.36e-01 Mb
+ --------------------------------------
+../../bin/aeros dsvm27b_pcg_displacz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Linear Static Analysis         ... 
+ ... Dof Based Sparse Matrix        ...
+ ... CG Solver is Selected          ...
+ ... Building the Force             ...
+in BasePCG::doSolve, maxitr = 1000, tolpcg = 1e-08, proj = 0
+ ... Iteration #  1	 Two norm = 11949.1	 Rel. residual = 0.271248
+ ... Iteration #  2	 Two norm = 10876.6	 Rel. residual = 0.246903
+ ... Iteration #  3	 Two norm = 19679.3	 Rel. residual = 0.446726
+ ... Iteration #  4	 Two norm = 25718.3	 Rel. residual = 0.583813
+ ... Iteration #  5	 Two norm = 25593.7	 Rel. residual = 0.580984
+ ... Iteration #  6	 Two norm = 17268.9	 Rel. residual = 0.392008
+ ... Iteration #  7	 Two norm = 15993.8	 Rel. residual = 0.363064
+ ... Iteration #  8	 Two norm = 16726	 Rel. residual = 0.379685
+ ... Iteration #  9	 Two norm = 14473.8	 Rel. residual = 0.328558
+ ... Iteration #  10	 Two norm = 13441.7	 Rel. residual = 0.305131
+ ... Iteration #  11	 Two norm = 10242.8	 Rel. residual = 0.232515
+ ... Iteration #  12	 Two norm = 6168.41	 Rel. residual = 0.140025
+ ... Iteration #  13	 Two norm = 2864.52	 Rel. residual = 0.0650254
+ ... Iteration #  14	 Two norm = 1229.26	 Rel. residual = 0.0279046
+ ... Iteration #  15	 Two norm = 565.202	 Rel. residual = 0.0128302
+ ... Iteration #  16	 Two norm = 333.924	 Rel. residual = 0.00758017
+ ... Iteration #  17	 Two norm = 268.804	 Rel. residual = 0.00610191
+ ... Iteration #  18	 Two norm = 179.893	 Rel. residual = 0.00408361
+ ... Iteration #  19	 Two norm = 275.549	 Rel. residual = 0.00625503
+ ... Iteration #  20	 Two norm = 377.289	 Rel. residual = 0.00856455
+ ... Iteration #  21	 Two norm = 582.819	 Rel. residual = 0.0132302
+ ... Iteration #  22	 Two norm = 837.375	 Rel. residual = 0.0190086
+ ... Iteration #  23	 Two norm = 931.389	 Rel. residual = 0.0211428
+ ... Iteration #  24	 Two norm = 776.144	 Rel. residual = 0.0176187
+ ... Iteration #  25	 Two norm = 900.469	 Rel. residual = 0.0204409
+ ... Iteration #  26	 Two norm = 2604.02	 Rel. residual = 0.0591119
+ ... Iteration #  27	 Two norm = 3228.8	 Rel. residual = 0.0732946
+ ... Iteration #  28	 Two norm = 2755.7	 Rel. residual = 0.0625551
+ ... Iteration #  29	 Two norm = 2174.48	 Rel. residual = 0.0493613
+ ... Iteration #  30	 Two norm = 1751.5	 Rel. residual = 0.0397595
+ ... Iteration #  31	 Two norm = 1191.22	 Rel. residual = 0.027041
+ ... Iteration #  32	 Two norm = 752.042	 Rel. residual = 0.0170715
+ ... Iteration #  33	 Two norm = 814.24	 Rel. residual = 0.0184835
+ ... Iteration #  34	 Two norm = 1254.17	 Rel. residual = 0.02847
+ ... Iteration #  35	 Two norm = 2314.13	 Rel. residual = 0.0525314
+ ... Iteration #  36	 Two norm = 3746.2	 Rel. residual = 0.0850398
+ ... Iteration #  37	 Two norm = 1314.21	 Rel. residual = 0.029833
+ ... Iteration #  38	 Two norm = 1243.41	 Rel. residual = 0.0282257
+ ... Iteration #  39	 Two norm = 471.364	 Rel. residual = 0.0107001
+ ... Iteration #  40	 Two norm = 189.08	 Rel. residual = 0.00429217
+ ... Iteration #  41	 Two norm = 104.762	 Rel. residual = 0.00237813
+ ... Iteration #  42	 Two norm = 33.6493	 Rel. residual = 0.000763849
+ ... Iteration #  43	 Two norm = 82.6765	 Rel. residual = 0.00187678
+ ... Iteration #  44	 Two norm = 195.571	 Rel. residual = 0.00443951
+ ... Iteration #  45	 Two norm = 557.185	 Rel. residual = 0.0126482
+ ... Iteration #  46	 Two norm = 1268.43	 Rel. residual = 0.0287938
+ ... Iteration #  47	 Two norm = 755.571	 Rel. residual = 0.0171517
+ ... Iteration #  48	 Two norm = 235.771	 Rel. residual = 0.00535207
+ ... Iteration #  49	 Two norm = 60.5945	 Rel. residual = 0.00137551
+ ... Iteration #  50	 Two norm = 32.0847	 Rel. residual = 0.000728332
+ ... Iteration #  51	 Two norm = 19.5875	 Rel. residual = 0.000444641
+ ... Iteration #  52	 Two norm = 103.33	 Rel. residual = 0.00234563
+ ... Iteration #  53	 Two norm = 180.232	 Rel. residual = 0.00409131
+ ... Iteration #  54	 Two norm = 621.092	 Rel. residual = 0.014099
+ ... Iteration #  55	 Two norm = 420.066	 Rel. residual = 0.00953561
+ ... Iteration #  56	 Two norm = 20.0829	 Rel. residual = 0.000455888
+ ... Iteration #  57	 Two norm = 6.43776	 Rel. residual = 0.000146139
+ ... Iteration #  58	 Two norm = 13.0653	 Rel. residual = 0.000296586
+ ... Iteration #  59	 Two norm = 38.339	 Rel. residual = 0.000870305
+ ... Iteration #  60	 Two norm = 179.754	 Rel. residual = 0.00408045
+ ... Iteration #  61	 Two norm = 227.38	 Rel. residual = 0.0051616
+ ... Iteration #  62	 Two norm = 20.31	 Rel. residual = 0.000461042
+ ... Iteration #  63	 Two norm = 2.83867	 Rel. residual = 6.44386e-05
+ ... Iteration #  64	 Two norm = 147.85	 Rel. residual = 0.00335624
+ ... Iteration #  65	 Two norm = 53.1095	 Rel. residual = 0.0012056
+ ... Iteration #  66	 Two norm = 126.642	 Rel. residual = 0.0028748
+ ... Iteration #  67	 Two norm = 16.6015	 Rel. residual = 0.000376859
+ ... Iteration #  68	 Two norm = 3.6146	 Rel. residual = 8.20525e-05
+ ... Iteration #  69	 Two norm = 5.43882	 Rel. residual = 0.000123463
+ ... Iteration #  70	 Two norm = 86.1892	 Rel. residual = 0.00195652
+ ... Iteration #  71	 Two norm = 49.4254	 Rel. residual = 0.00112197
+ ... Iteration #  72	 Two norm = 68.2474	 Rel. residual = 0.00154923
+ ... Iteration #  73	 Two norm = 90.4677	 Rel. residual = 0.00205364
+ ... Iteration #  74	 Two norm = 37.408	 Rel. residual = 0.000849172
+ ... Iteration #  75	 Two norm = 29.4295	 Rel. residual = 0.000668059
+ ... Iteration #  76	 Two norm = 20.8806	 Rel. residual = 0.000473996
+ ... Iteration #  77	 Two norm = 13.7262	 Rel. residual = 0.000311589
+ ... Iteration #  78	 Two norm = 9.68103	 Rel. residual = 0.000219762
+ ... Iteration #  79	 Two norm = 5.97449	 Rel. residual = 0.000135622
+ ... Iteration #  80	 Two norm = 3.53298	 Rel. residual = 8.01996e-05
+ ... Iteration #  81	 Two norm = 10.9555	 Rel. residual = 0.000248693
+ ... Iteration #  82	 Two norm = 14.6415	 Rel. residual = 0.000332365
+ ... Iteration #  83	 Two norm = 57.2252	 Rel. residual = 0.00129903
+ ... Iteration #  84	 Two norm = 60.9092	 Rel. residual = 0.00138266
+ ... Iteration #  85	 Two norm = 23.889	 Rel. residual = 0.000542287
+ ... Iteration #  86	 Two norm = 22.6455	 Rel. residual = 0.000514059
+ ... Iteration #  87	 Two norm = 17.6534	 Rel. residual = 0.000400738
+ ... Iteration #  88	 Two norm = 42.2557	 Rel. residual = 0.000959217
+ ... Iteration #  89	 Two norm = 74.7454	 Rel. residual = 0.00169674
+ ... Iteration #  90	 Two norm = 228.075	 Rel. residual = 0.00517736
+ ... Iteration #  91	 Two norm = 163.613	 Rel. residual = 0.00371405
+ ... Iteration #  92	 Two norm = 59.0395	 Rel. residual = 0.00134021
+ ... Iteration #  93	 Two norm = 33.5564	 Rel. residual = 0.00076174
+ ... Iteration #  94	 Two norm = 12.2789	 Rel. residual = 0.000278733
+ ... Iteration #  95	 Two norm = 8.25863	 Rel. residual = 0.000187473
+ ... Iteration #  96	 Two norm = 7.23612	 Rel. residual = 0.000164262
+ ... Iteration #  97	 Two norm = 3.11367	 Rel. residual = 7.06811e-05
+ ... Iteration #  98	 Two norm = 4.78746	 Rel. residual = 0.000108677
+ ... Iteration #  99	 Two norm = 17.9178	 Rel. residual = 0.000406739
+ ... Iteration #  100	 Two norm = 74.0874	 Rel. residual = 0.0016818
+ ... Iteration #  101	 Two norm = 143.2	 Rel. residual = 0.00325068
+ ... Iteration #  102	 Two norm = 118.238	 Rel. residual = 0.00268403
+ ... Iteration #  103	 Two norm = 48.1223	 Rel. residual = 0.00109239
+ ... Iteration #  104	 Two norm = 8.19117	 Rel. residual = 0.000185942
+ ... Iteration #  105	 Two norm = 2.51505	 Rel. residual = 5.70923e-05
+ ... Iteration #  106	 Two norm = 5.73385	 Rel. residual = 0.00013016
+ ... Iteration #  107	 Two norm = 14.7335	 Rel. residual = 0.000334454
+ ... Iteration #  108	 Two norm = 30.2632	 Rel. residual = 0.000686982
+ ... Iteration #  109	 Two norm = 26.6226	 Rel. residual = 0.00060434
+ ... Iteration #  110	 Two norm = 15.4728	 Rel. residual = 0.000351237
+ ... Iteration #  111	 Two norm = 5.57474	 Rel. residual = 0.000126548
+ ... Iteration #  112	 Two norm = 11.1058	 Rel. residual = 0.000252105
+ ... Iteration #  113	 Two norm = 42.0878	 Rel. residual = 0.000955406
+ ... Iteration #  114	 Two norm = 93.5599	 Rel. residual = 0.00212384
+ ... Iteration #  115	 Two norm = 133.208	 Rel. residual = 0.00302385
+ ... Iteration #  116	 Two norm = 41.8189	 Rel. residual = 0.000949301
+ ... Iteration #  117	 Two norm = 5.27754	 Rel. residual = 0.000119802
+ ... Iteration #  118	 Two norm = 1.85304	 Rel. residual = 4.20646e-05
+ ... Iteration #  119	 Two norm = 2.4924	 Rel. residual = 5.65782e-05
+ ... Iteration #  120	 Two norm = 7.11534	 Rel. residual = 0.00016152
+ ... Iteration #  121	 Two norm = 13.4698	 Rel. residual = 0.000305769
+ ... Iteration #  122	 Two norm = 123.177	 Rel. residual = 0.00279615
+ ... Iteration #  123	 Two norm = 157.33	 Rel. residual = 0.00357143
+ ... Iteration #  124	 Two norm = 178.375	 Rel. residual = 0.00404915
+ ... Iteration #  125	 Two norm = 35.8221	 Rel. residual = 0.00081317
+ ... Iteration #  126	 Two norm = 70.5989	 Rel. residual = 0.00160261
+ ... Iteration #  127	 Two norm = 32.7207	 Rel. residual = 0.000742769
+ ... Iteration #  128	 Two norm = 10.4016	 Rel. residual = 0.00023612
+ ... Iteration #  129	 Two norm = 1.88661	 Rel. residual = 4.28264e-05
+ ... Iteration #  130	 Two norm = 44.1072	 Rel. residual = 0.00100124
+ ... Iteration #  131	 Two norm = 80.0985	 Rel. residual = 0.00181826
+ ... Iteration #  132	 Two norm = 32.0451	 Rel. residual = 0.000727433
+ ... Iteration #  133	 Two norm = 35.9638	 Rel. residual = 0.000816387
+ ... Iteration #  134	 Two norm = 38.8698	 Rel. residual = 0.000882356
+ ... Iteration #  135	 Two norm = 23.931	 Rel. residual = 0.00054324
+ ... Iteration #  136	 Two norm = 19.136	 Rel. residual = 0.000434392
+ ... Iteration #  137	 Two norm = 1.72886	 Rel. residual = 3.92455e-05
+ ... Iteration #  138	 Two norm = 10.4382	 Rel. residual = 0.000236951
+ ... Iteration #  139	 Two norm = 23.9276	 Rel. residual = 0.000543162
+ ... Iteration #  140	 Two norm = 107.805	 Rel. residual = 0.0024472
+ ... Iteration #  141	 Two norm = 36.2772	 Rel. residual = 0.000823503
+ ... Iteration #  142	 Two norm = 51.0585	 Rel. residual = 0.00115904
+ ... Iteration #  143	 Two norm = 4.31277	 Rel. residual = 9.79011e-05
+ ... Iteration #  144	 Two norm = 0.812815	 Rel. residual = 1.84511e-05
+ ... Iteration #  145	 Two norm = 1.06511	 Rel. residual = 2.41784e-05
+ ... Iteration #  146	 Two norm = 7.91083	 Rel. residual = 0.000179578
+ ... Iteration #  147	 Two norm = 20.1933	 Rel. residual = 0.000458394
+ ... Iteration #  148	 Two norm = 17.3831	 Rel. residual = 0.000394601
+ ... Iteration #  149	 Two norm = 40.1478	 Rel. residual = 0.000911367
+ ... Iteration #  150	 Two norm = 47.3834	 Rel. residual = 0.00107562
+ ... Iteration #  151	 Two norm = 14.4617	 Rel. residual = 0.000328284
+ ... Iteration #  152	 Two norm = 6.86215	 Rel. residual = 0.000155773
+ ... Iteration #  153	 Two norm = 6.16251	 Rel. residual = 0.000139891
+ ... Iteration #  154	 Two norm = 4.79624	 Rel. residual = 0.000108876
+ ... Iteration #  155	 Two norm = 6.46214	 Rel. residual = 0.000146692
+ ... Iteration #  156	 Two norm = 7.27094	 Rel. residual = 0.000165052
+ ... Iteration #  157	 Two norm = 3.58141	 Rel. residual = 8.1299e-05
+ ... Iteration #  158	 Two norm = 2.28262	 Rel. residual = 5.18162e-05
+ ... Iteration #  159	 Two norm = 1.07592	 Rel. residual = 2.44238e-05
+ ... Iteration #  160	 Two norm = 3.97428	 Rel. residual = 9.02173e-05
+ ... Iteration #  161	 Two norm = 8.22462	 Rel. residual = 0.000186701
+ ... Iteration #  162	 Two norm = 34.0543	 Rel. residual = 0.000773043
+ ... Iteration #  163	 Two norm = 28.5709	 Rel. residual = 0.000648567
+ ... Iteration #  164	 Two norm = 19.7597	 Rel. residual = 0.00044855
+ ... Iteration #  165	 Two norm = 9.85407	 Rel. residual = 0.00022369
+ ... Iteration #  166	 Two norm = 1.56612	 Rel. residual = 3.55514e-05
+ ... Iteration #  167	 Two norm = 0.593346	 Rel. residual = 1.34691e-05
+ ... Iteration #  168	 Two norm = 0.657768	 Rel. residual = 1.49315e-05
+ ... Iteration #  169	 Two norm = 0.834009	 Rel. residual = 1.89322e-05
+ ... Iteration #  170	 Two norm = 1.92213	 Rel. residual = 4.3633e-05
+ ... Iteration #  171	 Two norm = 8.32123	 Rel. residual = 0.000188894
+ ... Iteration #  172	 Two norm = 16.6838	 Rel. residual = 0.000378726
+ ... Iteration #  173	 Two norm = 11.3608	 Rel. residual = 0.000257893
+ ... Iteration #  174	 Two norm = 20.1133	 Rel. residual = 0.000456576
+ ... Iteration #  175	 Two norm = 22.9145	 Rel. residual = 0.000520165
+ ... Iteration #  176	 Two norm = 8.11407	 Rel. residual = 0.000184192
+ ... Iteration #  177	 Two norm = 1.07274	 Rel. residual = 2.43516e-05
+ ... Iteration #  178	 Two norm = 0.550717	 Rel. residual = 1.25014e-05
+ ... Iteration #  179	 Two norm = 0.485903	 Rel. residual = 1.10301e-05
+ ... Iteration #  180	 Two norm = 1.24004	 Rel. residual = 2.81493e-05
+ ... Iteration #  181	 Two norm = 2.68492	 Rel. residual = 6.09483e-05
+ ... Iteration #  182	 Two norm = 1.33306	 Rel. residual = 3.02609e-05
+ ... Iteration #  183	 Two norm = 0.476811	 Rel. residual = 1.08237e-05
+ ... Iteration #  184	 Two norm = 0.537037	 Rel. residual = 1.21909e-05
+ ... Iteration #  185	 Two norm = 0.66709	 Rel. residual = 1.51431e-05
+ ... Iteration #  186	 Two norm = 1.59904	 Rel. residual = 3.62985e-05
+ ... Iteration #  187	 Two norm = 1.95703	 Rel. residual = 4.44252e-05
+ ... Iteration #  188	 Two norm = 1.78682	 Rel. residual = 4.05612e-05
+ ... Iteration #  189	 Two norm = 1.34908	 Rel. residual = 3.06245e-05
+ ... Iteration #  190	 Two norm = 3.35462	 Rel. residual = 7.61507e-05
+ ... Iteration #  191	 Two norm = 7.47225	 Rel. residual = 0.000169622
+ ... Iteration #  192	 Two norm = 10.4875	 Rel. residual = 0.00023807
+ ... Iteration #  193	 Two norm = 6.38301	 Rel. residual = 0.000144896
+ ... Iteration #  194	 Two norm = 6.41594	 Rel. residual = 0.000145644
+ ... Iteration #  195	 Two norm = 1.66896	 Rel. residual = 3.78857e-05
+ ... Iteration #  196	 Two norm = 0.446595	 Rel. residual = 1.01378e-05
+ ... Iteration #  197	 Two norm = 0.381377	 Rel. residual = 8.65736e-06
+ ... Iteration #  198	 Two norm = 2.62653	 Rel. residual = 5.96229e-05
+ ... Iteration #  199	 Two norm = 9.92352	 Rel. residual = 0.000225267
+ ... Iteration #  200	 Two norm = 2.94633	 Rel. residual = 6.68824e-05
+ ... Iteration #  201	 Two norm = 2.07302	 Rel. residual = 4.70582e-05
+ ... Iteration #  202	 Two norm = 1.86307	 Rel. residual = 4.22922e-05
+ ... Iteration #  203	 Two norm = 0.307137	 Rel. residual = 6.9721e-06
+ ... Iteration #  204	 Two norm = 0.204743	 Rel. residual = 4.64772e-06
+ ... Iteration #  205	 Two norm = 0.276891	 Rel. residual = 6.2855e-06
+ ... Iteration #  206	 Two norm = 1.19474	 Rel. residual = 2.7121e-05
+ ... Iteration #  207	 Two norm = 3.5512	 Rel. residual = 8.06131e-05
+ ... Iteration #  208	 Two norm = 15.2956	 Rel. residual = 0.000347214
+ ... Iteration #  209	 Two norm = 3.28253	 Rel. residual = 7.45144e-05
+ ... Iteration #  210	 Two norm = 2.23072	 Rel. residual = 5.0638e-05
+ ... Iteration #  211	 Two norm = 0.243579	 Rel. residual = 5.52932e-06
+ ... Iteration #  212	 Two norm = 0.0635218	 Rel. residual = 1.44196e-06
+ ... Iteration #  213	 Two norm = 2.24484	 Rel. residual = 5.09584e-05
+ ... Iteration #  214	 Two norm = 1.2658	 Rel. residual = 2.8734e-05
+ ... Iteration #  215	 Two norm = 1.29727	 Rel. residual = 2.94485e-05
+ ... Iteration #  216	 Two norm = 0.33203	 Rel. residual = 7.53718e-06
+ ... Iteration #  217	 Two norm = 0.312782	 Rel. residual = 7.10023e-06
+ ... Iteration #  218	 Two norm = 0.0790138	 Rel. residual = 1.79364e-06
+ ... Iteration #  219	 Two norm = 0.136538	 Rel. residual = 3.09944e-06
+ ... Iteration #  220	 Two norm = 0.119989	 Rel. residual = 2.72379e-06
+ ... Iteration #  221	 Two norm = 0.14303	 Rel. residual = 3.24682e-06
+ ... Iteration #  222	 Two norm = 0.108576	 Rel. residual = 2.46471e-06
+ ... Iteration #  223	 Two norm = 0.914888	 Rel. residual = 2.07682e-05
+ ... Iteration #  224	 Two norm = 0.631892	 Rel. residual = 1.43441e-05
+ ... Iteration #  225	 Two norm = 0.420569	 Rel. residual = 9.54703e-06
+ ... Iteration #  226	 Two norm = 0.258559	 Rel. residual = 5.86935e-06
+ ... Iteration #  227	 Two norm = 1.0365	 Rel. residual = 2.35288e-05
+ ... Iteration #  228	 Two norm = 2.01053	 Rel. residual = 4.56395e-05
+ ... Iteration #  229	 Two norm = 2.01821	 Rel. residual = 4.58138e-05
+ ... Iteration #  230	 Two norm = 0.639367	 Rel. residual = 1.45138e-05
+ ... Iteration #  231	 Two norm = 0.137902	 Rel. residual = 3.13041e-06
+ ... Iteration #  232	 Two norm = 0.0350856	 Rel. residual = 7.96452e-07
+ ... Iteration #  233	 Two norm = 0.0187704	 Rel. residual = 4.26094e-07
+ ... Iteration #  234	 Two norm = 0.0227965	 Rel. residual = 5.17486e-07
+ ... Iteration #  235	 Two norm = 0.020762	 Rel. residual = 4.71304e-07
+ ... Iteration #  236	 Two norm = 0.0124928	 Rel. residual = 2.83589e-07
+ ... Iteration #  237	 Two norm = 0.00386924	 Rel. residual = 8.78329e-08
+ ... Iteration #  238	 Two norm = 0.00281964	 Rel. residual = 6.40066e-08
+ ... Iteration #  239	 Two norm = 0.00391675	 Rel. residual = 8.89113e-08
+ ... Iteration #  240	 Two norm = 0.0201036	 Rel. residual = 4.56357e-07
+ ... Iteration #  241	 Two norm = 0.0798194	 Rel. residual = 1.81192e-06
+ ... Iteration #  242	 Two norm = 0.0867523	 Rel. residual = 1.9693e-06
+ ... Iteration #  243	 Two norm = 0.0815972	 Rel. residual = 1.85228e-06
+ ... Iteration #  244	 Two norm = 0.0925012	 Rel. residual = 2.0998e-06
+ ... Iteration #  245	 Two norm = 0.0917209	 Rel. residual = 2.08209e-06
+ ... Iteration #  246	 Two norm = 0.027275	 Rel. residual = 6.19151e-07
+ ... Iteration #  247	 Two norm = 0.011756	 Rel. residual = 2.66864e-07
+ ... Iteration #  248	 Two norm = 0.00217334	 Rel. residual = 4.93353e-08
+ ... Iteration #  249	 Two norm = 0.00118993	 Rel. residual = 2.70117e-08
+ ... Iteration #  250	 Two norm = 0.000288964	 Rel. residual = 6.55955e-09
+ ... Total # Iterations =           250        0.02132 s
+ ...     Final Two norm = 0.000288964
+ ...     Final residual = 8.35e-08
+ ... Postprocessing                 ...
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =      27 ...
+ ... # Elements           =      16 ...
+ ... # Unconstrained dofs =     144 ...
+ ... # Constrained dofs   =      45 ...
+ ... Total # dofs         =     162 ...
+ ... # Loaded dofs        =       0 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 8.25e-02 s
+ ... Total Memory Used    = 2.11e-01 Mb
+ --------------------------------------
+../../bin/aeros dsvm27b_bcg_displacz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Linear Static Analysis         ... 
+ ... Dof Based Sparse Matrix        ...
+ ... Bi-CG Solver is Selected       ...
+Selected Solver does not implement factor() .
+ ... Building the Force             ...
+ ... Iteration #1	Two norm = 1.9406086e+09	Relative residual = 1.0000000e+00
+ ... Iteration #2	Two norm = 1.4278136e+08	Relative residual = 2.7124815e-01
+ ... Iteration #3	Two norm = 1.1830136e+08	Relative residual = 2.4690273e-01
+ ... Iteration #4	Two norm = 3.8727544e+08	Relative residual = 4.4672577e-01
+ ... Iteration #5	Two norm = 6.6143296e+08	Relative residual = 5.8381325e-01
+ ... Iteration #6	Two norm = 6.5503736e+08	Relative residual = 5.8098385e-01
+ ... Iteration #7	Two norm = 2.9821365e+08	Relative residual = 3.9200787e-01
+ ... Iteration #8	Two norm = 2.5580252e+08	Relative residual = 3.6306421e-01
+ ... Iteration #9	Two norm = 2.7975877e+08	Relative residual = 3.7968452e-01
+ ... Iteration #10	Two norm = 2.0948978e+08	Relative residual = 3.2855830e-01
+ ... Iteration #11	Two norm = 1.8067979e+08	Relative residual = 3.0513064e-01
+ ... Iteration #12	Two norm = 1.0491582e+08	Relative residual = 2.3251529e-01
+ ... Iteration #13	Two norm = 3.8049292e+07	Relative residual = 1.4002459e-01
+ ... Iteration #14	Two norm = 8.2054773e+06	Relative residual = 6.5025388e-02
+ ... Iteration #15	Two norm = 1.5110905e+06	Relative residual = 2.7904630e-02
+ ... Iteration #16	Two norm = 3.1945279e+05	Relative residual = 1.2830228e-02
+ ... Iteration #17	Two norm = 1.1150542e+05	Relative residual = 7.5801712e-03
+ ... Iteration #18	Two norm = 7.2255344e+04	Relative residual = 6.1019131e-03
+ ... Iteration #19	Two norm = 3.2361331e+04	Relative residual = 4.0836096e-03
+ ... Iteration #20	Two norm = 7.5926992e+04	Relative residual = 6.2550261e-03
+ ... Iteration #21	Two norm = 1.4234667e+05	Relative residual = 8.5645528e-03
+ ... Iteration #22	Two norm = 3.3967850e+05	Relative residual = 1.3230159e-02
+ ... Iteration #23	Two norm = 7.0119647e+05	Relative residual = 1.9008633e-02
+ ... Iteration #24	Two norm = 8.6748474e+05	Relative residual = 2.1142773e-02
+ ... Iteration #25	Two norm = 6.0239908e+05	Relative residual = 1.7618672e-02
+ ... Iteration #26	Two norm = 8.1084396e+05	Relative residual = 2.0440884e-02
+ ... Iteration #27	Two norm = 6.7809169e+06	Relative residual = 5.9111944e-02
+ ... Iteration #28	Two norm = 1.0425142e+07	Relative residual = 7.3294608e-02
+ ... Iteration #29	Two norm = 7.5938683e+06	Relative residual = 6.2555077e-02
+ ... Iteration #30	Two norm = 4.7283660e+06	Relative residual = 4.9361298e-02
+ ... Iteration #31	Two norm = 3.0677418e+06	Relative residual = 3.9759456e-02
+ ... Iteration #32	Two norm = 1.4190083e+06	Relative residual = 2.7041047e-02
+ ... Iteration #33	Two norm = 5.6556668e+05	Relative residual = 1.7071549e-02
+ ... Iteration #34	Two norm = 6.6298714e+05	Relative residual = 1.8483473e-02
+ ... Iteration #35	Two norm = 1.5729401e+06	Relative residual = 2.8469977e-02
+ ... Iteration #36	Two norm = 5.3552083e+06	Relative residual = 5.2531429e-02
+ ... Iteration #37	Two norm = 1.4034016e+07	Relative residual = 8.5039757e-02
+ ... Iteration #38	Two norm = 1.7271514e+06	Relative residual = 2.9832952e-02
+ ... Iteration #39	Two norm = 1.5460676e+06	Relative residual = 2.8225736e-02
+ ... Iteration #40	Two norm = 2.2218441e+05	Relative residual = 1.0700100e-02
+ ... Iteration #41	Two norm = 3.5751283e+04	Relative residual = 4.2921693e-03
+ ... Iteration #42	Two norm = 1.0975107e+04	Relative residual = 2.3781291e-03
+ ... Iteration #43	Two norm = 1.1322767e+03	Relative residual = 7.6384865e-04
+ ... Iteration #44	Two norm = 6.8353983e+03	Relative residual = 1.8767782e-03
+ ... Iteration #45	Two norm = 3.8247853e+04	Relative residual = 4.4395051e-03
+ ... Iteration #46	Two norm = 3.1045487e+05	Relative residual = 1.2648245e-02
+ ... Iteration #47	Two norm = 1.6089253e+06	Relative residual = 2.8793799e-02
+ ... Iteration #48	Two norm = 5.7088705e+05	Relative residual = 1.7151659e-02
+ ... Iteration #49	Two norm = 5.5588140e+04	Relative residual = 5.3520739e-03
+ ... Iteration #50	Two norm = 3.6716905e+03	Relative residual = 1.3755110e-03
+ ... Iteration #51	Two norm = 1.0294298e+03	Relative residual = 7.2833202e-04
+ ... Iteration #52	Two norm = 3.8366905e+02	Relative residual = 4.4464090e-04
+ ... Iteration #53	Two norm = 1.0677151e+04	Relative residual = 2.3456258e-03
+ ... Iteration #54	Two norm = 3.2483443e+04	Relative residual = 4.0913069e-03
+ ... Iteration #55	Two norm = 3.8575574e+05	Relative residual = 1.4098965e-02
+ ... Iteration #56	Two norm = 1.7645523e+05	Relative residual = 9.5356060e-03
+ ... Iteration #57	Two norm = 4.0332396e+02	Relative residual = 4.5588787e-04
+ ... Iteration #58	Two norm = 4.1444763e+01	Relative residual = 1.4613891e-04
+ ... Iteration #59	Two norm = 1.7070264e+02	Relative residual = 2.9658634e-04
+ ... Iteration #60	Two norm = 1.4698778e+03	Relative residual = 8.7030534e-04
+ ... Iteration #61	Two norm = 3.2311349e+04	Relative residual = 4.0804548e-03
+ ... Iteration #62	Two norm = 5.1701845e+04	Relative residual = 5.1615965e-03
+ ... Iteration #63	Two norm = 4.1249450e+02	Relative residual = 4.6104160e-04
+ ... Iteration #64	Two norm = 8.0580421e+00	Relative residual = 6.4438555e-05
+ ... Iteration #65	Two norm = 2.1859680e+04	Relative residual = 3.3562394e-03
+ ... Iteration #66	Two norm = 2.8206147e+03	Relative residual = 1.2055991e-03
+ ... Iteration #67	Two norm = 1.6038159e+04	Relative residual = 2.8748043e-03
+ ... Iteration #68	Two norm = 2.7561051e+02	Relative residual = 3.7685902e-04
+ ... Iteration #69	Two norm = 1.3065353e+01	Relative residual = 8.2052460e-05
+ ... Iteration #70	Two norm = 2.9580722e+01	Relative residual = 1.2346260e-04
+ ... Iteration #71	Two norm = 7.4285766e+03	Relative residual = 1.9565179e-03
+ ... Iteration #72	Two norm = 2.4428694e+03	Relative residual = 1.1219698e-03
+ ... Iteration #73	Two norm = 4.6577047e+03	Relative residual = 1.5492340e-03
+ ... Iteration #74	Two norm = 8.1844050e+03	Relative residual = 2.0536413e-03
+ ... Iteration #75	Two norm = 1.3993584e+03	Relative residual = 8.4917169e-04
+ ... Iteration #76	Two norm = 8.6609789e+02	Relative residual = 6.6805854e-04
+ ... Iteration #77	Two norm = 4.3600109e+02	Relative residual = 4.7399615e-04
+ ... Iteration #78	Two norm = 1.8840928e+02	Relative residual = 3.1158904e-04
+ ... Iteration #79	Two norm = 9.3722417e+01	Relative residual = 2.1976209e-04
+ ... Iteration #80	Two norm = 3.5694472e+01	Relative residual = 1.3562243e-04
+ ... Iteration #81	Two norm = 1.2481951e+01	Relative residual = 8.0199612e-05
+ ... Iteration #82	Two norm = 1.2002330e+02	Relative residual = 2.4869314e-04
+ ... Iteration #83	Two norm = 2.1437221e+02	Relative residual = 3.3236499e-04
+ ... Iteration #84	Two norm = 3.2747254e+03	Relative residual = 1.2990279e-03
+ ... Iteration #85	Two norm = 3.7099367e+03	Relative residual = 1.3826564e-03
+ ... Iteration #86	Two norm = 5.7068445e+02	Relative residual = 5.4228682e-04
+ ... Iteration #87	Two norm = 5.1281790e+02	Relative residual = 5.1405858e-04
+ ... Iteration #88	Two norm = 3.1164420e+02	Relative residual = 4.0073802e-04
+ ... Iteration #89	Two norm = 1.7855475e+03	Relative residual = 9.5921671e-04
+ ... Iteration #90	Two norm = 5.5868741e+03	Relative residual = 1.6967407e-03
+ ... Iteration #91	Two norm = 5.2018175e+04	Relative residual = 5.1773626e-03
+ ... Iteration #92	Two norm = 2.6769086e+04	Relative residual = 3.7140505e-03
+ ... Iteration #93	Two norm = 3.4856671e+03	Relative residual = 1.3402135e-03
+ ... Iteration #94	Two norm = 1.1260326e+03	Relative residual = 7.6173956e-04
+ ... Iteration #95	Two norm = 1.5077034e+02	Relative residual = 2.7873338e-04
+ ... Iteration #96	Two norm = 6.8204970e+01	Relative residual = 1.8747313e-04
+ ... Iteration #97	Two norm = 5.2361408e+01	Relative residual = 1.6426184e-04
+ ... Iteration #98	Two norm = 9.6949195e+00	Relative residual = 7.0681073e-05
+ ... Iteration #99	Two norm = 2.2919775e+01	Relative residual = 1.0867664e-04
+ ... Iteration #100	Two norm = 3.2104695e+02	Relative residual = 4.0673852e-04
+ ... Iteration #101	Two norm = 5.4889361e+03	Relative residual = 1.6818030e-03
+ ... Iteration #102	Two norm = 2.0506307e+04	Relative residual = 3.2506840e-03
+ ... Iteration #103	Two norm = 1.3980214e+04	Relative residual = 2.6840336e-03
+ ... Iteration #104	Two norm = 2.3157559e+03	Relative residual = 1.0923893e-03
+ ... Iteration #105	Two norm = 6.7095191e+01	Relative residual = 1.8594167e-04
+ ... Iteration #106	Two norm = 6.3254786e+00	Relative residual = 5.7092324e-05
+ ... Iteration #107	Two norm = 3.2877075e+01	Relative residual = 1.3016002e-04
+ ... Iteration #108	Two norm = 2.1707488e+02	Relative residual = 3.3445355e-04
+ ... Iteration #109	Two norm = 9.1586042e+02	Relative residual = 6.8698250e-04
+ ... Iteration #110	Two norm = 7.0876188e+02	Relative residual = 6.0433981e-04
+ ... Iteration #111	Two norm = 2.3940787e+02	Relative residual = 3.5123699e-04
+ ... Iteration #112	Two norm = 3.1077736e+01	Relative residual = 1.2654813e-04
+ ... Iteration #113	Two norm = 1.2333878e+02	Relative residual = 2.5210465e-04
+ ... Iteration #114	Two norm = 1.7713871e+03	Relative residual = 9.5540557e-04
+ ... Iteration #115	Two norm = 8.7534627e+03	Relative residual = 2.1238360e-03
+ ... Iteration #116	Two norm = 1.7744304e+04	Relative residual = 3.0238519e-03
+ ... Iteration #117	Two norm = 1.7488233e+03	Relative residual = 9.4930111e-04
+ ... Iteration #118	Two norm = 2.7852430e+01	Relative residual = 1.1980159e-04
+ ... Iteration #119	Two norm = 3.4337756e+00	Relative residual = 4.2064622e-05
+ ... Iteration #120	Two norm = 6.2120693e+00	Relative residual = 5.6578206e-05
+ ... Iteration #121	Two norm = 5.0628131e+01	Relative residual = 1.6152025e-04
+ ... Iteration #122	Two norm = 1.8143671e+02	Relative residual = 3.0576911e-04
+ ... Iteration #123	Two norm = 1.5172559e+04	Relative residual = 2.7961499e-03
+ ... Iteration #124	Two norm = 2.4752638e+04	Relative residual = 3.5714270e-03
+ ... Iteration #125	Two norm = 3.1817528e+04	Relative residual = 4.0491536e-03
+ ... Iteration #126	Two norm = 1.2832196e+03	Relative residual = 8.1317031e-04
+ ... Iteration #127	Two norm = 4.9842065e+03	Relative residual = 1.6026144e-03
+ ... Iteration #128	Two norm = 1.0706447e+03	Relative residual = 7.4276890e-04
+ ... Iteration #129	Two norm = 1.0819398e+02	Relative residual = 2.3611990e-04
+ ... Iteration #130	Two norm = 3.5592786e+00	Relative residual = 4.2826444e-05
+ ... Iteration #131	Two norm = 1.9454416e+03	Relative residual = 1.0012445e-03
+ ... Iteration #132	Two norm = 6.4157655e+03	Relative residual = 1.8182570e-03
+ ... Iteration #133	Two norm = 1.0268908e+03	Relative residual = 7.2743328e-04
+ ... Iteration #134	Two norm = 1.2933925e+03	Relative residual = 8.1638722e-04
+ ... Iteration #135	Two norm = 1.5108632e+03	Relative residual = 8.8235551e-04
+ ... Iteration #136	Two norm = 5.7269325e+02	Relative residual = 5.4324040e-04
+ ... Iteration #137	Two norm = 3.6618650e+02	Relative residual = 4.3439238e-04
+ ... Iteration #138	Two norm = 2.9889489e+00	Relative residual = 3.9245537e-05
+ ... Iteration #139	Two norm = 1.0895706e+02	Relative residual = 2.3695109e-04
+ ... Iteration #140	Two norm = 5.7252787e+02	Relative residual = 5.4316196e-04
+ ... Iteration #141	Two norm = 1.1621926e+04	Relative residual = 2.4472034e-03
+ ... Iteration #142	Two norm = 1.3160362e+03	Relative residual = 8.2350255e-04
+ ... Iteration #143	Two norm = 2.6069750e+03	Relative residual = 1.1590428e-03
+ ... Iteration #144	Two norm = 1.8600020e+01	Relative residual = 9.7901136e-05
+ ... Iteration #145	Two norm = 6.6066872e-01	Relative residual = 1.8451127e-05
+ ... Iteration #146	Two norm = 1.1344694e+00	Relative residual = 2.4178392e-05
+ ... Iteration #147	Two norm = 6.2581218e+01	Relative residual = 1.7957796e-04
+ ... Iteration #148	Two norm = 4.0777116e+02	Relative residual = 4.5839438e-04
+ ... Iteration #149	Two norm = 3.0217147e+02	Relative residual = 3.9460061e-04
+ ... Iteration #150	Two norm = 1.6118487e+03	Relative residual = 9.1136673e-04
+ ... Iteration #151	Two norm = 2.2451825e+03	Relative residual = 1.0756150e-03
+ ... Iteration #152	Two norm = 2.0914017e+02	Relative residual = 3.2828403e-04
+ ... Iteration #153	Two norm = 4.7089051e+01	Relative residual = 1.5577257e-04
+ ... Iteration #154	Two norm = 3.7976559e+01	Relative residual = 1.3989070e-04
+ ... Iteration #155	Two norm = 2.3003962e+01	Relative residual = 1.0887605e-04
+ ... Iteration #156	Two norm = 4.1759313e+01	Relative residual = 1.4669243e-04
+ ... Iteration #157	Two norm = 5.2866607e+01	Relative residual = 1.6505236e-04
+ ... Iteration #158	Two norm = 1.2826521e+01	Relative residual = 8.1299048e-05
+ ... Iteration #159	Two norm = 5.2103769e+00	Relative residual = 5.1816204e-05
+ ... Iteration #160	Two norm = 1.1576137e+00	Relative residual = 2.4423779e-05
+ ... Iteration #161	Two norm = 1.5794937e+01	Relative residual = 9.0217331e-05
+ ... Iteration #162	Two norm = 6.7644393e+01	Relative residual = 1.8670112e-04
+ ... Iteration #163	Two norm = 1.1596974e+03	Relative residual = 7.7304250e-04
+ ... Iteration #164	Two norm = 8.1629530e+02	Relative residual = 6.4856675e-04
+ ... Iteration #165	Two norm = 3.9044506e+02	Relative residual = 4.4855014e-04
+ ... Iteration #166	Two norm = 9.7102694e+01	Relative residual = 2.2369005e-04
+ ... Iteration #167	Two norm = 2.4527349e+00	Relative residual = 3.5551370e-05
+ ... Iteration #168	Two norm = 3.5205963e-01	Relative residual = 1.3469118e-05
+ ... Iteration #169	Two norm = 4.3265899e-01	Relative residual = 1.4931516e-05
+ ... Iteration #170	Two norm = 6.9557039e-01	Relative residual = 1.8932221e-05
+ ... Iteration #171	Two norm = 3.6945979e+00	Relative residual = 4.3632954e-05
+ ... Iteration #172	Two norm = 6.9242911e+01	Relative residual = 1.8889423e-04
+ ... Iteration #173	Two norm = 2.7834826e+02	Relative residual = 3.7872614e-04
+ ... Iteration #174	Two norm = 1.2906797e+02	Relative residual = 2.5789342e-04
+ ... Iteration #175	Two norm = 4.0454295e+02	Relative residual = 4.5657628e-04
+ ... Iteration #176	Two norm = 5.2507274e+02	Relative residual = 5.2016457e-04
+ ... Iteration #177	Two norm = 6.5838129e+01	Relative residual = 1.8419158e-04
+ ... Iteration #178	Two norm = 1.1507782e+00	Relative residual = 2.4351563e-05
+ ... Iteration #179	Two norm = 3.0328945e-01	Relative residual = 1.2501430e-05
+ ... Iteration #180	Two norm = 2.3610197e-01	Relative residual = 1.1030135e-05
+ ... Iteration #181	Two norm = 1.5377064e+00	Relative residual = 2.8149309e-05
+ ... Iteration #182	Two norm = 7.2087740e+00	Relative residual = 6.0948319e-05
+ ... Iteration #183	Two norm = 1.7770550e+00	Relative residual = 3.0260874e-05
+ ... Iteration #184	Two norm = 2.2734869e-01	Relative residual = 1.0823738e-05
+ ... Iteration #185	Two norm = 2.8840923e-01	Relative residual = 1.2190895e-05
+ ... Iteration #186	Two norm = 4.4500865e-01	Relative residual = 1.5143116e-05
+ ... Iteration #187	Two norm = 2.5569136e+00	Relative residual = 3.6298531e-05
+ ... Iteration #188	Two norm = 3.8299857e+00	Relative residual = 4.4425222e-05
+ ... Iteration #189	Two norm = 3.1927158e+00	Relative residual = 4.0561234e-05
+ ... Iteration #190	Two norm = 1.8200158e+00	Relative residual = 3.0624472e-05
+ ... Iteration #191	Two norm = 1.1253466e+01	Relative residual = 7.6150750e-05
+ ... Iteration #192	Two norm = 5.5834547e+01	Relative residual = 1.6962214e-04
+ ... Iteration #193	Two norm = 1.0998867e+02	Relative residual = 2.3807018e-04
+ ... Iteration #194	Two norm = 4.0742852e+01	Relative residual = 1.4489612e-04
+ ... Iteration #195	Two norm = 4.1164288e+01	Relative residual = 1.4564358e-04
+ ... Iteration #196	Two norm = 2.7854114e+00	Relative residual = 3.7885734e-05
+ ... Iteration #197	Two norm = 1.9944692e-01	Relative residual = 1.0137823e-05
+ ... Iteration #198	Two norm = 1.4544836e-01	Relative residual = 8.6573593e-06
+ ... Iteration #199	Two norm = 6.8986586e+00	Relative residual = 5.9622935e-05
+ ... Iteration #200	Two norm = 9.8476228e+01	Relative residual = 2.2526656e-04
+ ... Iteration #201	Two norm = 8.6808423e+00	Relative residual = 6.6882417e-05
+ ... Iteration #202	Two norm = 4.2974293e+00	Relative residual = 4.7058209e-05
+ ... Iteration #203	Two norm = 3.4710239e+00	Relative residual = 4.2292157e-05
+ ... Iteration #204	Two norm = 9.4333355e-02	Relative residual = 6.9721010e-06
+ ... Iteration #205	Two norm = 4.1919737e-02	Relative residual = 4.6477237e-06
+ ... Iteration #206	Two norm = 7.6668660e-02	Relative residual = 6.2855020e-06
+ ... Iteration #207	Two norm = 1.4274148e+00	Relative residual = 2.7121027e-05
+ ... Iteration #208	Two norm = 1.2610999e+01	Relative residual = 8.0613128e-05
+ ... Iteration #209	Two norm = 2.3395516e+02	Relative residual = 3.4721409e-04
+ ... Iteration #210	Two norm = 1.0775016e+01	Relative residual = 7.4514363e-05
+ ... Iteration #211	Two norm = 4.9761233e+00	Relative residual = 5.0638006e-05
+ ... Iteration #212	Two norm = 5.9330936e-02	Relative residual = 5.5293188e-06
+ ... Iteration #213	Two norm = 4.0350133e-03	Relative residual = 1.4419610e-06
+ ... Iteration #214	Two norm = 5.0392930e+00	Relative residual = 5.0958406e-05
+ ... Iteration #215	Two norm = 1.6022520e+00	Relative residual = 2.8734023e-05
+ ... Iteration #216	Two norm = 1.6829222e+00	Relative residual = 2.9448492e-05
+ ... Iteration #217	Two norm = 1.1024420e-01	Relative residual = 7.5371802e-06
+ ... Iteration #218	Two norm = 9.7832334e-02	Relative residual = 7.1002270e-06
+ ... Iteration #219	Two norm = 6.2431854e-03	Relative residual = 1.7936353e-06
+ ... Iteration #220	Two norm = 1.8642571e-02	Relative residual = 3.0994450e-06
+ ... Iteration #221	Two norm = 1.4397422e-02	Relative residual = 2.7237886e-06
+ ... Iteration #222	Two norm = 2.0457570e-02	Relative residual = 3.2468188e-06
+ ... Iteration #223	Two norm = 1.1788803e-02	Relative residual = 2.4647103e-06
+ ... Iteration #224	Two norm = 8.3702020e-01	Relative residual = 2.0768207e-05
+ ... Iteration #225	Two norm = 3.9928798e-01	Relative residual = 1.4344128e-05
+ ... Iteration #226	Two norm = 1.7687841e-01	Relative residual = 9.5470335e-06
+ ... Iteration #227	Two norm = 6.6852501e-02	Relative residual = 5.8693480e-06
+ ... Iteration #228	Two norm = 1.0743260e+00	Relative residual = 2.3528761e-05
+ ... Iteration #229	Two norm = 4.0422140e+00	Relative residual = 4.5639479e-05
+ ... Iteration #230	Two norm = 4.0731575e+00	Relative residual = 4.5813833e-05
+ ... Iteration #231	Two norm = 4.0878987e-01	Relative residual = 1.4513799e-05
+ ... Iteration #232	Two norm = 1.9016915e-02	Relative residual = 3.1304088e-06
+ ... Iteration #233	Two norm = 1.2309981e-03	Relative residual = 7.9645222e-07
+ ... Iteration #234	Two norm = 3.5232874e-04	Relative residual = 4.2609365e-07
+ ... Iteration #235	Two norm = 5.1967880e-04	Relative residual = 5.1748591e-07
+ ... Iteration #236	Two norm = 4.3106231e-04	Relative residual = 4.7130392e-07
+ ... Iteration #237	Two norm = 1.5606911e-04	Relative residual = 2.8358908e-07
+ ... Iteration #238	Two norm = 1.4971045e-05	Relative residual = 8.7832874e-08
+ ... Iteration #239	Two norm = 7.9503830e-06	Relative residual = 6.4006644e-08
+ ... Iteration #240	Two norm = 1.5340932e-05	Relative residual = 8.8911288e-08
+ ... Iteration #241	Two norm = 4.0415382e-04	Relative residual = 4.5635664e-07
+ ... Iteration #242	Two norm = 6.3711333e-03	Relative residual = 1.8119215e-06
+ ... Iteration #243	Two norm = 7.5259678e-03	Relative residual = 1.9693015e-06
+ ... Iteration #244	Two norm = 6.6581018e-03	Relative residual = 1.8522783e-06
+ ... Iteration #245	Two norm = 8.5564639e-03	Relative residual = 2.0998012e-06
+ ... Iteration #246	Two norm = 8.4127241e-03	Relative residual = 2.0820893e-06
+ ... Iteration #247	Two norm = 7.4392757e-04	Relative residual = 6.1915068e-07
+ ... Iteration #248	Two norm = 1.3820304e-04	Relative residual = 2.6686390e-07
+ ... Iteration #249	Two norm = 4.7233913e-06	Relative residual = 4.9335325e-08
+ ... Iteration #250	Two norm = 1.4159275e-06	Relative residual = 2.7011676e-08
+ ... Postprocessing                 ...
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =      27 ...
+ ... # Elements           =      16 ...
+ ... # Unconstrained dofs =     144 ...
+ ... # Constrained dofs   =      45 ...
+ ... Total # dofs         =     162 ...
+ ... # Loaded dofs        =       0 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 7.10e-02 s
+ ... Total Memory Used    = 2.12e-01 Mb
+ --------------------------------------
+../../bin/aeros dsvm27b_cr_displacz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Linear Static Analysis         ... 
+ ... Dof Based Sparse Matrix        ...
+ ... CR Solver is Selected          ...
+Selected Solver does not implement factor() .
+ ... Building the Force             ...
+ ... Iteration #1	Two norm = 1.3299609e+08	  Rel. residual  2.6178844e-01 
+ ... Iteration #2	Two norm = 6.2609542e+07	  Rel. residual  1.7961859e-01 
+ ... Iteration #3	Two norm = 5.3896304e+07	  Rel. residual  1.6665200e-01 
+ ... Iteration #4	Two norm = 4.9835501e+07	  Rel. residual  1.6025089e-01 
+ ... Iteration #5	Two norm = 4.6312061e+07	  Rel. residual  1.5448207e-01 
+ ... Iteration #6	Two norm = 4.0086671e+07	  Rel. residual  1.4372457e-01 
+ ... Iteration #7	Two norm = 3.4655782e+07	  Rel. residual  1.3363459e-01 
+ ... Iteration #8	Two norm = 3.0835911e+07	  Rel. residual  1.2605481e-01 
+ ... Iteration #9	Two norm = 2.6879391e+07	  Rel. residual  1.1769032e-01 
+ ... Iteration #10	Two norm = 2.3398448e+07	  Rel. residual  1.0980562e-01 
+ ... Iteration #11	Two norm = 1.9131679e+07	  Rel. residual  9.9290471e-02 
+ ... Iteration #12	Two norm = 1.2730578e+07	  Rel. residual  8.0994419e-02 
+ ... Iteration #13	Two norm = 4.9895010e+06	  Rel. residual  5.0706027e-02 
+ ... Iteration #14	Two norm = 1.1598310e+06	  Rel. residual  2.4447158e-02 
+ ... Iteration #15	Two norm = 2.5046665e+05	  Rel. residual  1.1360723e-02 
+ ... Iteration #16	Two norm = 7.7156197e+04	  Rel. residual  6.3054551e-03 
+ ... Iteration #17	Two norm = 3.7312697e+04	  Rel. residual  4.3848965e-03 
+ ... Iteration #18	Two norm = 1.7330540e+04	  Rel. residual  2.9883886e-03 
+ ... Iteration #19	Two norm = 1.4109914e+04	  Rel. residual  2.6964552e-03 
+ ... Iteration #20	Two norm = 1.2837423e+04	  Rel. residual  2.5719940e-03 
+ ... Iteration #21	Two norm = 1.2369928e+04	  Rel. residual  2.5247281e-03 
+ ... Iteration #22	Two norm = 1.2155491e+04	  Rel. residual  2.5027489e-03 
+ ... Iteration #23	Two norm = 1.1987517e+04	  Rel. residual  2.4853963e-03 
+ ... Iteration #24	Two norm = 1.1753625e+04	  Rel. residual  2.4610302e-03 
+ ... Iteration #25	Two norm = 1.1585684e+04	  Rel. residual  2.4433848e-03 
+ ... Iteration #26	Two norm = 1.1565923e+04	  Rel. residual  2.4413001e-03 
+ ... Iteration #27	Two norm = 1.1553105e+04	  Rel. residual  2.4399470e-03 
+ ... Iteration #28	Two norm = 1.1535555e+04	  Rel. residual  2.4380931e-03 
+ ... Iteration #29	Two norm = 1.1507481e+04	  Rel. residual  2.4351245e-03 
+ ... Iteration #30	Two norm = 1.1464477e+04	  Rel. residual  2.4305701e-03 
+ ... Iteration #31	Two norm = 1.1372595e+04	  Rel. residual  2.4208106e-03 
+ ... Iteration #32	Two norm = 1.1148419e+04	  Rel. residual  2.3968324e-03 
+ ... Iteration #33	Two norm = 1.0964046e+04	  Rel. residual  2.3769304e-03 
+ ... Iteration #34	Two norm = 1.0887962e+04	  Rel. residual  2.3686687e-03 
+ ... Iteration #35	Two norm = 1.0863216e+04	  Rel. residual  2.3659755e-03 
+ ... Iteration #36	Two norm = 1.0849391e+04	  Rel. residual  2.3644695e-03 
+ ... Iteration #37	Two norm = 1.0786980e+04	  Rel. residual  2.3576589e-03 
+ ... Iteration #38	Two norm = 1.0543017e+04	  Rel. residual  2.3308455e-03 
+ ... Iteration #39	Two norm = 1.0183468e+04	  Rel. residual  2.2907562e-03 
+ ... Iteration #40	Two norm = 7.9480134e+03	  Rel. residual  2.0237661e-03 
+ ... Iteration #41	Two norm = 4.6131717e+03	  Rel. residual  1.5418099e-03 
+ ... Iteration #42	Two norm = 9.9390241e+02	  Rel. residual  7.1565367e-04 
+ ... Iteration #43	Two norm = 8.4205486e+02	  Rel. residual  6.5872057e-04 
+ ... Iteration #44	Two norm = 7.8586639e+02	  Rel. residual  6.3636368e-04 
+ ... Iteration #45	Two norm = 7.8385042e+02	  Rel. residual  6.3554693e-04 
+ ... Iteration #46	Two norm = 7.8346868e+02	  Rel. residual  6.3539215e-04 
+ ... Iteration #47	Two norm = 7.8239514e+02	  Rel. residual  6.3495669e-04 
+ ... Iteration #48	Two norm = 7.7165914e+02	  Rel. residual  6.3058521e-04 
+ ... Iteration #49	Two norm = 6.6810607e+02	  Rel. residual  5.8675086e-04 
+ ... Iteration #50	Two norm = 3.9553606e+02	  Rel. residual  4.5146498e-04 
+ ... Iteration #51	Two norm = 1.9341002e+02	  Rel. residual  3.1569704e-04 
+ ... Iteration #52	Two norm = 1.9075185e+02	  Rel. residual  3.1352011e-04 
+ ... Iteration #53	Two norm = 1.8972757e+02	  Rel. residual  3.1267723e-04 
+ ... Iteration #54	Two norm = 1.8965937e+02	  Rel. residual  3.1262103e-04 
+ ... Iteration #55	Two norm = 1.8944521e+02	  Rel. residual  3.1244447e-04 
+ ... Iteration #56	Two norm = 1.1903950e+02	  Rel. residual  2.4767181e-04 
+ ... Iteration #57	Two norm = 3.1421613e+01	  Rel. residual  1.2724633e-04 
+ ... Iteration #58	Two norm = 2.6301865e+01	  Rel. residual  1.1641912e-04 
+ ... Iteration #59	Two norm = 2.6020772e+01	  Rel. residual  1.1579535e-04 
+ ... Iteration #60	Two norm = 2.6003555e+01	  Rel. residual  1.1575703e-04 
+ ... Iteration #61	Two norm = 2.5974619e+01	  Rel. residual  1.1569261e-04 
+ ... Iteration #62	Two norm = 6.1515300e+00	  Rel. residual  5.6301842e-05 
+ ... Iteration #63	Two norm = 6.0600954e+00	  Rel. residual  5.5881848e-05 
+ ... Iteration #64	Two norm = 6.0589650e+00	  Rel. residual  5.5876636e-05 
+ ... Iteration #65	Two norm = 6.0463305e+00	  Rel. residual  5.5818347e-05 
+ ... Iteration #66	Two norm = 6.0445427e+00	  Rel. residual  5.5810094e-05 
+ ... Iteration #67	Two norm = 6.0314289e+00	  Rel. residual  5.5749520e-05 
+ ... Iteration #68	Two norm = 3.7213444e+00	  Rel. residual  4.3790607e-05 
+ ... Iteration #69	Two norm = 3.5841085e+00	  Rel. residual  4.2975566e-05 
+ ... Iteration #70	Two norm = 3.5767428e+00	  Rel. residual  4.2931383e-05 
+ ... Iteration #71	Two norm = 3.5731992e+00	  Rel. residual  4.2910112e-05 
+ ... Iteration #72	Two norm = 3.5708983e+00	  Rel. residual  4.2896294e-05 
+ ... Iteration #73	Two norm = 3.5685271e+00	  Rel. residual  4.2882049e-05 
+ ... Iteration #74	Two norm = 3.5389897e+00	  Rel. residual  4.2704209e-05 
+ ... Iteration #75	Two norm = 3.5212156e+00	  Rel. residual  4.2596835e-05 
+ ... Iteration #76	Two norm = 3.4962083e+00	  Rel. residual  4.2445307e-05 
+ ... Iteration #77	Two norm = 3.4805123e+00	  Rel. residual  4.2349922e-05 
+ ... Iteration #78	Two norm = 3.2122385e+00	  Rel. residual  4.0685056e-05 
+ ... Iteration #79	Two norm = 2.9816831e+00	  Rel. residual  3.9197807e-05 
+ ... Iteration #80	Two norm = 2.4283593e+00	  Rel. residual  3.5374271e-05 
+ ... Iteration #81	Two norm = 2.3927468e+00	  Rel. residual  3.5113927e-05 
+ ... Iteration #82	Two norm = 2.3637598e+00	  Rel. residual  3.4900584e-05 
+ ... Iteration #83	Two norm = 2.3620755e+00	  Rel. residual  3.4888148e-05 
+ ... Iteration #84	Two norm = 2.3576596e+00	  Rel. residual  3.4855521e-05 
+ ... Iteration #85	Two norm = 2.3488943e+00	  Rel. residual  3.4790668e-05 
+ ... Iteration #86	Two norm = 2.3335707e+00	  Rel. residual  3.4676999e-05 
+ ... Iteration #87	Two norm = 2.3273277e+00	  Rel. residual  3.4630582e-05 
+ ... Iteration #88	Two norm = 2.3267904e+00	  Rel. residual  3.4626585e-05 
+ ... Iteration #89	Two norm = 2.3265464e+00	  Rel. residual  3.4624769e-05 
+ ... Iteration #90	Two norm = 2.3263309e+00	  Rel. residual  3.4623166e-05 
+ ... Iteration #91	Two norm = 2.3259016e+00	  Rel. residual  3.4619971e-05 
+ ... Iteration #92	Two norm = 2.3227473e+00	  Rel. residual  3.4596488e-05 
+ ... Iteration #93	Two norm = 2.3160359e+00	  Rel. residual  3.4546470e-05 
+ ... Iteration #94	Two norm = 2.2836144e+00	  Rel. residual  3.4303815e-05 
+ ... Iteration #95	Two norm = 2.2222210e+00	  Rel. residual  3.3839556e-05 
+ ... Iteration #96	Two norm = 1.9123701e+00	  Rel. residual  3.1391856e-05 
+ ... Iteration #97	Two norm = 1.6798179e+00	  Rel. residual  2.9421318e-05 
+ ... Iteration #98	Two norm = 1.6282036e+00	  Rel. residual  2.8965791e-05 
+ ... Iteration #99	Two norm = 1.6102440e+00	  Rel. residual  2.8805597e-05 
+ ... Iteration #100	Two norm = 1.6091645e+00	  Rel. residual  2.8795939e-05 
+ ... Iteration #101	Two norm = 1.6089274e+00	  Rel. residual  2.8793818e-05 
+ ... Iteration #102	Two norm = 1.6086913e+00	  Rel. residual  2.8791705e-05 
+ ... Iteration #103	Two norm = 1.6058791e+00	  Rel. residual  2.8766528e-05 
+ ... Iteration #104	Two norm = 1.5747771e+00	  Rel. residual  2.8486597e-05 
+ ... Iteration #105	Two norm = 1.4614663e+00	  Rel. residual  2.7442611e-05 
+ ... Iteration #106	Two norm = 1.4408279e+00	  Rel. residual  2.7248154e-05 
+ ... Iteration #107	Two norm = 1.4362947e+00	  Rel. residual  2.7205255e-05 
+ ... Iteration #108	Two norm = 1.4316949e+00	  Rel. residual  2.7161657e-05 
+ ... Iteration #109	Two norm = 1.3312847e+00	  Rel. residual  2.6191870e-05 
+ ... Iteration #110	Two norm = 1.2321305e+00	  Rel. residual  2.5197612e-05 
+ ... Iteration #111	Two norm = 1.1418943e+00	  Rel. residual  2.4257385e-05 
+ ... Iteration #112	Two norm = 1.1397188e+00	  Rel. residual  2.4234267e-05 
+ ... Iteration #113	Two norm = 1.1394721e+00	  Rel. residual  2.4231644e-05 
+ ... Iteration #114	Two norm = 1.1393217e+00	  Rel. residual  2.4230045e-05 
+ ... Iteration #115	Two norm = 1.1386445e+00	  Rel. residual  2.4222843e-05 
+ ... Iteration #116	Two norm = 1.1238352e+00	  Rel. residual  2.4064805e-05 
+ ... Iteration #117	Two norm = 9.2187345e-01	  Rel. residual  2.1795492e-05 
+ ... Iteration #118	Two norm = 7.5182430e-01	  Rel. residual  1.9682906e-05 
+ ... Iteration #119	Two norm = 7.2165131e-01	  Rel. residual  1.9283894e-05 
+ ... Iteration #120	Two norm = 7.1906676e-01	  Rel. residual  1.9249331e-05 
+ ... Iteration #121	Two norm = 7.1859718e-01	  Rel. residual  1.9243045e-05 
+ ... Iteration #122	Two norm = 7.1850593e-01	  Rel. residual  1.9241823e-05 
+ ... Iteration #123	Two norm = 7.1846110e-01	  Rel. residual  1.9241222e-05 
+ ... Iteration #124	Two norm = 7.1832501e-01	  Rel. residual  1.9239400e-05 
+ ... Iteration #125	Two norm = 7.1819530e-01	  Rel. residual  1.9237663e-05 
+ ... Iteration #126	Two norm = 7.1814411e-01	  Rel. residual  1.9236977e-05 
+ ... Iteration #127	Two norm = 7.1781014e-01	  Rel. residual  1.9232504e-05 
+ ... Iteration #128	Two norm = 6.8406431e-01	  Rel. residual  1.8774981e-05 
+ ... Iteration #129	Two norm = 5.9999073e-01	  Rel. residual  1.7583418e-05 
+ ... Iteration #130	Two norm = 5.9456450e-01	  Rel. residual  1.7503726e-05 
+ ... Iteration #131	Two norm = 5.9385899e-01	  Rel. residual  1.7493338e-05 
+ ... Iteration #132	Two norm = 5.9341781e-01	  Rel. residual  1.7486839e-05 
+ ... Iteration #133	Two norm = 5.9314041e-01	  Rel. residual  1.7482752e-05 
+ ... Iteration #134	Two norm = 5.8637983e-01	  Rel. residual  1.7382832e-05 
+ ... Iteration #135	Two norm = 5.6600918e-01	  Rel. residual  1.7078226e-05 
+ ... Iteration #136	Two norm = 5.6300080e-01	  Rel. residual  1.7032780e-05 
+ ... Iteration #137	Two norm = 5.2470341e-01	  Rel. residual  1.6443262e-05 
+ ... Iteration #138	Two norm = 5.0213900e-01	  Rel. residual  1.6085813e-05 
+ ... Iteration #139	Two norm = 4.9525618e-01	  Rel. residual  1.5975188e-05 
+ ... Iteration #140	Two norm = 4.9089434e-01	  Rel. residual  1.5904684e-05 
+ ... Iteration #141	Two norm = 4.9049371e-01	  Rel. residual  1.5898192e-05 
+ ... Iteration #142	Two norm = 4.8942280e-01	  Rel. residual  1.5880827e-05 
+ ... Iteration #143	Two norm = 4.0724820e-01	  Rel. residual  1.4486405e-05 
+ ... Iteration #144	Two norm = 2.4419685e-01	  Rel. residual  1.1217629e-05 
+ ... Iteration #145	Two norm = 2.2995915e-01	  Rel. residual  1.0885700e-05 
+ ... Iteration #146	Two norm = 2.2242220e-01	  Rel. residual  1.0705824e-05 
+ ... Iteration #147	Two norm = 2.2197331e-01	  Rel. residual  1.0695015e-05 
+ ... Iteration #148	Two norm = 2.2174963e-01	  Rel. residual  1.0689625e-05 
+ ... Iteration #149	Two norm = 2.2172161e-01	  Rel. residual  1.0688950e-05 
+ ... Iteration #150	Two norm = 2.2165521e-01	  Rel. residual  1.0687349e-05 
+ ... Iteration #151	Two norm = 2.2067758e-01	  Rel. residual  1.0663754e-05 
+ ... Iteration #152	Two norm = 2.1326767e-01	  Rel. residual  1.0483192e-05 
+ ... Iteration #153	Two norm = 2.0053453e-01	  Rel. residual  1.0165427e-05 
+ ... Iteration #154	Two norm = 1.8839064e-01	  Rel. residual  9.8528233e-06 
+ ... Iteration #155	Two norm = 1.8239342e-01	  Rel. residual  9.6947277e-06 
+ ... Iteration #156	Two norm = 1.8174228e-01	  Rel. residual  9.6774072e-06 
+ ... Iteration #157	Two norm = 1.7958568e-01	  Rel. residual  9.6198187e-06 
+ ... Iteration #158	Two norm = 1.7723861e-01	  Rel. residual  9.5567494e-06 
+ ... Iteration #159	Two norm = 1.7093661e-01	  Rel. residual  9.3853088e-06 
+ ... Iteration #160	Two norm = 1.7069662e-01	  Rel. residual  9.3787182e-06 
+ ... Iteration #161	Two norm = 1.7061895e-01	  Rel. residual  9.3765844e-06 
+ ... Iteration #162	Two norm = 1.7060400e-01	  Rel. residual  9.3761735e-06 
+ ... Iteration #163	Two norm = 1.7055245e-01	  Rel. residual  9.3747568e-06 
+ ... Iteration #164	Two norm = 1.6936551e-01	  Rel. residual  9.3420787e-06 
+ ... Iteration #165	Two norm = 1.6114353e-01	  Rel. residual  9.1124983e-06 
+ ... Iteration #166	Two norm = 1.0477852e-01	  Rel. residual  7.3479663e-06 
+ ... Iteration #167	Two norm = 7.8297081e-02	  Rel. residual  6.3519024e-06 
+ ... Iteration #168	Two norm = 7.6791986e-02	  Rel. residual  6.2905552e-06 
+ ... Iteration #169	Two norm = 7.6551203e-02	  Rel. residual  6.2806854e-06 
+ ... Iteration #170	Two norm = 7.6286254e-02	  Rel. residual  6.2698070e-06 
+ ... Iteration #171	Two norm = 7.6012982e-02	  Rel. residual  6.2585671e-06 
+ ... Iteration #172	Two norm = 7.5966923e-02	  Rel. residual  6.2566707e-06 
+ ... Iteration #173	Two norm = 7.5931864e-02	  Rel. residual  6.2552268e-06 
+ ... Iteration #174	Two norm = 7.5922471e-02	  Rel. residual  6.2548399e-06 
+ ... Iteration #175	Two norm = 7.5885036e-02	  Rel. residual  6.2532977e-06 
+ ... Iteration #176	Two norm = 7.5619323e-02	  Rel. residual  6.2423400e-06 
+ ... Iteration #177	Two norm = 7.1044863e-02	  Rel. residual  6.0505850e-06 
+ ... Iteration #178	Two norm = 5.7471241e-02	  Rel. residual  5.4419722e-06 
+ ... Iteration #179	Two norm = 5.1853215e-02	  Rel. residual  5.1691469e-06 
+ ... Iteration #180	Two norm = 5.0190521e-02	  Rel. residual  5.0855963e-06 
+ ... Iteration #181	Two norm = 4.9813173e-02	  Rel. residual  5.0664427e-06 
+ ... Iteration #182	Two norm = 4.8580487e-02	  Rel. residual  5.0033624e-06 
+ ... Iteration #183	Two norm = 4.3631130e-02	  Rel. residual  4.7416475e-06 
+ ... Iteration #184	Two norm = 3.4299940e-02	  Rel. residual  4.2041452e-06 
+ ... Iteration #185	Two norm = 2.9111648e-02	  Rel. residual  3.8731510e-06 
+ ... Iteration #186	Two norm = 2.8899447e-02	  Rel. residual  3.8590091e-06 
+ ... Iteration #187	Two norm = 2.8879368e-02	  Rel. residual  3.8576682e-06 
+ ... Iteration #188	Two norm = 2.8864050e-02	  Rel. residual  3.8566450e-06 
+ ... Iteration #189	Two norm = 2.8856072e-02	  Rel. residual  3.8561119e-06 
+ ... Iteration #190	Two norm = 2.8848943e-02	  Rel. residual  3.8556356e-06 
+ ... Iteration #191	Two norm = 2.8844950e-02	  Rel. residual  3.8553688e-06 
+ ... Iteration #192	Two norm = 2.8830817e-02	  Rel. residual  3.8544242e-06 
+ ... Iteration #193	Two norm = 2.8363693e-02	  Rel. residual  3.8230715e-06 
+ ... Iteration #194	Two norm = 2.6953760e-02	  Rel. residual  3.7268397e-06 
+ ... Iteration #195	Two norm = 2.6703184e-02	  Rel. residual  3.7094759e-06 
+ ... Iteration #196	Two norm = 2.5172687e-02	  Rel. residual  3.6016028e-06 
+ ... Iteration #197	Two norm = 2.1360816e-02	  Rel. residual  3.3177217e-06 
+ ... Iteration #198	Two norm = 2.1226182e-02	  Rel. residual  3.3072496e-06 
+ ... Iteration #199	Two norm = 2.1219491e-02	  Rel. residual  3.3067283e-06 
+ ... Iteration #200	Two norm = 2.1215336e-02	  Rel. residual  3.3064045e-06 
+ ... Iteration #201	Two norm = 2.1211474e-02	  Rel. residual  3.3061035e-06 
+ ... Iteration #202	Two norm = 2.1190419e-02	  Rel. residual  3.3044623e-06 
+ ... Iteration #203	Two norm = 2.0935490e-02	  Rel. residual  3.2845252e-06 
+ ... Iteration #204	Two norm = 1.0796533e-02	  Rel. residual  2.3587026e-06 
+ ... Iteration #205	Two norm = 1.0418459e-02	  Rel. residual  2.3170359e-06 
+ ... Iteration #206	Two norm = 1.0411163e-02	  Rel. residual  2.3162245e-06 
+ ... Iteration #207	Two norm = 1.0410642e-02	  Rel. residual  2.3161665e-06 
+ ... Iteration #208	Two norm = 1.0409483e-02	  Rel. residual  2.3160376e-06 
+ ... Iteration #209	Two norm = 1.0404521e-02	  Rel. residual  2.3154856e-06 
+ ... Iteration #210	Two norm = 1.0401037e-02	  Rel. residual  2.3150979e-06 
+ ... Iteration #211	Two norm = 9.9644885e-03	  Rel. residual  2.2659928e-06 
+ ... Iteration #212	Two norm = 5.0576137e-03	  Rel. residual  1.6143729e-06 
+ ... Iteration #213	Two norm = 3.8715811e-03	  Rel. residual  1.4124569e-06 
+ ... Iteration #214	Two norm = 2.7667294e-03	  Rel. residual  1.1940276e-06 
+ ... Iteration #215	Two norm = 2.7661508e-03	  Rel. residual  1.1939028e-06 
+ ... Iteration #216	Two norm = 2.7609697e-03	  Rel. residual  1.1927841e-06 
+ ... Iteration #217	Two norm = 2.7550202e-03	  Rel. residual  1.1914983e-06 
+ ... Iteration #218	Two norm = 2.6147354e-03	  Rel. residual  1.1607666e-06 
+ ... Iteration #219	Two norm = 1.8670332e-03	  Rel. residual  9.8086007e-07 
+ ... Iteration #220	Two norm = 1.2799435e-03	  Rel. residual  8.1213165e-07 
+ ... Iteration #221	Two norm = 1.2348936e-03	  Rel. residual  7.9771141e-07 
+ ... Iteration #222	Two norm = 1.2273334e-03	  Rel. residual  7.9526579e-07 
+ ... Iteration #223	Two norm = 1.2267591e-03	  Rel. residual  7.9507970e-07 
+ ... Iteration #224	Two norm = 1.2263810e-03	  Rel. residual  7.9495717e-07 
+ ... Iteration #225	Two norm = 1.2176486e-03	  Rel. residual  7.9212190e-07 
+ ... Iteration #226	Two norm = 1.2113644e-03	  Rel. residual  7.9007519e-07 
+ ... Iteration #227	Two norm = 1.2108586e-03	  Rel. residual  7.8991026e-07 
+ ... Iteration #228	Two norm = 1.2105098e-03	  Rel. residual  7.8979647e-07 
+ ... Iteration #229	Two norm = 1.2092821e-03	  Rel. residual  7.8939585e-07 
+ ... Iteration #230	Two norm = 1.2036218e-03	  Rel. residual  7.8754622e-07 
+ ... Iteration #231	Two norm = 1.1666646e-03	  Rel. residual  7.7536116e-07 
+ ... Iteration #232	Two norm = 9.3198375e-04	  Rel. residual  6.9300314e-07 
+ ... Iteration #233	Two norm = 1.6007983e-04	  Rel. residual  2.8720986e-07 
+ ... Iteration #234	Two norm = 5.9399089e-06	  Rel. residual  5.5324936e-08 
+ ... Iteration #235	Two norm = 3.7142540e-06	  Rel. residual  4.3748869e-08 
+ ... Iteration #236	Two norm = 3.6371608e-06	  Rel. residual  4.3292462e-08 
+ ... Iteration #237	Two norm = 3.6347170e-06	  Rel. residual  4.3277915e-08 
+ ... Iteration #238	Two norm = 3.6337294e-06	  Rel. residual  4.3272035e-08 
+ ... Iteration #239	Two norm = 3.6313757e-06	  Rel. residual  4.3258018e-08 
+ ... Iteration #240	Two norm = 3.6282081e-06	  Rel. residual  4.3239147e-08 
+ ... Iteration #241	Two norm = 3.6248884e-06	  Rel. residual  4.3219362e-08 
+ ... Iteration #242	Two norm = 3.6165614e-06	  Rel. residual  4.3169692e-08 
+ ... Iteration #243	Two norm = 3.5294296e-06	  Rel. residual  4.2646490e-08 
+ ... Iteration #244	Two norm = 3.3258397e-06	  Rel. residual  4.1398222e-08 
+ ... Iteration #245	Two norm = 3.1626923e-06	  Rel. residual  4.0370070e-08 
+ ... Iteration #246	Two norm = 3.0207670e-06	  Rel. residual  3.9453873e-08 
+ ... Iteration #247	Two norm = 2.3515076e-06	  Rel. residual  3.4810016e-08 
+ ... Iteration #248	Two norm = 9.6067050e-07	  Rel. residual  2.2249398e-08 
+ ... Iteration #249	Two norm = 2.6271447e-07	  Rel. residual  1.1635178e-08 
+ ... Iteration #250	Two norm = 4.8045318e-08	  Rel. residual  4.9757272e-09 
+
+ ... Total # Iterations = 250
+ ...     Final Two norm = 4.8045318e-08
+ ... Postprocessing                 ...
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =      27 ...
+ ... # Elements           =      16 ...
+ ... # Unconstrained dofs =     144 ...
+ ... # Constrained dofs   =      45 ...
+ ... Total # dofs         =     162 ...
+ ... # Loaded dofs        =       0 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 7.78e-02 s
+ ... Total Memory Used    = 2.10e-01 Mb
+ --------------------------------------

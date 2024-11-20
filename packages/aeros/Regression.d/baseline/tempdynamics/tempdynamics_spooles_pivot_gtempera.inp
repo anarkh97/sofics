@@ -1,0 +1,21 @@
+CONTROL
+tempdynamics_spooles_pivot_gtempera
+2
+"nodeset"
+"elemset"
+*
+STATICS
+spooles pivot
+include "../fetidp.include"
+DYNAMICS
+mech	0.25	0.5
+newmark
+OUTPUT
+gtempera tempdynamics_spooles_pivot_gtempera.dat  200
+*
+MATERIALS
+1   0.0 0.0 0.0 2719.0  0.0 202.4 0.0 0.0 0.0 871.0   0.0 0.0 0.0 0.0
+*id A   E   nu  rho    c   k     h   P   Ta  q     w   etc...
+INCLUDE "../mesh_temp.include"
+*
+END

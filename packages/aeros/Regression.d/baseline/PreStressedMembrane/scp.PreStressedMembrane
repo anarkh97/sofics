@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -N test
+#PBS -V
+#PBS -l nodes=2:ppn=12,walltime=3:00:00
+
+. /opt/modules/Modules/3.2.6/init/bash
+ module load intel openmpi
+cd /home/mpotts/FEM-jenkins/workspace/Regression.d/PreStressedMembrane
+../create_mfiles.pl
+echo mpirun -n 2 ../../bin/aeros  PreStressedMembrane_mumps_gdisplac.inp
+mpirun -n 2 --machinefile host.0 ../../bin/aeros  PreStressedMembrane_mumps_gdisplac.inp &
+echo mpirun -n 2 ../../bin/aeros  PreStressedMembrane_sparse_gdisplac.inp
+mpirun -n 2 --machinefile host.1 ../../bin/aeros  PreStressedMembrane_sparse_gdisplac.inp &
+echo mpirun -n 2 ../../bin/aeros  PreStressedMembrane_spooles_gdisplac.inp
+mpirun -n 2 --machinefile host.2 ../../bin/aeros  PreStressedMembrane_spooles_gdisplac.inp &
+echo mpirun -n 2 ../../bin/aeros -n 2 --dec --nsub 4 PreStressedMembrane_FETI_DP_gdisplac.inp
+mpirun -n 2 --machinefile host.3 ../../bin/aeros -n 2 --dec --nsub 4 PreStressedMembrane_FETI_DP_gdisplac.inp &
+wait %1 %2 %3 %4 

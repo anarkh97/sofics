@@ -1,0 +1,25 @@
+CONTROL
+nldynamics_mumps_gacceler
+1
+"nodeset"
+"elemset"
+*
+STATICS
+mumps
+*
+DYNAMICS
+time	0.0	0.3e+0	3.0e+1
+newmark
+mech	0.8000
+*	time step	total time
+NONLINEAR
+maxitr 100
+nltol 1.0e-7
+rebuild 1
+*
+OUTPUT
+gacceler nldynamics_mumps_gacceler.dat  100
+*
+INCLUDE "../mesh.include"
+*
+END

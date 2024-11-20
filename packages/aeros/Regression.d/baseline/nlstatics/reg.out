@@ -1,0 +1,1120 @@
+../../bin/aeros nlstatics_sparse_gdisplac.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Sparse Solver is Selected      ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368898e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609807e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.98e-01 s
+ ... Total Memory Used    = 3.42e+00 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_skyline_stressvm.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Skyline Solver is Selected     ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368899e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 5.238872e-12)
+ ... Newton : Step #2, Iter #1 converged after 5 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244153e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390331e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284483e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609908e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.22e-01 s
+ ... Total Memory Used    = 2.56e+00 Mb
+ ... Total Newton Iterations =   14 
+ --------------------------------------
+../../bin/aeros nlstatics_mumps_strainxx.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Mumps Solver is Selected       ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368898e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609689e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.69e-01 s
+ ... Total Memory Used    = 1.62e+01 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_spooles_strainxy.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Spooles Solver is Selected     ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368899e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609469e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.44e-01 s
+ ... Total Memory Used    = 4.74e+00 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_spooles_pivot_strainxz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Spooles Solver is Selected     ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368898e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609570e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.58e-01 s
+ ... Total Memory Used    = 4.68e+00 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_mumps_pivot_strainxx.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Mumps Solver is Selected       ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368899e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609818e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.88e-01 s
+ ... Total Memory Used    = 1.62e+01 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros -n 2 --dec --nsub 4 nlstatics_FETI_DP_strainxy.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Parallel processing: Forking 2 Threads ...
+ ... FETI-DP Solver is Selected     ...
+ ... Postprocessing                 ...
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.728862e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.559352e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.335846e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.815918e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.673977e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.347963e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.216204e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.311810e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.162626e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 3.337493e-07)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =       0 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =      -1 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.56e-01 s
+ ... Total Memory Used    = 1.94e+01 Mb
+ ... Total Newton Iterations =   13 
+ ... Total Krylov Iterations =   52 
+ --------------------------------------
+../../bin/aeros nlstatics_sparse_strainxz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Sparse Solver is Selected      ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368898e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 4.825334e-12)
+ ... Newton : Step #2, Iter #1 converged after 5 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244153e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390331e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284483e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.610051e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.53e-01 s
+ ... Total Memory Used    = 3.58e+00 Mb
+ ... Total Newton Iterations =   14 
+ --------------------------------------
+../../bin/aeros nlstatics_skyline_strainxx.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Skyline Solver is Selected     ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368899e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609570e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.17e-01 s
+ ... Total Memory Used    = 2.43e+00 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_mumps_strainxy.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Mumps Solver is Selected       ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368898e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609689e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.68e-01 s
+ ... Total Memory Used    = 1.62e+01 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_spooles_strainvm.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Spooles Solver is Selected     ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368899e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 4.890487e-12)
+ ... Newton : Step #2, Iter #1 converged after 5 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244153e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390331e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284483e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609366e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.56e-01 s
+ ... Total Memory Used    = 5.03e+00 Mb
+ ... Total Newton Iterations =   14 
+ --------------------------------------
+../../bin/aeros nlstatics_spooles_pivot_strainxz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Spooles Solver is Selected     ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368898e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609570e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.57e-01 s
+ ... Total Memory Used    = 4.68e+00 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_mumps_pivot_displmod.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Mumps Solver is Selected       ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368899e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609818e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.85e-01 s
+ ... Total Memory Used    = 1.62e+01 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros -n 2 --dec --nsub 4 nlstatics_FETI_DP_gdispmod.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Parallel processing: Forking 2 Threads ...
+ ... FETI-DP Solver is Selected     ...
+ ... Postprocessing                 ...
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.728862e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.559352e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.335846e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.815918e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.673977e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.347963e-05)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 1.299662e-07)
+ ... Newton : Step #2, Iter #1 converged after 5 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.216203e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.311806e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.162615e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 3.337024e-07)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =       0 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =      -1 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.02e-01 s
+ ... Total Memory Used    = 2.07e+01 Mb
+ ... Total Newton Iterations =   14 
+ ... Total Krylov Iterations =   52 
+ --------------------------------------
+../../bin/aeros nlstatics_sparse_displacx.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Sparse Solver is Selected      ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368898e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609807e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.46e-01 s
+ ... Total Memory Used    = 3.41e+00 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_skyline_displacy.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Skyline Solver is Selected     ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368899e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609570e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.18e-01 s
+ ... Total Memory Used    = 2.43e+00 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_mumps_displacz.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Mumps Solver is Selected       ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368898e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 4.402039e-12)
+ ... Newton : Step #2, Iter #1 converged after 5 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244153e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390331e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284483e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609578e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.74e-01 s
+ ... Total Memory Used    = 1.73e+01 Mb
+ ... Total Newton Iterations =   14 
+ --------------------------------------
+../../bin/aeros nlstatics_spooles_strainp1.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Spooles Solver is Selected     ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368899e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609469e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.46e-01 s
+ ... Total Memory Used    = 4.75e+00 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_spooles_pivot_strainp2.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Spooles Solver is Selected     ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368898e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609570e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.63e-01 s
+ ... Total Memory Used    = 4.69e+00 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_mumps_pivot_strainp3.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Mumps Solver is Selected       ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368899e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 4.312756e-12)
+ ... Newton : Step #2, Iter #1 converged after 5 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244153e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390331e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284483e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609861e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.00e-01 s
+ ... Total Memory Used    = 1.74e+01 Mb
+ ... Total Newton Iterations =   14 
+ --------------------------------------
+../../bin/aeros -n 2 --dec --nsub 4 nlstatics_FETI_DP_stressp1.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Parallel processing: Forking 2 Threads ...
+ ... FETI-DP Solver is Selected     ...
+ ... Postprocessing                 ...
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.728862e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.559352e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.335846e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.815918e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.673977e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.347963e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.216204e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.311810e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.162626e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 3.337493e-07)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =       0 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =      -1 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 2.07e-01 s
+ ... Total Memory Used    = 1.96e+01 Mb
+ ... Total Newton Iterations =   13 
+ ... Total Krylov Iterations =   52 
+ --------------------------------------
+../../bin/aeros nlstatics_sparse_stressp2.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Sparse Solver is Selected      ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368898e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Step #2, Iter #1 converged after 4 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750001e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244154e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390334e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284498e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609807e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.51e-01 s
+ ... Total Memory Used    = 3.42e+00 Mb
+ ... Total Newton Iterations =   13 
+ --------------------------------------
+../../bin/aeros nlstatics_skyline_stressp3.inp
+
+ --------- R U N  PARAMETERS ----------
+ ... Nonlinear Static Analysis      ... 
+ ... Skyline Solver is Selected     ... 
+ --------------------------------------
+ ... Newton : Start Step #1 --- Lambda = 1.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 5.854322e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 3.615275e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.368899e-06)
+ ... Newton : Step #1, Iter #1 converged after 4 iterations
+ ... Newton : End Step #1, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #2 --- Lambda = 2.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 7.990881e+00)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 9.837932e-02)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 2.382641e-05)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 5.238872e-12)
+ ... Newton : Step #2, Iter #1 converged after 5 iterations
+ ... Newton : End Step #2, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+ --------------------------------------
+ ... Newton : Start Step #3 --- Lambda = 3.000000e-01
+ ... Newton : Iter #1 --- Rebuild Tangent Stiffness (res = 3.750000e+01)
+ ... Newton : Iter #2 --- Rebuild Tangent Stiffness (res = 1.244153e+01)
+ ... Newton : Iter #3 --- Rebuild Tangent Stiffness (res = 4.390331e-01)
+ ... Newton : Iter #4 --- Rebuild Tangent Stiffness (res = 8.284483e-04)
+ ... Newton : Iter #5 --- Rebuild Tangent Stiffness (res = 2.609908e-09)
+ ... Newton : Step #3, Iter #1 converged after 5 iterations
+ ... Newton : End Step #3, Iter #1 --- Max Steps = 3, Max Iters = 1
+ --------------------------------------
+
+ ---------- PROBLEM PARAMETERS --------
+ ... # Nodes              =     189 ...
+ ... # Elements           =      80 ...
+ ... # Unconstrained dofs =     540 ...
+ ... # Constrained dofs   =      27 ...
+ ... Total # dofs         =     567 ...
+ ... # Loaded dofs        =       9 ...
+ ... # Output Files       =       1 ...
+ --------------------------------------
+ --------------------------------------
+ ... Total Time           = 1.26e-01 s
+ ... Total Memory Used    = 2.56e+00 Mb
+ ... Total Newton Iterations =   14 
+ --------------------------------------
