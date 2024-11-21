@@ -77,7 +77,7 @@ make -j 4
 
 To check if everything was built correctly perform the checks specified in previous section.
 
-***NOTE:*** When running the optimization, make sure to specify the paths to the relevant executables in a `config.sh` file. This file is provided to `Dakota` through its `analysis_driver` card. The input for this card should look like:
+***NOTE:*** When running the optimization, make sure to specify the paths to the relevant executables in a `config.sh` file. This file should be referenced in `Dakota` input file through its `analysis_driver` card. The input for this card should look like:
 
 ```text
 analysis_driver = 'path/to/sofics/build/src/ path/to/config.sh'
