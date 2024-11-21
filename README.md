@@ -37,6 +37,12 @@ make -j 4
 
 The final make command compiles `SOFICS`, `M2C`, and `Aero-S` in parallel using 4 processors. You can also simply run make without specifying the number of processors or adjust the number based on your preference.
 
+Toview a detailed log of the compilation process, run:
+
+```sh
+make VERBOSE=1
+```
+
 A successfull build should provide `checks.sh`, `driver.sh`, `pre_processor.sh`, and `post_processor.sh` bash scripts along with `gmsh2aeros` and `postprocessor` executables in `build/src`. Moreover, `build/packages` should contain directories `aeros` and `m2c`. To check if build for these solvers was successfull try the following commands.
 
 A successful build should generate the following bash scripts in the `build/src` directory: 
@@ -87,5 +93,27 @@ For detailed instructions and a list of available variables for undertaking opti
 
 ## GMSH
 
+We strongly encourage you follow the build instructions provided in the official [Gmsh repository](https://gitlab.onelab.info/gmsh/gmsh/-/tree/gmsh_4_13_1). To verify that the build was successful, try running the following command:
+
+```sh
+gmsh -info
+```
+
+It should produce an output similar to:
+
+![Gmsh test output.](images/GmshOutput.jpg)
+
+However, keep in mind that the output may vary depending on you `Gmsh` version and build settings.
+
 
 ## Dakota
+
+We strongly encourage you follow the build instructions provided in the official [Dakota repository](https://github.com/snl-dakota/dakota?tab=coc-ov-file). To verify that the build was successful, try running the following command:
+
+```sh
+dakota
+```
+
+It should display a list of command-line options available in `Dakota`.
+
+![Dakota test output.](images/DakotaOutput.jpg)
