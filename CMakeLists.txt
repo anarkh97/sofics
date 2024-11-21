@@ -14,7 +14,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # compile packages
-option(BUILD_AEROS "Build local copy of Aero-S" OFF)
+option(BUILD_AEROS "Build local copy of Aero-S" ON)
 option(BUILD_M2C "Build local copy of M2C" ON)
 
 # add aeros
