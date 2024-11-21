@@ -47,7 +47,7 @@ A successful build should generate the following bash scripts in the `build/src`
 
 Additionally, it should also contain the executables for `gmsh2aeros` and `postprocessor`. The `build/packages` directory should contain the `aeros` and `m2c` directories. To verify that the build for these solvers was successful, you can try the following solver specific commands.
 
-For `Aero-S`, first navigate to the build directory and then execute the following commands,
+For `Aero-S`, first navigate to the build directory and then execute the following commands:
 ```sh
 cd packages/aeros/bin
 ./aeros
@@ -56,7 +56,7 @@ The output from a successful build should look like,
 
 ![Aero-S default output.](images/AeroSOutput.jpg)
 
-For `M2C`, again navigate to the build directory and execute the following commands,
+For `M2C`, again navigate to the build directory and execute the following commands:
 ```sh
 cd packages/m2c/
 ./m2c
@@ -67,9 +67,7 @@ The output from a successful build should look like,
 
 ## Build without M2C or Aero-S
 
-If you have your own versions of M2C or Aero-S, you can choose to not compile the local snapshots. However, when running the optimization make sure to specify the path to relevant executables in a `config.sh` file and provide it to `Dakota`. For detailed instructions on executing fluid-structure coupled optimization studies refer the test cases provided in `root/tests` directory.
-
-SOFICS provides `BUILD_M2C` and `BUILD_AEROS` variables to specify whether to build these softwares or not. For example if you choose not to build M2C follow
+If `M2C` or `Aero-S` are already installed on your local machine, you can skip compiling the versions provided with `SOFICS`. `SOFICS` provides `BUILD_M2C` and `BUILD_AEROS` variables to specify whether these software tools are built. For example, if you choose not to build M2C, navigate to your `sofics` directory, and then follow these steps:
 
 ```sh
 cmake -B build -DBUILD_M2C=OFF .
@@ -78,6 +76,14 @@ make -j 4
 ```
 
 To check if everything was built correctly perform the checks specified in previous section.
+
+***NOTE:*** When running the optimization, make sure to specify the paths to the relevant executables in a `config.sh` file. This file is provided to `Dakota` through its `analysis_driver` card. The input for this card should look like:
+
+```text
+analysis_driver = 'path/to/sofics/build/src/ path/to/config.sh'
+```
+
+For detailed instructions and a list of available variables for undertaking optimization studies based on coupled fluid-structure interaction simulations, refer to the test cases available in the `tests` directory.
 
 ## GMSH
 
