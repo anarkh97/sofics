@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #SBATCH --job-name=dakota           # Job name
+#SBATCH --output=srun.out           # stdout file
+#SBATCH --error=srun.out            # stderr file
 #SBATCH --nodes=1                   # Number of nodes
 #SBATCH --ntasks-per-node=128       # Number of tasks per node
 #SBATCH --time=00:10:00             # Time limit hrs:min:sec
