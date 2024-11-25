@@ -16,8 +16,6 @@ method
   list_of_points = 
     280  225
     170  270
-  freeform
-  active_only
 
 model
   single
