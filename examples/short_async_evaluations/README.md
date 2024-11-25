@@ -68,7 +68,7 @@ grep "Evaluation" srun.out
 
 This command will display the evaluation IDs along with the compute node IDs where each evaluation was executed. These should align with the node assigned to the `Dakota` job (refer the `squeue` command output), as shown in the example below:
 
-![]()
+![](../../images/SOFICSOutputVerification.jpg)
 
 To verify the coupled fluid-structure interaction processes launched correctly, use:
 
@@ -78,4 +78,4 @@ tail evaluation.1/log.out
 
 The command output from a successful execution should look like,
 
-![]()
+![](../../images/FsiLogOutput.jpg)
