@@ -1,0 +1,51 @@
+#
+#  Usage: dakota -input dakota.in -output dakota.log
+#
+#  DAKOTA INPUT FILE
+#  Input file for simple asynchronous evaluation of two
+#  ellipsoidal steel containment structures subjected to
+#  internal detonation of 250g TNT
+#
+
+environment
+  tabular_data
+    tabular_data_file = 'dakota.dat'
+
+method
+  list_parameter_study
+  list_of_points = 
+    280  225
+    170  270
+  freeform
+  active_only
+
+model
+  single
+
+variables
+  active design
+  continuous_design = 2
+    initial_point     280     180
+  continuous_state = 1
+    initial_state  5
+
+interface
+  fork
+  asynchronous
+  evaluation_concurrency = 2 
+  local_evaluation_scheduling = static
+  analysis_driver = '../../build/src/driver.sh myconfig.sh'
+  parameters_file = 'design_params.in'
+  results_file    = 'design_results.out'
+  failure_capture
+    abort
+  file_tag
+  file_save
+  work_directory named 'design_eval'
+  directory_tag 
+  directory_save
+	   
+responses
+  response_functions = 2
+    no_gradients
+    no_hessians

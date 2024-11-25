@@ -37,7 +37,7 @@ make -j 4
 
 The final make command compiles `SOFICS`, `M2C`, and `Aero-S` in parallel using 4 processors. You can also simply run make without specifying the number of processors or adjust the number based on your preference.
 
-Toview a detailed log of the compilation process, run:
+To view a detailed log of the compilation process, run:
 
 ```sh
 make VERBOSE=1
