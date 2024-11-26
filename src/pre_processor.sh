@@ -88,9 +88,9 @@ done
 # update gmsh input file
 substitution_error=0
 if [[ ${#cdv[@]} == $num_cdv ]]; then
-  for i in $(seq 1 $num_cdv)
+  for i in "${!cdv[@]}"
   do
-    if ! sed -i "s/{cdv_$i}/${cdv[$((i-1))]}/g" $WORKING_DIR/$GMSH_INPUT; then
+    if ! sed -i "s/{cdv_$((i+1))}/${cdv[$i]}/g" "$WORKING_DIR/$GMSH_INPUT"; then
       printf "*** Error: Substitution for continuous design variable cdv_${i} "
       printf "in file ${WORKING_DIR}/${GMSH_INPUT} failed.\n"
       substitution_error=$((substitution_error+1))
@@ -102,9 +102,9 @@ else
 fi
 
 if [[ ${#csv[@]} == $num_csv ]]; then
-  for i in $(seq 1 $num_csv)
+  for i in "${!csv[@]}"
   do
-    if ! sed -i "s/{csv_$i}/${csv[$((i-1))]}/g" $WORKING_DIR/$GMSH_INPUT; then
+    if ! sed -i "s/{csv_$((i+1))}/${csv[$i]}/g" "$WORKING_DIR/$GMSH_INPUT"; then
       printf "*** Error: Substitution for continuous state variable csv_${i} "
       printf "in file ${WORKING_DIR}/${GMSH_INPUT} failed.\n"
       substitution_error=$((substitution_error+1))

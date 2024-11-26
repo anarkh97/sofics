@@ -26,14 +26,12 @@ export GMSH_INPUT=""
 export M2C_SIZE=""
 export M2C_EXE=""
 export M2C_INPUT=""
+export M2C_AUX=""
 
 # setup size and executables for solid solver
 export AEROS_SIZE=""
 export AEROS_EXE=""
 export AEROS_INPUT=""
-
-# detonation input for fluid solver
-export SHOCK_INPUT=""
 
 # Evaluation concurrency for dakota
 export EVALUATION_CONCURRENCY=""
@@ -69,33 +67,48 @@ fi
 
 # copy all templates to the working directory
 template_error=0
-if [[ -e "$TEMPLATE_DIR/$AEROS_INPUT".template ]]; then
-  cp "$TEMPLATE_DIR/$AEROS_INPUT".template $WORKING_DIR/$AEROS_INPUT
+if [[ -e "$TEMPLATE_DIR/${AEROS_INPUT}.template" ]]; then
+  cp "$TEMPLATE_DIR/${AEROS_INPUT}.template" "$WORKING_DIR/$AEROS_INPUT"
 else
   printf "*** Error: Could not find a template file for Aero-S input "
-  printf "file.\n"
+  printf "file (or template extension is missing).\n"
   template_error=$((template_error+1))
 fi
-if [[ -e "$TEMPLATE_DIR/$M2C_INPUT".template ]]; then
-  cp "$TEMPLATE_DIR/$M2C_INPUT".template $WORKING_DIR/$M2C_INPUT
+if [[ -e "$TEMPLATE_DIR/${M2C_INPUT}.template" ]]; then
+  cp "$TEMPLATE_DIR/${M2C_INPUT}.template" "$WORKING_DIR/$M2C_INPUT"
 else
   printf "*** Error: Could not find a template file for M2C input "
-  printf "file.\n"
+  printf "file (or template extension is missing).\n"
   template_error=$((template_error+1))
 fi
-if [[ -e "$TEMPLATE_DIR/$SHOCK_INPUT".template ]]; then
-  cp "$TEMPLATE_DIR/$SHOCK_INPUT".template $WORKING_DIR/$SHOCK_INPUT
+
+if [[ -e "$TEMPLATE_DIR/${GMSH_INPUT}.template" ]]; then
+  cp "$TEMPLATE_DIR/${GMSH_INPUT}.template" "$WORKING_DIR/$GMSH_INPUT"
 else
-  printf "*** Error: A template file for initial detonation profile not "
-  printf "provided.\n"
+  printf "*** Error: Could not find a template file for Gmsh input "
+  printf "file (or template extension is missing).\n"
   template_error=$((template_error+1))
 fi
-if [[ -e "$TEMPLATE_DIR/$GMSH_INPUT".template ]]; then
-  cp "$TEMPLATE_DIR/$GMSH_INPUT".template $WORKING_DIR/$GMSH_INPUT
-else
-  printf "*** Error: A template file for GMSH for creating mesh for each "
-  printf "design point was not provided.\n"
-  template_error=$((template_error+1))
+
+# copy any auxilary inputs that were provided for m2c
+if [[ $M2C_AUX != "" ]]
+  # get names of all auxilary inputs
+  IFS=: read -r -a fluid_aux_inps <<< "$M2C_AUX"
+
+  # remove empty fields (or spaces)
+  fluid_aux_inps=("${fluid_aux_inps[@]// /}")
+
+  for i in "${!fluid_aux_inps[@]}"; do
+    if [[ -e "$TEMPLATE_DIR/${fluid_aux_inps[$i]}.template" ]]; then
+      cp "$TEMPLATE_DIR/${fluid_aux_inps[$i]}.template" \
+        "$WORKING_DIR/${fluid_aux_inps[$i]}"
+    else
+      printf "*** Error: Could not find a template file for auxilary "
+      printf "input ${fluid_aux_inps[$i]} (or template extension is "
+      printf "missing).\n"
+      template_error=$((template_error+1))
+    fi
+  done
 fi
 
 if [[ $template_error -gt 0 ]]; then

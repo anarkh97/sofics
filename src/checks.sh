@@ -75,12 +75,6 @@ if [[ $AEROS_INPUT == "" ]]; then
   exit 1
 fi
 
-if [[ $SHOCK_INPUT == "" ]]; then
-  printf "*** Error: File with initial detonation profile was not provided. "
-  printf "Aborting ...\n"
-  exit 1
-fi
-
 if [[ $EVALUATION_CONCURRENCY == "" ]]; then
   printf "*** Error: Evaluation concurrency needs to be defined in the "
   printf "configuration file as well. Should match dakota input file. "
