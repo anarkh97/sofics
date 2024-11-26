@@ -91,7 +91,7 @@ else
 fi
 
 # copy any auxilary inputs that were provided for m2c
-if [[ $M2C_AUX != "" ]]
+if [[ $M2C_AUX != "" ]]; then
   # get names of all auxilary inputs
   IFS=: read -r -a fluid_aux_inps <<< "$M2C_AUX"
 

@@ -32,7 +32,7 @@ postprocessor
 )
 
 # copy bash scripts
-add_custom_target(copy_scripts ALL)
+add_custom_target(sofics_scripts ALL)
 
 # Collect all .sh files in the source directory into a list
 file(GLOB BASH_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.sh")
@@ -42,7 +42,7 @@ if(BASH_FILES)
   foreach(shfile ${BASH_FILES})
     get_filename_component(fname ${shfile} NAME)
     add_custom_command(
-        TARGET copy_scripts
+        TARGET sofics_scripts
         COMMAND ${CMAKE_COMMAND} -E copy ${shfile} ${CMAKE_CURRENT_BINARY_DIR}/${fname}
         DEPENDS ${shfile}
     )
