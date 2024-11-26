@@ -25,7 +25,7 @@ A C++ utility called `postprocessor` is available in the `src` directory. This u
 
 Installation of `Gmsh` and `Dakota` is not handled by `SOFICS`. Instead the user should refer their official repositores [Gmsh](https://gitlab.onelab.info/gmsh/gmsh/-/tree/gmsh_4_13_1) and [Dakota](https://github.com/snl-dakota/dakota?tab=coc-ov-file) for build instructions.
 
-## Default build
+## Default Build
 
 To build `SOFICS`, navigate to the project directory (i.e., the `sofics` directory). A build file is included in this directory, enabling you to install `SOFICS` with the local versions of M2C and Aero-S; follow these steps:
 
@@ -42,8 +42,6 @@ To view a detailed log of the compilation process, run:
 ```sh
 make VERBOSE=1
 ```
-
-A successfull build should provide `checks.sh`, `driver.sh`, `pre_processor.sh`, and `post_processor.sh` bash scripts along with `gmsh2aeros` and `postprocessor` executables in `build/src`. Moreover, `build/packages` should contain directories `aeros` and `m2c`. To check if build for these solvers was successfull try the following commands.
 
 A successful build should generate the following bash scripts in the `build/src` directory: 
 * checks.sh
@@ -71,7 +69,7 @@ The output from a successful build should look like,
 
 ![M2C default output.](images/M2COutput.jpg)
 
-## Build without M2C or Aero-S
+## Build Without M2C or Aero-S
 
 If `M2C` or `Aero-S` are already installed on your local machine, you can skip compiling the versions provided with `SOFICS`. `SOFICS` provides `BUILD_M2C` and `BUILD_AEROS` variables to specify whether these software tools are built. For example, if you choose not to build M2C, navigate to your `sofics` directory, and then follow these steps:
 
@@ -91,7 +89,7 @@ analysis_driver = 'path/to/sofics/build/src/ path/to/config.sh'
 
 For detailed instructions and a list of available variables for undertaking optimization studies based on coupled fluid-structure interaction simulations, refer to the test cases available in the `tests` directory.
 
-## GMSH
+## Gmsh
 
 We strongly encourage you follow the build instructions provided in the official [Gmsh repository](https://gitlab.onelab.info/gmsh/gmsh/-/tree/gmsh_4_13_1). To verify that the build was successful, try running the following command:
 
