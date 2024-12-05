@@ -17,7 +17,7 @@ authors:
     equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
     affiliation: 1
 affiliations:
- - name: Virginia Tech, Virginia Tech Swing Space, Blacksburg, 24060, Virginia, USA
+ - name: Kevin T. Crofton Department of Aerospace and Ocean Engineering, Virginia Tech, Blacksburg, 24061, Virginia, USA
    index: 1
 date: today
 bibliography: paper.bib
@@ -52,4 +52,6 @@ To simplify usage, the `analysis_driver` is divided into three Bash scripts: `pr
 # Acknowledgements
 
 A.N and K.W. gratefully acknowledge the support of Office of Naval Research (ONR) under awards N00014-23-1-2447 and N00014-24-1-2509.
+
+
 # References
