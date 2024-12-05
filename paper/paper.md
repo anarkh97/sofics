@@ -10,7 +10,7 @@ tags:
   - Fluid-Structure Interaction
 authors:
   - name: Aditya Narkhede
-    orcid: 0000-0000-0000-0000
+    orcid: 0009-0004-4281-611X
     equal-contrib: true
     affiliation: 1 # (Multiple affiliations must be quoted)
   - name: Kevin Wang
