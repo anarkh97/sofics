@@ -51,7 +51,7 @@ To simplify usage, the `analysis_driver` is divided into three Bash scripts: `pr
 
 # Acknowledgements
 
-The authors gratefully acknowledge the support of U.S. Office of Naval Research (ONR) under awards N00014-23-1-2447 and N00014-24-1-2509, and the support of DynaSafe US LLC through a research contract to Virginia Tech.
+The authors gratefully acknowledge the support of U.S. Office of Naval Research (ONR) under awards N00014-23-1-2447 and N00014-24-1-2509. The authors are also grateful for a research contract provided by DynaSafe LLC (USA) to Virginia Tech.
 
 
 # References
