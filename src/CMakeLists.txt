@@ -28,7 +28,7 @@ add_executable(gmsh2aeros
 gmsh2aeros.cpp
 )
 add_executable(postprocessor
-postprocessor
+postprocessor.cpp
 )
 
 # copy bash scripts
