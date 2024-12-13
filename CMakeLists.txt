@@ -19,25 +19,33 @@ option(BUILD_M2C "Build local copy of M2C" ON)
 
 # add aeros
 if(BUILD_AEROS)
-  # fortran flags -- for aeros
+
+  # fortran flags for aeros
   set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fallow-argument-mismatch")
 
-  # Zoltan library -- might be required by aero-s
-  set(ZOLTAN_INCLUDE_PATH "/projects/wang_aoe_lab/KevinWang/Software/Trilinos/MyBuild/include/")
-  set(ZOLTAN_SRC_PATH "/projects/wang_aoe_lab/KevinWang/Software/Trilinos/packages/zoltan/src/")
-  set(ZOLTAN_LIBRARY "/projects/wang_aoe_lab/KevinWang/Software/Trilinos/MyBuild/lib/libzoltan.a") 
-
-  # Spooles library -- might be required by aero-s
-  set(SPOOLES_INCLUDE_PATH "/projects/wang_aoe_lab/KevinWang/Software/SPOOLES/")
-  set(SPOOLES_spooles_LIBRARY "/projects/wang_aoe_lab/KevinWang/Software/SPOOLES/spooles.a")
-  set(SPOOLES_spoolesMT_LIBRARY "/projects/wang_aoe_lab/KevinWang/Software/SPOOLES/MT/src/spoolesMT.a")
-
+  #-----------------------------------------
+  # Aero-S variables which can be used to specify your custom libraries.
+  #
+  # E.g.,
+  #
+  # Zoltan library
+  # set(ZOLTAN_INCLUDE_PATH "/path/to/ZOLTAN/include/")
+  # set(ZOLTAN_SRC_PATH "/path/to/ZOLTAN/src")
+  # set(ZOLTAN_LIBRARY "/path/to/libzoltan.a") 
+  #
+  # Spooles library
+  # set(SPOOLES_INCLUDE_PATH "/path/to/SPOOLES/include/")
+  # set(SPOOLES_spooles_LIBRARY "/path/to/spooles.a")
+  # set(SPOOLES_spoolesMT_LIBRARY "/path/to/spoolesMT.a")
+  #
   # BLACS and SCALAPACK library
-  #set(BLACS_blacs_LIBRARY "")
-  #set(BLACS_Cinit_LIBRARY "")
-  #set(SCALAPACK_LIBRARY "")
+  # set(BLACS_blacs_LIBRARY "/path/to/libblacs.a")
+  # set(BLACS_Cinit_LIBRARY "/path/to/libcinit.a")
+  # set(SCALAPACK_LIBRARY "/path/to/libscalapack.a")
+  #-----------------------------------------
 
   add_subdirectory(packages/aeros)
+  
 endif()
 
 # add m2c
