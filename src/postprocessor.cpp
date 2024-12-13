@@ -46,17 +46,29 @@ const struct option command_opts[] = {
   {nullptr,                          0, nullptr,   0}
 };
 
+void print_commandline_message()
+{
+  
+  fprintf(stdout, "Usage: %s -d/--dakota_result <path-to-dakota-results-file>.\n", argv[0]);
+  fprintf(stdout, "Options:\n");
+  fprintf(stdout, "  -t or --surface_topo: Path to the specific surface topology when "
+    "post-processing results on a surface.\n");
+  fprintf(stdout, "  -s or --scalar_result: Path to the output file containing a scalar "
+    "value. (e.g., mass).\n");
+  fprintf(stdout, "  -a or --aeros_result: Path to the output file containing the time "
+    "history of an Aero-S variable (e.g., gdisplac, vmstress, epstrain).\n");
+  fprintf(stdout, "  -p or --scalar_probe: Path to the output file containing the time "
+    "history of an Aero-S scalar variable (e.g., vmstress, epstrain) sampled at a probe.\n");
+  fprintf(stdout, "  -v or --vector_probe: Path to the output file containing the time "
+    "history of an Aero-S vector variable (e.g., gdisplac, gvelocit) sampled at a probe.\n");
+  fprintf(stdout, "  -w or --write: Overwrites the existing Dakota results file.\n");
+
+}
+
 int main(int argc, char* argv[]) {
 
   if(argc == 1) { 
-    fprintf(stdout, "Usage: %s -d/--dakota_result <path-to-dakota-results-file>.\n", argv[0]);
-    fprintf(stdout, "Options:\n");
-    fprintf(stdout, "  -t or --surface_topo: ...\n");
-    fprintf(stdout, "  -s or --scalar_result: ...\n");
-    fprintf(stdout, "  -a or --aeros_result: ...\n");
-    fprintf(stdout, "  -p or --scalar_probe: ...\n");
-    fprintf(stdout, "  -v or --vector_probe: ...\n");
-    fprintf(stdout, "  -w or --write: ...\n");
+    print_commandline_message();
     exit(EXIT_SUCCESS);
   }
 
@@ -143,26 +155,12 @@ int main(int argc, char* argv[]) {
       }
       case '?': {
         //unrecognized option
-        fprintf(stdout, "Usage: %s -d/--dakota_result <path-to-dakota-results-file>.\n", argv[0]);
-        fprintf(stdout, "Options:\n");
-        fprintf(stdout, "  -t or --surface_topo: ...\n");
-        fprintf(stdout, "  -s or --scalar_result: ...\n");
-        fprintf(stdout, "  -a or --aeros_result: ...\n");
-        fprintf(stdout, "  -p or --scalar_probe: ...\n");
-        fprintf(stdout, "  -v or --vector_probe: ...\n");
-        fprintf(stdout, "  -w or --write: ...\n");
+        print_commandline_message();
         exit(EXIT_FAILURE);
       }
       case 'h': {
         //help
-        fprintf(stdout, "Usage: %s -d/--dakota_result <path-to-dakota-results-file>.\n", argv[0]);
-        fprintf(stdout, "Options:\n");
-        fprintf(stdout, "  -t or --surface_topo: ...\n");
-        fprintf(stdout, "  -s or --scalar_result: ...\n");
-        fprintf(stdout, "  -a or --aeros_result: ...\n");
-        fprintf(stdout, "  -p or --scalar_probe: ...\n");
-        fprintf(stdout, "  -v or --vector_probe: ...\n");
-        fprintf(stdout, "  -w or --write: ...\n");
+        print_commandline_message();
         exit(EXIT_SUCCESS);
       }
     }
@@ -289,8 +287,6 @@ int main(int argc, char* argv[]) {
     is >> num_global_nodes;
 
     num_topo_nodes = (surface_nodes.empty()) ? num_global_nodes : surface_nodes.size();
-    
-    fprintf(stdout, "global %d; topo %d\n", num_global_nodes, num_topo_nodes);
 
     if(num_global_nodes < num_topo_nodes) {
       fprintf(stderr, "*** Error: Surface topology contains more nodes than the FE mesh "
