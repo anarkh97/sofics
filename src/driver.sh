@@ -170,10 +170,14 @@ printf "\033[34mLaunching Evaluation ${DAK_EVAL_NUM} on nodes "
 printf "${host_list[*]}\033[0m\n"
 
 ### run analysis
-mpiexec --bind-to none -n $M2C_SIZE \
-  -host $host_list $M2C_EXE $M2C_INPUT : \
-  -n $AEROS_SIZE -host $host_list \
-  $AEROS_EXE $AEROS_INPUT &> $WORKING_DIR/log.out 
+mpiexec --bind-to none \
+	-n $M2C_SIZE \
+        --host $host_list:$total_proc \
+	$M2C_EXE $M2C_INPUT : \
+        -n $AEROS_SIZE \
+	--host $host_list:$total_proc \
+        $AEROS_EXE $AEROS_INPUT &> \
+	$WORKING_DIR/log.out 
 
 # -------------------
 # WAIT FOR COMPLETION
