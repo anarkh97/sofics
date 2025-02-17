@@ -173,11 +173,11 @@ printf "${host_list[*]}\033[0m\n"
 mpiexec --bind-to none \
 	-n $M2C_SIZE \
         --host $host_list:$total_proc \
-	$M2C_EXE $M2C_INPUT : \
+	$M2C_EXE $WORKING_DIR/$M2C_INPUT : \
         -n $AEROS_SIZE \
 	--host $host_list:$total_proc \
-        $AEROS_EXE $AEROS_INPUT &> \
-	$WORKING_DIR/log.out 
+        $AEROS_EXE $WORKING_DIR/$AEROS_INPUT 2>&1 \
+	| tee $WORKING_DIR/log.out
 
 # -------------------
 # WAIT FOR COMPLETION
@@ -193,7 +193,6 @@ done
 bash -c 'tail --pid=$$ -f "$1" |
   {
     sed -e "/Total Computation Time/q" \
-        -e "/Found NAN in integrate/q" \
         -e "/ERROR/q" \
         -e "/Error/q" && kill $$;
   }' "MonitorShell" $WORKING_DIR/log.out

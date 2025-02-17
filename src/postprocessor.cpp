@@ -49,7 +49,7 @@ const struct option command_opts[] = {
 void print_commandline_message()
 {
   
-  fprintf(stdout, "Usage: sofics -d/--dakota_result <path-to-dakota-results-file>.\n");
+  fprintf(stdout, "Usage: [binary] -d/--dakota_result <path-to-dakota-results-file>.\n");
   fprintf(stdout, "Options:\n");
   fprintf(stdout, "  -t or --surface_topo: Path to the specific surface topology when "
     "post-processing results on a surface.\n");
