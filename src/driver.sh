@@ -167,9 +167,9 @@ do
 done
 
 printf "\033[34mLaunching Evaluation ${DAK_EVAL_NUM} on nodes "
-printf "${host_list[*]}\033[0m\n"
+printf "${host_list[*]} "
 
-### run analysis
+### run analysis in background
 mpiexec --bind-to none \
 	-n $M2C_SIZE \
         --host $host_list:$total_proc \
@@ -177,32 +177,25 @@ mpiexec --bind-to none \
         -n $AEROS_SIZE \
 	--host $host_list:$total_proc \
         $AEROS_EXE $WORKING_DIR/$AEROS_INPUT 2>&1 \
-	| tee $WORKING_DIR/log.out
+	| tee $WORKING_DIR/log.out > /dev/null &
+
+mpi_pid=$!
+printf "with process id $mpi_pid.\033[0m\n"
 
 # -------------------
 # WAIT FOR COMPLETION
 # ------------------
 
-# first we wait for log file to spawn
-while [[ ! -e $WORKING_DIR/log.out ]]
-do
-  true
-done
-
-# now we monitor the log file in a sub-shell
-bash -c 'tail --pid=$$ -f "$1" |
-  {
-    sed -e "/Total Computation Time/q" \
-        -e "/ERROR/q" \
-        -e "/Error/q" && kill $$;
-  }' "MonitorShell" $WORKING_DIR/log.out
+wait $mpi_pid
 
 # ---------------
 # POST-PROCESSING
 # ---------------
 
 # check which signal was recieved and handle errors here
-if grep -q "Total Computation Time" $WORKING_DIR/log.out
+# Alternatively, we could also query $? as it returns the
+# exit status of mpiexec.
+if grep -q "NORMAL TERMINATION" $WORKING_DIR/log.out
 then
   # succesfull evaluation
   # execute post-processor in a sub-shell
