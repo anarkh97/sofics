@@ -1,7 +1,29 @@
 #!/bin/bash
 
-# All global variables are depicted in capital text. For a list
-# of global variables check the `driver.sh` file.
+cont_design_vars=$1
+cont_state_vars=$2
+
+#------------------------------------------------------------------------------
+# Convert ":" separated lists to an array
+#------------------------------------------------------------------------------
+if [ -z "$cont_design_vars" ]
+then
+  printf "*** Error: Empty list of continuous design variables.\n"
+  exit 1
+else
+  IFS=: read -r -a cdv <<< "$cont_design_vars"  
+
+  # remove empty fields (or spaces)
+  cdv=("${cdv[@]// /}")
+fi
+
+if [ -n "$cont_state_vars" ]
+then
+  IFS=: read -r -a csv <<< "$cont_state_vars"
+
+  # remove empty fields (or spaces)
+  csv=("${csv[@]// /}")
+fi
 
 # NOTE: Not strictly necessary, but it's conventional to place 
 # structure files in a separate directory for better organization.
@@ -23,69 +45,10 @@ then
   mkdir "${struct_dir}"
 fi
 
-# parse the dakota params file
-num_var=$(awk 'NR==1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
-# Dakota specifies continous design variables as derivative variables
-# even if gradient-free optimization is employed. There is no other 
-# way to explicitly distinguish design variables from state variables.
-num_cdv=$(
-  grep "derivative_variables" "$WORKING_DIR/$DAK_PARAMS" |
-  awk '{print $1}'
-)
 
-if [[ $num_var -lt $num_cdv ]]; then
-  printf "*** Error: Enough continuous design variables were not provided. "
-  printf "Aborting ...\n"
-  exit 1
-fi
-
-# we only parse the design variables and ignore the rest.
-# NOTE: dakota always writes the continuous design variables first.
-# TODO: Extend to include other kinds of design variables as well.
-cdv=()
-for i in $(seq 1 $num_cdv)
-do
-  val=$(awk -v line=$i 'NR==line+1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
-  desc=$(awk -v line=$i 'NR==line+1 {print $2}' "$WORKING_DIR/$DAK_PARAMS")
-
-  # This is to ensure that only continuous design variables type were
-  # used in the Dakota input file. Will be extended in future and this condition
-  # will be relaxed to accommodate discrete variables of type INTEGER and STRING. 
-  if [[ $desc != "cdv_$i" ]]; then
-    printf "*** Error: This utility expects continuous design "
-    printf "variables with dakota's default descriptors. Found a variable "
-    printf "with descriptor %s. Aborting ...\n" "$desc"
-    exit 1
-  fi
-
-  cdv+=($val)
-done
-
-# These are state variables that the user can use to define psuedo/problem 
-# specific values, such as mesh size, directly from Dakota's input. We still
-# expect these to be of type REAL, i.e. continuous state variables.
-num_csv=$((num_var-num_cdv))
-csv=()
-for i in $(seq 1 $num_csv)
-do
-  offset=$((num_cdv+i))
-  val=$(awk -v line=$offset 'NR==line+1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
-  desc=$(awk -v line=$offset 'NR==line+1 {print $2}' "$WORKING_DIR/$DAK_PARAMS")
-
-  # This is to ensure that only continuous state variables of REAL type were
-  # used in the Dakota input file. Will be extended in future and this condition
-  # will be relaxed to accommodate discrete variables of type INTEGER and STRING. 
-  if [[ $desc != "csv_$i" ]]; then
-    printf "*** Error: This utility expects continuous state "
-    printf "variables with dakota's default descriptors. Found a variable "
-    printf "with descriptor %s. Aborting ...\n" "$desc"
-    exit 1
-  fi
-
-  csv+=($val)
-done
-
-# update gmsh input file
+#------------------------------------------------------------------------------
+# Update gmsh input file
+#------------------------------------------------------------------------------
 substitution_error=0
 if [[ ${#cdv[@]} == $num_cdv ]]; then
   for i in "${!cdv[@]}"
@@ -119,9 +82,17 @@ if [[ $substitution_error -gt 0 ]]; then
   exit 1
 fi
 
-# generate mesh
-$GMSH_EXE -3 -format msh -o $struct_dir/$gmsh_out $WORKING_DIR/$GMSH_INPUT > \
-  $gmsh2aeros_log
+#------------------------------------------------------------------------------
+# Generate mesh
+#------------------------------------------------------------------------------
+{
+  $GMSH_EXE -3 -format msh -o $struct_dir/$gmsh_out \
+    $WORKING_DIR/$GMSH_INPUT > $gmsh2aeros_log
+} || {
+  # catch error
+  printf "*** Error: Failed to generate a mesh.\n"
+  exit 1
+}
 
 if grep -q "Error" $gmsh2aeros_log; then
   printf "*** Error: GMSH failed to generate the mesh for design "

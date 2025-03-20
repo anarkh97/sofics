@@ -1,0 +1,154 @@
+#!/bin/bash
+
+#------------------------------------------------------------------------------
+# Perform checks before proceeding
+#------------------------------------------------------------------------------
+if ! source "${DRIVER_DIR}/checks.sh"; then
+  # NOTE: Here we do not write a results file and force dakota to fail.
+  # This is a brute force approach for cases when user specifies a failure
+  # capture method other than `abort` in dakota.
+
+  exit 1
+fi
+
+#------------------------------------------------------------------------------
+# Copy all templates to the working directory
+#------------------------------------------------------------------------------
+cp "$TEMPLATE_DIR/${GMSH_INPUT}.template" "$WORKING_DIR/$GMSH_INPUT"
+cp "$TEMPLATE_DIR/${AEROS_INPUT}.template" "$WORKING_DIR/$AEROS_INPUT"
+cp "$TEMPLATE_DIR/${M2C_INPUT}.template" "$WORKING_DIR/$M2C_INPUT"
+# copy any auxilary inputs that were provided for m2c
+if [ -n "$M2C_AUX" ]; then
+  # get names of all auxilary inputs
+  IFS=: read -r -a fluid_aux_inps <<< "$M2C_AUX"
+
+  # remove empty fields (or spaces)
+  fluid_aux_inps=("${fluid_aux_inps[@]// /}")
+
+  for i in "${!fluid_aux_inps[@]}"; do
+    cp "$TEMPLATE_DIR/${fluid_aux_inps[$i]}.template" \
+      "$WORKING_DIR/${fluid_aux_inps[$i]}"
+  done
+fi
+
+#------------------------------------------------------------------------------
+# Read Dakota Parameter file and forward variables to a pre-processor
+#------------------------------------------------------------------------------
+
+num_var=$(awk 'NR==1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
+# Dakota specifies continous design variables as derivative variables
+# even if gradient-free optimization is employed. There is no other 
+# way to explicitly distinguish design variables from state variables.
+num_cdv=$(
+  grep "derivative_variables" "$WORKING_DIR/$DAK_PARAMS" |
+  awk '{print $1}'
+)
+
+if [[ $num_var -lt $num_cdv ]]; then
+  printf "*** Error: Enough continuous design variables were not provided. "
+  printf "Aborting ...\n"
+  exit 1
+fi
+
+# we only parse the design variables and ignore the rest.
+# NOTE: dakota always writes the continuous design variables first.
+# TODO: Extend to include other kinds of design variables as well.
+cdv_list=""
+for i in $(seq 1 $num_cdv)
+do
+  val=$(awk -v line=$i 'NR==line+1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
+  desc=$(awk -v line=$i 'NR==line+1 {print $2}' "$WORKING_DIR/$DAK_PARAMS")
+
+  # This is to ensure that only continuous design variables type were
+  # used in the Dakota input file. Will be extended in future and this condition
+  # will be relaxed to accommodate discrete variables of type INTEGER and STRING. 
+  if [[ $desc != "cdv_$i" ]]; then
+    printf "*** Error: This utility expects continuous design "
+    printf "variables with dakota's default descriptors. Found a variable "
+    printf "with descriptor %s. Aborting ...\n" "$desc"
+    exit 1
+  fi
+
+  if [ -z "$cdv_list" ]; then
+    cdv_list="$val"
+  else
+    cdv_list="$cdv_list:$val"
+  fi
+done
+
+# These are state variables that the user can use to define psuedo/problem 
+# specific values, such as mesh size, directly from Dakota's input. We expect 
+# these to be of type REAL, i.e. continuous state variables, with an expections
+# for a special (internal) state variable with KEYWORDS: "SWITCH", "NEIGHBOR".
+num_sv=$((num_var-num_cdv))
+num_csv=0
+csv_list=""
+for i in $(seq 1 $num_sv)
+do
+  offset=$((num_cdv+i))
+  val=$(awk -v line=$offset 'NR==line+1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
+  desc=$(awk -v line=$offset 'NR==line+1 {print $2}' "$WORKING_DIR/$DAK_PARAMS")
+
+  # This is to ensure that only continuous state variables of REAL type were
+  # used in the Dakota input file. We internally handle INTEGER and STRING variables
+  # used for ADOPT.
+  if [[ $desc != "csv_$i" ]]; then
+
+    # SWITCH solver flag for ADOPT.
+    if [[ $desc == "SWITCH" ]]; then
+      # check for our special keywords
+      if [[ $val == "TRUE" || $val == "APPROX" || $val == "ERROR" ]]; then
+        SOLVER_TYPE="$val"
+      else
+        printf "*** Error: The SWTICH state variable is a reserved keyword " 
+        printf "with \"TRUE\", \"APPROX\", and \"ERROR\" options. Instead "
+        printf "recieved %s. Aborting ...\n" "$val"
+        exit 1
+      fi
+      continue
+    fi
+
+    # Integer state used to pass the nearest neighbors (regex match).
+    if [[ $desc =~ ^NEIGHBOR[0-9]+$ ]]; then
+     
+      # assign if empty
+      if [ -z "$neighbors" ]; then
+        NEIGHBORS="$val"
+      else
+        NEIGHBORS="$NEIGHBORS:$val" # append
+      fi
+
+      continue
+    fi
+
+    # Other types are "errors" for SOFICS
+    printf "*** Error: This utility expects continuous state "
+    printf "variables with dakota's default descriptors. Found a variable "
+    printf "with descriptor %s. Aborting ...\n" "$desc"
+    exit 1
+
+  fi
+
+  if [ -z "$csv_list" ]; then
+    csv_list="$val"
+  else
+    csv_list="$csv_list:$val"
+  fi
+  num_csv=$((num_csv+1))
+
+done
+
+#------------------------------------------------------------------------------
+# Execute structural pre-processor in a sub-shell
+#------------------------------------------------------------------------------
+
+if ! bash $PREPROCESS_FILE "$cdv_list" "$csv_list" ; then
+  printf "*** Error: Failed at pre-processing stage for design "
+  printf "${DAK_EVAL_NUM}.\n"
+
+  # Here we let dakota capture the failure and proceed 
+  # based on user specification.
+
+  printf "FAIL\n" > $DAK_RESULTS
+  exit 0
+fi
