@@ -7,7 +7,7 @@ LONG_OPTIONS="help,config:,pre:,post:"
 PARSER="$(getopt -o "$SHORT_OPTIONS" -l "$LONG_OPTIONS" -- "$@")" || {
   # getopt failed
   printf "*** Error: Could not understand the "
-  printf "command line argument \"$?\".\n"
+  printf "command line argument \"%s\".\n" "$?"
   exit 1
 }
 

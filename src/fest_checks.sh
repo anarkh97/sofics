@@ -4,7 +4,7 @@
 # Only check approximate fluid solver inputs if explicitly requested.
 #------------------------------------------------------------------------------
 
-BUILD_DIR=$(dirname $DRIVER_DIR)
+BUILD_DIR=$(dirname "$DRIVER_DIR")
 PACKAGE_DIR=$BUILD_DIR/packages
 
 if [ -z "$FEST_SIZE" ]; then
@@ -14,14 +14,14 @@ fi
 if [ -z "$FEST_EXE" ]; then
   printf "*** Warning: Executable for FEST was "
   printf "not provided. Using default one ...\n"
-  if [[ ! -x $PACKAGE_DIR/fest/fest ]]; then
+  if [[ ! -x "$PACKAGE_DIR/fest/fest" ]]; then
     printf "*** Error: Could not find a valid executable for FEST. "
     printf "Aborting ...\n"
     exit 1
   fi
-  FEST_EXE=$PACKAGE_DIR/fest/fest
+  FEST_EXE="$PACKAGE_DIR/fest/fest"
 elif [ -n "$FEST_EXE" ] && [[ ! -x "$FEST_EXE" ]]; then
-  printf "*** Error: \"${FEST_EXE}\" is not a valid executable. "
+  printf "*** Error: \"%s\" is not a valid executable. " "${FEST_EXE}"
   printf "Aborting ...\n"
   exit 1
 fi

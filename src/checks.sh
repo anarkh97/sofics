@@ -3,7 +3,7 @@
 # This utility simply performs checks for required variables
 # for successfull evaluation of a design configuration.
 
-BUILD_DIR=$(dirname $DRIVER_DIR)
+BUILD_DIR=$(dirname "$DRIVER_DIR")
 PACKAGE_DIR=$BUILD_DIR/packages
 
 if [ -z "$TEMPLATE_DIR" ]; then
@@ -39,14 +39,14 @@ fi
 if [ -z "$M2C_EXE" ]; then
   printf "*** Warning: Executable for M2C was not provided. "
   printf "Using default one ...\n"
-  if [[ ! -x $PACKAGE_DIR/m2c/m2c ]]; then
+  if [[ ! -x "$PACKAGE_DIR/m2c/m2c" ]]; then
     printf "*** Error: Could not find a valid executable for M2C. "
     printf "Aborting ...\n"
     exit 1
   fi
-  M2C_EXE=$PACKAGE_DIR/m2c/m2c
+  M2C_EXE="$PACKAGE_DIR/m2c/m2c"
 elif [ -n "$M2C_EXE" ] && [[ ! -x "$M2C_EXE" ]]; then
-  printf "*** Error: \"${M2C_EXE}\" is not a valid executable. "
+  printf "*** Error: \"%s\" is not a valid executable. " "$M2C_EXE"
   printf "Aborting ...\n"
   exit 1
 fi
@@ -54,14 +54,14 @@ fi
 if [ -z "$AEROS_EXE" ]; then
   printf "*** Warning: Executable for AERO-S was not provided. "
   printf "Using default one ...\n"
-  if [[ ! -x $PACKAGE_DIR/aeros/bin/aeros ]]; then
+  if [[ ! -x "$PACKAGE_DIR/aeros/bin/aeros" ]]; then
     printf "*** Error: Could not find a valid executable for AERO-S. "
     printf "Aborting ...\n"
     exit 1
   fi
-  AEROS_EXE=$PACKAGE_DIR/aeros/bin/aeros
+  AEROS_EXE="$PACKAGE_DIR/aeros/bin/aeros"
 elif [ -n "$AEROS_EXE" ] && [[ ! -x "$AEROS_EXE" ]]; then
-  printf "*** Error: \"${AEROS_EXE}\" is not a valid executable. "
+  printf "*** Error: \"%s\" is not a valid executable. " "${AEROS_EXE}"
   printf "Aborting ...\n"
   exit 1
 fi
@@ -87,11 +87,11 @@ fi
 #------------------------------------------------------------------------------
 
 template_error=0
-if [[ ! -f "$TEMPLATE_DIR/${GMSH_INPUT}.template" ]]; then
-  printf "*** Error: Could not find a template file for Gmsh input "
-  printf "file (or template extension is missing).\n"
-  template_error=$((template_error+1))
-fi
+#if [[ ! -f "$TEMPLATE_DIR/${GMSH_INPUT}.template" ]]; then
+#  printf "*** Error: Could not find a template file for Gmsh input "
+#  printf "file (or template extension is missing).\n"
+#  template_error=$((template_error+1))
+#fi
 
 if [[ ! -f "$TEMPLATE_DIR/${AEROS_INPUT}.template" ]]; then
   printf "*** Error: Could not find the template file for AEROS input "
@@ -112,7 +112,7 @@ if [ -n "$M2C_AUX" ]; then
   for i in "${!fluid_aux_inps[@]}"; do
     if [[ ! -f "$TEMPLATE_DIR/${fluid_aux_inps[$i]}.template" ]]; then
       printf "*** Error: Could not find a template file for auxilary "
-      printf "input ${fluid_aux_inps[$i]} (or template extension is "
+      printf "input %s (or template extension is " "${fluid_aux_inps[$i]}"
       printf "missing).\n"
       template_error=$((template_error+1))
     fi

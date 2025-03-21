@@ -6,21 +6,21 @@
 
 # find correct relative node position
 task_per_node=$(
-  echo $SLURM_TASKS_PER_NODE |
+  echo "$SLURM_TASKS_PER_NODE" |
   sed 's|^[^0-9]*\([0-9]\+\).*|\1|'
 )
 total_proc=$((
-  $FEST_SIZE
+  "$FEST_SIZE"
 ))
 applic_nodes=$((
-  ($total_proc+$task_per_node-1) / 
-  $task_per_node
+  ("$total_proc"+"$task_per_node"-1) / 
+  "$task_per_node"
 ))
 relative_eval_num=$((
-  ($DAK_EVAL_NUM-1) % $EVALUATION_CONCURRENCY
+  ("$DAK_EVAL_NUM"-1) % "$EVALUATION_CONCURRENCY"
 ))
 relative_node=$((
-  ( $relative_eval_num * $total_proc ) / $task_per_node
+  ( "$relative_eval_num" * "$total_proc" ) / "$task_per_node"
 ))
 
 # get all nodes assigned to dakota process
@@ -28,24 +28,23 @@ node_list=(`scontrol show hostnames`)
 
 # get host list for this process
 host_list="${node_list[$relative_node]}"
-for i in `seq 1 $(( $applic_nodes - 1))`
+for i in $(seq 1 $((applic_nodes - 1)))
 do
   host_list="$host_list,
   ${node_list[$((relative_node+i))]}"
 done
 
-printf "\033[34mLaunching Evaluation ${DAK_EVAL_NUM} on nodes "
-printf "${host_list[*]} "
-
 ### run analysis in background
 mpiexec --bind-to none \
-	-n $FEST_SIZE \
-  --host $host_list:$total_proc \
-	$FEST_EXE $WORKING_DIR/$FEST_ERROR_INPUT \ 
-	| tee $WORKING_DIR/log.out > /dev/null &
+	-n "$FEST_SIZE" \
+  --host "$host_list":"$total_proc" \
+	"$FEST_EXE" "$WORKING_DIR/$FEST_ERROR_INPUT" \
+	| tee "$WORKING_DIR/log.out" > /dev/null &
 
 mpi_pid=$!
-printf "with process id $mpi_pid.\033[0m\n"
+
+printf "\033[34mLaunching Evaluation %s on nodes " "${DAK_EVAL_NUM}"
+printf "with process id %s.\033[0m\n" "${host_list[*]}" "$mpi_pid"
 
 # -----------------------------------------------------------------------------
 # Wait for completion

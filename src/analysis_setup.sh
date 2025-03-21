@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #------------------------------------------------------------------------------
-# Perform checks before proceeding
+# Perform checks before proceeding (in CURRENT shell)
 #------------------------------------------------------------------------------
 if ! source "${DRIVER_DIR}/checks.sh"; then
   # NOTE: Here we do not write a results file and force dakota to fail.
@@ -12,29 +12,8 @@ if ! source "${DRIVER_DIR}/checks.sh"; then
 fi
 
 #------------------------------------------------------------------------------
-# Copy all templates to the working directory
-#------------------------------------------------------------------------------
-cp "$TEMPLATE_DIR/${GMSH_INPUT}.template" "$WORKING_DIR/$GMSH_INPUT"
-cp "$TEMPLATE_DIR/${AEROS_INPUT}.template" "$WORKING_DIR/$AEROS_INPUT"
-cp "$TEMPLATE_DIR/${M2C_INPUT}.template" "$WORKING_DIR/$M2C_INPUT"
-# copy any auxilary inputs that were provided for m2c
-if [ -n "$M2C_AUX" ]; then
-  # get names of all auxilary inputs
-  IFS=: read -r -a fluid_aux_inps <<< "$M2C_AUX"
-
-  # remove empty fields (or spaces)
-  fluid_aux_inps=("${fluid_aux_inps[@]// /}")
-
-  for i in "${!fluid_aux_inps[@]}"; do
-    cp "$TEMPLATE_DIR/${fluid_aux_inps[$i]}.template" \
-      "$WORKING_DIR/${fluid_aux_inps[$i]}"
-  done
-fi
-
-#------------------------------------------------------------------------------
 # Read Dakota Parameter file and forward variables to a pre-processor
 #------------------------------------------------------------------------------
-
 num_var=$(awk 'NR==1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
 # Dakota specifies continous design variables as derivative variables
 # even if gradient-free optimization is employed. There is no other 
@@ -54,15 +33,15 @@ fi
 # NOTE: dakota always writes the continuous design variables first.
 # TODO: Extend to include other kinds of design variables as well.
 cdv_list=""
-for i in $(seq 1 $num_cdv)
+for i in $(seq 1 "$num_cdv")
 do
-  val=$(awk -v line=$i 'NR==line+1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
-  desc=$(awk -v line=$i 'NR==line+1 {print $2}' "$WORKING_DIR/$DAK_PARAMS")
+  val=$(awk -v line="$i" 'NR==line+1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
+  desc=$(awk -v line="$i" 'NR==line+1 {print $2}' "$WORKING_DIR/$DAK_PARAMS")
 
   # This is to ensure that only continuous design variables type were
   # used in the Dakota input file. Will be extended in future and this condition
   # will be relaxed to accommodate discrete variables of type INTEGER and STRING. 
-  if [[ $desc != "cdv_$i" ]]; then
+  if [[ "$desc" != "cdv_$i" ]]; then
     printf "*** Error: This utility expects continuous design "
     printf "variables with dakota's default descriptors. Found a variable "
     printf "with descriptor %s. Aborting ...\n" "$desc"
@@ -139,16 +118,78 @@ do
 done
 
 #------------------------------------------------------------------------------
+# Perform FEST related checks and generate "META" file
+#------------------------------------------------------------------------------
+if [[ "$SOLVER_TYPE" == "APPROX" || "$SOLVER_TYPE" == "ERROR" ]]; then
+
+  # Run checks in CURRENT shell.
+  if ! source "${DRIVER_DIR}/fest_checks.sh"; then
+    # NOTE: Here we do not write a results file and force dakota to fail.
+    # This is a brute force approach for cases when user specifies a failure
+    # capture method other than `abort` in dakota.
+  
+    exit 1
+  fi
+
+  # This will be created in the WORKING_DIR
+  if ! bash "$META_GENERATOR_FILE" "$cdv_list" "$NEIGHBORS" ; then
+    printf "*** Error: Failed to generate metafile for "
+    printf "ADOPT (design %s).\n" "${DAK_EVAL_NUM}"
+
+    printf "FAIL\n" > "$DAK_RESULTS"
+    exit 0
+  fi
+
+fi
+
+#------------------------------------------------------------------------------
+# Copy all templates to the working directory
+#------------------------------------------------------------------------------
+cp "$TEMPLATE_DIR/${AEROS_INPUT}.template" "$WORKING_DIR/$AEROS_INPUT"
+
+# copy the fluid files based on solver type
+case "$SOLVER_TYPE" in
+
+  TRUE)
+    cp "$TEMPLATE_DIR/${M2C_INPUT}.template" "$WORKING_DIR/$M2C_INPUT"
+    # copy any auxilary inputs that were provided for m2c
+    if [ -n "$M2C_AUX" ]; then
+      # get names of all auxilary inputs
+      IFS=: read -r -a fluid_aux_inps <<< "$M2C_AUX"
+    
+      # remove empty fields (or spaces)
+      fluid_aux_inps=("${fluid_aux_inps[@]// /}")
+    
+      for i in "${!fluid_aux_inps[@]}"; do
+        cp "$TEMPLATE_DIR/${fluid_aux_inps[$i]}.template" \
+          "$WORKING_DIR/${fluid_aux_inps[$i]}"
+      done
+    fi
+    ;;
+  APPROX)
+    cp "$TEMPLATE_DIR/${FEST_INPUT}.template" "$WORKING_DIR/$FEST_INPUT"
+    ;;
+  ERROR)
+    cp "$TEMPLATE_DIR/${FEST_ERROR_INPUT}.template" \
+      "$WORKING_DIR/$FEST_ERROR_INPUT"
+    ;;
+
+esac
+
+#------------------------------------------------------------------------------
 # Execute structural pre-processor in a sub-shell
 #------------------------------------------------------------------------------
 
-if ! bash $PREPROCESS_FILE "$cdv_list" "$csv_list" ; then
-  printf "*** Error: Failed at pre-processing stage for design "
-  printf "${DAK_EVAL_NUM}.\n"
-
-  # Here we let dakota capture the failure and proceed 
-  # based on user specification.
-
-  printf "FAIL\n" > $DAK_RESULTS
-  exit 0
+# Error run does not require structural mesh.
+if [[ "$SOLVER_TYPE" != "ERROR" ]]; then
+  if ! bash "$PREPROCESS_FILE" "$cdv_list" "$csv_list" ; then
+    printf "*** Error: Failed at pre-processing stage for design "
+    printf "%s.\n" "${DAK_EVAL_NUM}"
+  
+    # Here we let dakota capture the failure and proceed 
+    # based on user specification.
+  
+    printf "FAIL\n" > "$DAK_RESULTS"
+    exit 0
+  fi
 fi

@@ -17,7 +17,7 @@ fi
 # Get current evaluation id
 #------------------------------------------------------------------------------
 DAK_EVAL_NUM=$(
-  grep "eval_id" $DAK_PARAMS | awk '{print $1}'
+  grep "eval_id" "$DAK_PARAMS" | awk '{print $1}'
 )
 
 #------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ SOLVER_TYPE="TRUE"
 NEIGHBORS=""
 
 # Internal variables
-ANALYSIS_SETUP_FILE="${DRIVER_DIR}/structure_setup.sh"
+ANALYSIS_SETUP_FILE="${DRIVER_DIR}/analysis_setup.sh"
 META_GENERATOR_FILE="${DRIVER_DIR}/meta_generator.sh"
 
 # Internal drivers
@@ -39,76 +39,66 @@ ERROR_EVALUATION_DRIVER="${DRIVER_DIR}/error_driver.sh"
 #------------------------------------------------------------------------------
 # Get user config in the CURRENT shell
 #------------------------------------------------------------------------------
-if [ -n $USER_CONFIG ]; then
-  source $USER_CONFIG
+if [ -n "$USER_CONFIG" ]; then
+  source "$USER_CONFIG"
 fi
 
 #------------------------------------------------------------------------------
 # Process parameters and call the structural pre-processor
 #------------------------------------------------------------------------------
-source $ANALYSIS_SETUP_FILE
+source "$ANALYSIS_SETUP_FILE"
 
-if [[ "$SOLVER_TYPE" == "APPROX" || "$SOLVER_TYPE" == "ERROR" ]]; then
-
-  if ! source "${DRIVER_DIR}/fest_checks.sh"; then
-    # NOTE: Here we do not write a results file and force dakota to fail.
-    # This is a brute force approach for cases when user specifies a failure
-    # capture method other than `abort` in dakota.
-  
-    exit 1
-  fi
-
-  if ! bash $METAGENERATOR_FILE $NEIGHBORS ; then
-    printf "*** Error: Failed to generate metafile for "
-    printf "ADOPT (design ${DAK_EVAL_NUM}).\n"
-
-    printf "FAIL\n" > $DAK_RESULTS
-    exit 0
-  fi
-
-fi
-
-# ---------
-# EXECUTION
-# ---------
-
-case "SOLVER_TYPE" in
+#------------------------------------------------------------------------------
+# Execute analysis in a sub-shell.
+#------------------------------------------------------------------------------
+case "$SOLVER_TYPE" in
   
   TRUE)
-    bash $TRUE_EVALUATION_DRIVER ;;
+    bash "$TRUE_EVALUATION_DRIVER" ;;
   APPROX)
-    bash $APPROX_EVALUATION_DRIVER ;;
+    bash "$APPROX_EVALUATION_DRIVER" ;;
   ERROR)
-    bash $ERROR_EVALUATION_DRIVER ;;
-  *)
-    echo "*** Error: Unknown solver type \"${SOLVER_TYPE}\"."
-    exit 1
-    ;;
+    bash "$ERROR_EVALUATION_DRIVER" ;;
 
 esac
 
-# ---------------
-# POST-PROCESSING
-# ---------------
+#------------------------------------------------------------------------------
+# Post-processing
+#------------------------------------------------------------------------------
 
 # check which signal was recieved and handle errors here
 # Alternatively, we could also query $? as it returns the
 # exit status of mpiexec.
-if grep -q "NORMAL TERMINATION" $WORKING_DIR/log.out
+if grep -q "NORMAL TERMINATION" "$WORKING_DIR/log.out"
 then
   # succesfull evaluation
   # execute post-processor in a sub-shell
-  if ! bash $POSTPROCESS_FILE; then
-    printf "*** Error: Failed at post-processing stage for design "
-    printf "${DAK_EVAL_NUM}.\n"
-    # Here we let dakota capture the failure and proceed 
-    # based on user specification.
+  if [[ "$SOLVER_TYPE" != "ERROR" ]]; then
     
-    printf "FAIL\n" > $DAK_RESULTS
-    exit 0
-  fi
+    if ! bash "$POSTPROCESS_FILE"; then
+      printf "*** Error: Failed at post-processing stage for design "
+      printf "%s.\n" "${DAK_EVAL_NUM}"
+      # Here we let dakota capture the failure and proceed 
+      # based on user specification.
+      
+      printf "FAIL\n" > "$DAK_RESULTS"
+      exit 0
+    fi
 
+  else
+    NRMSE=$(
+      grep "Mean Squared Error" "$WORKING_DIR/log.out" |
+      cut -d ":" -f 2
+    )
+
+    printf "%s\n" "$NRMSE" > "$DAK_RESULTS"
+  fi
 else
   # unsuccessfull evaluation
-  printf "FAIL\n" > $DAK_RESULTS
+  printf "FAIL\n" > "$DAK_RESULTS"
 fi
+
+#------------------------------------------------------------------------------
+# Exit analysis driver.
+#------------------------------------------------------------------------------
+exit 0
