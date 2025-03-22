@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------
 # Perform checks before proceeding (in CURRENT shell)
 #------------------------------------------------------------------------------
-if ! source "${DRIVER_DIR}/checks.sh"; then
+if ! source "${DRIVER_DIR}/fsi_checks.sh"; then
   # NOTE: Here we do not write a results file and force dakota to fail.
   # This is a brute force approach for cases when user specifies a failure
   # capture method other than `abort` in dakota.
@@ -123,7 +123,7 @@ done
 if [[ "$SOLVER_TYPE" == "APPROX" || "$SOLVER_TYPE" == "ERROR" ]]; then
 
   # Run checks in CURRENT shell.
-  if ! source "${DRIVER_DIR}/fest_checks.sh"; then
+  if ! source "${DRIVER_DIR}/approx_fsi_checks.sh"; then
     # NOTE: Here we do not write a results file and force dakota to fail.
     # This is a brute force approach for cases when user specifies a failure
     # capture method other than `abort` in dakota.

@@ -38,3 +38,27 @@ if [[ ! -f "$TEMPLATE_DIR/${FEST_ERROR_INPUT}.template" ]]; then
   printf "is missing).\n"
   exit 1
 fi
+
+if [[ -z "$META_FILE" ]]; then
+  printf "*** Warning: Name for file containing nearest neighbor "
+  printf "information was not provided. Using default "
+  printf "\"meta_data.txt\".\n"
+
+  META_FILE="meta_data.txt"
+fi
+
+if [[ -z "$META_SURFACE_FILE" ]]; then
+  printf "*** Warning: Name for file containing embedded surface "
+  printf "coordinates was not provided. Using default "
+  printf "\"surface.top\".\n"
+
+  META_SURFACE_FILE="surface.top"
+fi
+
+if [[ -z "$META_SOLUTION_FILE" ]]; then
+  printf "*** Warning: Name for file containing pressure time "
+  printf "history for the embedded surface was not provided. "
+  printf "Using default \"surface_load_2.txt\".\n"
+
+  META_SOLUTION_FILE="surface_load_2.txt"
+fi

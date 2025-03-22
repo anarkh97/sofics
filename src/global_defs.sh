@@ -7,6 +7,7 @@ export WORKING_DIR=$(pwd)
 export LAUNCH_DIR=$SLURM_SUBMIT_DIR
 export DRIVER_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export TEMPLATE_DIR=""
+export RESULTS_DIR=""
 
 #------------------------------------------------------------------------------
 # Dakota Interface variables.
@@ -44,3 +45,11 @@ export AEROS_INPUT=""
 
 # Evaluation concurrency for dakota
 export EVALUATION_CONCURRENCY=""
+
+#------------------------------------------------------------------------------
+# ADOPT specific variables.
+#------------------------------------------------------------------------------
+export META_FILE=""
+export META_SURFACE_FILE=""
+export META_SOLUTION_FILE=""
+
