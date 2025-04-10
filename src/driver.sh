@@ -84,30 +84,55 @@ esac
 if grep -q "NORMAL TERMINATION" "$WORKING_DIR/log.out"
 then
   # succesfull evaluation
-  # execute post-processor in a sub-shell
   if [[ "$SOLVER_TYPE" != "ERROR" ]]; then
     
+    # execute post-processor in a sub-shell
     if ! bash "$POSTPROCESS_FILE"; then
       printf "*** Error: Failed at post-processing stage for design "
       printf "%s.\n" "${DAK_EVAL_NUM}"
       # Here we let dakota capture the failure and proceed 
       # based on user specification.
       
-      printf "FAIL\n" > "$DAK_RESULTS"
+      printf "FAIL\n" > "$WORKING_DIR/$DAK_RESULTS"
       exit 0
     fi
 
+    # add garbage value for MSE when performing TRUE/APPROX simulation
+    # In case of TRUE simulation, these will be corrected in the error
+    # simulation.
+    printf "0.0  MSE\n" >> "$WORKING_DIR/$DAK_RESULTS"
+
   else
+
+    # for error simulation the objective and constraint values are
+    # set to garbage values. ADOPT does not use these.
+    # However, we do not know the number of objectives and constraints
+    # specified, hence we infer them from parameter file.
+
+    num_funcs=$(
+      grep "functions" "$WORKING_DIR/$DAK_PARAMS" |
+      awk '{printf $1}'
+    )
+    
+    # clear any existing results
+    if [[ -f "$WORKING_DIR/$DAK_RESULTS" ]]; then
+      rm -f "$WORKING_DIR/$DAK_RESULTS"
+    fi
+
+    for i in $(seq 1 "$num_funcs"); do
+      printf "0.0\n" >> "$WORKING_DIR/$DAK_RESULTS"
+    done
+
     NRMSE=$(
       grep "Mean Squared Error" "$WORKING_DIR/log.out" |
       cut -d ":" -f 2
     )
 
-    printf "%s\n" "$NRMSE" > "$DAK_RESULTS"
+    printf "%s  MSE\n" "$NRMSE" > "$WORKING_DIR/$DAK_RESULTS"
   fi
 else
   # unsuccessfull evaluation
-  printf "FAIL\n" > "$DAK_RESULTS"
+  printf "FAIL\n" > "$WORKING_DIR/$DAK_RESULTS"
 fi
 
 #------------------------------------------------------------------------------
