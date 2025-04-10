@@ -38,7 +38,7 @@ while true; do
       ;;
     --post)
       POSTPROCESS_FILE="$2"
-      shitf 2
+      shift 2
       ;;
     --)
       shift

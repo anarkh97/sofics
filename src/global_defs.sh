@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# TODO: These could be converted to associative arrays.
+#       Such data structures are useful for creating 
+#       arrays of type, array[key] = value.
+#       However, there is no easy way to export arrays.
+
 #------------------------------------------------------------------------------
 # Directory variables.
 #------------------------------------------------------------------------------

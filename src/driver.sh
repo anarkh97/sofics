@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Get the full-path to our driver script.
+# NOTE: the "cd" and "pwd" commands are in a (...) 
+#       i.e., they are executed in a sub-shell.
+export DRIVER_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 #------------------------------------------------------------------------------
 # Get all global variables in the CURRENT shell
 #------------------------------------------------------------------------------
@@ -16,9 +21,16 @@ fi
 #------------------------------------------------------------------------------
 # Get current evaluation id
 #------------------------------------------------------------------------------
+set -o pipefail
 DAK_EVAL_NUM=$(
   grep "eval_id" "$DAK_PARAMS" | awk '{print $1}'
 )
+if [ "$?" -ne 0 ]; then
+  printf "*** Error: Could not get the evaluation ID from the "
+  printf "parameters file. Required for SOFICS. Aborting ...\n"
+  exit 1
+fi
+set +o pipefail
 
 #------------------------------------------------------------------------------
 # Internal variables (local to current shell)

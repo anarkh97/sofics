@@ -81,18 +81,18 @@ gmsh2aeros_log="$struct_dir/log.out"
 substitution_error=0
 for i in "${!cdv[@]}"
 do
-  if ! sed -i "s/{cdv_$((i+1))}/${cdv[$i]}/g" "$WORKING_DIR/$GMSH_INPUT"; then
+  if ! sed -i "s/{cdv_$((i+1))}/${cdv[$i]}/g" "$struct_dir/$GMSH_INPUT"; then
     printf "*** Error: Substitution for continuous design variable %s " "cdv_${i}"
-    printf "in file %s failed.\n" "${WORKING_DIR}/${GMSH_INPUT}"
+    printf "in file %s failed.\n" "$struct_dir/$GMSH_INPUT"
     substitution_error=$((substitution_error+1))
   fi
 done
 
 for i in "${!csv[@]}"
 do
-  if ! sed -i "s/{csv_$((i+1))}/${csv[$i]}/g" "$WORKING_DIR/$GMSH_INPUT"; then
+  if ! sed -i "s/{csv_$((i+1))}/${csv[$i]}/g" "$struct_dir/$GMSH_INPUT"; then
     printf "*** Error: Substitution for continuous state variable %s " "csv_${i}"
-    printf "in file %s failed.\n" "${WORKING_DIR}/${GMSH_INPUT}"
+    printf "in file %s failed.\n" "$struct_dir/$GMSH_INPUT"
     substitution_error=$((substitution_error+1))
   fi
 done
@@ -106,7 +106,7 @@ fi
 #------------------------------------------------------------------------------
 {
   $GMSH_EXE -3 -format msh -o "$struct_dir/$gmsh_out" \
-    "$WORKING_DIR/$GMSH_INPUT" > "$gmsh2aeros_log"
+    "$struct_dir/$GMSH_INPUT" > "$gmsh2aeros_log"
 } || {
   # catch error
   printf "*** Error: Failed to generate a mesh.\n"

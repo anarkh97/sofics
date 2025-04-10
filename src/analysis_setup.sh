@@ -88,8 +88,13 @@ do
     fi
 
     # Integer state used to pass the nearest neighbors (regex match).
-    if [[ $desc =~ ^NEIGHBOR[0-9]+$ ]]; then
+    if [[ $desc =~ ^NEIGHBOR_[0-9]+$ ]]; then
      
+      # ADOPT uses continuous state variables to handle evaluation IDs.
+      # These variables are of type "REAL" and are written in scientific
+      # format. Here were correct them to integers.
+      val=$(awk -v value="$val" 'BEGIN {print int(val)}')
+
       # assign if empty
       if [ -z "$neighbors" ]; then
         NEIGHBORS="$val"

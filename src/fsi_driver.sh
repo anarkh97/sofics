@@ -53,7 +53,7 @@ printf "%s with process id %s.\033[0m\n" "${host_list[*]}" "$mpi_pid"
 # Wait for completion
 # -----------------------------------------------------------------------------
 
-wait $mpi_pid
+wait "$mpi_pid"
 
 # -----------------------------------------------------------------------------
 # Exit assuming everything was successfull
