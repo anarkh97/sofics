@@ -44,7 +44,7 @@ mpiexec --bind-to none \
 mpi_pid=$!
 
 printf "\033[34mLaunching Evaluation %s on nodes " "${DAK_EVAL_NUM}"
-printf "with process id %s.\033[0m\n" "${host_list[*]}" "$mpi_pid"
+printf "%s with process id %s.\033[0m\n" "${host_list[*]}" "$mpi_pid"
 
 # -----------------------------------------------------------------------------
 # Wait for completion

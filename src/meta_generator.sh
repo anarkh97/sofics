@@ -13,8 +13,8 @@ IFS=: read -r -a targ_vars <<< "$targ_vars_list"
 IFS=: read -r -a neighbors <<< "$neighbors_list"
 
 # remove empty fields (or spaces)
-targ_vars=("${targ_vars[@]}// /")
-neighbors=("${neighbors[@]}// /")
+targ_vars=("${targ_vars[@]// /}")
+neighbors=("${neighbors[@]// /}")
 
 # number of continuous optimization variables
 num_cont_vars="${#targ_vars[@]}"
@@ -28,7 +28,7 @@ if [ -f "$WORKING_DIR/$META_FILE" ]; then
 fi
 
 # write headers
-printf "## Meta file containing paths to data stored for nearest neighbors" \
+printf "## Meta file containing paths to data stored for nearest neighbors\n" \
   > "$WORKING_DIR/$META_FILE"
 printf "## Type  Directory  Mesh  Solution  Parameters\n" \
   >> "$WORKING_DIR/$META_FILE"
@@ -38,6 +38,7 @@ printf "## Type  Directory  Mesh  Solution  Parameters\n" \
 #------------------------------------------------------------------------------
 directory_pattern="${WORKING_DIR##*/}" # with the eval tag
 directory_pattern="${directory_pattern%[0-9]*}" # without the eval tag
+directory_pattern="${directory_pattern%_error.}." # withouth error suffix
 
 param_pattern=$(basename "$DAK_PARAMS") # with the eval tag
 param_pattern="${param_pattern%[0-9]*}" # without the eval tag
@@ -89,7 +90,7 @@ for n in "${!neighbors[@]}"; do
   # write this neighbor to metafile
   {
     printf "NEIGHBOR  "
-    printf "\"%s\"  " "$neighbor_direct"
+    printf "\"%s/\"  " "$neighbor_direct"
     printf "\"%s\"  " "$META_SURFACE_FILE"
     printf "\"%s\"  " "$META_SOLUTION_FILE"
     # Pipe the output of printf to sed to remove trailing whitespaces
@@ -105,7 +106,7 @@ done
 #------------------------------------------------------------------------------
 {
   printf "TARGET  "
-  printf "\"%s\"  " "$WORKING_DIR"
+  printf "\"%s/\"  " "$relative_path/${directory_pattern}${DAK_EVAL_NUM}"
   printf "\"%s\"  " "$META_SURFACE_FILE"
   printf "\"%s\"  " "$META_SOLUTION_FILE"
   printf "%s  " "${targ_vars[@]}" | sed 's/[[:space:]]*$//'

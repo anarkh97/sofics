@@ -129,8 +129,8 @@ fi
 #------------------------------------------------------------------------------
 
 if [ -z "$EVALUATION_CONCURRENCY" ]; then
-  printf "*** Error: Evaluation concurrency needs to be defined in the "
-  printf "configuration file as well. Should match dakota input file. "
-  printf "Aborting ...\n"
-  exit 1
+  printf "*** Warning: Evaluation concurrency needs to be defined in the "
+  printf "configuration file as well. Should match dakota input file for "
+  printf "asynchronous evaluations.\n"
+  EVALUATION_CONCURRENCY=1
 fi

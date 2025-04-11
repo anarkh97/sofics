@@ -14,7 +14,14 @@ fi
 #------------------------------------------------------------------------------
 # Read Dakota Parameter file and forward variables to a pre-processor
 #------------------------------------------------------------------------------
-num_var=$(awk 'NR==1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
+{ 
+  num_var=$(awk 'NR==1 {print $1}' "$WORKING_DIR/$DAK_PARAMS")
+} || {
+  printf "*** Error: Something went wrong while extracting number "
+  printf "of variables from \"%s\".\n" "$WORKING_DIR/$DAK_PARAMS"
+  exit 1
+}
+
 # Dakota specifies continous design variables as derivative variables
 # even if gradient-free optimization is employed. There is no other 
 # way to explicitly distinguish design variables from state variables.
@@ -90,10 +97,11 @@ do
     # Integer state used to pass the nearest neighbors (regex match).
     if [[ $desc =~ ^NEIGHBOR_[0-9]+$ ]]; then
      
+      # (AN): The following in no longer valid. ADOPT uses discrete_state_range
       # ADOPT uses continuous state variables to handle evaluation IDs.
       # These variables are of type "REAL" and are written in scientific
       # format. Here were correct them to integers.
-      val=$(awk -v value="$val" 'BEGIN {print int(val)}')
+      val=$(awk -v value="$val" 'BEGIN {print int(value)}')
 
       # assign if empty
       if [ -z "$neighbors" ]; then
