@@ -39,7 +39,6 @@ printf "## Type  Directory  Mesh  Solution  Parameters\n" \
 #------------------------------------------------------------------------------
 directory_pattern="${WORKING_DIR##*/}" # with the eval tag
 directory_pattern="${directory_pattern%[0-9]*}" # without the eval tag
-directory_pattern="${directory_pattern%_error.}." # withouth error suffix
 
 param_pattern=$(basename "$DAK_PARAMS") # with the eval tag
 param_pattern="${param_pattern%[0-9]*}" # without the eval tag

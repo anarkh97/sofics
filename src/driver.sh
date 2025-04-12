@@ -124,10 +124,10 @@ then
 
     NRMSE=$(
       grep "Mean Squared Error" "$WORKING_DIR/log.out" |
-      cut -d ":" -f 2
+      sed 's/.*: //; s/\.$//'
     )
 
-    printf "    %s  MSE\n" "$NRMSE" > "$WORKING_DIR/$DAK_RESULTS"
+    printf "    %s  MSE\n" "$NRMSE" >> "$WORKING_DIR/$DAK_RESULTS"
   fi
 else
   # unsuccessfull evaluation
