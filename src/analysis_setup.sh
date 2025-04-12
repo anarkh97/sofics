@@ -12,6 +12,12 @@ if ! source "${DRIVER_DIR}/fsi_checks.sh"; then
 fi
 
 #------------------------------------------------------------------------------
+# Internal variables (local to current shell)
+#------------------------------------------------------------------------------
+neighbors=""
+target_id=""
+
+#------------------------------------------------------------------------------
 # Read Dakota Parameter file and forward variables to a pre-processor
 #------------------------------------------------------------------------------
 { 
@@ -105,9 +111,24 @@ do
 
       # assign if empty
       if [ -z "$neighbors" ]; then
-        NEIGHBORS="$val"
+        neighbors="$val"
       else
-        NEIGHBORS="$NEIGHBORS:$val" # append
+        neighbors="$neighbors:$val" # append
+      fi
+
+      continue
+    fi
+
+    # Target evaluation id --- used when performing error simulations.
+    if [[ "$desc" == "TARGET" ]]; then
+
+      val=$(awk -v value="$val" 'BEGIN {print int(value)}')
+      # assign if empty
+      if [ -z "$target_id" ]; then
+        target_id="$val"
+      else
+        printf "*** Error: Found multiple targets in the parameter file.\n"
+        exit 1
       fi
 
       continue
@@ -145,7 +166,8 @@ if [[ "$SOLVER_TYPE" == "APPROX" || "$SOLVER_TYPE" == "ERROR" ]]; then
   fi
 
   # This will be created in the WORKING_DIR
-  if ! bash "$META_GENERATOR_FILE" "$cdv_list" "$NEIGHBORS" ; then
+  if ! bash "$META_GENERATOR_FILE" "$target_id" "$cdv_list" "$neighbors"
+  then
     printf "*** Error: Failed to generate metafile for "
     printf "ADOPT (design %s).\n" "${DAK_EVAL_NUM}"
 

@@ -37,9 +37,8 @@ set +o pipefail
 #------------------------------------------------------------------------------
 # Internal variables for ADOPT.
 SOLVER_TYPE="TRUE"
-NEIGHBORS=""
 
-# Internal variables
+# Internal scripts
 ANALYSIS_SETUP_FILE="${DRIVER_DIR}/analysis_setup.sh"
 META_GENERATOR_FILE="${DRIVER_DIR}/meta_generator.sh"
 

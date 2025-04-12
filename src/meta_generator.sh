@@ -3,8 +3,9 @@
 #------------------------------------------------------------------------------
 # Inputs
 #------------------------------------------------------------------------------
-targ_vars_list=$1
-neighbors_list=$2
+targ_eval_id=$1
+targ_vars_list=$2
+neighbors_list=$3
 
 #------------------------------------------------------------------------------
 # Convert to arrays
@@ -106,7 +107,7 @@ done
 #------------------------------------------------------------------------------
 {
   printf "TARGET  "
-  printf "\"%s/\"  " "$relative_path/${directory_pattern}${DAK_EVAL_NUM}"
+  printf "\"%s/\"  " "$relative_path/${directory_pattern}${targ_eval_id}"
   printf "\"%s\"  " "$META_SURFACE_FILE"
   printf "\"%s\"  " "$META_SOLUTION_FILE"
   printf "%s  " "${targ_vars[@]}" | sed 's/[[:space:]]*$//'
