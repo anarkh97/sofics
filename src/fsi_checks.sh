@@ -106,18 +106,18 @@ if [[ ! -f "$TEMPLATE_DIR/${M2C_INPUT}.template" ]]; then
 fi
 
 # auxilary inputs for m2c
-if [ -n "$M2C_AUX" ]; then
-  # convert ":" separated string into array
-  IFS=: read -r -a fluid_aux_inps <<< "$M2C_AUX"
-  for i in "${!fluid_aux_inps[@]}"; do
-    if [[ ! -f "$TEMPLATE_DIR/${fluid_aux_inps[$i]}.template" ]]; then
-      printf "*** Error: Could not find a template file for auxilary "
-      printf "input %s (or template extension is " "${fluid_aux_inps[$i]}"
-      printf "missing).\n"
-      template_error=$((template_error+1))
-    fi
-  done
-fi
+#if [ -n "$M2C_AUX" ]; then
+#  # convert ":" separated string into array
+#  IFS=: read -r -a fluid_aux_inps <<< "$M2C_AUX"
+#  for i in "${!fluid_aux_inps[@]}"; do
+#    if [[ ! -f "$TEMPLATE_DIR/${fluid_aux_inps[$i]}.template" ]]; then
+#      printf "*** Error: Could not find a template file for auxilary "
+#      printf "input %s (or template extension is " "${fluid_aux_inps[$i]}"
+#      printf "missing).\n"
+#      template_error=$((template_error+1))
+#    fi
+#  done
+#fi
 
 # let driver handle these errors.
 if [[ $template_error -gt 0 ]]; then

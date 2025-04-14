@@ -196,7 +196,7 @@ case "$SOLVER_TYPE" in
       fluid_aux_inps=("${fluid_aux_inps[@]// /}")
     
       for i in "${!fluid_aux_inps[@]}"; do
-        cp "$TEMPLATE_DIR/${fluid_aux_inps[$i]}.template" \
+        cp "$TEMPLATE_DIR/${fluid_aux_inps[$i]}" \
           "$WORKING_DIR/${fluid_aux_inps[$i]}"
       done
     fi
