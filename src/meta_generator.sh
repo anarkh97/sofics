@@ -37,11 +37,11 @@ printf "## Type  Directory  Mesh  Solution  Parameters\n" \
 #------------------------------------------------------------------------------
 # Write neighbors to metafile.
 #------------------------------------------------------------------------------
-directory_pattern="${WORKING_DIR##*/}" # with the eval tag
-directory_pattern="${directory_pattern%[0-9]*}" # without the eval tag
+directory_pattern=$(basename "$WORKING_DIR") # with the eval tag
+directory_pattern="${directory_pattern%.*}" # without the eval tag
 
 param_pattern=$(basename "$DAK_PARAMS") # with the eval tag
-param_pattern="${param_pattern%[0-9]*}" # without the eval tag
+param_pattern="${param_pattern%.*}" # without the eval tag
 
 relative_path=$(
   realpath -s --relative-to="$WORKING_DIR" "$LAUNCH_DIR"
@@ -51,8 +51,8 @@ for n in "${!neighbors[@]}"; do
 
   # first get parameters -- assuming eval tags.
   neighbor_eval_id="${neighbors[$n]}"
-  neighbor_direct="$relative_path/${directory_pattern}${neighbor_eval_id}"
-  neighbor_params="$neighbor_direct/${param_pattern}${neighbor_eval_id}"
+  neighbor_direct="$relative_path/${directory_pattern}.${neighbor_eval_id}"
+  neighbor_params="$neighbor_direct/${param_pattern}.${neighbor_eval_id}"
 
   # read parameters
   num_var=$(awk 'NR==1 {print $1}' "$neighbor_params")
@@ -106,7 +106,7 @@ done
 #------------------------------------------------------------------------------
 {
   printf "TARGET  "
-  printf "\"%s/\"  " "$relative_path/${directory_pattern}${targ_eval_id}"
+  printf "\"%s/\"  " "$relative_path/${directory_pattern}.${targ_eval_id}"
   printf "\"%s\"  " "$META_SURFACE_FILE"
   printf "\"%s\"  " "$META_SOLUTION_FILE"
   printf "%s  " "${targ_vars[@]}" | sed 's/[[:space:]]*$//'

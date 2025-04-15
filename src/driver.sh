@@ -99,7 +99,7 @@ then
     # add garbage value for MSE when performing TRUE/APPROX simulation
     # In case of TRUE simulation, these will be corrected in the error
     # simulation.
-    printf "    0.0  MSE\n" >> "$WORKING_DIR/$DAK_RESULTS"
+    printf "    0.000000e+00  MSE\n" >> "$WORKING_DIR/$DAK_RESULTS"
 
   else
 
@@ -119,7 +119,7 @@ then
     fi
 
     for i in $(seq 1 "$num_funcs"); do
-      printf "    0.0\n" >> "$WORKING_DIR/$DAK_RESULTS"
+      printf "    0.000000e+00\n" >> "$WORKING_DIR/$DAK_RESULTS"
     done
 
     NRMSE=$(
