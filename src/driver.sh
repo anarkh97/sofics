@@ -96,31 +96,7 @@ then
       exit 0
     fi
 
-    # add garbage value for MSE when performing TRUE/APPROX simulation
-    # In case of TRUE simulation, these will be corrected in the error
-    # simulation.
-    printf "    0.000000e+00  MSE\n" >> "$WORKING_DIR/$DAK_RESULTS"
-
   else
-
-    # for error simulation the objective and constraint values are
-    # set to garbage values. ADOPT does not use these.
-    # However, we do not know the number of objectives and constraints
-    # specified, hence we infer them from parameter file.
-
-    num_funcs=$(
-      grep "functions" "$WORKING_DIR/$DAK_PARAMS" |
-      awk '{printf $1}'
-    )
-    
-    # clear any existing results
-    if [[ -f "$WORKING_DIR/$DAK_RESULTS" ]]; then
-      rm -f "$WORKING_DIR/$DAK_RESULTS"
-    fi
-
-    for i in $(seq 1 "$num_funcs"); do
-      printf "    0.000000e+00\n" >> "$WORKING_DIR/$DAK_RESULTS"
-    done
 
     NRMSE=$(
       grep "Mean Squared Error" "$WORKING_DIR/log.out" |
