@@ -62,6 +62,9 @@ source "$ANALYSIS_SETUP_FILE"
 #------------------------------------------------------------------------------
 # Execute analysis in a sub-shell.
 #------------------------------------------------------------------------------
+
+start_time=$(date +%s)
+
 case "$SOLVER_TYPE" in
   
   TRUE)
@@ -72,6 +75,11 @@ case "$SOLVER_TYPE" in
     bash "$ERROR_EVALUATION_DRIVER" ;;
 
 esac
+
+elapsed_time=$(( $(date +%s) - start_time ))
+
+printf "\033[32mTotal time for Evaluation %s = %s s.\033[0m\n" \
+  "$DAK_EVAL_NUM" "$elapsed_time"
 
 #------------------------------------------------------------------------------
 # Post-processing
