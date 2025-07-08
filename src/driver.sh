@@ -78,8 +78,16 @@ esac
 
 elapsed_time=$(( $(date +%s) - start_time ))
 
-printf "\033[32mTotal time for Evaluation %s = %s s.\033[0m\n" \
-  "$DAK_EVAL_NUM" "$elapsed_time"
+case "$SOLVER_TYPE" in
+
+  TRUE)
+    printf "\033[32mTotal time for Evaluation %s = %s s.\033[0m\n" \
+      "$DAK_EVAL_NUM" "$elapsed_time" ;;
+  APPROX)
+    printf "\033[32mTotal time for (Approx) Evaluation %s = %s s.\033[0m\n" \
+      "$DAK_EVAL_NUM" "$elapsed_time" ;;
+
+esac
 
 #------------------------------------------------------------------------------
 # Post-processing

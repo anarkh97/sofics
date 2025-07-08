@@ -180,7 +180,9 @@ fi
 #------------------------------------------------------------------------------
 # Copy all templates to the working directory
 #------------------------------------------------------------------------------
-cp "$TEMPLATE_DIR/${AEROS_INPUT}.template" "$WORKING_DIR/$AEROS_INPUT"
+if [[ "$SOLVER_TYPE" != "ERROR" ]]; then
+  cp "$TEMPLATE_DIR/${AEROS_INPUT}.template" "$WORKING_DIR/$AEROS_INPUT"
+fi
 
 # copy the fluid files based on solver type
 case "$SOLVER_TYPE" in
