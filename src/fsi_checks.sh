@@ -123,14 +123,3 @@ fi
 if [[ $template_error -gt 0 ]]; then
   exit 1
 fi
-
-#------------------------------------------------------------------------------
-# Auxilary checks. (Assign defaults whenever possible)
-#------------------------------------------------------------------------------
-
-if [ -z "$EVALUATION_CONCURRENCY" ]; then
-  printf "*** Warning: Evaluation concurrency needs to be defined in the "
-  printf "configuration file as well. Should match dakota input file for "
-  printf "asynchronous evaluations.\n"
-  EVALUATION_CONCURRENCY=1
-fi

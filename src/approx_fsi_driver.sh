@@ -4,18 +4,23 @@
 # Calculate node (list) for the current evaluation.
 #------------------------------------------------------------------------------
 
-host_list=""
 total_proc=$((
   "$M2C_SIZE"+"$AEROS_SIZE"
 ))
-if ! source "${DRIVER_DIR}/node_list_calculator.sh" "$host_list" \
-  "$AEROS_SIZE" "$FEST_SIZE"
-then
+host_list=$(
+  "$DRIVER_DIR/node_list_calculator.sh" "$AEROS_SIZE" "$FEST_SIZE"
+)
+
+if [ -z "$host_list" ]; then
   printf "*** Error: Could not calculate the list of host nodes "
   printf "for evaluation %s.\n" "${DAK_EVAL_NUM}"
+  exit 1
 fi
 
-### run analysis in background
+# -----------------------------------------------------------------------------
+# Run analysis in background
+# -----------------------------------------------------------------------------
+
 mpiexec --bind-to none \
 	-n "$FEST_SIZE" \
   --host "$host_list":"$total_proc" \

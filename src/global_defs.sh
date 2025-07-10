@@ -48,7 +48,10 @@ export AEROS_SIZE=""
 export AEROS_EXE=""
 export AEROS_INPUT=""
 
-# Evaluation concurrency for dakota
+# local scheduling option
+export LOCAL_SCHEDULING=""
+
+# evaluation concurrency for dakota
 export EVALUATION_CONCURRENCY=""
 
 #------------------------------------------------------------------------------

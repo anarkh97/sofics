@@ -54,6 +54,19 @@ if [ -n "$USER_CONFIG" ]; then
   source "$USER_CONFIG"
 fi
 
+# additional checks and warnings. Analysis specific checks are 
+# undertaken in analysis setup script.
+if [ -z "$EVALUATION_CONCURRENCY" ]; then
+  printf "*** Warning: Evaluation concurrency needs to be defined in the "
+  printf "configuration file as well. Should match dakota input file for "
+  printf "asynchronous evaluations. Setting default value 1.\n"
+  EVALUATION_CONCURRENCY=1
+fi
+
+if [ -z "$LOCAL_SCHEDULING"]; then
+  LOCAL_SCHEDULING="STATIC"
+fi
+
 #------------------------------------------------------------------------------
 # Process parameters and call the structural pre-processor
 #------------------------------------------------------------------------------
