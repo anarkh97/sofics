@@ -4,35 +4,16 @@
 # Calculate node (list) for the current evaluation.
 #------------------------------------------------------------------------------
 
-# find correct relative node position
-task_per_node=$(
-  echo "$SLURM_TASKS_PER_NODE" |
-  sed 's|^[^0-9]*\([0-9]\+\).*|\1|'
-)
+host_list=""
 total_proc=$((
   "$M2C_SIZE"+"$AEROS_SIZE"
 ))
-applic_nodes=$((
-  ("$total_proc"+"$task_per_node"-1) / 
-  "$task_per_node"
-))
-relative_eval_num=$((
-  ("$DAK_EVAL_NUM"-1) % "$EVALUATION_CONCURRENCY"
-))
-relative_node=$((
-  ( "$relative_eval_num" * "$total_proc" ) / "$task_per_node"
-))
-
-# get all nodes assigned to dakota process
-node_list=(`scontrol show hostnames`)
-
-# get host list for this process
-host_list="${node_list[$relative_node]}"
-for i in $(seq 1 $((applic_nodes - 1)))
-do
-  host_list="$host_list,
-  ${node_list[$((relative_node+i))]}"
-done
+if ! source "${DRIVER_DIR}/node_list_calculator.sh" "$host_list" \
+  "$AEROS_SIZE" "$M2C_SIZE"
+then
+  printf "*** Error: Could not calculate the list of host nodes "
+  printf "for evaluation %s.\n" "${DAK_EVAL_NUM}"
+fi
 
 ### run analysis in background
 mpiexec --bind-to none \
