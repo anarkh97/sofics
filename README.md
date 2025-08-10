@@ -23,7 +23,9 @@ A C++ utility called `postprocessor` is available in the `src` directory. This u
 
 `SOFICS` includes local snapshots of `M2C` and `Aero-S`. Instructions for building these versions along with `SOFICS` are provided in the next sections. For the latest releases, you can visit the official repositories: [M2C](https://github.com/kevinwgy/m2c) and [Aero-S](https://bitbucket.org/frg/aero-s/src/master/).
 
-Installation of `Gmsh` and `Dakota` is not handled by `SOFICS`. Instead the user should refer their official repositores [Gmsh](https://gitlab.onelab.info/gmsh/gmsh/-/tree/gmsh_4_13_1) and [Dakota](https://github.com/snl-dakota/dakota?tab=coc-ov-file) for build instructions.
+Installation of `Gmsh` and `Dakota` is not handled by `SOFICS`. Instead the user should refer their official repositores [Gmsh](https://gmsh.info/) and [Dakota](https://dakota.sandia.gov/) for build instructions.
+
+***NOTE***: SOFICS does not require or link against a specific version of Gmsh. The software interacts with Gmsh purely through its command-line interface, so any version capable of producing `.msh` files compatible with gmsh2aeros should work. Users are free to install and use whichever Gmsh release best fits their workflow and system environment. For reference and reproducibility, our development and testing were performed using Gmsh version 4.4.1. and Dakota version 6.19
 
 ## Default Build
 
