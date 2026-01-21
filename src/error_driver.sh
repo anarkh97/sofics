@@ -5,7 +5,7 @@
 # -----------------------------------------------------------------------------
 
 "$FEST_EXE" "$WORKING_DIR/$FEST_ERROR_INPUT" 2>&1 \
-	| tee "$WORKING_DIR/log.out" > /dev/null &
+  > >(tee "$WORKING_DIR/log.out" > /dev/null) 2>&1 &
 
 pid=$!
 

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if command -v sbatch > /dev/null 2>&1; then
+  exit 0
+fi
+
 solid_size=$1
 fluid_size=$2
 
