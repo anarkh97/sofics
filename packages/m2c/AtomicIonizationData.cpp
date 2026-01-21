@@ -4,7 +4,9 @@
  ************************************************************************/
 
 #include<AtomicIonizationData.h>
+#include<cmath>
 #include<fstream>
+using std::isfinite;
 using std::vector;
 
 //--------------------------------------------------------------------------

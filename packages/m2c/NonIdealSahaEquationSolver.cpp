@@ -4,9 +4,11 @@
  ************************************************************************/
 
 #include<NonIdealSahaEquationSolver.h>
+#include<cmath>
 #include<fstream>
 #include<boost/math/tools/roots.hpp>
 using namespace boost::math::tools;
+using std::isfinite;
 using std::vector;
 using std::map;
 using std::pair;

@@ -3,11 +3,14 @@
 #include <Element.d/NonLinearity.d/StrainEvaluator.h>
 #include <Utils.d/NodeSpaceArray.h>
 
+#include <cmath>
 #include <cstdio>
 #include <cstdlib>
 #include <limits>
 #include <cstddef>
 #include <cfloat>
+
+using std::isnan;
 
 #ifdef USE_EIGEN3
 void

@@ -4,6 +4,7 @@
  ************************************************************************/
 
 #include<ExactRiemannSolverBase.h>
+#include<cmath>
 #include<array>
 #include<utility> //std::pair
 #include<bits/stdc++.h> //std::swap
@@ -16,6 +17,7 @@
 using namespace boost::math::tools;
 #endif
 
+using std::isnan;
 using std::pair;
 using std::cout;
 using std::endl;

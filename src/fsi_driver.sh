@@ -21,10 +21,10 @@ if [ "$exit_status" -ne 0 ]; then
 elif [ -n "$host_list" ]; then
   mpiexec --bind-to none \
   	-n "$M2C_SIZE" \
-    --host "$host_list" \
+    --host "$host_list":"$total_proc" \
   	"$M2C_EXE" "$WORKING_DIR/$M2C_INPUT" : \
     -n "$AEROS_SIZE" \
-  	--host "$host_list" \
+  	--host "$host_list":"$total_proc" \
     "$AEROS_EXE" "$WORKING_DIR/$AEROS_INPUT" 2>&1 \
     > >(tee "$WORKING_DIR/log.out" > /dev/null) 2>&1 &
   

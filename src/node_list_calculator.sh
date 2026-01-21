@@ -1,6 +1,7 @@
 #!/bin/bash
 
-if command -v sbatch > /dev/null 2>&1; then
+# exit early when SLURM is not available and we are not a SLURM job
+if ! command -v sbatch > /dev/null 2>&1 || [[ -z "${SLURM_JOB_ID:-}" ]]; then
   exit 0
 fi
 
@@ -47,6 +48,8 @@ if [[ "$LOCAL_SCHEDULING" == 'DYNAMIC' ]]; then
   printf "*** Error: Dynamic local evalution tiling is not "
   printf "supported currently.\n"
   exit 1
+
+  # TODO: Add this utility in future. Use files to block cores.
 
 else
 
