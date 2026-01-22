@@ -1,9 +1,0 @@
-spooles_maxdomainsize 24
-spooles_maxsize 64
-spooles_maxzeros 0.04
-spooles_tau 100.0
-spooles_seed 532196
-spooles_msglvl 0
-spooles_pivot on
-spooles_scale 0
-spooles_renum 0

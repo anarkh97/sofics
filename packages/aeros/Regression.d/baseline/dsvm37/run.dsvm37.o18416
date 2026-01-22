@@ -1,8 +1,0 @@
-Warning: no access to tty (Bad file descriptor).
-Thus no job control in this shell.
-../../bin/aeros dsvm37_sparse_gtempera.inp
-../../bin/aeros dsvm37_mumps_gtempera.inp
-../../bin/aeros dsvm37_spooles_gtempera.inp
-../../bin/aeros dsvm37_spooles_pivot_gtempera.inp
-../../bin/aeros dsvm37_mumps_pivot_gtempera.inp
-../../bin/aeros -n 2 --dec --nsub 4 dsvm37_FETI_DP_gtempera.inp
