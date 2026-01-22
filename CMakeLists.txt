@@ -3,55 +3,85 @@ cmake_minimum_required(VERSION 3.31)
 # set the project name
 project(SOFICS VERSION 1.0)
 
-# build type
+# -----------------------------------------------------------------------------
+# Build configuration 
+# -----------------------------------------------------------------------------
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
+option(BUILD_AEROS "Build Aero-S" ON)
+option(BUILD_M2C "Build M2C" ON)
+option(BUILD_TOOLS "Build Gmsh2Aeros and Postprocessor" ON)
+option(UPDATE_SUBMODULES "Check submodules during build" ON)
+
+# -----------------------------------------------------------------------------
+# Global settings
+# -----------------------------------------------------------------------------
 # folders for executable and libraries
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-# compile packages
-option(BUILD_AEROS "Build local copy of Aero-S" ON)
-option(BUILD_M2C "Build local copy of M2C" ON)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 
+# -----------------------------------------------------------------------------
+# CMake Modules
+# -----------------------------------------------------------------------------
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+# Submodule management (Aero-S/M2C)
+include(Submodules)
+
+# Find/fetch dependencies (related to Aero-S/M2C)
+include(Dependencies)
+
+# -----------------------------------------------------------------------------
+# Build submodules (Aero-S and M2C)
+# -----------------------------------------------------------------------------
 # add aeros
 if(BUILD_AEROS)
-
-  # fortran flags for aeros
-  set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fallow-argument-mismatch")
-
-  #-----------------------------------------
-  # Aero-S variables which can be used to specify your custom libraries.
-  #
-  # E.g.,
-  #
-  # Zoltan library
-  # set(ZOLTAN_INCLUDE_PATH "/path/to/ZOLTAN/include/")
-  # set(ZOLTAN_SRC_PATH "/path/to/ZOLTAN/src")
-  # set(ZOLTAN_LIBRARY "/path/to/libzoltan.a") 
-  #
-  # Spooles library
-  # set(SPOOLES_INCLUDE_PATH "/path/to/SPOOLES/include/")
-  # set(SPOOLES_spooles_LIBRARY "/path/to/spooles.a")
-  # set(SPOOLES_spoolesMT_LIBRARY "/path/to/spoolesMT.a")
-  #
-  # BLACS and SCALAPACK library
-  # set(BLACS_blacs_LIBRARY "/path/to/libblacs.a")
-  # set(BLACS_Cinit_LIBRARY "/path/to/libcinit.a")
-  # set(SCALAPACK_LIBRARY "/path/to/libscalapack.a")
-  #-----------------------------------------
-
-  add_subdirectory(packages/aeros)
-  
+  message(STATUS "Building Aero-S ...")
+  include(aeros)
 endif()
 
 # add m2c
 if(BUILD_M2C)
-  add_subdirectory(packages/m2c)
+  message(STATUS "Building M2C ...")
+  include(m2c)
 endif()
 
-# add sofics source
-add_subdirectory(src)
+# -----------------------------------------------------------------------------
+# Build internal tools
+# -----------------------------------------------------------------------------
+if(BUILD_TOOLS)
+  message(STATUS "Building Gmsh2Aeros and Postprocessor ...")
+  add_subdirectory(tools)
+endif()
+
+# -----------------------------------------------------------------------------
+# SOFICS environment setup
+# -----------------------------------------------------------------------------
+add_subdirectory(scripts)
+
+# -----------------------------------------------------------------------------
+# Summary
+# -----------------------------------------------------------------------------
+message(STATUS "")
+message(STATUS "========================================")
+message(STATUS "SOFICS ${PROJECT_VERSION} Configuration Summary")
+message(STATUS "========================================")
+message(STATUS "Build type:          ${CMAKE_BUILD_TYPE}")
+message(STATUS "Install prefix:      ${CMAKE_INSTALL_PREFIX}")
+message(STATUS "")
+message(STATUS "Components:")
+message(STATUS "  AERO-S:            ${BUILD_AEROS}")
+message(STATUS "  M2C:               ${BUILD_M2C}")
+message(STATUS "  Internal tools:    ${BUILD_TOOLS}")
+message(STATUS "")
+message(STATUS "========================================")
+message(STATUS "")
