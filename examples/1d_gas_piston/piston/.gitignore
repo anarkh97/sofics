@@ -1,0 +1,8 @@
+CMakeCache.txt
+CMakeFiles/
+**/results/
+**/log.out
+/Makefile
+cmake_install.cmake
+piston
+version.h

@@ -1,0 +1,60 @@
+// Unit: mm 
+
+// design variables 
+lx={cdv_1};
+ly={cdv_2};
+
+// state variables
+t={csv_1};
+dx={csv_2};
+
+// Define geometry using GMSH utilities.
+// In this example we study the size optimization
+// of a ellipsoidal container. We define the container
+// shape using the `Ellipse` curve type in GMSH.
+// NOTE: This section must be updated when the user
+// wants to change the container geometry based on their
+// problem specifications.
+Point(1) = {    0,    0,  0, dx};
+Point(2) = {   lx,    0,  0, dx};
+Point(3) = { lx+t,    0,  0, dx};
+Point(4) = {    0, ly+t,  0, dx};
+Point(5) = {    0,   ly,  0, dx};
+
+major_tag = (lx > ly) ? 2 : 5;
+
+Line(1) = {2, 3};
+Ellipse(2) = {3, 1, major_tag, 4};
+Line(3) = {4, 5};
+Ellipse(4) = {2, 1, major_tag, 5};
+Line Loop(1) = {1, 2, 3, -4};
+Plane Surface(1) = {1};
+
+// extrusion
+Ex1[] = Extrude{{1,0,0},{0,0,0},Pi/2} {
+  Surface{1};
+};
+
+//three symmetry surfaces
+Physical Surface(1) = {Ex1[3]}; //x=0
+Physical Surface(2) = {Ex1[0]}; //y=0
+Physical Surface(3) = {     1}; //z=0
+
+// inner surface
+Physical Surface(4) = {Ex1[4]};
+
+// outer surface
+Physical Surface(5) = {Ex1[2]};
+
+// wetted surface (the fluid structure interface)
+// NOTE: In the Aero-S input file template, you need
+// to provide this surface number under the AERO EMBEDDED
+// input card. Here the surface number is 6.
+Physical Surface(6) = {Ex1[4]};
+
+// Volume
+Physical Volume(1) = {Ex1[1]};
+
+// Smoothing the final mesh
+Mesh.Smoothing = 20;
+Mesh.SmoothRatio = 3;
