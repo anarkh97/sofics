@@ -122,7 +122,7 @@ fi
 #------------------------------------------------------------------------------
 # Convert to Aero-S files
 #------------------------------------------------------------------------------
-"$DRIVER_DIR/gmsh2aeros" "$struct_dir/$gmsh_out" "$struct_dir/mesh.include" >> \
+"$SOFICS_BIN/gmsh2aeros" "$struct_dir/$gmsh_out" "$struct_dir/mesh.include" >> \
   "$gmsh2aeros_log"
 
 if grep -q "Error" "$gmsh2aeros_log"; then

@@ -34,12 +34,22 @@ add_subdirectory(
 # -----------------------------------------------------------------------------
 # Change output directory and install target 
 # -----------------------------------------------------------------------------
-set_target_properties(aeros
+set_target_properties(femexecutable
   PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
 )
 
-install(TARGETS aeros
-  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+#add_executable(aeros ALIAS femexecutable)
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+  set(AEROS_OUTPUT_NAME "aeros.debug")
+else()
+  set(AEROS_OUTPUT_NAME "aeros")
+endif()
+
+install(PROGRAMS
+  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${AEROS_OUTPUT_NAME}
+  DESTINATION ${CMAKE_INSTALL_BINDIR}
   COMPONENT aeros
+  RENAME aeros
 )

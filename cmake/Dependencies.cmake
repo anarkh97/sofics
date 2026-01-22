@@ -2,7 +2,7 @@
 # Find Required Dependencies
 # -----------------------------------------------------------------------------
 
-find_package(MPI REQUIRED COMPONENTS C CXX Fortran)
+find_package(MPI REQUIRED COMPONENTS C CXX)
 message(STATUS "Found MPI: ${MPI_CXX_COMPILER}")
 find_package(BLAS REQUIRED)
 message(STATUS "Found BLAS: ${BLAS_LIBRARIES}")
@@ -38,9 +38,9 @@ else()
 endif()
 
 # Download Boost if not found
-find_package(Boost 1.72 REQUIRED)
+find_package(Boost 1.72 QUIET)
 
-if("${Boost_INCLUDE_DIR}" STREQUAL "")
+if("${Boost_INCLUDE_DIRS}" STREQUAL "")
   message(STATUS "Boost not found, downloading ...")
   include(FetchContent)
 
@@ -63,7 +63,7 @@ if("${Boost_INCLUDE_DIR}" STREQUAL "")
   FetchContent_MakeAvailable(Boost)
   message(STATUS "Boost download successfull.")
 else()
-  message(STATUS "Found Boost: ${Boost_INCLUDE_DIR}")
+  message(STATUS "Found Boost: ${Boost_INCLUDE_DIRS}")
 endif()
 
 # PETSc handles by M2C CMakeLists ... for now.

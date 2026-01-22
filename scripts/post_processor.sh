@@ -1,7 +1,7 @@
 #!/bin/bash
 
 struct_out_dir="$WORKING_DIR/results"
-postpro="$DRIVER_DIR/postprocessor"
+postpro="$SOFICS_BIN/postprocessor"
 
 # compute mass
 "$AEROS_EXE" "$AEROS_INPUT" -t

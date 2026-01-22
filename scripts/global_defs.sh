@@ -9,8 +9,12 @@
 # Directory variables.
 #------------------------------------------------------------------------------
 export WORKING_DIR=$(pwd)
-export LAUNCH_DIR=$SLURM_SUBMIT_DIR
-export DRIVER_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# when SLURM is not available and we are not a SLURM job
+if ! command -v sbatch > /dev/null 2>&1 || [[ -z "${SLURM_JOB_ID:-}" ]]; then
+  export LAUNCH_DIR=$(dirname "$WORKING_DIR")
+else
+  export LAUNCH_DIR=$SLURM_SUBMIT_DIR
+fi
 export TEMPLATE_DIR=""
 export RESULTS_DIR=""
 
@@ -21,8 +25,8 @@ export USER_CONFIG=""
 export DAK_EVAL_NUM=""
 export DAK_PARAMS=$DAKOTA_PARAMETERS_FILE
 export DAK_RESULTS=$DAKOTA_RESULTS_FILE
-export PREPROCESS_FILE="${DRIVER_DIR}/pre_processor.sh"
-export POSTPROCESS_FILE="${DRIVER_DIR}/post_processor.sh"
+export PREPROCESS_FILE="${SOFICS_BIN}/pre_processor.sh"
+export POSTPROCESS_FILE="${SOFICS_BIN}/post_processor.sh"
 
 #------------------------------------------------------------------------------
 # User config variables.

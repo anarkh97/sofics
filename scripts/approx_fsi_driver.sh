@@ -8,7 +8,7 @@ total_proc=$((
   "$FEST_SIZE"+"$AEROS_SIZE"
 ))
 host_list=$(
-  "$DRIVER_DIR/node_list_calculator.sh" "$AEROS_SIZE" "$FEST_SIZE"
+  "$SOFICS_BIN/node_list_calculator.sh" "$AEROS_SIZE" "$FEST_SIZE"
 )
 exit_status=$?
 

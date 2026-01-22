@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.31)
 # set the project name
 project(SOFICS VERSION 1.0)
 
+include(GNUInstallDirs)
+
 # -----------------------------------------------------------------------------
 # Build configuration 
 # -----------------------------------------------------------------------------

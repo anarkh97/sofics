@@ -3,9 +3,6 @@
 # This utility simply performs checks for required variables
 # for successfull evaluation of a design configuration.
 
-BUILD_DIR=$(dirname "$DRIVER_DIR")
-PACKAGE_DIR=$BUILD_DIR/packages
-
 if [ -z "$TEMPLATE_DIR" ]; then
   printf "*** Warning: User did not provide a template "
   printf "directory. Using the default, which is the "
@@ -39,12 +36,12 @@ fi
 if [ -z "$M2C_EXE" ]; then
   printf "*** Warning: Executable for M2C was not provided. "
   printf "Using default one ...\n"
-  if [[ ! -x "$PACKAGE_DIR/m2c/m2c" ]]; then
+  if [[ ! -x "$DEFAULT_M2C_EXE" ]]; then
     printf "*** Error: Could not find a valid executable for M2C. "
     printf "Aborting ...\n"
     exit 1
   fi
-  M2C_EXE="$PACKAGE_DIR/m2c/m2c"
+  M2C_EXE="$DEFAULT_M2C_EXE"
 elif [ -n "$M2C_EXE" ] && [[ ! -x "$M2C_EXE" ]]; then
   printf "*** Error: \"%s\" is not a valid executable. " "$M2C_EXE"
   printf "Aborting ...\n"
@@ -54,12 +51,12 @@ fi
 if [ -z "$AEROS_EXE" ]; then
   printf "*** Warning: Executable for AERO-S was not provided. "
   printf "Using default one ...\n"
-  if [[ ! -x "$PACKAGE_DIR/aeros/bin/aeros" ]]; then
+  if [[ ! -x "$DEFAULT_AEROS_EXE" ]]; then
     printf "*** Error: Could not find a valid executable for AERO-S. "
     printf "Aborting ...\n"
     exit 1
   fi
-  AEROS_EXE="$PACKAGE_DIR/aeros/bin/aeros"
+  AEROS_EXE="$DEFAULT_AEROS_EXE"
 elif [ -n "$AEROS_EXE" ] && [[ ! -x "$AEROS_EXE" ]]; then
   printf "*** Error: \"%s\" is not a valid executable. " "${AEROS_EXE}"
   printf "Aborting ...\n"

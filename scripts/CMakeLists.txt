@@ -1,7 +1,7 @@
 # Make a environment script with current build details
 configure_file(
-  ${CMAKE_CURRENT_SOURCE_DIR}/sofics-env.sh.in
-  ${CMAKE_CURRENT_BINARY_DIR}/sofics-env.sh
+  ${CMAKE_CURRENT_SOURCE_DIR}/driver.sh.in
+  ${CMAKE_CURRENT_BINARY_DIR}/driver.sh
   @ONLY
 )
 
@@ -45,7 +45,7 @@ else()
 endif()
 
 # Install configured environment setup
-install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/sofics-env.sh
+install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/driver.sh
   DESTINATION ${CMAKE_INSTALL_BINDIR} 
   COMPONENT scripts
 )
