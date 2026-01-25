@@ -3,6 +3,7 @@
 # -----------------------------------------------------------------------------
 # Fortran flags
 # -----------------------------------------------------------------------------
+set(CMAKE_Fortran_COMPILER "/usr/bin/gfortran-10")
 set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fallow-argument-mismatch")
 
 # -----------------------------------------------------------------------------
@@ -22,6 +23,10 @@ set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fallow-argument-mismatch")
 # set(BLACS_blacs_LIBRARY "/path/to/libblacs.a")
 # set(BLACS_Cinit_LIBRARY "/path/to/libcinit.a")
 # set(SCALAPACK_LIBRARY "/path/to/libscalapack.a")
+
+set(USE_CHOLMOD OFF)
+set(USE_PARDISO OFF)
+set(TRY_ACME OFF)
 
 # -----------------------------------------------------------------------------
 # Call Aero-S CMakeLists
