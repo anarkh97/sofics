@@ -1,5 +1,0 @@
-This directory contains an example Aero-S input file that runs a transient
-simulation using a projector P = I - R(R^TMR)^{-1}R^TM where R contains
-the structure's global rigid body modes and M is the structure's mass matrix.
-
-The projector filters the rigid body displacement out of the total solution.

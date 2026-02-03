@@ -1,4 +1,0 @@
-This directory contains an example Aero-S input file that computes eigenvalues
-and eigenmodes.
-
-The reference solution is found in eig.ref

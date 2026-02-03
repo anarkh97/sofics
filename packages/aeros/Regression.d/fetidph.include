@@ -1,3 +1,0 @@
-interf_solver gmres
-coarse_solver mumps pivot 
-augment EdgeWs 13

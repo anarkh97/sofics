@@ -1,1 +1,6 @@
 build/
+examples/**/*.dat
+examples/**/*.log
+examples/**/*.rst
+examples/**/evaluation.*/
+examples/**/*.out

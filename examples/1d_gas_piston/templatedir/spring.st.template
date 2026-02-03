@@ -1,0 +1,37 @@
+// Units: g, mm, s
+
+under Spring {
+
+  Stiffness = {equiv_k};
+  Mass = {equiv_m};
+
+}
+
+under Time {
+
+  TimeStepSize = 4e-7;
+  MaxTime = 0.01;
+
+}
+
+under Output {
+
+  Prefix = "results/";
+  Mesh = "surface.top";
+  Displacement = "displacement.top";
+
+  Frequency = 1500;
+
+  under Probe[0] {
+
+    NodeId = 0;
+    Displacement = "disp.0";
+    Force = "force.0";
+    Velocity = "velo.0";
+    Frequency = 30;
+
+  }
+
+  VerboseScreenOutput = Low;
+
+}

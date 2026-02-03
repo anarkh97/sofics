@@ -1,4 +1,0 @@
-echo ../../bin/aeros  PlateUnderPressure_displacx.inp
-../../bin/aeros  PlateUnderPressure_displacx.inp
-echo ../../bin/aeros  PlateUnderPressure_gvelocit.inp
-../../bin/aeros  PlateUnderPressure_gvelocit.inp

@@ -1,6 +1,0 @@
-echo ../../bin/aeros  dsvm15_spooles_pivot_displacy.inp
-../../bin/aeros  dsvm15_spooles_pivot_displacy.inp
-echo ../../bin/aeros  dsvm15_mumps_pivot_displacy.inp
-../../bin/aeros  dsvm15_mumps_pivot_displacy.inp
-echo ../../bin/aeros -n 2 --dec --nsub 4 dsvm15_FETI_DPH_displacy.inp
-../../bin/aeros -n 2 --dec --nsub 4 dsvm15_FETI_DPH_displacy.inp

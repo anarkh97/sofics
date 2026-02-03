@@ -1,0 +1,6 @@
+[submodule "packages/aeros"]
+	path = packages/aeros
+	url = https://github.com/anarkh97/aero-s-foam.git
+[submodule "packages/m2c"]
+	path = packages/m2c
+	url = https://github.com/anarkh97/m2c.git 

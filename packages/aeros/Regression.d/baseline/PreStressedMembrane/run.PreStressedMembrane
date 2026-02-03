@@ -1,8 +1,0 @@
-echo ../../bin/aeros  PreStressedMembrane_mumps_gdisplac.inp
-../../bin/aeros  PreStressedMembrane_mumps_gdisplac.inp
-echo ../../bin/aeros  PreStressedMembrane_sparse_gdisplac.inp
-../../bin/aeros  PreStressedMembrane_sparse_gdisplac.inp
-echo ../../bin/aeros  PreStressedMembrane_spooles_gdisplac.inp
-../../bin/aeros  PreStressedMembrane_spooles_gdisplac.inp
-echo ../../bin/aeros -n 2 --dec --nsub 4 PreStressedMembrane_FETI_DP_gdisplac.inp
-../../bin/aeros -n 2 --dec --nsub 4 PreStressedMembrane_FETI_DP_gdisplac.inp

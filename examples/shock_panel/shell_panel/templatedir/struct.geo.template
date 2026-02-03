@@ -1,0 +1,37 @@
+// Unit: mm 
+
+// GMsh command: gmsh -3 -format msh -o fluid3d.msh fluid3d.geo
+
+// INPUTS
+dx = 0.5;        // mesh size
+L  = 50;         // length of the beam
+L2 = 0.5*L;      // half length
+w  = 1;          // half through plane thickness
+
+nn = Floor(L2/dx) + 1; // number of nodes.
+
+// beam
+Point(1) = { 0.0, 0.0, -w, dx};
+Point(2) = { 0.0,   L, -w, dx}; 
+Point(3) = { 0.0,   L,  w, dx}; 
+Point(4) = { 0.0, 0.0,  w, dx};
+Line(1) = {1, 2};
+Line(2) = {2, 3};
+Line(3) = {3, 4};
+Line(4) = {1, 4};
+
+Line Loop(1) = {1, 2, 3, -4};
+Plane Surface(1) = {1};
+Transfinite Curve{1} = nn;
+Transfinite Curve{2} = 3;
+Transfinite Curve{3} = nn;
+Transfinite Curve{4} = 3;
+Transfinite Surface{1};
+Recombine Surface{1};
+
+// wetted surfaces (FS interface)
+Physical Surface(1) = {1};
+
+// Smoothing the final mesh
+Mesh.Smoothing = 20;
+Mesh.SmoothRatio = 3;

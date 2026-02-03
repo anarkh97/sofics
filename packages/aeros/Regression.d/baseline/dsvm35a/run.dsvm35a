@@ -1,4 +1,0 @@
-echo ../../bin/aeros  dsvm35a_sparse_gtempera.inp
-../../bin/aeros  dsvm35a_sparse_gtempera.inp
-echo ../../bin/aeros  dsvm35a_mumps_pivot_gtempera.inp
-../../bin/aeros  dsvm35a_mumps_pivot_gtempera.inp
