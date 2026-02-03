@@ -1,11 +1,6 @@
 build/
-examples/short_async_evaluations/*.dat
-examples/short_async_evaluations/*.log
-examples/short_async_evaluations/*.rst
-examples/short_async_evaluations/evaluation.*/
-examples/short_async_evaluations/*.out
-examples/full_blast_container_optimization/*.dat
-examples/full_blast_container_optimization/*.log
-examples/full_blast_container_optimization/*.rst
-examples/full_blast_container_optimization/evaluation.*/
-examples/full_blast_container_optimization/*.out
+examples/**/*.dat
+examples/**/*.log
+examples/**/*.rst
+examples/**/evaluation.*/
+examples/**/*.out
