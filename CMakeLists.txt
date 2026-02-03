@@ -48,13 +48,13 @@ include(Dependencies)
 # add aeros
 if(BUILD_AEROS)
   message(STATUS "Building Aero-S ...")
-  include(aeros)
+  include(AerosBuild)
 endif()
 
 # add m2c
 if(BUILD_M2C)
   message(STATUS "Building M2C ...")
-  include(m2c)
+  include(M2CBuild)
 endif()
 
 # -----------------------------------------------------------------------------
