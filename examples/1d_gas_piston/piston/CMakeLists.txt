@@ -66,4 +66,6 @@ FluidCommunicator.cpp
 
 # link to libraries
 target_link_libraries(piston mpi parser)
+target_link_libraries(piston ${CMAKE_DL_LIBS}) #linking to the dl library (-ldl)
+add_dependencies(piston extern_lib)
 add_dependencies(piston VersionHeader)

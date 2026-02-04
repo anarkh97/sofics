@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.10)
 
 # set the project name
 project(SOFICS VERSION 1.0)

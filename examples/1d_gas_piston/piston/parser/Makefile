@@ -1,7 +1,7 @@
 LIB = libparser.a
 SAR = ar rcs
 
-CCFLAGS = $(CXXFLAGS)
+CCFLAGS = $(CXXFLAGS) -fPIC
 
 OBJS = Lexer.o \
        Parser.tab.o \
@@ -12,10 +12,10 @@ $(LIB): $(OBJS)
 	$(SAR) $(LIB) $(OBJS)
 
 Lexer.o: Parser.tab.cpp Lexer.C
-	$(CXX) $(CXXFLAGS) -c Lexer.C
+	$(CXX) $(CCFLAGS) -c Lexer.C
 
 Parser.tab.o: Parser.tab.cpp
-	$(CXX) $(CXXFLAGS) -c Parser.tab.cpp -fpermissive
+	$(CXX) $(CCFLAGS) -c Parser.tab.cpp -fpermissive
 
 Parser.tab.cpp: Parser.y
 	bison -d -v -p yyCmdf Parser.y
