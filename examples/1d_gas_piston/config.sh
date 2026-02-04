@@ -15,6 +15,6 @@ M2C_INPUT=input.st
 M2C_AUX=StateCalculator.so
 
 # setup size and executables for solid solver
-AEROS_EXE=/home/anarkhede/tinkercliffs/sofics_updates/examples/1d_gas_piston/piston/piston
+AEROS_EXE="$LAUNCH_DIR/piston/piston"
 AEROS_SIZE=1
 AEROS_INPUT=spring.st

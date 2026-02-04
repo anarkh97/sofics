@@ -12,7 +12,7 @@ export SOFICS_VERSION="@PROJECT_VERSION@"
 # TODO: Maybe add SOFICS_BIN to PATH
 
 export DEFAULT_AEROS_EXE="${SOFICS_BIN}/aeros"
-export DEFAULT_M2C_EXE="${SOFICS_BIN}/bin"
+export DEFAULT_M2C_EXE="${SOFICS_BIN}/m2c"
 export GMSH2AEROS_EXE="${SOFICS_BIN}/gmsh2aeros"
 export AEROS2DAKOTA_EXE="${SOFICS_BIN}/aeros2dakota"
 

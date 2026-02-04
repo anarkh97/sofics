@@ -4,3 +4,8 @@ examples/**/*.log
 examples/**/*.rst
 examples/**/evaluation.*/
 examples/**/*.out
+examples/**/parser/*.o
+examples/**/parser/Lexer.C
+examples/**/parser/*tab.*
+examples/**/parser/*.a
+examples/**/parser/Parser.output

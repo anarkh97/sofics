@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # set the project name
-project(SOFICS VERSION 1.0)
+project(SOFICS VERSION 2.0)
 
 include(GNUInstallDirs)
 

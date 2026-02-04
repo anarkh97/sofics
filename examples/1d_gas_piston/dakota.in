@@ -47,7 +47,7 @@ variables
   linear_inequality_scales = 2.0  0.5
 
 interface
-  analysis_driver = '../../build/src/driver.sh --config config.sh --pre pre_pro.sh --post post_pro.sh'
+  analysis_driver = '../../build/sofics/bin/driver.sh --config config.sh --pre pre_pro.sh --post post_pro.sh'
   failure_capture
     recover = 1e10 1e10 
   fork
