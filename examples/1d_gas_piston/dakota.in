@@ -1,41 +1,66 @@
 environment
   tabular_data
 
+# Single Objective Genetic Algorithm (SOGA) 
+# optimizer setup.
 method
-  output debug 
+  output quiet
   soga
+
+    # With scaling enabled, objective and constraint
+    # function values are scaled to [0, 1].
     scaling
+
+    # Convert contrained optimization problem to an
+    # unconstrained problem using the exetrior penalty
+    # method (``merit function'').
     fitness_type 
-    merit_function
-      constraint_penalty = 20.0
-    replacement_type 
-      elitist
+      merit_function
+        constraint_penalty = 20.0
+
+    # GA stopping criteria. If any of these conditions
+    # is true, the optimizer will stop and print the
+    # current best design variables
     convergence_type 
       best_fitness_tracker
         percent_change = 1e-6
         num_generations = 5
     max_iterations = 20
     max_function_evaluations = 1250
-    population_size = 20
-    print_each_pop
+
+    # Population initialization
     initialization_type
       unique_random
+    population_size = 20
+    print_each_pop
+
+    # Selection operator setup
+    replacement_type 
+      elitist
+
+    # Crossover operator setup
     crossover_type
       shuffle_random
         num_parents = 2
         num_offspring = 2
         crossover_rate = 0.8
+
+    # Mutation operator setup
     mutation_type
       offset_normal
       mutation_scale = 0.1
       mutation_rate = 0.05
-    seed = 1758817353  
+
+    # Random number generator setup
+    seed = 1770214434
 
 model
   single
 
+
+# Define the design variables along with any
+# linear constraints here.
 variables
-  active design
   continuous_design = 2
     lower_bounds  0.2 0.2 
     upper_bounds  2.0 2.0 
@@ -46,13 +71,15 @@ variables
   linear_inequality_scale_types = 'value'
   linear_inequality_scales = 2.0  0.5
 
+
+# SOFICS driver scripts
 interface
   analysis_driver = '../../build/sofics/bin/driver.sh --config config.sh --pre pre_pro.sh --post post_pro.sh'
   failure_capture
     recover = 1e10 1e10 
   fork
     asynchronous
-    evaluation_concurrency = 4
+    evaluation_concurrency = 2
     local_evaluation_scheduling = static
     parameters_file = 'params.in'
     results_file    = 'results.out'
@@ -63,6 +90,8 @@ interface
       directory_tag 
       directory_save
 	   
+# Define the cost (or objective) function and
+# the nonlinear constraints here.
 responses
   objective_functions = 1
   objective_function_scale_types = 'value'

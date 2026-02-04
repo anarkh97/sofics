@@ -1,7 +1,7 @@
 #!/bin/bash
 
 struct_out_dir="$WORKING_DIR/results"
-postpro="$DRIVER_DIR/postprocessor"
+postpro="$SOFICS_BIN/aeros2dakota"
 
 # convert to function values and write to dakota results
 # NOTE: `postprocessor` does not know the order in which response
