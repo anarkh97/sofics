@@ -30,7 +30,7 @@ The generic Aero-S and M2C simulation setups are defined in the `templates/fem.i
 
 ## Dakota Setup
 
-Asynchronous evaluations are spwaned using `Dakota`'s `fork` application interface, with the required setup specified in `dakota.in` input file. The `fork` interface requires an `analysis_driver` that reads the provided desgin parameters, performs the neccessary evaluations, and outputs the response functions. In `SOFICS`, the `driver.sh` bash script located in your `build` directory serves as the `analysis_dirver`. This script requires user-defined setup details, including input files for `Gmsh`, `M2C`, and `Aero-S`, as well as resource specifications for each evaluation. These details are supplied to `driver.sh` via a configuration file, similar to the example `myconfig.sh` provided. 
+Asynchronous evaluations are spwaned using `Dakota`'s `fork` application interface, with the required setup specified in `dakota.in` input file. The `fork` interface requires an `analysis_driver` that reads the provided desgin parameters, performs the neccessary evaluations, and outputs the response functions. In `SOFICS`, the `driver.sh` bash script located in your `build` directory serves as the `analysis_dirver`. This script requires user-defined setup details, including input files for `Gmsh`, `M2C`, and `Aero-S`, as well as resource specifications for each evaluation. These details are supplied to `driver.sh` via a configuration file, similar to the example `config.sh` provided. 
 
 <!-- The required parameters to be defined in this configuration file are listed below.
 
