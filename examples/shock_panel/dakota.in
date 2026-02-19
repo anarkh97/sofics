@@ -1,0 +1,69 @@
+environment
+  tabular_data
+
+method
+  output debug 
+  soga
+    fitness_type 
+    merit_function
+      constraint_penalty = 20.0
+    replacement_type 
+      elitist
+    convergence_type 
+      best_fitness_tracker
+        percent_change = 0.0 
+        num_generations = 5
+    max_iterations = 20
+    max_function_evaluations = 2500000
+    scaling
+    population_size = 50
+    print_each_pop
+    initialization_type
+      unique_random
+    crossover_type
+      shuffle_random
+        num_parents = 2
+        num_offspring = 2
+        crossover_rate = 0.8
+    mutation_type
+      offset_normal
+      mutation_scale = 0.1
+      mutation_rate = 0.05
+    seed = 1649919949
+
+model
+  single
+
+variables
+  active design
+  continuous_design = 3
+    initial_point      1.0       1.0       1.0
+    lower_bounds       0.4       0.4       0.4
+    upper_bounds       4.0       4.0       4.0
+
+interface
+  analysis_driver = '../../build/sofics/bin/driver.sh --config config.sh --pre pre_pro.sh --post post_pro.sh'
+  fork
+    asynchronous
+    evaluation_concurrency = 10
+    local_evaluation_scheduling = static
+    parameters_file = 'params.in'
+    results_file    = 'results.out'
+    file_tag
+    file_save
+    work_directory 
+      named = 'evaluation'
+      directory_tag 
+      directory_save
+	   
+responses
+  objective_functions = 1
+  objective_function_scale_types 'value'
+  objective_function_scales 6.0
+  nonlinear_inequality_constraints = 2 
+  nonlinear_inequality_upper_bounds 5.0e8 0.76
+  nonlinear_inequality_upper_bounds 0.625 1.0
+  nonlinear_inequality_scale_type 'value'
+  nonlinear_inequality_scales 8.0e8 0.76
+  no_gradients
+  no_hessians
