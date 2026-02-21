@@ -49,7 +49,7 @@ The full optimization was undertaken on Virginia Tech's Tinkercliffs computing c
 
 The corresponding optimization history after 50 iteration looks like,
 
-![Iteration history](../../images/ShockPanelIterationHistory.jpg)
+![Iteration history](../../images/ShockPanelIterationHistory.png)
 
 and the final design parameters are:
 
