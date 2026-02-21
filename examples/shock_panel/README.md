@@ -43,20 +43,27 @@ This command will display a list of jobs currently running under your user ID on
 
 ## Results
 
-The full optimization was undertaken on Virginia Tech's Tinkercliffs computing cluster. The following figure depicts six example designs that were explored by the optimizer in this study.
+The full optimization was undertaken on Virginia Tech's Tinkercliffs computing cluster.
+The figure below depicts six example designs explored by the optimizer.
 
 ![Example FSI snapshots from optimization of a solid panel subjected to shock impulse.](../../images/ShockPanelExampleDesigns.jpg)
 
-The corresponding optimization history after 50 iteration looks like,
+The optimizer minimizes a merit function defined as:
+
+$$
+\text{merit} = \text{objective} + \text{penalty} \cdot \max\left(\mathbf{0},\ \text{constraints}\right)
+$$
+
+The corresponding merit function history over 50 iterations is shown below:
 
 ![Iteration history](../../images/ShockPanelIterationHistory.png)
 
-and the final design parameters are:
+The final optimized design parameters are:
 
 $$
 \begin{aligned}
 t_1 &= 0.422315373841 \\
 t_2 &= 0.972684923009 \\
-t_3 &= 1.62662958746 \\
+t_3 &= 1.62662958746
 \end{aligned}
 $$
