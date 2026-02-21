@@ -2,7 +2,7 @@
 
 The problem setup is shown below.
 
-![Numerical setup.](images/ShockPanelProblemSetup.jpg)
+![Numerical setup.](../../images/ShockPanelProblemSetup.jpg)
 
 ## Dakota Setup
 
@@ -45,8 +45,18 @@ This command will display a list of jobs currently running under your user ID on
 
 The full optimization was undertaken on Virginia Tech's Tinkercliffs computing cluster. The following figure depicts six example designs that were explored by the optimizer in this study.
 
-![Example FSI snapshots from optimization of a solid panel subjected to shock impulse.](images/ShockPanelExampleDesigns.jpg)
+![Example FSI snapshots from optimization of a solid panel subjected to shock impulse.](../../images/ShockPanelExampleDesigns.jpg)
 
-The corresponding optimization history looks like,
+The corresponding optimization history after 50 iteration looks like,
 
-![Iteration history](images/ShockPanelIterationHistory.jpg)
+![Iteration history](../../images/ShockPanelIterationHistory.jpg)
+
+and the final design parameters are:
+
+$$
+\begin{aligned}
+t_1 &= 0.422315373841 \\
+t_2 &= 0.972684923009 \\
+t_3 &= 1.62662958746 \\
+\end{aligned}
+$$

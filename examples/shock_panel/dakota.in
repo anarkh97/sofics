@@ -2,20 +2,19 @@ environment
   tabular_data
 
 method
-  output debug 
   soga
-    fitness_type 
+    scaling
+    fitness_type
     merit_function
       constraint_penalty = 20.0
-    replacement_type 
+    replacement_type
       elitist
-    convergence_type 
+    convergence_type
       best_fitness_tracker
-        percent_change = 0.0 
-        num_generations = 5
+        percent_change = 0.0
+        num_generations = 50
     max_iterations = 20
     max_function_evaluations = 2500000
-    scaling
     population_size = 50
     print_each_pop
     initialization_type
