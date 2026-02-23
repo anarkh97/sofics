@@ -3,8 +3,21 @@
 # -----------------------------------------------------------------------------
 # Fortran flags
 # -----------------------------------------------------------------------------
-set(CMAKE_Fortran_COMPILER "/usr/bin/gfortran-10")
-set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fallow-argument-mismatch")
+if(CMAKE_Fortran_COMPILER_ID STREQUAL "GNU")
+  # AN: Aero-S require version 10+ as we need to pass the allow-argument-mismatch
+  # flag.
+  if(CMAKE_Fortran_COMPILER_VERSION VERSION_LESS "10.0")
+      message(FATAL_ERROR
+          "gfortran >= 10.0 is required for -fallow-argument-mismatch. "
+          "Found: gfortran ${CMAKE_Fortran_COMPILER_VERSION}. "
+          "Please load a newer compiler (e.g. 'module load GCCCore-XX.X.X').")
+  endif()
+  set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fallow-argument-mismatch")
+else()
+    message(WARNING
+        "Non-GNU Fortran compiler detected (${CMAKE_Fortran_COMPILER_ID}). "
+        "-fallow-argument-mismatch will not be added.")
+endif()
 
 # -----------------------------------------------------------------------------
 # Aero-S variables which can be used to specify your custom libraries.

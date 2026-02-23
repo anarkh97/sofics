@@ -22,10 +22,10 @@ CURRENT_DIR=$(pwd)
 BUILD_TYPE="Release"
 BUILD_DIR=""
 INSTALL_PREFIX="$CURRENT_DIR/build/sofics"
-BUILD_AEROS=ON
-BUILD_M2C=ON
-BUILD_TOOLS=ON
-UPDATE_SUBMODULES=OFF
+BUILD_AEROS="ON"
+BUILD_M2C="ON"
+BUILD_TOOLS="ON"
+UPDATE_SUBMODULES="OFF"
 NUM_CPU=4
 
 # Colors
@@ -67,16 +67,20 @@ while true; do
       shift 2
       ;;
     --no-aeros)
-      BUILD_AEROS=OFF
+      BUILD_AEROS="OFF"
+      shift
       ;;
     --no-m2c)
-      BUILD_M2C=OFF
+      BUILD_M2C="OFF"
+      shift
       ;;
     --no-tools)
-      BUILD_TOOLS=OFF
+      BUILD_TOOLS="OFF"
+      shift
       ;;
     --update-submodules)
-      UPDATE_SUBMODULES=ON
+      UPDATE_SUBMODULES="ON"
+      shift
       ;;
     --jobs)
       NUM_CPU="$2"

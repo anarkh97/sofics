@@ -40,7 +40,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(Submodules)
 
 # Find/fetch dependencies (related to Aero-S/M2C)
-include(Dependencies)
+if(BUILD_AEROS OR BUILD_M2C)
+  include(Dependencies)
+endif()
 
 # -----------------------------------------------------------------------------
 # Build submodules (Aero-S and M2C)
