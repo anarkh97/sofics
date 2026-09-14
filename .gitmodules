@@ -1,6 +1,6 @@
-[submodule "packages/aeros"]
-	path = packages/aeros
+[submodule "src/solvers/aeros"]
+	path = src/solvers/aeros
 	url = https://github.com/anarkh97/aero-s-foam.git
-[submodule "packages/m2c"]
-	path = packages/m2c
-	url = https://github.com/anarkh97/m2c.git 
+[submodule "src/solvers/m2c"]
+	path = src/solvers/m2c
+	url = https://github.com/anarkh97/m2c.git
