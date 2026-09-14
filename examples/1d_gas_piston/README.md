@@ -1,8 +1,8 @@
-# Full Genetic Optimization of 1-D piston subjected to repeated shock loading
+# Optimization of 1-D piston subjected to shock loading
 
 ## Piston
 
-A simple spring-mass system solver is provided in this example repository to serve as the structural solver. It is a CMake project and is *not* built by the top-level `SOFICS` build, so it has to be compiled separately. `MPI`, `flex`, and `bison` are required.
+A simple spring-mass system solver is provided in this example repository to serve as the structural solver. It is a CMake project and is *not* built by the top-level `SOFICS` build script. This solver depends on `MPI`, `flex`, and `bison` and can be compiled using,
 
 ```sh
 cd piston
@@ -10,7 +10,7 @@ cmake .
 make
 ```
 
-Configure in the source directory as shown above. The build places the executable at `piston/piston`, which is the path that `config.sh` assigns to `AEROS_EXE`. If you prefer an out-of-source build, remember to update `AEROS_EXE` accordingly.
+The build places the executable at `piston/piston`, which is the path that `config.sh` assigns to `AEROS_EXE`. If you prefer an out-of-source build, remember to update `AEROS_EXE` accordingly.
 
 The fluid solver used to capture the complex shock dynamics and fluid-structure interfactions for this problem is set to M2C.
 
@@ -18,7 +18,7 @@ The fluid solver used to capture the complex shock dynamics and fluid-structure 
 
 Asynchronous evaluations are spwaned using `Dakota`'s `fork` application interface, with the required setup specified in `dakota.in` input file. The `fork` interface requires an `analysis_driver` that reads the provided desgin parameters, performs the neccessary evaluations, and outputs the response functions. In `SOFICS`, the `driver.sh` bash script located in your `build` directory serves as the `analysis_dirver`. This script requires user-defined setup details, including input files for `Gmsh`, `M2C`, and `Aero-S`, as well as resource specifications for each evaluation. The setup details can be specified in a conguration file, where as the finite element mesh setup can be specified in a custom pre-processor script. Collectively, these scripts can be passed to the driver through command line arguments, like the ones shown in `dakota.in`. 
 
-## Evaluation
+## Local Evaluation
 
 To launch the simulation use `Dakota's` command line interface, i.e.,
 
@@ -30,7 +30,7 @@ Here, `dakota.in` is our input file, `dakota.log` is the log file to which Dakot
 
 ## Cluster Evaluation
 
-The `SLURM` scheduller is employed to launch the `Dakota` process on Virginia Tech's `Tinkercliffs` compute cluster. An example `SLURM` configuration can be found in the `run.sh` file. Update the following lines to match your preference and account details:
+An example `SLURM` configuration can be found in the `run.sh` file, which can employed to launch a `Dakota` process on Virginia Tech's `Tinkercliffs` compute cluster. Update the following lines to match your preference and account details.
 
 ```sh
 #SBATCH --job-name=dakota           # Job name
@@ -81,7 +81,7 @@ $$
 \max_{t} \left| u \right| \leq 10 \text{ mm},
 $$
 
-together with the two linear constraints $\alpha_{(1)} + \alpha_{(2)} \leq 2$ and $\alpha_{(1)} - \alpha_{(2)} \geq 0.5$ declared in `dakota.in`. The objective is divided by $3 \times 10^{4}$ in `post_pro.sh` so that both responses are $O(1)$.
+together with the two linear constraints $\alpha_{(1)} + \alpha_{(2)} \leq 2$ and $\alpha_{(1)} - \alpha_{(2)} \geq 0.5$ declared in `dakota.in`.
 
 The study was run with a population of 20 over 20 generations, which took 407 coupled fluid-structure evaluations. The figure below shows the populations at selected generations in the design space. The dashed and dotted lines are the two linear constraints, and the star marks the final design.
 
@@ -105,5 +105,5 @@ which compares well with the analytical optimum of $\alpha_{(1)} = 1.25$, $\alph
 `Dakota` writes the full history to `dakota_tabular.dat` and the per-generation populations to `population_*.dat`, and reports the best design at the end of `dakota.log`:
 
 ```sh
-grep -A 8 "Best parameters" dakota.log
+grep "Best parameters" dakota.log
 ```
