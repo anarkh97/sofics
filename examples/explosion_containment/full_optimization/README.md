@@ -1,6 +1,6 @@
-# Full Genetic Optimization of Ellipsoidal Blast Containment Structures
+# Optimization of Ellipsoidal Blast Containment Structures
 
-This example case demonstrates the setup required for optimizing blast containment structures using coupled fluid-structure interaction simulations. The provided `config.sh` is sized for a workstation, allocating 4 computational cores to each simulation. On a compute cluster, each simulation utilizes 64 computational cores: 56 for the fluid solver and 8 for the structural solver, and the simulations are executed asynchronously on multiple compute nodes, through the `SLURM` scheduling directive.
+This example case demonstrates the setup required for optimizing blast containment structures using coupled fluid-structure interaction simulations. The provided `config.sh` is sized for a workstation, allocating 4 computational cores to each simulation.
 
 We analyze an ellipsoidal containment structure subjected to an internal TNT explosion. The major and minor radii of the containment structure are treated as the design variables in the optimization study. The goal is to minimize the mass of the blast container while ensuring that the maximum effective plastic strain remains below a specified limit. Mathematically, this problem is formulated as:
 
@@ -11,9 +11,11 @@ $$
 Subject to:
 
 $$
-e_{fluid}(x_{dv}, u) = 0\\
-e_{structure}(x_{dv}, u) = 0\\
-\epsilon_p \leq \epsilon^{crit}_p\\
+\begin{align*}
+e_{fluid}(x_{dv}, u) &= 0 \\
+e_{structure}(x_{dv}, u) &= 0 \\
+\epsilon_p &\leq \epsilon^{crit}_p \\
+\end{align*}
 $$
 
 where $x_{dv}$ and $u$ denote the design variables and the state variables, respectively. $e_{fluid}$ and $e_{structure}$ represent the governing partial differencial equations for fluid dynamics and structural dynamics. $\epsilon_p$ is the effective plastic strain developed within the structure, while $\epsilon^{crit}_p$ is the imposed critical limit value. In this demonstration case, $f(x_{dv})$ represents the mass of the containment structure, which serves as the optimization objective.
@@ -32,27 +34,9 @@ The generic Aero-S and M2C simulation setups are defined in the `templates/fem.i
 
 Asynchronous evaluations are spwaned using `Dakota`'s `fork` application interface, with the required setup specified in `dakota.in` input file. The `fork` interface requires an `analysis_driver` that reads the provided desgin parameters, performs the neccessary evaluations, and outputs the response functions. In `SOFICS`, the `driver.sh` bash script located in your `build` directory serves as the `analysis_dirver`. This script requires user-defined setup details, including input files for `Gmsh`, `M2C`, and `Aero-S`, as well as resource specifications for each evaluation. These details are supplied to `driver.sh` via a configuration file, similar to the example `config.sh` provided. 
 
-<!-- The required parameters to be defined in this configuration file are listed below.
-
-* Fluid simulation setup
-    * ***M2C_INPUT***: Should be set to the name of the `M2C` input file that contains the configuration for the fluid simulation. The file must contain `under ConcurrentPrograms { under AeroS { FSIAlgorithm = ByAeroS; }}` which instructs `M2C` to treat the simulation as a coupled fluid-structure interaction simulation.
-    * ***M2C_AUX***: Should be a colon-delimited list of additional files required by `M2C` for the fluid simulation, e.g., `file1:file2:file3`.
-    * ***M2C_EXE***: Should be set to the path of your personal `M2C` executable. By default, `SOFICS` uses the locally packaged version of `M2C` if available; otherwise, an error will be raised.
-    * ***M2C_SIZE***: Should be set to the number of computational cores allocated to `M2C` for each coupled fluid-structure interaction simulation.
-* Structural simulation setup
-    * ***AEROS_INPUT***: Should be set to the name of the `Aero-S` input file that contains the configuration for the structural simulation. The file must contain `EMBEDDED #` card, where `#` is replaced with the surface ID of the embedded or the wetted surface as defined in the `Gmsh` input file. This card instructs `Aero-S` to treat the simulation as a coupled fluid-structure interaction simulation.
-    * ***AEROS_EXE***: Should be set to the path of your personal `Aero-S` executable. By default, `SOFICS` uses the locally packaged version of `Aero-S` if available; otherwise, an error will be raised.
-    * ***AEROS_SIZE***: Should be set to the number of computational cores allocated to `Aero-S` for each coupled fluid-structure interaction simulation.
-* Finite-element meshing setup
-    * ***GMSH_INPUT***: Should be set to the name of the `Gmsh` input file that defines the procedure for building and meshing the structural geometry. The continuous design variables provided by `Dakota` can be used in this file by wrapping the variable name in `{}`. `SOFICS` uses the default variable names, where continuous design variables follow the pattern `cdv_i`, and continuous state variables follow `csv_i`.
-    * ***GMSH_EXE***: Should be set to the path of your personal `Gmsh` executable. If `Gmsh` is installed correctly, this variable can simply be `GMSH_EXE=gmsh`.
-* Miscellaneous
-    * ***TEMPLATE_DIR***: Should be the name of the directory where you store all the input file templates, if you choose to organize them in one location. By default, `SOFICS` uses the directory from which the `Dakota` job is launched.
-    * ***EVALUATION_CONCURRENCY***: Should reflect the evaluation concurrency specified in the `Dakota` input file. -->
-
 ## Local Evaluation
 
-The provided `config.sh` is sized for a single workstation. Each coupled fluid-structure simulation is allocated 4 computational cores (`M2C_SIZE=3` and `AEROS_SIZE=1`), and `dakota.in` requests `evaluation_concurrency = 1`, so at most 4 MPI processes run at any time. Ensure that `gmsh` and `dakota` are available on your `PATH`, and then launch the study using `Dakota's` command line interface, i.e.,
+Each coupled fluid-structure simulation is allocated 4 computational cores (`M2C_SIZE=3` and `AEROS_SIZE=1`), and `dakota.in` requests `evaluation_concurrency = 1`, so at most 4 MPI processes run at any time. Ensure that `gmsh` and `dakota` are available on your `PATH`, and then launch the study using `Dakota's` command line interface, i.e.,
 
 ```sh
 dakota -i dakota.in -o dakota.log -w dakota.rst
@@ -64,14 +48,11 @@ dakota -i dakota.in -o dakota.log -w dakota.rst
 tail -f evaluation.1/log.out
 ```
 
-***Note:*** The fluid mesh and the simulation setup are identical to the ones used on the compute cluster, so a single evaluation takes considerably longer here than it does on 64 cores. The local setup is meant for verifying that the toolchain is configured correctly. You can interrupt `Dakota` once the first few evaluations have completed.
+## Cluster Evaluation (Recommended)
 
-## Cluster Evaluation
+To scale the study up for a compute cluster, increase `M2C_SIZE` and `AEROS_SIZE` in `config.sh` to increase the number of compute utilization. You can also increase the `evaluation_concurrency` in `dakota.in` to the number of designs you wish to evaluate concurrently, to speed-up the optimization. The `SLURM` allocation in `run.sh` should be sized accordingly.
 
-To scale the study up for a compute cluster, set `M2C_SIZE=56` and `AEROS_SIZE=8` in `config.sh`, which allocates 64 computational cores to each simulation, and raise `evaluation_concurrency` in `dakota.in` to the number of designs you wish to evaluate concurrently. The `SLURM` allocation in `run.sh` should be sized accordingly.
-
-The `SLURM` scheduller is employed to launch the `Dakota` process on Virginia Tech's `Tinkercliffs` compute cluster. An example `SLURM` configuration can be found in the `run.sh` file. Update the following lines to match your preference and account details:
-
+An example `SLURM` configuration can be found in the `run.sh` file, which can employed to launch a `Dakota` process on Virginia Tech's `Tinkercliffs` compute cluster. Update the following lines to match your preference and account details.
 ```sh
 #SBATCH --job-name=dakota           # Job name
 #SBATCH --partition=normal_q        # Partition or queue name
@@ -80,7 +61,7 @@ The `SLURM` scheduller is employed to launch the `Dakota` process on Virginia Te
 
 The script uses the `dakota` command to call your `Dakota` installation, so ensure `Dakota` is properly installed before submitting a job. Follow the installation instructions available on the official [Dakota repository](https://github.com/snl-dakota/dakota?tab=coc-ov-file).
 
-***Note:*** Ensure that sufficient compute nodes are allocated to the job. In this demonstration, each simulation requires 64 computational cores (CPUs). Therefore, the total number of cores needed will be `64 × evaluation concurrency`. Since each node on `Tinkercliffs` consists of 128 CPUs, you should adjust your resource allocation accordingly. Update the following line in `run.sh` to specify your resource requirements:
+***Note:*** In this example script, each simulation requires 64 computational cores (`M2C_SIZE=56` and `AEROS_SIZE=8`). Therefore, the total number of cores needed will be `64 × evaluation concurrency`. Since each node on `Tinkercliffs` consists of 128 CPUs, you should adjust your resource allocation accordingly. Update the following line in `run.sh` to specify your resource requirements:
 ```sh
 #SBATCH --nodes=4                   # Number of nodes
 #SBATCH --ntasks-per-node=128       # Number of tasks per node
@@ -107,7 +88,7 @@ The design variables $x_{dv} = (l_x, l_y)$ are the major and minor radii of the 
 The optimization history is written to `dakota.dat`, and the per-generation populations are written to `population_*.dat`. `Dakota` reports the best design at the end of `dakota.log`:
 
 ```sh
-grep -A 8 "Best parameters" dakota.log
+grep "Best parameters" dakota.log
 ```
 
 <!-- TODO: Populate the following from a completed run. -->
