@@ -30,7 +30,7 @@ variables
 interface
   fork
   asynchronous
-  evaluation_concurrency = 2 
+  evaluation_concurrency = 1
   local_evaluation_scheduling = static
   analysis_driver = '../../../build/sofics/bin/driver.sh --config config.sh'
   parameters_file = 'params.in'
