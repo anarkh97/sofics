@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=adopt_true       # Job name
+#SBATCH --job-name=dakota           # Job name
 #SBATCH --nodes=5                   # Number of nodes
 #SBATCH --ntasks-per-node=128       # Number of tasks per node
 #SBATCH --time=144:00:00            # Time limit hrs:min:sec
@@ -15,11 +15,11 @@ export UCX_LOG_LEVEL=error
 cd $SLURM_SUBMIT_DIR
 
 ### Run
-if [[ -e adopt.rst ]]
+if [[ -e dakota.rst ]]
 then
-  ~/tinkercliffs/adopt/adopt -i adopt.in -o adopt.log -r adopt.rst
+  dakota -i dakota.in -o dakota.log -r dakota.rst
 else
-  ~/tinkercliffs/adopt/adopt -i adopt.in -o adopt.log -w adopt.rst
+  dakota -i dakota.in -o dakota.log -w dakota.rst
 fi
 
 exit;
