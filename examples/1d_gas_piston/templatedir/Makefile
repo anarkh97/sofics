@@ -1,8 +1,9 @@
-CXX = gcc
+CXX = g++
 CXXFLAGS = -O3 -fPIC
 LDFLAGS = -shared
 
-INCLUDE_DIR = /home/anarkhede/tinkercliffs/m2c_global/
+# Override to build against a different copy.
+INCLUDE_DIR = ../../../src/solvers/m2c
 
 TARGET = StateCalculator.so
 OBJECTS = StateCalculator.o
@@ -10,7 +11,7 @@ OBJECTS = StateCalculator.o
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(LDFLAGS) $(OBJECTS) -o $(TARGET) 
+	$(CXX) $(LDFLAGS) $(OBJECTS) -o $(TARGET)
 	rm $(OBJECTS)
 
 StateCalculator.o: StateCalculator.cpp
