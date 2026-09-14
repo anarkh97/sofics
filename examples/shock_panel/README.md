@@ -1,4 +1,4 @@
-# Full Genetic Optimization of cantilever panel subjected to repeated shock loading
+# Optimization of cantilever panel subjected to repeated shock loading
 
 The problem setup is shown below.
 
@@ -10,7 +10,7 @@ Asynchronous evaluations are spwaned using `Dakota`'s `fork` application interfa
 
 ## Local Evaluation
 
-The provided `config.sh` is sized for a single workstation. Each coupled fluid-structure simulation is allocated 4 computational cores (`M2C_SIZE=3` and `AEROS_SIZE=1`), and `dakota.in` requests `evaluation_concurrency = 1`, so at most 4 MPI processes run at any time. Ensure that `gmsh` and `dakota` are available on your `PATH`, and then launch the study using `Dakota's` command line interface, i.e.,
+Each coupled fluid-structure simulation is allocated 4 computational cores (`M2C_SIZE=3` and `AEROS_SIZE=1`), and `dakota.in` requests `evaluation_concurrency = 1`, meaning at most 4 MPI processes run at any time. Ensure that `gmsh` and `dakota` are available on your `PATH`, and then launch the study using `Dakota's` command line interface, i.e.,
 
 ```sh
 dakota -i dakota.in -o dakota.log -w dakota.rst
@@ -22,14 +22,11 @@ dakota -i dakota.in -o dakota.log -w dakota.rst
 tail -f evaluation.1/log.out
 ```
 
-***Note:*** The fluid mesh and the simulation setup are identical to the ones used on the compute cluster, so a single evaluation takes considerably longer here than it does on 64 cores. The local setup is meant for verifying that the toolchain is configured correctly. You can interrupt `Dakota` once the first few evaluations have completed.
-
 ## Cluster Evaluation (Recommended)
 
-To scale the study up for a compute cluster, set `M2C_SIZE=63` in `config.sh`, which allocates 64 computational cores to each simulation, and raise `evaluation_concurrency` in `dakota.in` to the number of designs you wish to evaluate concurrently. The `SLURM` allocation in `run.sh` should be sized accordingly.
+To scale the study up for a compute cluster, increase `M2C_SIZE` and `AEROS_SIZE` in `config.sh` to increase the number of compute utilization. You can also increase the `evaluation_concurrency` in `dakota.in` to the number of designs you wish to evaluate concurrently, to speed-up the optimization. The `SLURM` allocation in `run.sh` should be sized accordingly.
 
-The `SLURM` scheduller is employed to launch the `Dakota` process on Virginia Tech's `Tinkercliffs` compute cluster. An example `SLURM` configuration can be found in the `run.sh` file. Update the following lines to match your preference and account details:
-
+An example `SLURM` configuration can be found in the `run.sh` file, which can employed to launch a `Dakota` process on Virginia Tech's `Tinkercliffs` compute cluster. Update the following lines to match your preference and account details.
 ```sh
 #SBATCH --job-name=dakota           # Job name
 #SBATCH --partition=normal_q        # Partition or queue name
@@ -38,7 +35,7 @@ The `SLURM` scheduller is employed to launch the `Dakota` process on Virginia Te
 
 The script uses the `dakota` command to call your `Dakota` installation, so ensure `Dakota` is properly installed before submitting a job. Follow the installation instructions available on the official [Dakota repository](https://github.com/snl-dakota/dakota?tab=coc-ov-file).
 
-***Note:*** Ensure that sufficient compute nodes are allocated to the job. In this demonstration, each simulation requires 64 computational cores (CPUs). Therefore, the total number of cores needed will be `64 × evaluation concurrency`. Since each node on `Tinkercliffs` consists of 128 CPUs, you should adjust your resource allocation accordingly. Update the following line in `run.sh` to specify your resource requirements:
+***Note:*** In this example script, each simulation requires 64 computational cores (`M2C_SIZE=64` and `AEROS_SIZE=1`). Therefore, the total number of cores needed will be `64 × evaluation concurrency`. Since each node on `Tinkercliffs` consists of 128 CPUs, you should adjust your resource allocation accordingly. Update the following line in `run.sh` to specify your resource requirements:
 
 ```sh
 #SBATCH --nodes=4                   # Number of nodes
@@ -61,8 +58,7 @@ This command will display a list of jobs currently running under your user ID on
 
 ## Results
 
-The full optimization was undertaken on Virginia Tech's Tinkercliffs computing cluster.
-The figure below depicts six example designs explored by the optimizer.
+The full optimization was undertaken on Virginia Tech's Tinkercliffs computing cluster. The figure below depicts six example designs explored by the optimizer.
 
 ![Example FSI snapshots from optimization of a solid panel subjected to shock impulse.](../../media/ShockPanelExampleDesigns.jpg)
 
