@@ -45,7 +45,7 @@ set(TRY_ACME OFF)
 # Call Aero-S CMakeLists
 # -----------------------------------------------------------------------------
 add_subdirectory(
-  "${PROJECT_SOURCE_DIR}/packages/aeros" 
+  "${PROJECT_SOURCE_DIR}/src/solvers/aeros" 
   "${CMAKE_BINARY_DIR}/aeros-build"
 )
 

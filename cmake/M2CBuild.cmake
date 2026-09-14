@@ -4,7 +4,7 @@
 # Call M2C CMakeLists
 # -----------------------------------------------------------------------------
 add_subdirectory(
-  "${PROJECT_SOURCE_DIR}/packages/m2c" 
+  "${PROJECT_SOURCE_DIR}/src/solvers/m2c" 
   "${CMAKE_BINARY_DIR}/m2c-build"
 )
 

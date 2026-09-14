@@ -2,7 +2,7 @@
 
 if(UPDATE_SUBMODULES)
 
-  find_package(GIT QUIET REQUIRED)
+  find_package(Git QUIET REQUIRED)
   
   # PROJECT_SOURCE_DIR is the set by the last project() call
   # and is unaffected by add_subdirectory() changes
@@ -31,7 +31,7 @@ endif()
 # Verify Required Submodules
 # -----------------------------------------------------------------------------
 if(BUILD_AEROS)
-  if(NOT EXISTS "${PROJECT_SOURCE_DIR}/packages/aeros/.git")
+  if(NOT EXISTS "${PROJECT_SOURCE_DIR}/src/solvers/aeros/.git")
     message(FATAL_ERROR 
     "Aero-S submodule not found!\n"
     "Please run: git submodule update --init --recursive")
@@ -40,7 +40,7 @@ if(BUILD_AEROS)
 endif()
 
 if(BUILD_M2C)
-  if(NOT EXISTS "${PROJECT_SOURCE_DIR}/packages/m2c/.git")
+  if(NOT EXISTS "${PROJECT_SOURCE_DIR}/src/solvers/m2c/.git")
     message(FATAL_ERROR 
     "M2C submodule not found!\n"
     "Please run: git submodule update --init --recursive")

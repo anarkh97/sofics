@@ -64,13 +64,13 @@ endif()
 # -----------------------------------------------------------------------------
 if(BUILD_TOOLS)
   message(STATUS "Building Gmsh2Aeros and Postprocessor ...")
-  add_subdirectory(tools)
+  add_subdirectory(src/tools)
 endif()
 
 # -----------------------------------------------------------------------------
 # SOFICS environment setup
 # -----------------------------------------------------------------------------
-add_subdirectory(scripts)
+add_subdirectory(src/scripts)
 
 # -----------------------------------------------------------------------------
 # Summary
