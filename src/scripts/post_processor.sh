@@ -1,7 +1,7 @@
 #!/bin/bash
 
 struct_out_dir="$WORKING_DIR/results"
-postpro="$SOFICS_BIN/postprocessor"
+postpro="$SOFICS_BIN/aeros2dakota"
 
 # compute mass
 "$AEROS_EXE" "$AEROS_INPUT" -t
