@@ -2,7 +2,7 @@
 
 This guide covers the installation of external libraries required to build **Aero-S** (nonlinear dynamics) and **M2C** (compressible fluid dynamics) as part of SOFICS. The two solvers communicate through MPI, so a parallel build is assumed throughout.
 
-Libraries such as Dakota, Gmsh, PETSc, and Boost are excluded from this guide, see the main [README](../README.md) for Gmsh and Dakota.
+Libraries such as Dakota, Gmsh, PETSc, and Boost are excluded from this guide, see the main [README](README.md) for Gmsh and Dakota.
 
 **Note:** These instructions target **Ubuntu/Debian** systems. Package names and commands may differ on other distributions.
 
@@ -138,13 +138,13 @@ cd build
 make -j$(nproc)
 ```
 
-This builds both Aero-S (`build/packages/aeros/bin/aeros`) and M2C (`build/packages/m2c/m2c`).
+This builds both Aero-S (`build/bin/aeros`) and M2C (`build/bin/m2c`).
 
 ### Verify:
 
 ```sh
-./packages/aeros/bin/aeros
-./packages/m2c/m2c
+./bin/aeros
+./bin/m2c
 ```
 
 ### Check the Aero-S build summary:

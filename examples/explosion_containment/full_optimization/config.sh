@@ -10,12 +10,12 @@ EVALUATION_CONCURRENCY=$(
 )
 
 # setup size and executables for fluid solver
-M2C_SIZE=56
+M2C_SIZE=3
 M2C_INPUT=input.st
-SHOCK_INPUT=SphericalShock.txt
+M2C_AUX=SphericalShock.txt
 
 # setup size and executables for solid solver
-AEROS_SIZE=8
+AEROS_SIZE=1
 AEROS_INPUT=fem.in
 
 # setup executable and input file for FE mesher

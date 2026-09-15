@@ -17,4 +17,13 @@ if grep -q "Error" "$WORKING_DIR/post_pro_log.out"; then
   exit 1 
 fi
 
+# manualy scaling objective and constraint values
+readarray -t values < <(awk '{print $1}' "$DAK_RESULTS")
+
+objective=$(awk "BEGIN {print ${values[0]} / 30000.0}")
+constraint=$(awk "BEGIN {print ${values[1]} / 1.0}")
+
+printf "    %.6e\n    %.6e\n" "$objective" \
+  "$constraint" > "$DAK_RESULTS"
+
 exit 0
