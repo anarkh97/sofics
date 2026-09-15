@@ -32,7 +32,7 @@ interface
   asynchronous
   evaluation_concurrency = 1
   local_evaluation_scheduling = static
-  analysis_driver = '../../../build/sofics/bin/driver.sh --config config.sh --pre pre_pro.sh --post post_pro.sh'
+  analysis_driver = '../../../build/sofics/bin/driver.sh --config config.sh'
   parameters_file = 'params.in'
   results_file    = 'results.out'
   failure_capture
