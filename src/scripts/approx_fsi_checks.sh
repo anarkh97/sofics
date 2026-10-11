@@ -17,7 +17,7 @@ if [ -z "$FEST_EXE" ]; then
     exit 1
   fi
   FEST_EXE="$DEFAULT_FEST_EXE"
-elif [ -n "$FEST_EXE" ] && [[ ! -x "$FEST_EXE" ]]; then
+elif [ -n "$FEST_EXE" ] && ! command -v "$FEST_EXE" > /dev/null 2>&1; then
   printf "*** Error: \"%s\" is not a valid executable. " "${FEST_EXE}"
   printf "Aborting ...\n"
   exit 1

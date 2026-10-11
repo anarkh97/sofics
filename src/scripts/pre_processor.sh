@@ -62,7 +62,7 @@ if [ -z "$GMSH_EXE" ]; then
   #  exit 1
   #fi
   #GMSH_EXE=$PACKAGE_DIR/install/bin/gmsh
-elif [ -n "$GMSH_EXE" ] && [[ ! -x "$GMSH_EXE" ]]; then
+elif [ -n "$GMSH_EXE" ] && ! command -v "$GMSH_EXE" > /dev/null 2>&1; then
   printf "*** Error: \"%s\" is not a valid executable. " "${GMSH_EXE}"
   printf "Required by the default structural pre-processor. Aborting ...\n"
   exit 1
