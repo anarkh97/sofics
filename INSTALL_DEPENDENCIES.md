@@ -2,7 +2,13 @@
 
 This guide covers the installation of external libraries required to build **Aero-S** (nonlinear dynamics) and **M2C** (compressible fluid dynamics) as part of SOFICS. The two solvers communicate through MPI, so a parallel build is assumed throughout.
 
-Libraries such as Dakota, Gmsh, PETSc, and Boost are excluded from this guide, see the main [README](README.md) for Gmsh and Dakota.
+Installation of Dakota, Gmsh, PETSc, and Boost is not handled by this guide; refer to their official instructions: [Dakota](https://dakota.sandia.gov/), [Gmsh](https://gmsh.info/), [PETSc](https://petsc.org/release/install/), and [Boost](https://www.boost.org/doc/user-guide/getting-started.html).
+
+**PETSc and Boost are required by M2C.** M2C aborts configuration unless `PETSC_DIR` is exported:
+
+```sh
+export PETSC_DIR=/path/to/petsc
+```
 
 **Note:** These instructions target **Ubuntu/Debian** systems. Package names and commands may differ on other distributions.
 
@@ -14,9 +20,11 @@ Libraries such as Dakota, Gmsh, PETSc, and Boost are excluded from this guide, s
 |--------------|----------------------------------------------|
 | GCC / G++    | 7+ (C++17 support required by M2C)           |
 | gfortran-10  | same version as GCC (required by Aero-S)     |
-| CMake        | 3.24+                                        |
+| CMake        | 3.31+ (required by Aero-S)                   |
 | Make         | GNU Make                                     |
 | flex / bison | any recent version (required by M2C parser)  |
+| PETSc        | no minimum enforced; `PETSC_DIR` must be set |
+| Boost        | 1.72+ (required by M2C)                      |
 
 ```sh
 sudo apt-get update
@@ -133,18 +141,31 @@ sudo apt-get install build-essential gfortran cmake flex bison \
 
 ```sh
 cd sofics
-cmake -B build .
+cmake -B build -DCMAKE_INSTALL_PREFIX="$PWD/build/sofics" .
 cd build
 make -j$(nproc)
 ```
 
 This builds both Aero-S (`build/bin/aeros`) and M2C (`build/bin/m2c`).
 
+Set `CMAKE_INSTALL_PREFIX` at configure time, omitting it defaults to `/usr/local`.
+
+### Install (required before running the examples):
+
+```sh
+cd ..
+cmake --install build
+```
+
+This creates `build/sofics/bin`, including `driver.sh`, which the `dakota.in`
+files in `examples/` reference via `analysis_driver`. `./build.sh` (see
+`README.md`) does this automatically.
+
 ### Verify:
 
 ```sh
-./bin/aeros
-./bin/m2c
+./sofics/bin/aeros
+./sofics/bin/m2c
 ```
 
 ### Check the Aero-S build summary:
