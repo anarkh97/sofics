@@ -96,8 +96,9 @@ FluidCommunicator::InitializeMessengers(TriangulatedSurface *surf_,
   assert(surf_); //cannot be NULL
   assert(F_); //cannot be NULL
 
-  surf.reset(surf_);
-  force.reset(F_);
+  // the caller owns these, so use a no-op deleter.
+  surf.reset(surf_, [](TriangulatedSurface*){});
+  force.reset(F_, [](vector<Vec3D>*){});
 
   // send info first
   SendEmbeddedWetSurfaceInfo();
