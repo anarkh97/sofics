@@ -150,6 +150,10 @@ then
   fi
 else
   # unsuccessfull evaluation
+  printf "*** Error: Simulation did not reach normal termination for design "
+  printf "%s.\n" "${DAK_EVAL_NUM}"
+  # Here we let dakota capture the failure and proceed
+  # based on user specification.
   printf "FAIL\n" > "$WORKING_DIR/$DAK_RESULTS"
 fi
 

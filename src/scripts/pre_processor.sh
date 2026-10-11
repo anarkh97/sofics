@@ -113,7 +113,7 @@ fi
   exit 1
 }
 
-if grep -q "Error" "$gmsh2aeros_log"; then
+if grep -qi "error" "$gmsh2aeros_log"; then
   printf "*** Error: GMSH failed to generate the mesh for design "
   printf "%s. Aborting ...\n" "${DAK_EVAL_NUM}"
   exit 1
@@ -122,10 +122,14 @@ fi
 #------------------------------------------------------------------------------
 # Convert to Aero-S files
 #------------------------------------------------------------------------------
-"$SOFICS_BIN/gmsh2aeros" "$struct_dir/$gmsh_out" "$struct_dir/mesh.include" >> \
-  "$gmsh2aeros_log"
+if ! "$SOFICS_BIN/gmsh2aeros" "$struct_dir/$gmsh_out" "$struct_dir/mesh.include" >> \
+  "$gmsh2aeros_log"; then
+  printf "*** Error: Unable to convert GMSH mesh file to Aero-S inputs for "
+  printf "design %s. Aborting ...\n" "${DAK_EVAL_NUM}"
+  exit 1
+fi
 
-if grep -q "Error" "$gmsh2aeros_log"; then
+if grep -qi "error" "$gmsh2aeros_log"; then
   printf "*** Error: Unable to convert GMSH mesh file to Aero-S inputs for "
   printf "design %s. Aborting ...\n" "${DAK_EVAL_NUM}"
   exit 1
