@@ -6,6 +6,12 @@
 #       However, there is no easy way to export arrays.
 
 #------------------------------------------------------------------------------
+# Locale. Keeps awk/printf using "." as the decimal separator, so that generated
+# solver inputs stay parsable regardless of the user's locale.
+#------------------------------------------------------------------------------
+export LC_ALL=C
+
+#------------------------------------------------------------------------------
 # Directory variables.
 #------------------------------------------------------------------------------
 export WORKING_DIR=$(pwd)

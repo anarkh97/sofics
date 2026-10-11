@@ -6,6 +6,7 @@
 //-----------------------------------------------------------
 
 #include <stdlib.h>
+#include <getopt.h>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -20,6 +21,22 @@ static set<int> volTypes;
 void ProcessMSH2(ifstream &input, ofstream &output);
 void ProcessMSH4(ifstream &input, ofstream &output, string outputfilename);
 
+const struct option command_opts[] = {
+  {"help", no_argument, nullptr, 'h'},
+  //end of options
+  {nullptr,          0, nullptr,   0}
+};
+
+void print_commandline_message()
+{
+
+  fprintf(stdout, "Usage: [binary] <path to MSH file (input)> "
+    "<path to AERO-S mesh file (output)>.\n");
+  fprintf(stdout, "Options:\n");
+  fprintf(stdout, "  -h or --help: Prints this message.\n");
+
+}
+
 int main(int argc, char* argv[])
 {
   elemType[2] = pair<int,int>(3,3); //3-node triangle (SurfaceTOPO)
@@ -28,16 +45,51 @@ int main(int argc, char* argv[])
   elemType[5] = pair<int,int>(8,17); volTypes.insert(5); //8-node hexahedron
   elemType[6] = pair<int,int>(6,24); volTypes.insert(6); //6-node prism
 
+  if(argc == 1) {
+    print_commandline_message();
+    exit(EXIT_SUCCESS);
+  }
+
+  // parse the command line using gnu getopt_long
+  int opt=0;
+  while(opt != -1) {
+    opt = getopt_long(argc, argv, "h", command_opts, nullptr);
+
+    switch(opt) {
+      case '?': {
+        //unrecognized option
+        print_commandline_message();
+        exit(EXIT_FAILURE);
+      }
+      case 'h': {
+        //help
+        print_commandline_message();
+        exit(EXIT_SUCCESS);
+      }
+    }
+  }
+
   if(argc!=3) {
-    fprintf(stderr,"input format: [binary] <path to MSH file (input)> <path to AERO-S mesh file (output)>\n");
-    exit(-1);
+    fprintf(stderr, "*** Error: Expecting an input and an output path.\n");
+    print_commandline_message();
+    exit(EXIT_FAILURE);
   }
 
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
   ifstream input(argv[1], ios::in);
+  if(!input) {
+    fprintf(stderr, "*** Error: Could not open the MSH input file %s.\n", argv[1]);
+    exit(EXIT_FAILURE);
+  }
+
   ofstream output(argv[2], ios::out);
+  if(!output) {
+    fprintf(stderr, "*** Error: Could not open the AERO-S mesh file %s.\n", argv[2]);
+    exit(EXIT_FAILURE);
+  }
+
   string outputfilename(argv[2]);
   string text;
 
@@ -51,8 +103,11 @@ int main(int argc, char* argv[])
   } else if (msh_version > 4.0 - 1.0e-8 && msh_version < 5.0 - 1.0e-8) {// MSH version 4
     cout << "Starting the MSH4 processor..." << endl;
     ProcessMSH4(input, output, outputfilename);
-  } else 
-    cout << "WARNING: Input file has MSH format " << msh_version << ". The translater only supports Format 2 and Format 4" << endl;
+  } else {
+    cerr << "*** Error: Input file has MSH format " << msh_version
+         << ". The translater only supports Format 2 and Format 4. Aborting." << endl;
+    exit(EXIT_FAILURE);
+  }
 
   input.close();
   output.close();

@@ -13,7 +13,7 @@ postpro="$SOFICS_BIN/aeros2dakota"
 "$postpro" -v "$struct_out_dir/disp.0" -d "$DAK_RESULTS" \
   >> "$WORKING_DIR/post_pro_log.out"
 
-if grep -q "Error" "$WORKING_DIR/post_pro_log.out"; then
+if grep -qi "error" "$WORKING_DIR/post_pro_log.out"; then
   exit 1 
 fi
 

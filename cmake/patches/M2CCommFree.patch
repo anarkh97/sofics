@@ -1,0 +1,23 @@
+diff --git a/ConcurrentProgramsHandler.cpp b/ConcurrentProgramsHandler.cpp
+index 9158f48..96960f4 100644
+--- a/ConcurrentProgramsHandler.cpp
++++ b/ConcurrentProgramsHandler.cpp
+@@ -156,7 +156,7 @@ ConcurrentProgramsHandler::SetupCommunicators()
+   MPI_Comm_size(m2c_comm, &m2c_size);
+   assert(m2c_rank<m2c_size); //rank must be 0 -- (size-1)
+ 
+-  c.resize(maxcolor);
++  c.resize(maxcolor, MPI_COMM_NULL);
+ 
+   c[m2c_color] = m2c_comm;
+ 
+@@ -198,7 +198,8 @@ ConcurrentProgramsHandler::Destroy()
+     m2c_twin->Destroy();
+ 
+   for(int i=0; i<(int)c.size(); i++)
+-    MPI_Comm_free(&c[i]);
++    if(i != m2c_color && c[i] != MPI_COMM_NULL)
++      MPI_Comm_free(&c[i]);
+ 
+ }
+ 

@@ -3,6 +3,7 @@
 # -----------------------------------------------------------------------------
 # Fortran flags
 # -----------------------------------------------------------------------------
+enable_language(Fortran)
 if(CMAKE_Fortran_COMPILER_ID STREQUAL "GNU")
   # AN: Aero-S require version 10+ as we need to pass the allow-argument-mismatch
   # flag.
@@ -17,6 +18,16 @@ else()
     message(WARNING
         "Non-GNU Fortran compiler detected (${CMAKE_Fortran_COMPILER_ID}). "
         "-fallow-argument-mismatch will not be added.")
+endif()
+
+# -----------------------------------------------------------------------------
+# C++ flags
+# -----------------------------------------------------------------------------
+# AN: GCC 15+ rejects the undeclared get_ext_fConst() in the never-instantiated
+# NewmarkWorkVec::operator=. Drop this once the accessor is added upstream.
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU"
+   AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL "15.0")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-template-body")
 endif()
 
 # -----------------------------------------------------------------------------

@@ -42,7 +42,7 @@ if [ -z "$M2C_EXE" ]; then
     exit 1
   fi
   M2C_EXE="$DEFAULT_M2C_EXE"
-elif [ -n "$M2C_EXE" ] && [[ ! -x "$M2C_EXE" ]]; then
+elif [ -n "$M2C_EXE" ] && ! command -v "$M2C_EXE" > /dev/null 2>&1; then
   printf "*** Error: \"%s\" is not a valid executable. " "$M2C_EXE"
   printf "Aborting ...\n"
   exit 1
@@ -57,7 +57,7 @@ if [ -z "$AEROS_EXE" ]; then
     exit 1
   fi
   AEROS_EXE="$DEFAULT_AEROS_EXE"
-elif [ -n "$AEROS_EXE" ] && [[ ! -x "$AEROS_EXE" ]]; then
+elif [ -n "$AEROS_EXE" ] && ! command -v "$AEROS_EXE" > /dev/null 2>&1; then
   printf "*** Error: \"%s\" is not a valid executable. " "${AEROS_EXE}"
   printf "Aborting ...\n"
   exit 1

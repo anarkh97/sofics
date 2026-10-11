@@ -162,13 +162,13 @@ echo ""
 echo "Executables located in: ${INSTALL_PREFIX}/bin"
 echo ""
 echo "Available executables:"
-if [[ "$BUILD_AEROS" -eq "ON" ]]; then
+if [[ "${BUILD_AEROS}" == "ON" ]]; then
   echo "  - aeros"
 fi
-if [[ "$BUILD_M2C" -eq "ON" ]]; then
+if [[ "${BUILD_M2C}" == "ON" ]]; then
   echo "  - m2c"
 fi
-if [[ "$BUILD_TOOLS" -eq "ON" ]]; then
+if [[ "${BUILD_TOOLS}" == "ON" ]]; then
   echo "  - gmsh2aeros"
   echo "  - aeros2dakota"
 fi
