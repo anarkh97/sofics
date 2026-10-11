@@ -4,3 +4,5 @@
 [submodule "src/solvers/m2c"]
 	path = src/solvers/m2c
 	url = https://github.com/anarkh97/m2c.git
+	# Build-time patches (cmake/patches) dirty the working tree by design.
+	ignore = dirty
