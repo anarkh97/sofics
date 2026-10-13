@@ -9,8 +9,7 @@ if [ -z "$FEST_SIZE" ]; then
 fi
 
 if [ -z "$FEST_EXE" ]; then
-  printf "*** Warning: Executable for FEST was "
-  printf "not provided. Using default one ...\n"
+  printf "Using the default version of FEST.\n"
   if [[ ! -x "$DEFAULT_FEST_EXE" ]]; then
     printf "*** Error: Could not find a valid executable for FEST. "
     printf "Aborting ...\n"
@@ -37,25 +36,22 @@ if [[ ! -f "$TEMPLATE_DIR/${FEST_ERROR_INPUT}.template" ]]; then
 fi
 
 if [[ -z "$META_FILE" ]]; then
-  printf "*** Warning: Name for file containing nearest neighbor "
-  printf "information was not provided. Using default "
+  printf "Using the default nearest neighbor information file "
   printf "\"meta_data.txt\".\n"
 
   META_FILE="meta_data.txt"
 fi
 
 if [[ -z "$META_SURFACE_FILE" ]]; then
-  printf "*** Warning: Name for file containing embedded surface "
-  printf "coordinates was not provided. Using default "
+  printf "Using the default embedded surface coordinates file "
   printf "\"surface.top\".\n"
 
   META_SURFACE_FILE="surface.top"
 fi
 
 if [[ -z "$META_SOLUTION_FILE" ]]; then
-  printf "*** Warning: Name for file containing pressure time "
-  printf "history for the embedded surface was not provided. "
-  printf "Using default \"surface_load_2.txt\".\n"
+  printf "Using the default surface pressure time history file "
+  printf "\"surface_load_2.txt\".\n"
 
   META_SOLUTION_FILE="surface_load_2.txt"
 fi
