@@ -42,6 +42,10 @@ The final command compiles `SOFICS`, `M2C`, and `Aero-S` in parallel using 4 pro
 
 All installed binaries are located in `build/sofics/bin`.
 
+***NOTE:*** The configuration step fails if a dependency cannot be found, for example `BLAS`, `Eigen`, or `PETSc`. Make the dependency available (e.g., on a cluster use `module load`) and run `./build.sh` again. Dependencies installed in non-standard locations are not discovered automatically; point CMake at them by configuring the project directly, as described in [INSTALL_DEPENDENCIES.md](INSTALL_DEPENDENCIES.md).
+
+***NOTE:*** `./build.sh` reuses an existing configuration in `build`, so options and dependency paths given on a later run are ignored. Delete the `build` directory first when changing them.
+
 For `Aero-S`, first navigate to the build directory and then execute the following commands:
 ```sh
 cd build/sofics/bin

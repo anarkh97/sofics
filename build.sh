@@ -117,19 +117,28 @@ fi
 # Configure (skip if previous cache found)
 # -----------------------------------------------------------------------------
 
-if [[ -e "$BUILD_DIR/CMakeCache.txt" ]]; then
+if [[ -e "$BUILD_DIR/Makefile" ]]; then
   echo -e "${GREEN}Found previous configuration, skipping CMake...${NO_COLOR}"
 else
   echo -e "${YELLOW}Configuring with CMake...${NO_COLOR}"
   mkdir -p "$BUILD_DIR" && cd "$BUILD_DIR" || exit 1
-  cmake .. \
+  if ! cmake .. \
     -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
     -DCMAKE_INSTALL_PREFIX="${INSTALL_PREFIX}" \
     -DBUILD_AEROS="${BUILD_AEROS}" \
     -DBUILD_M2C="${BUILD_M2C}" \
     -DBUILD_TOOLS="${BUILD_TOOLS}" \
-    -DUPDATE_SUBMODULES="${UPDATE_SUBMODULES}" \
-    || exit 1
+    -DUPDATE_SUBMODULES="${UPDATE_SUBMODULES}"
+  then
+    rm -f CMakeCache.txt
+    echo ""
+    echo -e "${RED}Configuration failed.${NO_COLOR}"
+    echo "If a dependency was not found, make it available (e.g. 'module load')"
+    echo "and run this script again. A dependency in a non-standard location is"
+    echo "pointed at by configuring with CMake directly; see"
+    echo "INSTALL_DEPENDENCIES.md for the variable belonging to each one."
+    exit 1
+  fi
   echo -e "${GREEN}Done.${NO_COLOR}\n"
 fi
 
