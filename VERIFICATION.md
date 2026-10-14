@@ -11,7 +11,7 @@ These checks confirm that `SOFICS` and its tools were built correctly. Commands 
 The output from a successful build should look like,
 ![Gmsh2Aeros default output.](media/Gmsh2AerosOutput.jpg)
 
-```
+```sh
 ./build/sofics/bin/aeros2dakota --help
 ```
 
