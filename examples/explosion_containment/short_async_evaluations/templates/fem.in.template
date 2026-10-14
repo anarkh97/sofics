@@ -10,7 +10,7 @@ Design{eval_num}
 DYNAM
 newmark
 mech 0.0 0.5
-time 0.0 7.5e-8 5e-3
+time 0.0 7.5e-8 7.5e-7
 *stable 0
 ************************************** 
 CONSTRAINTS
@@ -26,8 +26,8 @@ DECOMPOSE
 NSUBS 8 
 ************************************** 
 OUTPUT
-gdisplac "results/disp"      1  
-effpstrn "results/epstrain"  1  
+gdisplac "results/disp"      5
+effpstrn "results/epstrain"  5
 ************************************** 
 MASS "results/mass.out"
 ************************************** 

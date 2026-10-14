@@ -4,7 +4,9 @@ This guide covers the installation of external libraries required to build **Aer
 
 Installation of Dakota, Gmsh, PETSc, and Boost is not handled by this guide; refer to their official instructions: [Dakota](https://dakota.sandia.gov/), [Gmsh](https://gmsh.info/), [PETSc](https://petsc.org/release/install/), and [Boost](https://www.boost.org/doc/user-guide/getting-started.html).
 
-**PETSc and Boost are required by M2C.** M2C aborts configuration unless `PETSC_DIR` is exported:
+**PETSc and Boost are required by M2C.** Both are widely used in the computational physics community and are available as modules on most HPC clusters, so check what your system already provides (e.g. `module avail petsc`, `module avail boost`) before building either from source. On your local machine, you will likely need to build them yourself by following their respective installation guides.
+
+M2C aborts configuration unless `PETSC_DIR` is exported:
 
 ```sh
 export PETSC_DIR=/path/to/petsc

@@ -65,6 +65,8 @@ endif()
 if(BUILD_TOOLS)
   message(STATUS "Building Gmsh2Aeros and Postprocessor ...")
   add_subdirectory(src/tools)
+  enable_testing()
+  add_subdirectory(tests)
 endif()
 
 # -----------------------------------------------------------------------------

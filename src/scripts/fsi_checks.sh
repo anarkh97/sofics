@@ -4,8 +4,7 @@
 # for successfull evaluation of a design configuration.
 
 if [ -z "$TEMPLATE_DIR" ]; then
-  printf "*** Warning: User did not provide a template "
-  printf "directory. Using the default, which is the "
+  printf "Using the default template directory, which is the "
   printf "directory in which Dakota was executed.\n"
   TEMPLATE_DIR=$LAUNCH_DIR
 fi
@@ -34,8 +33,7 @@ fi
 #fi
 
 if [ -z "$M2C_EXE" ]; then
-  printf "*** Warning: Executable for M2C was not provided. "
-  printf "Using default one ...\n"
+  printf "Using the default version of M2C.\n"
   if [[ ! -x "$DEFAULT_M2C_EXE" ]]; then
     printf "*** Error: Could not find a valid executable for M2C. "
     printf "Aborting ...\n"
@@ -49,8 +47,7 @@ elif [ -n "$M2C_EXE" ] && ! command -v "$M2C_EXE" > /dev/null 2>&1; then
 fi
 
 if [ -z "$AEROS_EXE" ]; then
-  printf "*** Warning: Executable for AERO-S was not provided. "
-  printf "Using default one ...\n"
+  printf "Using the default version of AERO-S.\n"
   if [[ ! -x "$DEFAULT_AEROS_EXE" ]]; then
     printf "*** Error: Could not find a valid executable for AERO-S. "
     printf "Aborting ...\n"
