@@ -64,6 +64,8 @@ The output from a successful build should look like,
 
 ![M2C default output.](media/M2COutput.jpg)
 
+To check the installation further, [VERIFICATION.md](VERIFICATION.md) lists commands and the exact output expected from the internal tools and from a short end-to-end study.
+
 <!--
 ## Build Without M2C or Aero-S
 
@@ -109,3 +111,17 @@ dakota
 It should display a list of command-line options available in `Dakota`.
 
 ![Dakota test output.](media/DakotaOutput.jpg)
+
+# Contact and Support
+
+Questions, bug reports, and feature requests are best raised as issues, since that keeps the discussion with the code. SOFICS couples two solvers that live in their own repositories, so please report a problem against the component it concerns:
+
+| Component | Repository | Maintainers |
+|-----------|------------|-------------|
+| SOFICS (build, driver scripts, tools, examples) | [anarkh97/sofics](https://github.com/anarkh97/sofics/issues) | Aditya Narkhede (`anarkhede@vt.edu`), Kevin Wang (`kevinwgy@vt.edu`) |
+| M2C (compressible fluid solver) | [kevinwgy/m2c](https://github.com/kevinwgy/m2c/issues) | Kevin Wang (`kevinwgy@vt.edu`) |
+| Aero-S (nonlinear structural solver) | [anarkh97/aero-s-foam](https://github.com/anarkh97/aero-s-foam/issues) | Aditya Narkhede (`anarkhede@vt.edu`) |
+
+Aero-S is part of the AERO-suite developed by Charbel Farhat's Farhat Research Group, available at [bitbucket.org/frg](https://bitbucket.org/frg/workspace/repositories/). SOFICS builds a fork of it, which adds a foam material model (`CrushableFoam`) that we have not contributed upstream, so please report problems against the fork rather than to the AERO-suite maintainers unless you can reproduce them with an unmodified Aero-S.
+
+If you are unsure which component is responsible, open an issue in SOFICS and we will redirect it. See [CONTRIBUTING.md](CONTRIBUTING.md) for what to include in a report and how to propose changes.
