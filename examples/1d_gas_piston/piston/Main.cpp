@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
   HelperFunctions::OutputTriangulatedMesh(iod.output_data, surface.X0, surface.elems);
   HelperFunctions::OutputSolution(iod.output_data, surface, force, dt, t_n, time_step, true);
 
-  while(t_n < tmax+0.01*dt) {
+  while(t_n < tmax-0.01*dt) {
 
     HelperFunctions::AdvancePartialTimeStep(geom_state, surface, dt);
 
